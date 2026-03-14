@@ -1,0 +1,55 @@
+{
+  "run_name": "train_eegnet_ds006036",
+  "train_windows": 1566,
+  "eval_windows": 368,
+  "train_counts": {
+    "0": 791,
+    "1": 775
+  },
+  "train_time_sec": 76.46563673019409,
+  "best_epoch": 17,
+  "best_val_bal_acc": 0.7485010843219799,
+  "final_eval": {
+    "loss": 2.3071489404360164,
+    "acc": 0.7065217391304348,
+    "bal_acc": 0.7485010843219799,
+    "macro_f1": 0.7058179126572909,
+    "classification_report": {
+      "CN(0)": {
+        "precision": 0.9144736842105263,
+        "recall": 0.594017094017094,
+        "f1-score": 0.7202072538860104,
+        "support": 234.0
+      },
+      "AD(1)": {
+        "precision": 0.5601851851851852,
+        "recall": 0.9029850746268657,
+        "f1-score": 0.6914285714285714,
+        "support": 134.0
+      },
+      "accuracy": 0.7065217391304348,
+      "macro avg": {
+        "precision": 0.7373294346978558,
+        "recall": 0.7485010843219799,
+        "f1-score": 0.7058179126572909,
+        "support": 368.0
+      },
+      "weighted avg": {
+        "precision": 0.785466459021951,
+        "recall": 0.7065217391304348,
+        "f1-score": 0.7097280597303125,
+        "support": 368.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        139,
+        95
+      ],
+      [
+        13,
+        121
+      ]
+    ]
+  }
+}

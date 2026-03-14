@@ -1,0 +1,70 @@
+2026-02-14 16:42:38,148 | INFO | Logging to: /home/e20212/FYP/experiments/logs/cnn1d_tuab_torch_20260214_164238.log
+2026-02-14 16:42:38,148 | INFO | ========== RUN START ==========
+2026-02-14 16:42:38,148 | INFO | FYP root: /home/e20212/FYP
+2026-02-14 16:42:38,148 | INFO | Data dir: /home/e20212/FYP/data/TUAB_preprocessed_sample5GB
+2026-02-14 16:42:38,148 | INFO | Train dir exists: True | /home/e20212/FYP/data/TUAB_preprocessed_sample5GB/train
+2026-02-14 16:42:38,149 | INFO | Eval dir exists : True | /home/e20212/FYP/data/TUAB_preprocessed_sample5GB/eval
+2026-02-14 16:42:38,149 | INFO | Python: 3.9.25 (main, Nov  3 2025, 22:33:05) 
+[GCC 11.2.0]
+2026-02-14 16:42:38,361 | INFO | Device: cuda
+2026-02-14 16:42:38,361 | INFO | CUDA available: True
+2026-02-14 16:42:38,397 | INFO | GPU: NVIDIA RTX 6000 Ada Generation
+2026-02-14 16:42:47,572 | INFO | X_tr shape: (31027, 2500, 15) | y_tr shape: (31027,)
+2026-02-14 16:42:47,572 | INFO | X_ev shape: (5878, 2500, 15) | y_ev shape: (5878,)
+2026-02-14 16:42:47,572 | INFO | Train labels: [0, 1]
+2026-02-14 16:42:47,572 | INFO | Train counts: {0: 981, 1: 30046}
+2026-02-14 16:42:47,680 | INFO | CNN1D(
+  (features): Sequential(
+    (0): Conv1d(15, 64, kernel_size=(7,), stride=(1,), padding=(3,))
+    (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(inplace=True)
+    (3): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (4): Conv1d(64, 128, kernel_size=(5,), stride=(1,), padding=(2,))
+    (5): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (6): ReLU(inplace=True)
+    (7): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (8): Conv1d(128, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+    (9): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (10): ReLU(inplace=True)
+  )
+  (pool): AdaptiveAvgPool1d(output_size=1)
+  (drop): Dropout(p=0.3, inplace=False)
+  (classifier): Linear(in_features=256, out_features=2, bias=True)
+)
+2026-02-14 16:42:50,179 | INFO | ========== TRAINING ==========
+2026-02-14 16:42:52,922 | INFO | Epoch 001/40 | train_loss=0.1105 train_acc=0.9699 | val_loss=1.7341 val_acc=0.4830 | lr=1.00e-03
+2026-02-14 16:42:55,225 | INFO | Epoch 002/40 | train_loss=0.0886 train_acc=0.9733 | val_loss=1.9363 val_acc=0.4804 | lr=1.00e-03
+2026-02-14 16:42:57,525 | INFO | Epoch 003/40 | train_loss=0.0811 train_acc=0.9752 | val_loss=2.1257 val_acc=0.4942 | lr=1.00e-03
+2026-02-14 16:42:59,854 | INFO | Epoch 004/40 | train_loss=0.0741 train_acc=0.9766 | val_loss=2.6165 val_acc=0.4706 | lr=5.00e-04
+2026-02-14 16:43:02,211 | INFO | Epoch 005/40 | train_loss=0.0645 train_acc=0.9787 | val_loss=2.7808 val_acc=0.4764 | lr=5.00e-04
+2026-02-14 16:43:04,537 | INFO | Epoch 006/40 | train_loss=0.0583 train_acc=0.9802 | val_loss=2.7641 val_acc=0.4791 | lr=5.00e-04
+2026-02-14 16:43:06,875 | INFO | Epoch 007/40 | train_loss=0.0567 train_acc=0.9817 | val_loss=2.3525 val_acc=0.5010 | lr=2.50e-04
+2026-02-14 16:43:09,214 | INFO | Epoch 008/40 | train_loss=0.0499 train_acc=0.9829 | val_loss=2.1698 val_acc=0.5303 | lr=2.50e-04
+2026-02-14 16:43:11,578 | INFO | Epoch 009/40 | train_loss=0.0474 train_acc=0.9840 | val_loss=2.9247 val_acc=0.4903 | lr=2.50e-04
+2026-02-14 16:43:13,887 | INFO | Epoch 010/40 | train_loss=0.0432 train_acc=0.9858 | val_loss=2.9073 val_acc=0.4903 | lr=1.25e-04
+2026-02-14 16:43:16,195 | INFO | Epoch 011/40 | train_loss=0.0395 train_acc=0.9859 | val_loss=3.0114 val_acc=0.4881 | lr=1.25e-04
+2026-02-14 16:43:18,493 | INFO | Epoch 012/40 | train_loss=0.0377 train_acc=0.9870 | val_loss=3.0909 val_acc=0.4893 | lr=1.25e-04
+2026-02-14 16:43:20,828 | INFO | Epoch 013/40 | train_loss=0.0357 train_acc=0.9879 | val_loss=3.5966 val_acc=0.4798 | lr=6.25e-05
+2026-02-14 16:43:23,134 | INFO | Epoch 014/40 | train_loss=0.0337 train_acc=0.9884 | val_loss=3.5664 val_acc=0.4825 | lr=6.25e-05
+2026-02-14 16:43:23,134 | INFO | Early stopping triggered.
+2026-02-14 16:43:23,134 | INFO | Training time (s): 32.96
+2026-02-14 16:43:23,137 | INFO | Restored best model (best_val_acc=0.5303).
+2026-02-14 16:43:23,137 | INFO | ========== EVALUATION ==========
+2026-02-14 16:43:23,578 | INFO | Classification report:
+              precision    recall  f1-score   support
+
+           0     0.8472    0.1574    0.2655      3170
+           1     0.4950    0.9668    0.6547      2708
+
+    accuracy                         0.5303      5878
+   macro avg     0.6711    0.5621    0.4601      5878
+weighted avg     0.6849    0.5303    0.4448      5878
+
+2026-02-14 16:43:23,578 | INFO | Confusion matrix:
+[[ 499 2671]
+ [  90 2618]]
+2026-02-14 16:43:23,578 | INFO | Final val_loss=2.1698 val_acc=0.5303
+2026-02-14 16:43:23,637 | INFO | Saved model weights: /home/e20212/FYP/models/cnn1d_tuab_sample5gb_torch.pt
+2026-02-14 16:43:23,641 | INFO | Saved metrics: /home/e20212/FYP/experiments/cnn1d_tuab_sample5gb_torch/metrics.json
+2026-02-14 16:43:23,641 | INFO | Saved confusion matrix: /home/e20212/FYP/experiments/cnn1d_tuab_sample5gb_torch/confusion_matrix.npy
+2026-02-14 16:43:23,641 | INFO | ========== RUN END ==========

@@ -1,0 +1,179 @@
+2026-03-08 06:35:33,714 | INFO | Logging to: /home/e20212/FYP/experiments/logs/EEGNet_ECN_v3.log
+2026-03-08 06:35:33,714 | INFO | ========== RUN START ==========
+2026-03-08 06:35:33,714 | INFO | Run name    : EEGNet_ECN_v3
+2026-03-08 06:35:33,715 | INFO | FYP root    : /home/e20212/FYP
+2026-03-08 06:35:33,715 | INFO | Shards root : /home/e20212/FYP/data/ds004504_ad_cn_shards_improved
+2026-03-08 06:35:33,752 | INFO | Device: cuda | AMP: True
+2026-03-08 06:35:33,783 | INFO | GPU: NVIDIA RTX 6000 Ada Generation
+2026-03-08 06:35:33,783 | INFO | ========== LOADING EXISTING SHARDS ==========
+2026-03-08 06:35:33,791 | INFO | [train] shard 0: n=707 | X_0.npy
+2026-03-08 06:35:33,798 | INFO | [train] shard 1: n=707 | X_1.npy
+2026-03-08 06:35:33,806 | INFO | [train] shard 2: n=707 | X_2.npy
+2026-03-08 06:35:33,813 | INFO | [train] shard 3: n=707 | X_3.npy
+2026-03-08 06:35:33,820 | INFO | [train] shard 4: n=707 | X_4.npy
+2026-03-08 06:35:33,827 | INFO | [train] shard 5: n=668 | X_5.npy
+2026-03-08 06:35:33,834 | INFO | [eval] shard 0: n=707 | X_0.npy
+2026-03-08 06:35:33,841 | INFO | [eval] shard 1: n=317 | X_1.npy
+2026-03-08 06:35:33,848 | INFO | Input shape: (C=19, T=5000) | Example y=1 | Example subject=sub-001
+2026-03-08 06:35:33,849 | INFO | Total windows : 5227
+2026-03-08 06:35:33,849 | INFO | Total subjects: 65 | AD=36 CN=29
+2026-03-08 06:35:33,855 | INFO | 
+2026-03-08 06:35:33,855 | INFO | ======================================================================
+2026-03-08 06:35:33,856 | INFO | FOLD 1/5
+2026-03-08 06:35:33,856 | INFO | ======================================================================
+2026-03-08 06:35:33,856 | INFO | Fold 1 | train_subjects=52 val_subjects=13 | train_windows=4169 val_windows=1058
+2026-03-08 06:35:33,958 | INFO | Fold 1 | Train subject counts by class: {1: 28, 0: 24}
+2026-03-08 06:35:33,958 | INFO | Fold 1 | Class weights: [1.0769230127334595, 0.9230769276618958]
+2026-03-08 06:35:33,976 | INFO | Fold 1 | Base model params=94,333
+2026-03-08 06:35:33,976 | INFO | Fold 1 | Loss: FocalLoss(gamma=2.0) with class weights
+2026-03-08 06:36:25,377 | INFO | [BASE] Epoch 001/35 | train_loss=0.1427 train_acc=0.6409 | val_win_loss=0.1677 val_win_balacc=0.6696 val_subj_balacc=0.7500 val_subj_macroF1=0.6905 | lr=1.00e-03
+2026-03-08 06:36:35,343 | INFO | [BASE] Epoch 002/35 | train_loss=0.0774 train_acc=0.8630 | val_win_loss=0.1368 val_win_balacc=0.7376 val_subj_balacc=0.8000 val_subj_macroF1=0.8194 | lr=1.00e-03
+2026-03-08 06:36:54,130 | INFO | [BASE] Epoch 003/35 | train_loss=0.0488 train_acc=0.9240 | val_win_loss=0.5292 val_win_balacc=0.6426 val_subj_balacc=0.7000 val_subj_macroF1=0.7068 | lr=1.00e-03
+2026-03-08 06:38:04,917 | INFO | [BASE] Epoch 004/35 | train_loss=0.0409 train_acc=0.9348 | val_win_loss=0.1843 val_win_balacc=0.8153 val_subj_balacc=0.8750 val_subj_macroF1=0.8452 | lr=1.00e-03
+2026-03-08 06:39:01,881 | INFO | [BASE] Epoch 005/35 | train_loss=0.0341 train_acc=0.9444 | val_win_loss=0.2941 val_win_balacc=0.7763 val_subj_balacc=0.7500 val_subj_macroF1=0.6905 | lr=1.00e-03
+2026-03-08 06:39:11,453 | INFO | [BASE] Epoch 006/35 | train_loss=0.0253 train_acc=0.9667 | val_win_loss=0.8101 val_win_balacc=0.6022 val_subj_balacc=0.5625 val_subj_macroF1=0.4052 | lr=1.00e-03
+2026-03-08 06:40:03,588 | INFO | [BASE] Epoch 007/35 | train_loss=0.0167 train_acc=0.9767 | val_win_loss=0.2440 val_win_balacc=0.8121 val_subj_balacc=0.8125 val_subj_macroF1=0.7692 | lr=5.00e-04
+2026-03-08 06:41:32,383 | INFO | [BASE] Epoch 008/35 | train_loss=0.0116 train_acc=0.9842 | val_win_loss=0.4482 val_win_balacc=0.7326 val_subj_balacc=0.7500 val_subj_macroF1=0.6905 | lr=5.00e-04
+2026-03-08 06:41:59,651 | INFO | [BASE] Epoch 009/35 | train_loss=0.0112 train_acc=0.9854 | val_win_loss=0.1184 val_win_balacc=0.8986 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=5.00e-04
+2026-03-08 06:42:09,056 | INFO | [BASE] Epoch 010/35 | train_loss=0.0081 train_acc=0.9878 | val_win_loss=0.1416 val_win_balacc=0.9067 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=5.00e-04
+2026-03-08 06:42:19,166 | INFO | [BASE] Epoch 011/35 | train_loss=0.0082 train_acc=0.9887 | val_win_loss=0.1581 val_win_balacc=0.8415 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=5.00e-04
+2026-03-08 06:43:46,215 | INFO | [BASE] Epoch 012/35 | train_loss=0.0123 train_acc=0.9854 | val_win_loss=0.3455 val_win_balacc=0.7738 val_subj_balacc=0.8125 val_subj_macroF1=0.7692 | lr=2.50e-04
+2026-03-08 06:44:45,421 | INFO | [BASE] Epoch 013/35 | train_loss=0.0060 train_acc=0.9909 | val_win_loss=0.1618 val_win_balacc=0.8432 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=2.50e-04
+2026-03-08 06:44:54,632 | INFO | [BASE] Epoch 014/35 | train_loss=0.0050 train_acc=0.9933 | val_win_loss=0.1558 val_win_balacc=0.8936 val_subj_balacc=0.9375 val_subj_macroF1=0.9212 | lr=2.50e-04
+2026-03-08 06:45:06,492 | INFO | [BASE] Epoch 015/35 | train_loss=0.0054 train_acc=0.9916 | val_win_loss=0.2042 val_win_balacc=0.8567 val_subj_balacc=0.8375 val_subj_macroF1=0.8375 | lr=1.25e-04
+2026-03-08 06:45:15,346 | INFO | [BASE] Epoch 016/35 | train_loss=0.0061 train_acc=0.9918 | val_win_loss=0.1956 val_win_balacc=0.8758 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=1.25e-04
+2026-03-08 06:45:24,285 | INFO | [BASE] Epoch 017/35 | train_loss=0.0040 train_acc=0.9950 | val_win_loss=0.1949 val_win_balacc=0.8706 val_subj_balacc=0.8375 val_subj_macroF1=0.8375 | lr=1.25e-04
+2026-03-08 06:45:24,285 | INFO | [BASE] Early stopping triggered.
+2026-03-08 06:45:24,295 | INFO | [BASE] Restored best model (best_subject_balacc=1.0000)
+2026-03-08 06:45:25,571 | INFO | Fold 1 FINAL | window_balacc=0.8986 window_macroF1=0.8975 subject_balacc=1.0000 subject_macroF1=1.0000
+2026-03-08 06:45:25,613 | INFO | Fold 1 model saved: /home/e20212/FYP/models/EEGNet_ECN_v3_fold1.pt
+2026-03-08 06:45:25,614 | INFO | 
+2026-03-08 06:45:25,614 | INFO | ======================================================================
+2026-03-08 06:45:25,614 | INFO | FOLD 2/5
+2026-03-08 06:45:25,614 | INFO | ======================================================================
+2026-03-08 06:45:25,615 | INFO | Fold 2 | train_subjects=52 val_subjects=13 | train_windows=4189 val_windows=1038
+2026-03-08 06:45:25,615 | INFO | Fold 2 | Train subject counts by class: {1: 29, 0: 23}
+2026-03-08 06:45:25,615 | INFO | Fold 2 | Class weights: [1.115384578704834, 0.8846153616905212]
+2026-03-08 06:45:25,632 | INFO | Fold 2 | Base model params=94,333
+2026-03-08 06:45:25,632 | INFO | Fold 2 | Loss: FocalLoss(gamma=2.0) with class weights
+2026-03-08 06:45:34,672 | INFO | [BASE] Epoch 001/35 | train_loss=0.1405 train_acc=0.6529 | val_win_loss=0.1629 val_win_balacc=0.6957 val_subj_balacc=0.6667 val_subj_macroF1=0.6389 | lr=1.00e-03
+2026-03-08 06:45:43,796 | INFO | [BASE] Epoch 002/35 | train_loss=0.0881 train_acc=0.8298 | val_win_loss=0.1715 val_win_balacc=0.7587 val_subj_balacc=0.8333 val_subj_macroF1=0.8375 | lr=1.00e-03
+2026-03-08 06:45:52,748 | INFO | [BASE] Epoch 003/35 | train_loss=0.0638 train_acc=0.8911 | val_win_loss=0.2211 val_win_balacc=0.6956 val_subj_balacc=0.7143 val_subj_macroF1=0.6750 | lr=1.00e-03
+2026-03-08 06:46:01,710 | INFO | [BASE] Epoch 004/35 | train_loss=0.0543 train_acc=0.9095 | val_win_loss=0.5997 val_win_balacc=0.5707 val_subj_balacc=0.5000 val_subj_macroF1=0.3500 | lr=1.00e-03
+2026-03-08 06:46:10,668 | INFO | [BASE] Epoch 005/35 | train_loss=0.0412 train_acc=0.9262 | val_win_loss=0.2205 val_win_balacc=0.8105 val_subj_balacc=0.8333 val_subj_macroF1=0.8375 | lr=5.00e-04
+2026-03-08 06:46:19,554 | INFO | [BASE] Epoch 006/35 | train_loss=0.0289 train_acc=0.9537 | val_win_loss=0.3384 val_win_balacc=0.7385 val_subj_balacc=0.7500 val_subj_macroF1=0.7451 | lr=5.00e-04
+2026-03-08 06:46:28,579 | INFO | [BASE] Epoch 007/35 | train_loss=0.0243 train_acc=0.9587 | val_win_loss=0.2688 val_win_balacc=0.7537 val_subj_balacc=0.7500 val_subj_macroF1=0.7451 | lr=5.00e-04
+2026-03-08 06:46:37,609 | INFO | [BASE] Epoch 008/35 | train_loss=0.0180 train_acc=0.9709 | val_win_loss=0.2016 val_win_balacc=0.7826 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=5.00e-04
+2026-03-08 06:46:46,481 | INFO | [BASE] Epoch 009/35 | train_loss=0.0144 train_acc=0.9816 | val_win_loss=0.3123 val_win_balacc=0.8104 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=5.00e-04
+2026-03-08 06:46:55,373 | INFO | [BASE] Epoch 010/35 | train_loss=0.0158 train_acc=0.9749 | val_win_loss=0.2772 val_win_balacc=0.7974 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=5.00e-04
+2026-03-08 06:47:04,385 | INFO | [BASE] Epoch 011/35 | train_loss=0.0168 train_acc=0.9766 | val_win_loss=0.2701 val_win_balacc=0.8395 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=2.50e-04
+2026-03-08 06:47:13,322 | INFO | [BASE] Epoch 012/35 | train_loss=0.0098 train_acc=0.9842 | val_win_loss=0.2242 val_win_balacc=0.8161 val_subj_balacc=0.7738 val_subj_macroF1=0.7692 | lr=2.50e-04
+2026-03-08 06:47:22,183 | INFO | [BASE] Epoch 013/35 | train_loss=0.0103 train_acc=0.9845 | val_win_loss=0.1823 val_win_balacc=0.8074 val_subj_balacc=0.8571 val_subj_macroF1=0.8452 | lr=2.50e-04
+2026-03-08 06:47:31,123 | INFO | [BASE] Epoch 014/35 | train_loss=0.0158 train_acc=0.9831 | val_win_loss=0.1876 val_win_balacc=0.7704 val_subj_balacc=0.8452 val_subj_macroF1=0.8452 | lr=1.25e-04
+2026-03-08 06:47:40,013 | INFO | [BASE] Epoch 015/35 | train_loss=0.0075 train_acc=0.9902 | val_win_loss=0.2330 val_win_balacc=0.8194 val_subj_balacc=0.8333 val_subj_macroF1=0.8375 | lr=1.25e-04
+2026-03-08 06:47:48,892 | INFO | [BASE] Epoch 016/35 | train_loss=0.0039 train_acc=0.9962 | val_win_loss=0.1484 val_win_balacc=0.8250 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=1.25e-04
+2026-03-08 06:47:48,892 | INFO | [BASE] Early stopping triggered.
+2026-03-08 06:47:48,909 | INFO | [BASE] Restored best model (best_subject_balacc=0.9167)
+2026-03-08 06:47:50,153 | INFO | Fold 2 FINAL | window_balacc=0.7826 window_macroF1=0.7829 subject_balacc=0.9167 subject_macroF1=0.9212
+2026-03-08 06:47:50,196 | INFO | Fold 2 model saved: /home/e20212/FYP/models/EEGNet_ECN_v3_fold2.pt
+2026-03-08 06:47:50,196 | INFO | 
+2026-03-08 06:47:50,196 | INFO | ======================================================================
+2026-03-08 06:47:50,196 | INFO | FOLD 3/5
+2026-03-08 06:47:50,196 | INFO | ======================================================================
+2026-03-08 06:47:50,196 | INFO | Fold 3 | train_subjects=52 val_subjects=13 | train_windows=4151 val_windows=1076
+2026-03-08 06:47:50,197 | INFO | Fold 3 | Train subject counts by class: {1: 29, 0: 23}
+2026-03-08 06:47:50,197 | INFO | Fold 3 | Class weights: [1.115384578704834, 0.8846153616905212]
+2026-03-08 06:47:50,216 | INFO | Fold 3 | Base model params=94,333
+2026-03-08 06:47:50,216 | INFO | Fold 3 | Loss: FocalLoss(gamma=2.0) with class weights
+2026-03-08 06:47:59,103 | INFO | [BASE] Epoch 001/35 | train_loss=0.1509 train_acc=0.5878 | val_win_loss=0.1221 val_win_balacc=0.7967 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=1.00e-03
+2026-03-08 06:48:07,997 | INFO | [BASE] Epoch 002/35 | train_loss=0.0968 train_acc=0.7998 | val_win_loss=0.2054 val_win_balacc=0.6336 val_subj_balacc=0.6667 val_subj_macroF1=0.6389 | lr=1.00e-03
+2026-03-08 06:48:16,919 | INFO | [BASE] Epoch 003/35 | train_loss=0.0698 train_acc=0.8764 | val_win_loss=0.1288 val_win_balacc=0.7710 val_subj_balacc=0.8333 val_subj_macroF1=0.8375 | lr=1.00e-03
+2026-03-08 06:48:25,891 | INFO | [BASE] Epoch 004/35 | train_loss=0.0519 train_acc=0.9198 | val_win_loss=0.2620 val_win_balacc=0.6421 val_subj_balacc=0.6667 val_subj_macroF1=0.6389 | lr=5.00e-04
+2026-03-08 06:48:34,728 | INFO | [BASE] Epoch 005/35 | train_loss=0.0251 train_acc=0.9646 | val_win_loss=0.1773 val_win_balacc=0.7917 val_subj_balacc=0.7500 val_subj_macroF1=0.7451 | lr=5.00e-04
+2026-03-08 06:48:43,725 | INFO | [BASE] Epoch 006/35 | train_loss=0.0337 train_acc=0.9668 | val_win_loss=0.1424 val_win_balacc=0.8049 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=5.00e-04
+2026-03-08 06:48:52,655 | INFO | [BASE] Epoch 007/35 | train_loss=0.0213 train_acc=0.9704 | val_win_loss=0.2198 val_win_balacc=0.7295 val_subj_balacc=0.8333 val_subj_macroF1=0.8375 | lr=2.50e-04
+2026-03-08 06:49:01,557 | INFO | [BASE] Epoch 008/35 | train_loss=0.0096 train_acc=0.9868 | val_win_loss=0.1076 val_win_balacc=0.8676 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=2.50e-04
+2026-03-08 06:49:10,520 | INFO | [BASE] Epoch 009/35 | train_loss=0.0107 train_acc=0.9831 | val_win_loss=0.2389 val_win_balacc=0.7754 val_subj_balacc=0.7500 val_subj_macroF1=0.7451 | lr=2.50e-04
+2026-03-08 06:49:19,367 | INFO | [BASE] Epoch 010/35 | train_loss=0.0119 train_acc=0.9824 | val_win_loss=0.1254 val_win_balacc=0.8117 val_subj_balacc=0.8452 val_subj_macroF1=0.8452 | lr=2.50e-04
+2026-03-08 06:49:28,167 | INFO | [BASE] Epoch 011/35 | train_loss=0.0082 train_acc=0.9906 | val_win_loss=0.1303 val_win_balacc=0.8269 val_subj_balacc=0.8571 val_subj_macroF1=0.8452 | lr=1.25e-04
+2026-03-08 06:49:36,976 | INFO | [BASE] Epoch 012/35 | train_loss=0.0061 train_acc=0.9925 | val_win_loss=0.1246 val_win_balacc=0.8613 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=1.25e-04
+2026-03-08 06:49:45,832 | INFO | [BASE] Epoch 013/35 | train_loss=0.0045 train_acc=0.9935 | val_win_loss=0.1356 val_win_balacc=0.8611 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=1.25e-04
+2026-03-08 06:49:54,690 | INFO | [BASE] Epoch 014/35 | train_loss=0.0055 train_acc=0.9913 | val_win_loss=0.1582 val_win_balacc=0.8594 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=6.25e-05
+2026-03-08 06:50:03,581 | INFO | [BASE] Epoch 015/35 | train_loss=0.0035 train_acc=0.9952 | val_win_loss=0.1373 val_win_balacc=0.8672 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=6.25e-05
+2026-03-08 06:50:12,527 | INFO | [BASE] Epoch 016/35 | train_loss=0.0049 train_acc=0.9945 | val_win_loss=0.1325 val_win_balacc=0.8760 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=6.25e-05
+2026-03-08 06:50:12,527 | INFO | [BASE] Early stopping triggered.
+2026-03-08 06:50:12,538 | INFO | [BASE] Restored best model (best_subject_balacc=1.0000)
+2026-03-08 06:50:13,798 | INFO | Fold 3 FINAL | window_balacc=0.8676 window_macroF1=0.8692 subject_balacc=1.0000 subject_macroF1=1.0000
+2026-03-08 06:50:13,840 | INFO | Fold 3 model saved: /home/e20212/FYP/models/EEGNet_ECN_v3_fold3.pt
+2026-03-08 06:50:13,840 | INFO | 
+2026-03-08 06:50:13,840 | INFO | ======================================================================
+2026-03-08 06:50:13,840 | INFO | FOLD 4/5
+2026-03-08 06:50:13,840 | INFO | ======================================================================
+2026-03-08 06:50:13,841 | INFO | Fold 4 | train_subjects=52 val_subjects=13 | train_windows=4162 val_windows=1065
+2026-03-08 06:50:13,841 | INFO | Fold 4 | Train subject counts by class: {1: 29, 0: 23}
+2026-03-08 06:50:13,841 | INFO | Fold 4 | Class weights: [1.115384578704834, 0.8846153616905212]
+2026-03-08 06:50:13,848 | INFO | Fold 4 | Base model params=94,333
+2026-03-08 06:50:13,848 | INFO | Fold 4 | Loss: FocalLoss(gamma=2.0) with class weights
+2026-03-08 06:50:22,781 | INFO | [BASE] Epoch 001/35 | train_loss=0.1444 train_acc=0.6872 | val_win_loss=0.1087 val_win_balacc=0.8154 val_subj_balacc=0.8571 val_subj_macroF1=0.8452 | lr=1.00e-03
+2026-03-08 06:50:31,820 | INFO | [BASE] Epoch 002/35 | train_loss=0.1039 train_acc=0.8200 | val_win_loss=0.1040 val_win_balacc=0.8360 val_subj_balacc=0.9286 val_subj_macroF1=0.9231 | lr=1.00e-03
+2026-03-08 06:50:40,765 | INFO | [BASE] Epoch 003/35 | train_loss=0.0760 train_acc=0.8705 | val_win_loss=0.1302 val_win_balacc=0.8264 val_subj_balacc=0.7738 val_subj_macroF1=0.7692 | lr=1.00e-03
+2026-03-08 06:50:49,702 | INFO | [BASE] Epoch 004/35 | train_loss=0.0487 train_acc=0.9149 | val_win_loss=0.1806 val_win_balacc=0.8085 val_subj_balacc=0.8571 val_subj_macroF1=0.8452 | lr=1.00e-03
+2026-03-08 06:50:58,684 | INFO | [BASE] Epoch 005/35 | train_loss=0.0344 train_acc=0.9440 | val_win_loss=0.3554 val_win_balacc=0.7634 val_subj_balacc=0.7143 val_subj_macroF1=0.6750 | lr=5.00e-04
+2026-03-08 06:51:07,644 | INFO | [BASE] Epoch 006/35 | train_loss=0.0229 train_acc=0.9644 | val_win_loss=0.4585 val_win_balacc=0.7417 val_subj_balacc=0.7143 val_subj_macroF1=0.6750 | lr=5.00e-04
+2026-03-08 06:51:16,648 | INFO | [BASE] Epoch 007/35 | train_loss=0.0186 train_acc=0.9692 | val_win_loss=0.3280 val_win_balacc=0.8044 val_subj_balacc=0.7857 val_subj_macroF1=0.7636 | lr=5.00e-04
+2026-03-08 06:51:25,560 | INFO | [BASE] Epoch 008/35 | train_loss=0.0127 train_acc=0.9825 | val_win_loss=0.5179 val_win_balacc=0.7607 val_subj_balacc=0.7143 val_subj_macroF1=0.6750 | lr=2.50e-04
+2026-03-08 06:51:34,520 | INFO | [BASE] Epoch 009/35 | train_loss=0.0194 train_acc=0.9724 | val_win_loss=0.2527 val_win_balacc=0.7820 val_subj_balacc=0.7738 val_subj_macroF1=0.7692 | lr=2.50e-04
+2026-03-08 06:51:43,557 | INFO | [BASE] Epoch 010/35 | train_loss=0.0091 train_acc=0.9858 | val_win_loss=0.2086 val_win_balacc=0.8149 val_subj_balacc=0.8452 val_subj_macroF1=0.8452 | lr=2.50e-04
+2026-03-08 06:51:43,557 | INFO | [BASE] Early stopping triggered.
+2026-03-08 06:51:43,567 | INFO | [BASE] Restored best model (best_subject_balacc=0.9286)
+2026-03-08 06:51:44,803 | INFO | Fold 4 FINAL | window_balacc=0.8360 window_macroF1=0.8338 subject_balacc=0.9286 subject_macroF1=0.9231
+2026-03-08 06:51:44,845 | INFO | Fold 4 model saved: /home/e20212/FYP/models/EEGNet_ECN_v3_fold4.pt
+2026-03-08 06:51:44,845 | INFO | 
+2026-03-08 06:51:44,845 | INFO | ======================================================================
+2026-03-08 06:51:44,845 | INFO | FOLD 5/5
+2026-03-08 06:51:44,845 | INFO | ======================================================================
+2026-03-08 06:51:44,845 | INFO | Fold 5 | train_subjects=52 val_subjects=13 | train_windows=4237 val_windows=990
+2026-03-08 06:51:44,846 | INFO | Fold 5 | Train subject counts by class: {1: 29, 0: 23}
+2026-03-08 06:51:44,846 | INFO | Fold 5 | Class weights: [1.115384578704834, 0.8846153616905212]
+2026-03-08 06:51:44,861 | INFO | Fold 5 | Base model params=94,333
+2026-03-08 06:51:44,861 | INFO | Fold 5 | Loss: FocalLoss(gamma=2.0) with class weights
+2026-03-08 06:51:53,934 | INFO | [BASE] Epoch 001/35 | train_loss=0.1054 train_acc=0.7680 | val_win_loss=0.2734 val_win_balacc=0.5290 val_subj_balacc=0.5714 val_subj_macroF1=0.4583 | lr=1.00e-03
+2026-03-08 06:52:02,979 | INFO | [BASE] Epoch 002/35 | train_loss=0.0623 train_acc=0.9009 | val_win_loss=0.4388 val_win_balacc=0.5908 val_subj_balacc=0.5952 val_subj_macroF1=0.5752 | lr=1.00e-03
+2026-03-08 06:52:12,140 | INFO | [BASE] Epoch 003/35 | train_loss=0.0440 train_acc=0.9240 | val_win_loss=0.4422 val_win_balacc=0.5731 val_subj_balacc=0.5595 val_subj_macroF1=0.5125 | lr=1.00e-03
+2026-03-08 06:52:25,259 | INFO | [BASE] Epoch 004/35 | train_loss=0.0367 train_acc=0.9481 | val_win_loss=0.8185 val_win_balacc=0.6546 val_subj_balacc=0.6786 val_subj_macroF1=0.6750 | lr=1.00e-03
+2026-03-08 06:52:34,387 | INFO | [BASE] Epoch 005/35 | train_loss=0.0468 train_acc=0.9214 | val_win_loss=0.3861 val_win_balacc=0.5399 val_subj_balacc=0.5595 val_subj_macroF1=0.5125 | lr=1.00e-03
+2026-03-08 06:52:45,146 | INFO | [BASE] Epoch 006/35 | train_loss=0.0416 train_acc=0.9389 | val_win_loss=0.3756 val_win_balacc=0.5934 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=1.00e-03
+2026-03-08 06:52:54,147 | INFO | [BASE] Epoch 007/35 | train_loss=0.0300 train_acc=0.9535 | val_win_loss=1.0185 val_win_balacc=0.6470 val_subj_balacc=0.5952 val_subj_macroF1=0.5752 | lr=1.00e-03
+2026-03-08 06:53:05,699 | INFO | [BASE] Epoch 008/35 | train_loss=0.0265 train_acc=0.9608 | val_win_loss=0.7621 val_win_balacc=0.5786 val_subj_balacc=0.5595 val_subj_macroF1=0.5125 | lr=1.00e-03
+2026-03-08 06:53:14,616 | INFO | [BASE] Epoch 009/35 | train_loss=0.0253 train_acc=0.9594 | val_win_loss=0.9464 val_win_balacc=0.6189 val_subj_balacc=0.5119 val_subj_macroF1=0.4583 | lr=5.00e-04
+2026-03-08 06:53:23,580 | INFO | [BASE] Epoch 010/35 | train_loss=0.0122 train_acc=0.9837 | val_win_loss=0.7030 val_win_balacc=0.6135 val_subj_balacc=0.6190 val_subj_macroF1=0.6154 | lr=5.00e-04
+2026-03-08 06:53:32,586 | INFO | [BASE] Epoch 011/35 | train_loss=0.0087 train_acc=0.9880 | val_win_loss=0.7295 val_win_balacc=0.6278 val_subj_balacc=0.6190 val_subj_macroF1=0.6154 | lr=5.00e-04
+2026-03-08 06:53:41,658 | INFO | [BASE] Epoch 012/35 | train_loss=0.0075 train_acc=0.9884 | val_win_loss=1.1507 val_win_balacc=0.6387 val_subj_balacc=0.6071 val_subj_macroF1=0.6061 | lr=2.50e-04
+2026-03-08 06:53:50,690 | INFO | [BASE] Epoch 013/35 | train_loss=0.0047 train_acc=0.9932 | val_win_loss=1.2061 val_win_balacc=0.6630 val_subj_balacc=0.7619 val_subj_macroF1=0.7636 | lr=2.50e-04
+2026-03-08 06:53:59,694 | INFO | [BASE] Epoch 014/35 | train_loss=0.0041 train_acc=0.9946 | val_win_loss=1.0672 val_win_balacc=0.6377 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=2.50e-04
+2026-03-08 06:54:08,677 | INFO | [BASE] Epoch 015/35 | train_loss=0.0049 train_acc=0.9943 | val_win_loss=1.0262 val_win_balacc=0.6296 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=2.50e-04
+2026-03-08 06:54:17,740 | INFO | [BASE] Epoch 016/35 | train_loss=0.0026 train_acc=0.9960 | val_win_loss=1.1442 val_win_balacc=0.6437 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=1.25e-04
+2026-03-08 06:54:29,049 | INFO | [BASE] Epoch 017/35 | train_loss=0.0037 train_acc=0.9946 | val_win_loss=1.5759 val_win_balacc=0.6672 val_subj_balacc=0.6786 val_subj_macroF1=0.6750 | lr=1.25e-04
+2026-03-08 06:54:38,026 | INFO | [BASE] Epoch 018/35 | train_loss=0.0028 train_acc=0.9958 | val_win_loss=1.1197 val_win_balacc=0.6602 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=1.25e-04
+2026-03-08 06:54:46,965 | INFO | [BASE] Epoch 019/35 | train_loss=0.0024 train_acc=0.9965 | val_win_loss=1.1167 val_win_balacc=0.6470 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=6.25e-05
+2026-03-08 06:54:56,305 | INFO | [BASE] Epoch 020/35 | train_loss=0.0016 train_acc=0.9974 | val_win_loss=1.1120 val_win_balacc=0.6563 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=6.25e-05
+2026-03-08 06:55:05,357 | INFO | [BASE] Epoch 021/35 | train_loss=0.0018 train_acc=0.9972 | val_win_loss=1.1181 val_win_balacc=0.6385 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=6.25e-05
+2026-03-08 06:55:05,357 | INFO | [BASE] Early stopping triggered.
+2026-03-08 06:55:05,374 | INFO | [BASE] Restored best model (best_subject_balacc=0.7619)
+2026-03-08 06:55:06,533 | INFO | Fold 5 FINAL | window_balacc=0.6630 window_macroF1=0.6627 subject_balacc=0.7619 subject_macroF1=0.7636
+2026-03-08 06:55:06,574 | INFO | Fold 5 model saved: /home/e20212/FYP/models/EEGNet_ECN_v3_fold5.pt
+2026-03-08 06:55:06,618 | INFO | Best overall model saved: /home/e20212/FYP/models/EEGNet_ECN_v3.pt
+2026-03-08 06:55:06,618 | INFO | ========== CV SUMMARY ==========
+2026-03-08 06:55:06,618 | INFO | {
+  "window_bal_acc_mean": 0.8095747129095402,
+  "window_bal_acc_std": 0.09245994846478332,
+  "window_macro_f1_mean": 0.8092236171992407,
+  "window_macro_f1_std": 0.09241947057401664,
+  "subject_bal_acc_mean": 0.9214285714285715,
+  "subject_bal_acc_std": 0.09729912734144072,
+  "subject_macro_f1_mean": 0.9215850815850816,
+  "subject_macro_f1_std": 0.09649865420325411,
+  "best_fold_id": 1,
+  "best_fold_subject_balacc": 1.0
+}
+2026-03-08 06:55:06,618 | INFO | ========== RUN END ==========

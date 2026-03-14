@@ -1,0 +1,56 @@
+2026-02-26 15:28:16,620 | INFO | Logging to: /home/e20212/FYP/experiments/logs/EEGNet_Teecnet_4504.log
+2026-02-26 15:28:16,620 | INFO | ========== RUN START ==========
+2026-02-26 15:28:16,620 | INFO | Script        : EEGNet_Teecnet_4504.py
+2026-02-26 15:28:16,620 | INFO | FYP root      : /home/e20212/FYP
+2026-02-26 15:28:16,620 | INFO | Dataset root  : /home/e20212/FYP/datasets/Openneuro004504
+2026-02-26 15:28:16,620 | INFO | Out dir       : /home/e20212/FYP/data/ds004504_ad_cn_shards
+2026-02-26 15:28:16,620 | INFO | Tag           : ds004504_AD_CN_derivatives
+2026-02-26 15:28:16,625 | INFO | Device: cuda
+2026-02-26 15:28:16,656 | INFO | GPU: NVIDIA RTX 6000 Ada Generation
+2026-02-26 15:28:16,734 | INFO | Subjects present in derivatives: 88
+2026-02-26 15:28:16,734 | INFO | Binary subjects (AD+CN)        : 65 | AD=36 CN=29
+2026-02-26 15:28:16,736 | INFO | Split by subject: train=52 eval=13
+2026-02-26 15:28:16,737 | INFO | Shards already exist. Skipping rebuild.
+2026-02-26 15:28:16,737 | INFO | ========== LOADING SHARDS ==========
+2026-02-26 15:28:16,740 | INFO | [train] shard 0: n=1413 | X_0.npy
+2026-02-26 15:28:16,743 | INFO | [train] shard 1: n=1413 | X_1.npy
+2026-02-26 15:28:16,746 | INFO | [train] shard 2: n=1413 | X_2.npy
+2026-02-26 15:28:16,749 | INFO | [train] shard 3: n=1413 | X_3.npy
+2026-02-26 15:28:16,752 | INFO | [train] shard 4: n=1413 | X_4.npy
+2026-02-26 15:28:16,755 | INFO | [train] shard 5: n=1413 | X_5.npy
+2026-02-26 15:28:16,759 | INFO | [train] shard 6: n=4 | X_6.npy
+2026-02-26 15:28:16,762 | INFO | [eval] shard 0: n=1413 | X_0.npy
+2026-02-26 15:28:16,765 | INFO | [eval] shard 1: n=655 | X_1.npy
+2026-02-26 15:28:16,768 | INFO | Input shape: (C=19, T=2500) | Example y=1
+2026-02-26 15:28:16,880 | INFO | Train label counts: {0: 3816, 1: 4666}
+2026-02-26 15:28:16,880 | INFO | Class weights     : [1.1002122141002477, 0.8997877858997524]
+2026-02-26 15:28:16,922 | INFO | Model: HybridEEG_TEECNet | trainable_params=465253
+2026-02-26 15:28:16,923 | INFO | ========== TRAINING ==========
+2026-02-26 15:28:33,021 | INFO | Epoch 001/40 | train_loss=0.4409 train_acc=0.7956 | val_loss=1.0352 val_acc=0.6098 val_balacc=0.5811 val_macroF1=0.5068 | lr=1.00e-03
+2026-02-26 15:28:48,443 | INFO | Epoch 002/40 | train_loss=0.3137 train_acc=0.8584 | val_loss=0.2824 val_acc=0.8960 val_balacc=0.8976 val_macroF1=0.8959 | lr=1.00e-03
+2026-02-26 15:29:03,851 | INFO | Epoch 003/40 | train_loss=0.2681 train_acc=0.8833 | val_loss=1.5120 val_acc=0.5919 val_balacc=0.5621 val_macroF1=0.4743 | lr=1.00e-03
+2026-02-26 15:29:19,376 | INFO | Epoch 004/40 | train_loss=0.2280 train_acc=0.9041 | val_loss=0.7109 val_acc=0.6876 val_balacc=0.6647 val_macroF1=0.6349 | lr=1.00e-03
+2026-02-26 15:29:34,778 | INFO | Epoch 005/40 | train_loss=0.1987 train_acc=0.9171 | val_loss=0.7621 val_acc=0.7132 val_balacc=0.7304 val_macroF1=0.7013 | lr=5.00e-04
+2026-02-26 15:29:50,275 | INFO | Epoch 006/40 | train_loss=0.1517 train_acc=0.9389 | val_loss=0.8171 val_acc=0.6920 val_balacc=0.6716 val_macroF1=0.6509 | lr=5.00e-04
+2026-02-26 15:30:05,827 | INFO | Epoch 007/40 | train_loss=0.1220 train_acc=0.9550 | val_loss=0.5313 val_acc=0.8061 val_balacc=0.8082 val_macroF1=0.8060 | lr=5.00e-04
+2026-02-26 15:30:21,437 | INFO | Epoch 008/40 | train_loss=0.1126 train_acc=0.9583 | val_loss=2.3791 val_acc=0.5711 val_balacc=0.5395 val_macroF1=0.4299 | lr=2.50e-04
+2026-02-26 15:30:21,437 | INFO | Early stopping triggered.
+2026-02-26 15:30:21,437 | INFO | Training time (sec): 124.51
+2026-02-26 15:30:21,439 | INFO | Restored best model (best_val_balacc=0.8976)
+2026-02-26 15:30:21,439 | INFO | ========== EVALUATION ==========
+2026-02-26 15:30:23,263 | INFO | Classification report:
+              precision    recall  f1-score   support
+
+       CN(0)     0.8652    0.9200    0.8918       963
+       AD(1)     0.9262    0.8751    0.9000      1105
+
+    accuracy                         0.8960      2068
+   macro avg     0.8957    0.8976    0.8959      2068
+weighted avg     0.8978    0.8960    0.8962      2068
+
+2026-02-26 15:30:23,264 | INFO | Confusion matrix:
+[[886  77]
+ [138 967]]
+2026-02-26 15:30:23,443 | INFO | Saved model   : /home/e20212/FYP/models/EEGNet_Teecnet_4504_ds004504_AD_CN_derivatives_20260226_153023.pt
+2026-02-26 15:30:23,443 | INFO | Saved metrics : /home/e20212/FYP/experiments/EEGNet_Teecnet_4504_ds004504_AD_CN_derivatives_20260226_153023/metrics.json
+2026-02-26 15:30:23,443 | INFO | ========== RUN END ==========

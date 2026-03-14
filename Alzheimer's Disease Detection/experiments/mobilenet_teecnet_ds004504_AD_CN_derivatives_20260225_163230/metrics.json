@@ -1,0 +1,50 @@
+{
+  "run_name": "mobilenet_teecnet_ds004504_AD_CN_derivatives_20260225_163230",
+  "tag": "ds004504_AD_CN_derivatives",
+  "train_time_sec": 620.574254989624,
+  "train_windows": 8482,
+  "eval_windows": 2068,
+  "final_val_loss": 0.765599108587075,
+  "final_val_acc": 0.824468085106383,
+  "final_val_balanced_acc": 0.8189993562725834,
+  "final_val_macro_f1": 0.8211662060532253,
+  "best_val_balanced_acc": 0.8189993562725834,
+  "classification_report": {
+    "CN(0)": {
+      "precision": 0.8640776699029126,
+      "recall": 0.7393561786085151,
+      "f1-score": 0.7968662562954673,
+      "support": 963.0
+    },
+    "AD(1)": {
+      "precision": 0.7982315112540193,
+      "recall": 0.8986425339366516,
+      "f1-score": 0.8454661558109834,
+      "support": 1105.0
+    },
+    "accuracy": 0.824468085106383,
+    "macro avg": {
+      "precision": 0.8311545905784659,
+      "recall": 0.8189993562725834,
+      "f1-score": 0.8211662060532253,
+      "support": 2068.0
+    },
+    "weighted avg": {
+      "precision": 0.828893914918857,
+      "recall": 0.824468085106383,
+      "f1-score": 0.8228347712687,
+      "support": 2068.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      712,
+      251
+    ],
+    [
+      112,
+      993
+    ]
+  ],
+  "model_params": 117282
+}

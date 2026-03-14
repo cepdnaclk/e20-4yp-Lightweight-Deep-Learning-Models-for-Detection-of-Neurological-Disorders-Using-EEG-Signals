@@ -1,0 +1,49 @@
+{
+  "run_name": "cnn1d_ds004504_AD_CN_derivatives_20260223_084323",
+  "tag": "ds004504_AD_CN_derivatives",
+  "train_time_sec": 367.23072624206543,
+  "train_windows": 8482,
+  "eval_windows": 2068,
+  "final_val_loss": 0.6380732680321446,
+  "final_val_acc": 0.8322050290135397,
+  "final_val_balanced_acc": 0.8351799382585529,
+  "final_val_macro_f1": 0.8321720255681825,
+  "best_val_balanced_acc": 0.8351799382585529,
+  "classification_report": {
+    "CN(0)": {
+      "precision": 0.7862453531598513,
+      "recall": 0.8785046728971962,
+      "f1-score": 0.8298185384992643,
+      "support": 963.0
+    },
+    "AD(1)": {
+      "precision": 0.8820564516129032,
+      "recall": 0.7918552036199095,
+      "f1-score": 0.8345255126371006,
+      "support": 1105.0
+    },
+    "accuracy": 0.8322050290135397,
+    "macro avg": {
+      "precision": 0.8341509023863773,
+      "recall": 0.8351799382585529,
+      "f1-score": 0.8321720255681825,
+      "support": 2068.0
+    },
+    "weighted avg": {
+      "precision": 0.8374403549928409,
+      "recall": 0.8322050290135397,
+      "f1-score": 0.8323336286454487,
+      "support": 2068.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      846,
+      117
+    ],
+    [
+      230,
+      875
+    ]
+  ]
+}

@@ -1,0 +1,186 @@
+2026-02-24 01:31:11,904 | INFO | Logging to: /home/e20212/FYP/experiments/logs/eval_ds006036_20260224_013111.log
+2026-02-24 01:31:11,905 | INFO | ========== RUN START ==========
+2026-02-24 01:31:11,905 | INFO | Dataset root : /home/e20212/FYP/datasets/Openneuro006036
+2026-02-24 01:31:11,905 | INFO | Checkpoint   : /home/e20212/FYP/models/cnn1d_ds004504_AD_CN_derivatives_20260223_084323.pt
+2026-02-24 01:31:11,905 | INFO | Out dir      : /home/e20212/FYP/data/ds006036_eval_shards
+2026-02-24 01:31:11,991 | INFO | Device: cuda
+2026-02-24 01:31:12,074 | INFO | GPU: NVIDIA RTX 6000 Ada Generation
+2026-02-24 01:31:12,402 | INFO | Model expects in_channels=19
+2026-02-24 01:31:12,605 | INFO | ========== BUILDING EVAL SHARDS ==========
+2026-02-24 01:31:12,996 | INFO | [eval] Found .set files: 88
+2026-02-24 01:31:18,694 | INFO | [eval] Loaded sub-001_task-photomark_eeg.set | sid=sub-001 grp=A | sfreq=500.0 n_times=151675 dur_sec=303.35
+2026-02-24 01:31:18,918 | INFO | Window shape: (C=19, T=2500) ~ 185.5 KB/window
+2026-02-24 01:31:18,929 | INFO | [eval] sub-001 (A) | sub-001_task-photomark_eeg.set | windows_written=59
+2026-02-24 01:31:20,524 | INFO | [eval] Loaded sub-002_task-photomark_eeg.set | sid=sub-002 grp=A | sfreq=500.0 n_times=193505 dur_sec=387.01
+2026-02-24 01:31:20,646 | INFO | [eval] sub-002 (A) | sub-002_task-photomark_eeg.set | windows_written=76
+2026-02-24 01:31:21,773 | INFO | [eval] Loaded sub-003_task-photomark_eeg.set | sid=sub-003 grp=A | sfreq=500.0 n_times=137093 dur_sec=274.19
+2026-02-24 01:31:21,883 | INFO | [eval] sub-003 (A) | sub-003_task-photomark_eeg.set | windows_written=53
+2026-02-24 01:31:23,281 | INFO | [eval] Loaded sub-004_task-photomark_eeg.set | sid=sub-004 grp=A | sfreq=500.0 n_times=167997 dur_sec=335.99
+2026-02-24 01:31:23,388 | INFO | [eval] sub-004 (A) | sub-004_task-photomark_eeg.set | windows_written=66
+2026-02-24 01:31:24,691 | INFO | [eval] Loaded sub-005_task-photomark_eeg.set | sid=sub-005 grp=A | sfreq=500.0 n_times=146404 dur_sec=292.81
+2026-02-24 01:31:24,794 | INFO | [eval] sub-005 (A) | sub-005_task-photomark_eeg.set | windows_written=57
+2026-02-24 01:31:26,344 | INFO | [eval] Loaded sub-006_task-photomark_eeg.set | sid=sub-006 grp=A | sfreq=500.0 n_times=194556 dur_sec=389.11
+2026-02-24 01:31:26,429 | INFO | [eval] sub-006 (A) | sub-006_task-photomark_eeg.set | windows_written=76
+2026-02-24 01:31:28,167 | INFO | [eval] Loaded sub-007_task-photomark_eeg.set | sid=sub-007 grp=A | sfreq=500.0 n_times=213358 dur_sec=426.72
+2026-02-24 01:31:28,253 | INFO | [eval] sub-007 (A) | sub-007_task-photomark_eeg.set | windows_written=84
+2026-02-24 01:31:29,790 | INFO | [eval] Loaded sub-008_task-photomark_eeg.set | sid=sub-008 grp=A | sfreq=500.0 n_times=190824 dur_sec=381.65
+2026-02-24 01:31:29,874 | INFO | [eval] sub-008 (A) | sub-008_task-photomark_eeg.set | windows_written=75
+2026-02-24 01:31:31,495 | INFO | [eval] Loaded sub-009_task-photomark_eeg.set | sid=sub-009 grp=A | sfreq=500.0 n_times=204977 dur_sec=409.95
+2026-02-24 01:31:31,578 | INFO | [eval] sub-009 (A) | sub-009_task-photomark_eeg.set | windows_written=80
+2026-02-24 01:31:32,772 | INFO | [eval] Loaded sub-010_task-photomark_eeg.set | sid=sub-010 grp=A | sfreq=500.0 n_times=148583 dur_sec=297.17
+2026-02-24 01:31:32,849 | INFO | [eval] sub-010 (A) | sub-010_task-photomark_eeg.set | windows_written=58
+2026-02-24 01:31:34,013 | INFO | [eval] Loaded sub-011_task-photomark_eeg.set | sid=sub-011 grp=A | sfreq=500.0 n_times=145999 dur_sec=292.00
+2026-02-24 01:31:34,106 | INFO | [eval] sub-011 (A) | sub-011_task-photomark_eeg.set | windows_written=57
+2026-02-24 01:31:35,436 | INFO | [eval] Loaded sub-012_task-photomark_eeg.set | sid=sub-012 grp=A | sfreq=500.0 n_times=168025 dur_sec=336.05
+2026-02-24 01:31:35,525 | INFO | [eval] sub-012 (A) | sub-012_task-photomark_eeg.set | windows_written=66
+2026-02-24 01:31:37,421 | INFO | [eval] Loaded sub-013_task-photomark_eeg.set | sid=sub-013 grp=A | sfreq=500.0 n_times=230210 dur_sec=460.42
+2026-02-24 01:31:37,508 | INFO | [eval] sub-013 (A) | sub-013_task-photomark_eeg.set | windows_written=91
+2026-02-24 01:31:39,639 | INFO | [eval] Loaded sub-014_task-photomark_eeg.set | sid=sub-014 grp=A | sfreq=500.0 n_times=248476 dur_sec=496.95
+2026-02-24 01:31:39,727 | INFO | [eval] sub-014 (A) | sub-014_task-photomark_eeg.set | windows_written=98
+2026-02-24 01:31:40,886 | INFO | [eval] Loaded sub-015_task-photomark_eeg.set | sid=sub-015 grp=A | sfreq=500.0 n_times=142489 dur_sec=284.98
+2026-02-24 01:31:41,001 | INFO | [eval] sub-015 (A) | sub-015_task-photomark_eeg.set | windows_written=55
+2026-02-24 01:31:42,723 | INFO | [eval] Loaded sub-016_task-photomark_eeg.set | sid=sub-016 grp=A | sfreq=500.0 n_times=211356 dur_sec=422.71
+2026-02-24 01:31:42,880 | INFO | [eval] sub-016 (A) | sub-016_task-photomark_eeg.set | windows_written=83
+2026-02-24 01:31:44,631 | INFO | [eval] Loaded sub-017_task-photomark_eeg.set | sid=sub-017 grp=A | sfreq=500.0 n_times=208131 dur_sec=416.26
+2026-02-24 01:31:44,814 | INFO | [eval] sub-017 (A) | sub-017_task-photomark_eeg.set | windows_written=82
+2026-02-24 01:31:46,293 | INFO | [eval] Loaded sub-018_task-photomark_eeg.set | sid=sub-018 grp=A | sfreq=500.0 n_times=182176 dur_sec=364.35
+2026-02-24 01:31:46,422 | INFO | [eval] sub-018 (A) | sub-018_task-photomark_eeg.set | windows_written=71
+2026-02-24 01:31:47,705 | INFO | [eval] Loaded sub-019_task-photomark_eeg.set | sid=sub-019 grp=A | sfreq=500.0 n_times=155257 dur_sec=310.51
+2026-02-24 01:31:47,786 | INFO | [eval] sub-019 (A) | sub-019_task-photomark_eeg.set | windows_written=61
+2026-02-24 01:31:49,306 | INFO | [eval] Loaded sub-020_task-photomark_eeg.set | sid=sub-020 grp=A | sfreq=500.0 n_times=192182 dur_sec=384.36
+2026-02-24 01:32:13,412 | INFO | [eval] Wrote shard 0: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-02-24 01:32:13,418 | INFO | [eval] sub-020 (A) | sub-020_task-photomark_eeg.set | windows_written=75
+2026-02-24 01:32:14,032 | INFO | [eval] Loaded sub-021_task-photomark_eeg.set | sid=sub-021 grp=A | sfreq=500.0 n_times=74345 dur_sec=148.69
+2026-02-24 01:32:14,065 | INFO | [eval] sub-021 (A) | sub-021_task-photomark_eeg.set | windows_written=28
+2026-02-24 01:32:15,094 | INFO | [eval] Loaded sub-022_task-photomark_eeg.set | sid=sub-022 grp=A | sfreq=500.0 n_times=128449 dur_sec=256.90
+2026-02-24 01:32:15,129 | INFO | [eval] sub-022 (A) | sub-022_task-photomark_eeg.set | windows_written=50
+2026-02-24 01:32:15,501 | INFO | [eval] Loaded sub-023_task-photomark_eeg.set | sid=sub-023 grp=A | sfreq=500.0 n_times=36434 dur_sec=72.87
+2026-02-24 01:32:15,518 | INFO | [eval] sub-023 (A) | sub-023_task-photomark_eeg.set | windows_written=13
+2026-02-24 01:32:15,856 | INFO | [eval] Loaded sub-024_task-photomark_eeg.set | sid=sub-024 grp=A | sfreq=500.0 n_times=36436 dur_sec=72.87
+2026-02-24 01:32:15,871 | INFO | [eval] sub-024 (A) | sub-024_task-photomark_eeg.set | windows_written=13
+2026-02-24 01:32:16,942 | INFO | [eval] Loaded sub-025_task-photomark_eeg.set | sid=sub-025 grp=A | sfreq=500.0 n_times=129417 dur_sec=258.83
+2026-02-24 01:32:17,039 | INFO | [eval] sub-025 (A) | sub-025_task-photomark_eeg.set | windows_written=50
+2026-02-24 01:32:17,480 | INFO | [eval] Loaded sub-026_task-photomark_eeg.set | sid=sub-026 grp=A | sfreq=500.0 n_times=42553 dur_sec=85.11
+2026-02-24 01:32:17,516 | INFO | [eval] sub-026 (A) | sub-026_task-photomark_eeg.set | windows_written=16
+2026-02-24 01:32:17,951 | INFO | [eval] Loaded sub-027_task-photomark_eeg.set | sid=sub-027 grp=A | sfreq=500.0 n_times=47106 dur_sec=94.21
+2026-02-24 01:32:17,988 | INFO | [eval] sub-027 (A) | sub-027_task-photomark_eeg.set | windows_written=17
+2026-02-24 01:32:19,515 | INFO | [eval] Loaded sub-028_task-photomark_eeg.set | sid=sub-028 grp=A | sfreq=500.0 n_times=188695 dur_sec=377.39
+2026-02-24 01:32:19,679 | INFO | [eval] sub-028 (A) | sub-028_task-photomark_eeg.set | windows_written=74
+2026-02-24 01:32:20,100 | INFO | [eval] Loaded sub-029_task-photomark_eeg.set | sid=sub-029 grp=A | sfreq=500.0 n_times=47280 dur_sec=94.56
+2026-02-24 01:32:20,127 | INFO | [eval] sub-029 (A) | sub-029_task-photomark_eeg.set | windows_written=17
+2026-02-24 01:32:20,561 | INFO | [eval] Loaded sub-030_task-photomark_eeg.set | sid=sub-030 grp=A | sfreq=500.0 n_times=46952 dur_sec=93.90
+2026-02-24 01:32:20,584 | INFO | [eval] sub-030 (A) | sub-030_task-photomark_eeg.set | windows_written=17
+2026-02-24 01:32:20,940 | INFO | [eval] Loaded sub-031_task-photomark_eeg.set | sid=sub-031 grp=A | sfreq=500.0 n_times=38906 dur_sec=77.81
+2026-02-24 01:32:20,962 | INFO | [eval] sub-031 (A) | sub-031_task-photomark_eeg.set | windows_written=14
+2026-02-24 01:32:21,295 | INFO | [eval] Loaded sub-032_task-photomark_eeg.set | sid=sub-032 grp=A | sfreq=500.0 n_times=36157 dur_sec=72.31
+2026-02-24 01:32:21,317 | INFO | [eval] sub-032 (A) | sub-032_task-photomark_eeg.set | windows_written=13
+2026-02-24 01:32:21,753 | INFO | [eval] Loaded sub-033_task-photomark_eeg.set | sid=sub-033 grp=A | sfreq=500.0 n_times=49656 dur_sec=99.31
+2026-02-24 01:32:21,787 | INFO | [eval] sub-033 (A) | sub-033_task-photomark_eeg.set | windows_written=18
+2026-02-24 01:32:22,128 | INFO | [eval] Loaded sub-034_task-photomark_eeg.set | sid=sub-034 grp=A | sfreq=500.0 n_times=38590 dur_sec=77.18
+2026-02-24 01:32:22,144 | INFO | [eval] sub-034 (A) | sub-034_task-photomark_eeg.set | windows_written=14
+2026-02-24 01:32:23,815 | INFO | [eval] Loaded sub-035_task-photomark_eeg.set | sid=sub-035 grp=A | sfreq=500.0 n_times=209696 dur_sec=419.39
+2026-02-24 01:32:23,897 | INFO | [eval] sub-035 (A) | sub-035_task-photomark_eeg.set | windows_written=82
+2026-02-24 01:32:24,252 | INFO | [eval] Loaded sub-036_task-photomark_eeg.set | sid=sub-036 grp=A | sfreq=500.0 n_times=39953 dur_sec=79.91
+2026-02-24 01:32:24,268 | INFO | [eval] sub-036 (A) | sub-036_task-photomark_eeg.set | windows_written=14
+2026-02-24 01:32:26,450 | INFO | [eval] Loaded sub-037_task-photomark_eeg.set | sid=sub-037 grp=C | sfreq=500.0 n_times=274851 dur_sec=549.70
+2026-02-24 01:32:26,823 | INFO | [eval] sub-037 (C) | sub-037_task-photomark_eeg.set | windows_written=108
+2026-02-24 01:32:28,220 | INFO | [eval] Loaded sub-038_task-photomark_eeg.set | sid=sub-038 grp=C | sfreq=500.0 n_times=175809 dur_sec=351.62
+2026-02-24 01:32:28,386 | INFO | [eval] sub-038 (C) | sub-038_task-photomark_eeg.set | windows_written=69
+2026-02-24 01:32:30,239 | INFO | [eval] Loaded sub-039_task-photomark_eeg.set | sid=sub-039 grp=C | sfreq=500.0 n_times=187311 dur_sec=374.62
+2026-02-24 01:32:30,478 | INFO | [eval] sub-039 (C) | sub-039_task-photomark_eeg.set | windows_written=73
+2026-02-24 01:32:31,202 | INFO | [eval] Loaded sub-040_task-photomark_eeg.set | sid=sub-040 grp=C | sfreq=500.0 n_times=87117 dur_sec=174.23
+2026-02-24 01:32:31,252 | INFO | [eval] sub-040 (C) | sub-040_task-photomark_eeg.set | windows_written=33
+2026-02-24 01:32:32,626 | INFO | [eval] Loaded sub-041_task-photomark_eeg.set | sid=sub-041 grp=C | sfreq=500.0 n_times=170401 dur_sec=340.80
+2026-02-24 01:32:32,745 | INFO | [eval] sub-041 (C) | sub-041_task-photomark_eeg.set | windows_written=67
+2026-02-24 01:32:33,602 | INFO | [eval] Loaded sub-042_task-photomark_eeg.set | sid=sub-042 grp=C | sfreq=500.0 n_times=103702 dur_sec=207.40
+2026-02-24 01:32:33,652 | INFO | [eval] sub-042 (C) | sub-042_task-photomark_eeg.set | windows_written=40
+2026-02-24 01:32:34,927 | INFO | [eval] Loaded sub-043_task-photomark_eeg.set | sid=sub-043 grp=C | sfreq=500.0 n_times=150785 dur_sec=301.57
+2026-02-24 01:32:35,049 | INFO | [eval] sub-043 (C) | sub-043_task-photomark_eeg.set | windows_written=59
+2026-02-24 01:32:36,995 | INFO | [eval] Loaded sub-044_task-photomark_eeg.set | sid=sub-044 grp=C | sfreq=500.0 n_times=244865 dur_sec=489.73
+2026-02-24 01:32:37,082 | INFO | [eval] sub-044 (C) | sub-044_task-photomark_eeg.set | windows_written=96
+2026-02-24 01:32:38,611 | INFO | [eval] Loaded sub-045_task-photomark_eeg.set | sid=sub-045 grp=C | sfreq=500.0 n_times=191919 dur_sec=383.84
+2026-02-24 01:32:38,693 | INFO | [eval] sub-045 (C) | sub-045_task-photomark_eeg.set | windows_written=75
+2026-02-24 01:32:40,759 | INFO | [eval] Loaded sub-046_task-photomark_eeg.set | sid=sub-046 grp=C | sfreq=500.0 n_times=264260 dur_sec=528.52
+2026-02-24 01:32:40,938 | INFO | [eval] sub-046 (C) | sub-046_task-photomark_eeg.set | windows_written=104
+2026-02-24 01:32:42,624 | INFO | [eval] Loaded sub-047_task-photomark_eeg.set | sid=sub-047 grp=C | sfreq=500.0 n_times=214282 dur_sec=428.56
+2026-02-24 01:32:42,711 | INFO | [eval] sub-047 (C) | sub-047_task-photomark_eeg.set | windows_written=84
+2026-02-24 01:32:44,195 | INFO | [eval] Loaded sub-048_task-photomark_eeg.set | sid=sub-048 grp=C | sfreq=500.0 n_times=184603 dur_sec=369.21
+2026-02-24 01:32:44,279 | INFO | [eval] sub-048 (C) | sub-048_task-photomark_eeg.set | windows_written=72
+2026-02-24 01:32:45,953 | INFO | [eval] Loaded sub-049_task-photomark_eeg.set | sid=sub-049 grp=C | sfreq=500.0 n_times=213750 dur_sec=427.50
+2026-02-24 01:33:09,914 | INFO | [eval] Wrote shard 1: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-02-24 01:33:09,918 | INFO | [eval] sub-049 (C) | sub-049_task-photomark_eeg.set | windows_written=84
+2026-02-24 01:33:11,155 | INFO | [eval] Loaded sub-050_task-photomark_eeg.set | sid=sub-050 grp=C | sfreq=500.0 n_times=156346 dur_sec=312.69
+2026-02-24 01:33:11,269 | INFO | [eval] sub-050 (C) | sub-050_task-photomark_eeg.set | windows_written=61
+2026-02-24 01:33:13,034 | INFO | [eval] Loaded sub-051_task-photomark_eeg.set | sid=sub-051 grp=C | sfreq=500.0 n_times=222678 dur_sec=445.36
+2026-02-24 01:33:13,116 | INFO | [eval] sub-051 (C) | sub-051_task-photomark_eeg.set | windows_written=88
+2026-02-24 01:33:14,804 | INFO | [eval] Loaded sub-052_task-photomark_eeg.set | sid=sub-052 grp=C | sfreq=500.0 n_times=212319 dur_sec=424.64
+2026-02-24 01:33:14,886 | INFO | [eval] sub-052 (C) | sub-052_task-photomark_eeg.set | windows_written=83
+2026-02-24 01:33:16,223 | INFO | [eval] Loaded sub-053_task-photomark_eeg.set | sid=sub-053 grp=C | sfreq=500.0 n_times=163593 dur_sec=327.19
+2026-02-24 01:33:16,492 | INFO | [eval] sub-053 (C) | sub-053_task-photomark_eeg.set | windows_written=64
+2026-02-24 01:33:18,343 | INFO | [eval] Loaded sub-054_task-photomark_eeg.set | sid=sub-054 grp=C | sfreq=500.0 n_times=218836 dur_sec=437.67
+2026-02-24 01:33:18,560 | INFO | [eval] sub-054 (C) | sub-054_task-photomark_eeg.set | windows_written=86
+2026-02-24 01:33:20,052 | INFO | [eval] Loaded sub-055_task-photomark_eeg.set | sid=sub-055 grp=C | sfreq=500.0 n_times=183093 dur_sec=366.19
+2026-02-24 01:33:20,271 | INFO | [eval] sub-055 (C) | sub-055_task-photomark_eeg.set | windows_written=72
+2026-02-24 01:33:22,114 | INFO | [eval] Loaded sub-056_task-photomark_eeg.set | sid=sub-056 grp=C | sfreq=500.0 n_times=212649 dur_sec=425.30
+2026-02-24 01:33:22,269 | INFO | [eval] sub-056 (C) | sub-056_task-photomark_eeg.set | windows_written=84
+2026-02-24 01:33:23,670 | INFO | [eval] Loaded sub-057_task-photomark_eeg.set | sid=sub-057 grp=C | sfreq=500.0 n_times=171278 dur_sec=342.56
+2026-02-24 01:33:23,909 | INFO | [eval] sub-057 (C) | sub-057_task-photomark_eeg.set | windows_written=67
+2026-02-24 01:33:24,859 | INFO | [eval] Loaded sub-058_task-photomark_eeg.set | sid=sub-058 grp=C | sfreq=500.0 n_times=115828 dur_sec=231.66
+2026-02-24 01:33:24,931 | INFO | [eval] sub-058 (C) | sub-058_task-photomark_eeg.set | windows_written=45
+2026-02-24 01:33:26,121 | INFO | [eval] Loaded sub-059_task-photomark_eeg.set | sid=sub-059 grp=C | sfreq=500.0 n_times=143891 dur_sec=287.78
+2026-02-24 01:33:26,235 | INFO | [eval] sub-059 (C) | sub-059_task-photomark_eeg.set | windows_written=56
+2026-02-24 01:33:28,008 | INFO | [eval] Loaded sub-060_task-photomark_eeg.set | sid=sub-060 grp=C | sfreq=500.0 n_times=214833 dur_sec=429.67
+2026-02-24 01:33:28,142 | INFO | [eval] sub-060 (C) | sub-060_task-photomark_eeg.set | windows_written=84
+2026-02-24 01:33:29,686 | INFO | [eval] Loaded sub-061_task-photomark_eeg.set | sid=sub-061 grp=C | sfreq=500.0 n_times=193653 dur_sec=387.31
+2026-02-24 01:33:29,835 | INFO | [eval] sub-061 (C) | sub-061_task-photomark_eeg.set | windows_written=76
+2026-02-24 01:33:31,316 | INFO | [eval] Loaded sub-062_task-photomark_eeg.set | sid=sub-062 grp=C | sfreq=500.0 n_times=182353 dur_sec=364.71
+2026-02-24 01:33:31,480 | INFO | [eval] sub-062 (C) | sub-062_task-photomark_eeg.set | windows_written=71
+2026-02-24 01:33:33,100 | INFO | [eval] Loaded sub-063_task-photomark_eeg.set | sid=sub-063 grp=C | sfreq=500.0 n_times=203393 dur_sec=406.79
+2026-02-24 01:33:33,234 | INFO | [eval] sub-063 (C) | sub-063_task-photomark_eeg.set | windows_written=80
+2026-02-24 01:33:34,811 | INFO | [eval] Loaded sub-064_task-photomark_eeg.set | sid=sub-064 grp=C | sfreq=500.0 n_times=201065 dur_sec=402.13
+2026-02-24 01:33:34,935 | INFO | [eval] sub-064 (C) | sub-064_task-photomark_eeg.set | windows_written=79
+2026-02-24 01:33:35,712 | INFO | [eval] Loaded sub-065_task-photomark_eeg.set | sid=sub-065 grp=C | sfreq=500.0 n_times=94566 dur_sec=189.13
+2026-02-24 01:33:35,758 | INFO | [eval] sub-065 (C) | sub-065_task-photomark_eeg.set | windows_written=36
+2026-02-24 01:33:55,114 | INFO | [eval] Wrote shard 2: X=(1143, 19, 2500) | y=(1143,) | meta=1143
+2026-02-24 01:33:55,117 | INFO | [eval] Total shards: 3 | total_windows=3969 | skipped_nonbinary=23
+2026-02-24 01:33:55,118 | INFO | ========== LOADING EVAL SHARDS ==========
+2026-02-24 01:33:55,121 | INFO | [eval] shard 0: n=1413 | X_0.npy
+2026-02-24 01:33:55,123 | INFO | [eval] shard 1: n=1413 | X_1.npy
+2026-02-24 01:33:55,126 | INFO | [eval] shard 2: n=1143 | X_2.npy
+2026-02-24 01:33:56,018 | INFO | Loaded model weights.
+2026-02-24 01:33:56,018 | INFO | ========== WINDOW-LEVEL EVALUATION ==========
+2026-02-24 01:34:09,703 | INFO | Eval windows: 3969 | time_sec=13.68
+2026-02-24 01:34:09,703 | INFO | Window Acc        : 0.8335
+2026-02-24 01:34:09,703 | INFO | Window BalancedAcc: 0.8342
+2026-02-24 01:34:09,703 | INFO | Window MacroF1    : 0.8333
+2026-02-24 01:34:09,703 | INFO | Window Confusion matrix:
+[[1721, 375], [286, 1587]]
+2026-02-24 01:34:09,703 | INFO | Window Classification report:
+              precision    recall  f1-score   support
+
+       CN(0)     0.8575    0.8211    0.8389      2096
+       AD(1)     0.8089    0.8473    0.8276      1873
+
+    accuracy                         0.8335      3969
+   macro avg     0.8332    0.8342    0.8333      3969
+weighted avg     0.8345    0.8335    0.8336      3969
+
+2026-02-24 01:34:09,703 | INFO | ========== SUBJECT-LEVEL (MAJORITY VOTE) ==========
+2026-02-24 01:34:09,761 | INFO | Eval subjects: 65
+2026-02-24 01:34:09,761 | INFO | Subject Acc        : 0.9077
+2026-02-24 01:34:09,761 | INFO | Subject BalancedAcc: 0.9066
+2026-02-24 01:34:09,761 | INFO | Subject MacroF1    : 0.9066
+2026-02-24 01:34:09,761 | INFO | Subject Confusion matrix:
+[[26, 3], [3, 33]]
+2026-02-24 01:34:09,761 | INFO | Subject Classification report:
+              precision    recall  f1-score   support
+
+       CN(0)     0.8966    0.8966    0.8966        29
+       AD(1)     0.9167    0.9167    0.9167        36
+
+    accuracy                         0.9077        65
+   macro avg     0.9066    0.9066    0.9066        65
+weighted avg     0.9077    0.9077    0.9077        65
+
+2026-02-24 01:34:09,777 | INFO | Saved metrics: /home/e20212/FYP/experiments/eval_ds006036_20260224_013111/metrics_ds006036.json
+2026-02-24 01:34:09,777 | INFO | ========== RUN END ==========

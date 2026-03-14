@@ -1,0 +1,167 @@
+{
+  "run_name": "EEGNet_Teecnet_4504_v5",
+  "version": "v5",
+  "n_folds": 5,
+  "total_subjects": 65,
+  "total_windows": 21069,
+  "total_parameters": 494578,
+  "fold_results": [
+    {
+      "fold": 1,
+      "train_time_sec": 651.7170424461365,
+      "window_val_acc": 0.8252108716026242,
+      "window_val_balacc": 0.8153347282512518,
+      "window_val_macroF1": 0.8130150570915995,
+      "subject_acc": 1.0,
+      "subject_balacc": 1.0,
+      "subject_macroF1": 1.0,
+      "best_val_balacc": 0.8153347282512518,
+      "confusion_matrix": [
+        [
+          1216,
+          346
+        ],
+        [
+          400,
+          2306
+        ]
+      ]
+    },
+    {
+      "fold": 2,
+      "train_time_sec": 643.1403362751007,
+      "window_val_acc": 0.7520305781175346,
+      "window_val_balacc": 0.7474356294146072,
+      "window_val_macroF1": 0.7439865774469433,
+      "subject_acc": 0.8461538461538461,
+      "subject_balacc": 0.8333333333333333,
+      "subject_macroF1": 0.8375,
+      "best_val_balacc": 0.7474356294146072,
+      "confusion_matrix": [
+        [
+          1203,
+          828
+        ],
+        [
+          210,
+          1945
+        ]
+      ]
+    },
+    {
+      "fold": 3,
+      "train_time_sec": 1612.637307882309,
+      "window_val_acc": 0.609598523304107,
+      "window_val_balacc": 0.639386189258312,
+      "window_val_macroF1": 0.568741002117149,
+      "subject_acc": 0.6153846153846154,
+      "subject_balacc": 0.6428571428571428,
+      "subject_macroF1": 0.5751633986928104,
+      "best_val_balacc": 0.639386189258312,
+      "confusion_matrix": [
+        [
+          1988,
+          0
+        ],
+        [
+          1692,
+          654
+        ]
+      ]
+    },
+    {
+      "fold": 4,
+      "train_time_sec": 1668.902312040329,
+      "window_val_acc": 0.6141127154168607,
+      "window_val_balacc": 0.631450177935943,
+      "window_val_macroF1": 0.5640598720294465,
+      "subject_acc": 0.6153846153846154,
+      "subject_balacc": 0.6428571428571428,
+      "subject_macroF1": 0.5751633986928104,
+      "best_val_balacc": 0.631450177935943,
+      "confusion_matrix": [
+        [
+          2046,
+          0
+        ],
+        [
+          1657,
+          591
+        ]
+      ]
+    },
+    {
+      "fold": 5,
+      "train_time_sec": 2381.618720293045,
+      "window_val_acc": 0.5555555555555556,
+      "window_val_balacc": 0.5719334451602758,
+      "window_val_macroF1": 0.4713787350855465,
+      "subject_acc": 0.5384615384615384,
+      "subject_balacc": 0.5714285714285714,
+      "subject_macroF1": 0.4583333333333333,
+      "best_val_balacc": 0.5719334451602758,
+      "confusion_matrix": [
+        [
+          1903,
+          13
+        ],
+        [
+          1759,
+          312
+        ]
+      ]
+    }
+  ],
+  "aggregate": {
+    "window_acc_mean": 0.6713016487993364,
+    "window_acc_std": 0.10067791892096101,
+    "window_balacc_mean": 0.6811080340040779,
+    "window_balacc_std": 0.08779733618846734,
+    "window_macroF1_mean": 0.6322362487541369,
+    "window_macroF1_std": 0.1262726557092254,
+    "subject_acc_mean": 0.7230769230769231,
+    "subject_acc_std": 0.1726918793895665,
+    "subject_balacc_mean": 0.7380952380952381,
+    "subject_balacc_std": 0.15721499065923028,
+    "subject_macroF1_mean": 0.6892320261437909,
+    "subject_macroF1_std": 0.19894604068681448
+  },
+  "config": {
+    "fyp_root": "/home/e20212/FYP",
+    "dataset_root": "/home/e20212/FYP/datasets/Openneuro004504",
+    "out_dir": "data/ds004504_ad_cn_shards_v4",
+    "n_folds": 5,
+    "seed": 42,
+    "batch_size": 64,
+    "epochs": 100,
+    "lr": 0.0003,
+    "weight_decay": 0.05,
+    "max_grad_norm": 1.0,
+    "patience": 15,
+    "warmup_epochs": 5,
+    "num_workers": 2,
+    "cache_size": 4,
+    "label_smoothing": 0.1,
+    "mixup_alpha": 0.4,
+    "no_mixup": false,
+    "augment": true,
+    "no_augment": false,
+    "noise_std": 0.01,
+    "scale_lo": 0.8,
+    "scale_hi": 1.2,
+    "channel_drop_prob": 0.1,
+    "time_mask_max": 100,
+    "node_emb_dim": 64,
+    "temporal_kernel": 128,
+    "temporal_pool": 4,
+    "topk": 8,
+    "gat_hidden": 128,
+    "gat_heads": 8,
+    "gnn_layers": 2,
+    "frontend_dropout": 0.5,
+    "gnn_dropout": 0.5,
+    "classifier_dropout": 0.5,
+    "teecn_dropout": 0.3,
+    "graph_self_loops": false
+  }
+}

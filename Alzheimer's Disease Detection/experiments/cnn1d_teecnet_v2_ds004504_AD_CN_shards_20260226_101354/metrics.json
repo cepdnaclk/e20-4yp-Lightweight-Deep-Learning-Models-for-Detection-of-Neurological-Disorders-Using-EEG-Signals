@@ -1,0 +1,50 @@
+{
+  "run_name": "cnn1d_teecnet_v2_ds004504_AD_CN_shards_20260226_101354",
+  "tag": "ds004504_AD_CN_shards",
+  "train_time_sec": 478.05135345458984,
+  "train_windows": 8482,
+  "eval_windows": 2068,
+  "final_val_loss": 1.0983814009730082,
+  "final_val_acc": 0.6876208897485493,
+  "final_val_balanced_acc": 0.6874087857045525,
+  "final_val_macro_f1": 0.6868288493059229,
+  "best_val_balanced_acc": 0.6874087857045525,
+  "classification_report": {
+    "CN(0)": {
+      "precision": 0.6583416583416584,
+      "recall": 0.6843198338525441,
+      "f1-score": 0.6710794297352343,
+      "support": 963.0
+    },
+    "AD(1)": {
+      "precision": 0.7150890346766635,
+      "recall": 0.6904977375565611,
+      "f1-score": 0.7025782688766115,
+      "support": 1105.0
+    },
+    "accuracy": 0.6876208897485493,
+    "macro avg": {
+      "precision": 0.6867153465091609,
+      "recall": 0.6874087857045525,
+      "f1-score": 0.6868288493059229,
+      "support": 2068.0
+    },
+    "weighted avg": {
+      "precision": 0.6886636365090572,
+      "recall": 0.6876208897485493,
+      "f1-score": 0.6879102891410475,
+      "support": 2068.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      659,
+      304
+    ],
+    [
+      342,
+      763
+    ]
+  ],
+  "model_params": 120771
+}

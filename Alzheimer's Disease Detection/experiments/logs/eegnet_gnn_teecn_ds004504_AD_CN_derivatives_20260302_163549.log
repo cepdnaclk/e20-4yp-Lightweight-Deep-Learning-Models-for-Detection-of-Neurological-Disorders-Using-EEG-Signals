@@ -1,0 +1,54 @@
+2026-03-02 16:35:49,571 | INFO | Logging to: /home/e20212/FYP/experiments/logs/eegnet_gnn_teecn_ds004504_AD_CN_derivatives_20260302_163549.log
+2026-03-02 16:35:49,571 | INFO | ========== RUN START ==========
+2026-03-02 16:35:49,571 | INFO | FYP root     : /home/e20212/FYP
+2026-03-02 16:35:49,571 | INFO | Dataset root : /home/e20212/FYP/datasets/Openneuro004504
+2026-03-02 16:35:49,571 | INFO | Out dir      : /home/e20212/FYP/data/ds004504_ad_cn_shards
+2026-03-02 16:35:49,584 | INFO | Device: cuda
+2026-03-02 16:35:49,620 | INFO | GPU: NVIDIA RTX 6000 Ada Generation
+2026-03-02 16:35:49,872 | INFO | Subjects present in derivatives: 88
+2026-03-02 16:35:49,872 | INFO | Binary subjects (AD+CN)        : 65 | AD=36 CN=29
+2026-03-02 16:35:49,874 | INFO | Split by subject: train=52 eval=13
+2026-03-02 16:35:49,877 | INFO | Shards already exist. Skipping rebuild.
+2026-03-02 16:35:49,877 | INFO | ========== LOADING SHARDS ==========
+2026-03-02 16:35:49,880 | INFO | [train] shard 0: n=1413 | X_0.npy
+2026-03-02 16:35:49,884 | INFO | [train] shard 1: n=1413 | X_1.npy
+2026-03-02 16:35:49,888 | INFO | [train] shard 2: n=1413 | X_2.npy
+2026-03-02 16:35:49,894 | INFO | [train] shard 3: n=1413 | X_3.npy
+2026-03-02 16:35:49,898 | INFO | [train] shard 4: n=1413 | X_4.npy
+2026-03-02 16:35:49,902 | INFO | [train] shard 5: n=1413 | X_5.npy
+2026-03-02 16:35:49,905 | INFO | [train] shard 6: n=4 | X_6.npy
+2026-03-02 16:35:49,917 | INFO | [eval] shard 0: n=1413 | X_0.npy
+2026-03-02 16:35:49,920 | INFO | [eval] shard 1: n=655 | X_1.npy
+2026-03-02 16:35:49,924 | INFO | Input shape: (C=19, T=2500) | Example y=1
+2026-03-02 16:35:50,090 | INFO | Train label counts: {0: 3816, 1: 4666}
+2026-03-02 16:35:50,091 | INFO | Class weights     : [1.1002122141002477, 0.8997877858997524]
+2026-03-02 16:35:50,218 | INFO | ========== TRAINING ==========
+2026-03-02 16:36:37,861 | INFO | Epoch 001/30 | train_loss=0.6024 train_acc=0.6572 | val_loss=0.6009 val_acc=0.6949 val_balacc=0.6741 val_macroF1=0.6527 | lr=1.00e-03
+2026-03-02 16:36:53,296 | INFO | Epoch 002/30 | train_loss=0.5005 train_acc=0.7642 | val_loss=0.3931 val_acc=0.8235 val_balacc=0.8184 val_macroF1=0.8204 | lr=1.00e-03
+2026-03-02 16:37:20,995 | INFO | Epoch 003/30 | train_loss=0.4835 train_acc=0.7734 | val_loss=0.3931 val_acc=0.8457 val_balacc=0.8423 val_macroF1=0.8439 | lr=1.00e-03
+2026-03-02 16:37:45,103 | INFO | Epoch 004/30 | train_loss=0.4689 train_acc=0.7834 | val_loss=0.4982 val_acc=0.7495 val_balacc=0.7335 val_macroF1=0.7275 | lr=1.00e-03
+2026-03-02 16:38:08,043 | INFO | Epoch 005/30 | train_loss=0.4661 train_acc=0.7868 | val_loss=0.6001 val_acc=0.6755 val_balacc=0.6529 val_macroF1=0.6228 | lr=1.00e-03
+2026-03-02 16:38:55,241 | INFO | Epoch 006/30 | train_loss=0.4464 train_acc=0.7998 | val_loss=0.3994 val_acc=0.8177 val_balacc=0.8115 val_macroF1=0.8138 | lr=5.00e-04
+2026-03-02 16:39:11,179 | INFO | Epoch 007/30 | train_loss=0.4354 train_acc=0.8036 | val_loss=0.4902 val_acc=0.7631 val_balacc=0.7484 val_macroF1=0.7452 | lr=5.00e-04
+2026-03-02 16:39:38,960 | INFO | Epoch 008/30 | train_loss=0.4354 train_acc=0.8084 | val_loss=0.4639 val_acc=0.7761 val_balacc=0.7629 val_macroF1=0.7619 | lr=5.00e-04
+2026-03-02 16:40:02,499 | INFO | Epoch 009/30 | train_loss=0.4296 train_acc=0.8084 | val_loss=0.4708 val_acc=0.7761 val_balacc=0.7631 val_macroF1=0.7623 | lr=2.50e-04
+2026-03-02 16:40:02,499 | INFO | Early stopping triggered.
+2026-03-02 16:40:02,499 | INFO | Training time (sec): 252.28
+2026-03-02 16:40:02,537 | INFO | Restored best model (best_val_balacc=0.8423)
+2026-03-02 16:40:02,537 | INFO | ========== EVALUATION ==========
+2026-03-02 16:40:04,362 | INFO | Classification report:
+              precision    recall  f1-score   support
+
+       CN(0)     0.8651    0.7923    0.8271       963
+       AD(1)     0.8314    0.8923    0.8608      1105
+
+    accuracy                         0.8457      2068
+   macro avg     0.8482    0.8423    0.8439      2068
+weighted avg     0.8471    0.8457    0.8451      2068
+
+2026-03-02 16:40:04,362 | INFO | Confusion matrix:
+[[763 200]
+ [119 986]]
+2026-03-02 16:40:04,400 | INFO | Saved model   : /home/e20212/FYP/models/eegnet_gnn_teecn_ds004504_AD_CN_derivatives_20260302_163549.pt
+2026-03-02 16:40:04,400 | INFO | Saved metrics : /home/e20212/FYP/experiments/eegnet_gnn_teecn_ds004504_AD_CN_derivatives_20260302_163549/metrics.json
+2026-03-02 16:40:04,400 | INFO | ========== RUN END ==========

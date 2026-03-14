@@ -1,0 +1,131 @@
+2026-03-09 16:29:11,352 | INFO | Logging to: /home/e20212/FYP/experiments/logs/train_eegnet_ds006036.log
+2026-03-09 16:29:11,352 | INFO | ========== RUN START ==========
+2026-03-09 16:29:11,352 | INFO | FYP root: /home/e20212/FYP
+2026-03-09 16:29:11,352 | INFO | Data dir: /home/e20212/FYP/data/ds006036_preprocessed_shards
+2026-03-09 16:29:11,358 | INFO | Train dir exists: True | /home/e20212/FYP/data/ds006036_preprocessed_shards/train
+2026-03-09 16:29:11,362 | INFO | Eval dir exists : True | /home/e20212/FYP/data/ds006036_preprocessed_shards/eval
+2026-03-09 16:29:11,362 | INFO | Python: 3.9.25 (main, Nov  3 2025, 22:33:05) 
+[GCC 11.2.0]
+2026-03-09 16:29:11,463 | INFO | Device: cuda
+2026-03-09 16:29:11,463 | INFO | CUDA available: True
+2026-03-09 16:29:11,516 | INFO | GPU: NVIDIA RTX 6000 Ada Generation
+2026-03-09 16:29:11,566 | INFO | [train] shard 0: n=707 | X_0.npy
+2026-03-09 16:29:11,638 | INFO | [train] shard 1: n=707 | X_1.npy
+2026-03-09 16:29:11,681 | INFO | [train] shard 2: n=152 | X_2.npy
+2026-03-09 16:29:11,729 | INFO | [eval] shard 0: n=368 | X_0.npy
+2026-03-09 16:29:11,760 | INFO | X_tr shape: (1566, 19, 5000) | y_tr shape: (1566,)
+2026-03-09 16:29:11,760 | INFO | X_ev shape: (368, 19, 5000) | y_ev shape: (368,)
+2026-03-09 16:29:11,762 | INFO | Train labels: [0, 1]
+2026-03-09 16:29:11,763 | INFO | Train counts: {0: 791, 1: 775}
+2026-03-09 16:29:11,942 | INFO | EEGNet(
+  (raw_stem): Sequential(
+    (0): Conv1d(19, 48, kernel_size=(15,), stride=(2,), padding=(7,), bias=False)
+    (1): BatchNorm1d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): SiLU()
+    (3): SE1D(
+      (fc1): Linear(in_features=48, out_features=6, bias=True)
+      (fc2): Linear(in_features=6, out_features=48, bias=True)
+    )
+  )
+  (block1): DSConvBlock(
+    (dw): Conv1d(48, 48, kernel_size=(11,), stride=(2,), padding=(5,), groups=48, bias=False)
+    (pw): Conv1d(48, 64, kernel_size=(1,), stride=(1,), bias=False)
+    (bn): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (act): SiLU()
+    (se): SE1D(
+      (fc1): Linear(in_features=64, out_features=8, bias=True)
+      (fc2): Linear(in_features=8, out_features=64, bias=True)
+    )
+    (drop): Dropout(p=0.1, inplace=False)
+  )
+  (block2): DSConvBlock(
+    (dw): Conv1d(64, 64, kernel_size=(7,), stride=(2,), padding=(3,), groups=64, bias=False)
+    (pw): Conv1d(64, 96, kernel_size=(1,), stride=(1,), bias=False)
+    (bn): BatchNorm1d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (act): SiLU()
+    (se): SE1D(
+      (fc1): Linear(in_features=96, out_features=12, bias=True)
+      (fc2): Linear(in_features=12, out_features=96, bias=True)
+    )
+    (drop): Dropout(p=0.12, inplace=False)
+  )
+  (block3): DSConvBlock(
+    (dw): Conv1d(96, 96, kernel_size=(5,), stride=(2,), padding=(2,), groups=96, bias=False)
+    (pw): Conv1d(96, 128, kernel_size=(1,), stride=(1,), bias=False)
+    (bn): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (act): SiLU()
+    (se): SE1D(
+      (fc1): Linear(in_features=128, out_features=16, bias=True)
+      (fc2): Linear(in_features=16, out_features=128, bias=True)
+    )
+    (drop): Dropout(p=0.15, inplace=False)
+  )
+  (attn): Conv1d(128, 1, kernel_size=(1,), stride=(1,))
+  (spectral): SpectralBandPower()
+  (spec_proj): Sequential(
+    (0): Linear(in_features=95, out_features=96, bias=True)
+    (1): SiLU()
+    (2): Dropout(p=0.15, inplace=False)
+    (3): Linear(in_features=96, out_features=64, bias=True)
+    (4): SiLU()
+  )
+  (fuse): Sequential(
+    (0): Linear(in_features=192, out_features=128, bias=True)
+    (1): SiLU()
+    (2): Dropout(p=0.2, inplace=False)
+  )
+  (head): Sequential(
+    (0): Linear(in_features=128, out_features=64, bias=True)
+    (1): SiLU()
+    (2): Dropout(p=0.2, inplace=False)
+    (3): Linear(in_features=64, out_features=2, bias=True)
+  )
+)
+2026-03-09 16:29:23,985 | INFO | ========== TRAINING ==========
+2026-03-09 16:29:29,792 | INFO | Epoch 001/40 | train_loss=0.6836 train_acc=0.5549 | val_loss=0.6891 val_acc=0.4348 val_bal_acc=0.5540 val_macro_f1=0.3836 | lr=1.00e-03
+2026-03-09 16:29:32,522 | INFO | Epoch 002/40 | train_loss=0.6179 train_acc=0.6367 | val_loss=0.5831 val_acc=0.7120 val_bal_acc=0.6204 val_macro_f1=0.6131 | lr=1.00e-03
+2026-03-09 16:29:35,884 | INFO | Epoch 003/40 | train_loss=0.5269 train_acc=0.7522 | val_loss=0.5584 val_acc=0.7473 val_bal_acc=0.6641 val_macro_f1=0.6690 | lr=1.00e-03
+2026-03-09 16:29:39,488 | INFO | Epoch 004/40 | train_loss=0.4237 train_acc=0.7989 | val_loss=0.6137 val_acc=0.7038 val_bal_acc=0.6507 val_macro_f1=0.6561 | lr=1.00e-03
+2026-03-09 16:29:42,795 | INFO | Epoch 005/40 | train_loss=0.3573 train_acc=0.8269 | val_loss=0.5073 val_acc=0.7473 val_bal_acc=0.6833 val_macro_f1=0.6928 | lr=1.00e-03
+2026-03-09 16:29:45,789 | INFO | Epoch 006/40 | train_loss=0.3218 train_acc=0.8352 | val_loss=1.9177 val_acc=0.7147 val_bal_acc=0.6114 val_macro_f1=0.5934 | lr=1.00e-03
+2026-03-09 16:29:48,717 | INFO | Epoch 007/40 | train_loss=0.3606 train_acc=0.8397 | val_loss=0.9147 val_acc=0.5163 val_bal_acc=0.6149 val_macro_f1=0.4971 | lr=1.00e-03
+2026-03-09 16:29:51,905 | INFO | Epoch 008/40 | train_loss=0.2994 train_acc=0.8627 | val_loss=0.6991 val_acc=0.7147 val_bal_acc=0.7294 val_macro_f1=0.7086 | lr=1.00e-03
+2026-03-09 16:29:55,531 | INFO | Epoch 009/40 | train_loss=0.2545 train_acc=0.8799 | val_loss=2.2626 val_acc=0.4511 val_bal_acc=0.5684 val_macro_f1=0.4054 | lr=1.00e-03
+2026-03-09 16:29:58,271 | INFO | Epoch 010/40 | train_loss=0.1891 train_acc=0.9170 | val_loss=1.3460 val_acc=0.6386 val_bal_acc=0.6728 val_macro_f1=0.6374 | lr=1.00e-03
+2026-03-09 16:30:01,144 | INFO | Epoch 011/40 | train_loss=0.2084 train_acc=0.9215 | val_loss=1.7240 val_acc=0.4973 val_bal_acc=0.6031 val_macro_f1=0.4703 | lr=5.00e-04
+2026-03-09 16:30:03,811 | INFO | Epoch 012/40 | train_loss=0.1825 train_acc=0.9317 | val_loss=0.9619 val_acc=0.7038 val_bal_acc=0.7240 val_macro_f1=0.6993 | lr=5.00e-04
+2026-03-09 16:30:07,022 | INFO | Epoch 013/40 | train_loss=0.1497 train_acc=0.9406 | val_loss=1.3710 val_acc=0.7092 val_bal_acc=0.7459 val_macro_f1=0.7079 | lr=5.00e-04
+2026-03-09 16:30:09,826 | INFO | Epoch 014/40 | train_loss=0.1213 train_acc=0.9489 | val_loss=1.3341 val_acc=0.7065 val_bal_acc=0.7453 val_macro_f1=0.7055 | lr=5.00e-04
+2026-03-09 16:30:12,629 | INFO | Epoch 015/40 | train_loss=0.1013 train_acc=0.9610 | val_loss=1.9498 val_acc=0.6739 val_bal_acc=0.7213 val_macro_f1=0.6738 | lr=5.00e-04
+2026-03-09 16:30:15,407 | INFO | Epoch 016/40 | train_loss=0.0746 train_acc=0.9719 | val_loss=1.5328 val_acc=0.7283 val_bal_acc=0.6938 val_macro_f1=0.6983 | lr=2.50e-04
+2026-03-09 16:30:18,060 | INFO | Epoch 017/40 | train_loss=0.0487 train_acc=0.9866 | val_loss=2.3071 val_acc=0.7065 val_bal_acc=0.7485 val_macro_f1=0.7058 | lr=2.50e-04
+2026-03-09 16:30:20,860 | INFO | Epoch 018/40 | train_loss=0.0563 train_acc=0.9789 | val_loss=2.6032 val_acc=0.6196 val_bal_acc=0.6769 val_macro_f1=0.6193 | lr=2.50e-04
+2026-03-09 16:30:23,729 | INFO | Epoch 019/40 | train_loss=0.0580 train_acc=0.9764 | val_loss=1.7729 val_acc=0.6848 val_bal_acc=0.6979 val_macro_f1=0.6784 | lr=2.50e-04
+2026-03-09 16:30:26,353 | INFO | Epoch 020/40 | train_loss=0.0550 train_acc=0.9815 | val_loss=1.8628 val_acc=0.6902 val_bal_acc=0.7165 val_macro_f1=0.6872 | lr=1.25e-04
+2026-03-09 16:30:28,980 | INFO | Epoch 021/40 | train_loss=0.0347 train_acc=0.9885 | val_loss=2.5652 val_acc=0.6658 val_bal_acc=0.7260 val_macro_f1=0.6656 | lr=1.25e-04
+2026-03-09 16:30:32,030 | INFO | Epoch 022/40 | train_loss=0.0433 train_acc=0.9872 | val_loss=2.0492 val_acc=0.7120 val_bal_acc=0.7432 val_macro_f1=0.7098 | lr=1.25e-04
+2026-03-09 16:30:34,728 | INFO | Epoch 023/40 | train_loss=0.0286 train_acc=0.9917 | val_loss=2.6312 val_acc=0.6685 val_bal_acc=0.7186 val_macro_f1=0.6684 | lr=6.25e-05
+2026-03-09 16:30:37,784 | INFO | Epoch 024/40 | train_loss=0.0403 train_acc=0.9828 | val_loss=2.5569 val_acc=0.6984 val_bal_acc=0.7373 val_macro_f1=0.6974 | lr=6.25e-05
+2026-03-09 16:30:40,451 | INFO | Epoch 025/40 | train_loss=0.0272 train_acc=0.9898 | val_loss=2.6229 val_acc=0.6902 val_bal_acc=0.7261 val_macro_f1=0.6889 | lr=6.25e-05
+2026-03-09 16:30:40,451 | INFO | Early stopping triggered.
+2026-03-09 16:30:40,451 | INFO | Training time (s): 76.47
+2026-03-09 16:30:40,452 | INFO | Restored best model (best_epoch=17, best_val_bal_acc=0.7485).
+2026-03-09 16:30:40,453 | INFO | ========== EVALUATION ==========
+2026-03-09 16:30:41,147 | INFO | Classification report:
+              precision    recall  f1-score   support
+
+       CN(0)     0.9145    0.5940    0.7202       234
+       AD(1)     0.5602    0.9030    0.6914       134
+
+    accuracy                         0.7065       368
+   macro avg     0.7373    0.7485    0.7058       368
+weighted avg     0.7855    0.7065    0.7097       368
+
+2026-03-09 16:30:41,147 | INFO | Confusion matrix:
+[[139  95]
+ [ 13 121]]
+2026-03-09 16:30:41,147 | INFO | Final val_loss=2.3071 val_acc=0.7065 val_bal_acc=0.7485 val_macro_f1=0.7058
+2026-03-09 16:30:41,202 | INFO | Saved model weights: /home/e20212/FYP/models/train_eegnet_ds006036.pt
+2026-03-09 16:30:41,202 | INFO | Saved metrics: /home/e20212/FYP/experiments/train_eegnet_ds006036/metrics.json
+2026-03-09 16:30:41,202 | INFO | Saved confusion matrix: /home/e20212/FYP/experiments/train_eegnet_ds006036/confusion_matrix.npy
+2026-03-09 16:30:41,202 | INFO | ========== RUN END ==========

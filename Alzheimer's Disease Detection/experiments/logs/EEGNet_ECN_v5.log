@@ -1,0 +1,250 @@
+2026-03-14 08:53:02,600 | INFO | Logging to: /home/e20212/FYP/experiments/logs/EEGNet_ECN_v5.log
+2026-03-14 08:53:02,601 | INFO | ========== RUN START ==========
+2026-03-14 08:53:02,601 | INFO | Run name    : EEGNet_ECN_v5
+2026-03-14 08:53:02,601 | INFO | FYP root    : /home/e20212/FYP
+2026-03-14 08:53:02,601 | INFO | Shards root : /home/e20212/FYP/data/ds004504_preprocessed_shards
+2026-03-14 08:53:02,673 | INFO | Device: cuda | AMP: True
+2026-03-14 08:53:02,725 | INFO | GPU: NVIDIA RTX 6000 Ada Generation
+2026-03-14 08:53:02,725 | INFO | ========== LOADING EXISTING SHARDS ==========
+2026-03-14 08:53:02,774 | INFO | [train] shard 0: n=707 | X_0.npy
+2026-03-14 08:53:02,836 | INFO | [train] shard 1: n=707 | X_1.npy
+2026-03-14 08:53:02,892 | INFO | [train] shard 2: n=707 | X_2.npy
+2026-03-14 08:53:02,917 | INFO | [train] shard 3: n=707 | X_3.npy
+2026-03-14 08:53:02,961 | INFO | [train] shard 4: n=707 | X_4.npy
+2026-03-14 08:53:03,008 | INFO | [train] shard 5: n=668 | X_5.npy
+2026-03-14 08:53:03,056 | INFO | [eval] shard 0: n=707 | X_0.npy
+2026-03-14 08:53:03,074 | INFO | [eval] shard 1: n=317 | X_1.npy
+2026-03-14 08:53:03,096 | INFO | Input shape: (C=19, T=5000) | Example y=1 | Example subject=sub-001
+2026-03-14 08:53:03,098 | INFO | Total windows : 5227
+2026-03-14 08:53:03,098 | INFO | Total subjects: 65 | AD=36 CN=29
+2026-03-14 08:53:03,114 | INFO | 
+2026-03-14 08:53:03,114 | INFO | ======================================================================
+2026-03-14 08:53:03,114 | INFO | FOLD 1/5
+2026-03-14 08:53:03,114 | INFO | ======================================================================
+2026-03-14 08:53:03,114 | INFO | Fold 1 | train_subjects=52 val_subjects=13 | train_windows=4169 val_windows=1058
+2026-03-14 08:53:03,265 | INFO | Fold 1 | Train subject counts by class: {1: 28, 0: 24}
+2026-03-14 08:53:03,265 | INFO | Fold 1 | Class weights: [1.0769230127334595, 0.9230769276618958]
+2026-03-14 08:53:03,425 | INFO | Fold 1 | Base params=94,333 | ECN params=132,804
+2026-03-14 08:53:03,425 | INFO | Fold 1 | Loss: CrossEntropyLoss with class weights
+2026-03-14 08:54:14,317 | INFO | [BASE] Epoch 001/35 | train_loss=0.5435 train_acc=0.7114 | val_win_loss=0.6995 val_win_balacc=0.6688 val_subj_balacc=0.7000 val_subj_macroF1=0.7068 | lr=1.00e-03
+2026-03-14 08:56:29,937 | INFO | [BASE] Epoch 002/35 | train_loss=0.3442 train_acc=0.8484 | val_win_loss=0.3694 val_win_balacc=0.7417 val_subj_balacc=0.8000 val_subj_macroF1=0.8194 | lr=1.00e-03
+2026-03-14 08:57:51,846 | INFO | [BASE] Epoch 003/35 | train_loss=0.2220 train_acc=0.9108 | val_win_loss=0.5739 val_win_balacc=0.7873 val_subj_balacc=0.8375 val_subj_macroF1=0.8375 | lr=1.00e-03
+2026-03-14 08:59:11,207 | INFO | [BASE] Epoch 004/35 | train_loss=0.1436 train_acc=0.9388 | val_win_loss=1.2703 val_win_balacc=0.6912 val_subj_balacc=0.7000 val_subj_macroF1=0.7068 | lr=1.00e-03
+2026-03-14 09:00:11,318 | INFO | [BASE] Epoch 005/35 | train_loss=0.1612 train_acc=0.9376 | val_win_loss=1.3863 val_win_balacc=0.6778 val_subj_balacc=0.7000 val_subj_macroF1=0.7068 | lr=1.00e-03
+2026-03-14 09:00:58,667 | INFO | [BASE] Epoch 006/35 | train_loss=0.1225 train_acc=0.9496 | val_win_loss=0.9881 val_win_balacc=0.6837 val_subj_balacc=0.7000 val_subj_macroF1=0.7068 | lr=5.00e-04
+2026-03-14 09:02:06,553 | INFO | [BASE] Epoch 007/35 | train_loss=0.0853 train_acc=0.9686 | val_win_loss=1.3629 val_win_balacc=0.7021 val_subj_balacc=0.7000 val_subj_macroF1=0.7068 | lr=5.00e-04
+2026-03-14 09:02:16,777 | INFO | [BASE] Epoch 008/35 | train_loss=0.0627 train_acc=0.9775 | val_win_loss=1.0525 val_win_balacc=0.8271 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=5.00e-04
+2026-03-14 09:02:26,213 | INFO | [BASE] Epoch 009/35 | train_loss=0.0593 train_acc=0.9782 | val_win_loss=1.4634 val_win_balacc=0.7223 val_subj_balacc=0.7125 val_subj_macroF1=0.6905 | lr=5.00e-04
+2026-03-14 09:02:39,812 | INFO | [BASE] Epoch 010/35 | train_loss=0.0526 train_acc=0.9822 | val_win_loss=0.7507 val_win_balacc=0.8721 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=5.00e-04
+2026-03-14 09:02:54,025 | INFO | [BASE] Epoch 011/35 | train_loss=0.0486 train_acc=0.9811 | val_win_loss=0.8746 val_win_balacc=0.8491 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=2.50e-04
+2026-03-14 09:03:03,139 | INFO | [BASE] Epoch 012/35 | train_loss=0.0260 train_acc=0.9904 | val_win_loss=1.4276 val_win_balacc=0.8194 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=2.50e-04
+2026-03-14 09:03:12,603 | INFO | [BASE] Epoch 013/35 | train_loss=0.0251 train_acc=0.9916 | val_win_loss=1.4609 val_win_balacc=0.8525 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=2.50e-04
+2026-03-14 09:03:22,559 | INFO | [BASE] Epoch 014/35 | train_loss=0.0240 train_acc=0.9914 | val_win_loss=1.3375 val_win_balacc=0.8331 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=1.25e-04
+2026-03-14 09:03:32,032 | INFO | [BASE] Epoch 015/35 | train_loss=0.0218 train_acc=0.9926 | val_win_loss=1.6792 val_win_balacc=0.8188 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=1.25e-04
+2026-03-14 09:03:41,347 | INFO | [BASE] Epoch 016/35 | train_loss=0.0232 train_acc=0.9914 | val_win_loss=1.7455 val_win_balacc=0.7922 val_subj_balacc=0.8000 val_subj_macroF1=0.8194 | lr=1.25e-04
+2026-03-14 09:03:41,348 | INFO | [BASE] Early stopping triggered.
+2026-03-14 09:03:41,504 | INFO | [BASE] Restored best model (best_subject_balacc=0.9000)
+2026-03-14 09:03:57,583 | INFO | [ECN+] Epoch 001/15 | train_loss=0.0316 train_acc=0.9906 delta_mag=0.0141 gate_mean=0.2521 | val_win_loss=1.2246 val_win_balacc=0.7792 val_subj_balacc=0.7000 val_subj_macroF1=0.7068 | lr=5.00e-04
+2026-03-14 09:04:12,122 | INFO | [ECN+] Epoch 002/15 | train_loss=0.0191 train_acc=0.9942 delta_mag=0.0248 gate_mean=0.2295 | val_win_loss=1.1358 val_win_balacc=0.8331 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=5.00e-04
+2026-03-14 09:04:27,331 | INFO | [ECN+] Epoch 003/15 | train_loss=0.0219 train_acc=0.9918 delta_mag=0.0242 gate_mean=0.2231 | val_win_loss=1.1762 val_win_balacc=0.8248 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=5.00e-04
+2026-03-14 09:04:43,436 | INFO | [ECN+] Epoch 004/15 | train_loss=0.0209 train_acc=0.9935 delta_mag=0.0251 gate_mean=0.2290 | val_win_loss=1.1654 val_win_balacc=0.8458 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=5.00e-04
+2026-03-14 09:04:53,707 | INFO | [ECN+] Epoch 005/15 | train_loss=0.0225 train_acc=0.9921 delta_mag=0.0219 gate_mean=0.2105 | val_win_loss=1.2182 val_win_balacc=0.7735 val_subj_balacc=0.7000 val_subj_macroF1=0.7068 | lr=2.50e-04
+2026-03-14 09:05:02,930 | INFO | [ECN+] Epoch 006/15 | train_loss=0.0139 train_acc=0.9964 delta_mag=0.0249 gate_mean=0.2326 | val_win_loss=1.1637 val_win_balacc=0.8072 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=2.50e-04
+2026-03-14 09:05:12,213 | INFO | [ECN+] Epoch 007/15 | train_loss=0.0191 train_acc=0.9938 delta_mag=0.0252 gate_mean=0.2356 | val_win_loss=1.1475 val_win_balacc=0.8413 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=2.50e-04
+2026-03-14 09:05:21,177 | INFO | [ECN+] Epoch 008/15 | train_loss=0.0198 train_acc=0.9933 delta_mag=0.0259 gate_mean=0.2442 | val_win_loss=1.1491 val_win_balacc=0.8228 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=1.25e-04
+2026-03-14 09:05:30,474 | INFO | [ECN+] Epoch 009/15 | train_loss=0.0137 train_acc=0.9962 delta_mag=0.0261 gate_mean=0.2389 | val_win_loss=1.1411 val_win_balacc=0.8509 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=1.25e-04
+2026-03-14 09:05:39,791 | INFO | [ECN+] Epoch 010/15 | train_loss=0.0168 train_acc=0.9954 delta_mag=0.0271 gate_mean=0.2430 | val_win_loss=1.1528 val_win_balacc=0.8459 val_subj_balacc=0.9000 val_subj_macroF1=0.9150 | lr=1.25e-04
+2026-03-14 09:05:39,792 | INFO | [ECN+] Early stopping triggered.
+2026-03-14 09:05:39,818 | INFO | [ECN+] Restored best ECN (best_subject_balacc=0.9000)
+2026-03-14 09:05:41,716 | INFO | Fold 1 FINAL | window_balacc=0.8331 window_macroF1=0.8470 subject_balacc=0.9000 subject_macroF1=0.9150
+2026-03-14 09:05:41,859 | INFO | Fold 1 model saved: /home/e20212/FYP/models/EEGNet_ECN_v5_fold1.pt
+2026-03-14 09:05:41,861 | INFO | 
+2026-03-14 09:05:41,861 | INFO | ======================================================================
+2026-03-14 09:05:41,861 | INFO | FOLD 2/5
+2026-03-14 09:05:41,861 | INFO | ======================================================================
+2026-03-14 09:05:41,861 | INFO | Fold 2 | train_subjects=52 val_subjects=13 | train_windows=4189 val_windows=1038
+2026-03-14 09:05:41,863 | INFO | Fold 2 | Train subject counts by class: {1: 29, 0: 23}
+2026-03-14 09:05:41,863 | INFO | Fold 2 | Class weights: [1.115384578704834, 0.8846153616905212]
+2026-03-14 09:05:42,033 | INFO | Fold 2 | Base params=94,333 | ECN params=132,804
+2026-03-14 09:05:42,033 | INFO | Fold 2 | Loss: CrossEntropyLoss with class weights
+2026-03-14 09:05:52,057 | INFO | [BASE] Epoch 001/35 | train_loss=0.5532 train_acc=0.7035 | val_win_loss=0.5169 val_win_balacc=0.7582 val_subj_balacc=0.7500 val_subj_macroF1=0.7451 | lr=1.00e-03
+2026-03-14 09:06:01,018 | INFO | [BASE] Epoch 002/35 | train_loss=0.3604 train_acc=0.8331 | val_win_loss=0.4745 val_win_balacc=0.7796 val_subj_balacc=0.8452 val_subj_macroF1=0.8452 | lr=1.00e-03
+2026-03-14 09:06:10,203 | INFO | [BASE] Epoch 003/35 | train_loss=0.2589 train_acc=0.8880 | val_win_loss=0.4793 val_win_balacc=0.7502 val_subj_balacc=0.7619 val_subj_macroF1=0.7636 | lr=1.00e-03
+2026-03-14 09:06:19,303 | INFO | [BASE] Epoch 004/35 | train_loss=0.1980 train_acc=0.9203 | val_win_loss=1.8016 val_win_balacc=0.5675 val_subj_balacc=0.5000 val_subj_macroF1=0.3500 | lr=1.00e-03
+2026-03-14 09:06:28,465 | INFO | [BASE] Epoch 005/35 | train_loss=0.1544 train_acc=0.9355 | val_win_loss=0.9019 val_win_balacc=0.7337 val_subj_balacc=0.7143 val_subj_macroF1=0.6750 | lr=5.00e-04
+2026-03-14 09:06:37,552 | INFO | [BASE] Epoch 006/35 | train_loss=0.1009 train_acc=0.9601 | val_win_loss=0.5838 val_win_balacc=0.7895 val_subj_balacc=0.8333 val_subj_macroF1=0.8375 | lr=5.00e-04
+2026-03-14 09:06:46,941 | INFO | [BASE] Epoch 007/35 | train_loss=0.0781 train_acc=0.9668 | val_win_loss=0.8845 val_win_balacc=0.7675 val_subj_balacc=0.7500 val_subj_macroF1=0.7451 | lr=5.00e-04
+2026-03-14 09:06:56,130 | INFO | [BASE] Epoch 008/35 | train_loss=0.0673 train_acc=0.9725 | val_win_loss=0.7228 val_win_balacc=0.7963 val_subj_balacc=0.8571 val_subj_macroF1=0.8452 | lr=5.00e-04
+2026-03-14 09:07:05,279 | INFO | [BASE] Epoch 009/35 | train_loss=0.0597 train_acc=0.9790 | val_win_loss=1.1771 val_win_balacc=0.7437 val_subj_balacc=0.6667 val_subj_macroF1=0.6389 | lr=5.00e-04
+2026-03-14 09:07:14,273 | INFO | [BASE] Epoch 010/35 | train_loss=0.0487 train_acc=0.9811 | val_win_loss=0.6313 val_win_balacc=0.8137 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=5.00e-04
+2026-03-14 09:07:23,187 | INFO | [BASE] Epoch 011/35 | train_loss=0.0528 train_acc=0.9826 | val_win_loss=0.8448 val_win_balacc=0.7741 val_subj_balacc=0.7857 val_subj_macroF1=0.7636 | lr=5.00e-04
+2026-03-14 09:07:32,424 | INFO | [BASE] Epoch 012/35 | train_loss=0.0495 train_acc=0.9821 | val_win_loss=0.7908 val_win_balacc=0.7977 val_subj_balacc=0.8333 val_subj_macroF1=0.8375 | lr=5.00e-04
+2026-03-14 09:07:41,732 | INFO | [BASE] Epoch 013/35 | train_loss=0.0244 train_acc=0.9912 | val_win_loss=0.8462 val_win_balacc=0.8132 val_subj_balacc=0.7857 val_subj_macroF1=0.7636 | lr=2.50e-04
+2026-03-14 09:07:51,054 | INFO | [BASE] Epoch 014/35 | train_loss=0.0238 train_acc=0.9916 | val_win_loss=1.3690 val_win_balacc=0.7159 val_subj_balacc=0.7500 val_subj_macroF1=0.7451 | lr=2.50e-04
+2026-03-14 09:08:00,195 | INFO | [BASE] Epoch 015/35 | train_loss=0.0175 train_acc=0.9936 | val_win_loss=0.9999 val_win_balacc=0.7897 val_subj_balacc=0.8571 val_subj_macroF1=0.8452 | lr=2.50e-04
+2026-03-14 09:08:09,542 | INFO | [BASE] Epoch 016/35 | train_loss=0.0250 train_acc=0.9900 | val_win_loss=0.9356 val_win_balacc=0.7809 val_subj_balacc=0.8571 val_subj_macroF1=0.8452 | lr=1.25e-04
+2026-03-14 09:08:18,943 | INFO | [BASE] Epoch 017/35 | train_loss=0.0119 train_acc=0.9947 | val_win_loss=0.7212 val_win_balacc=0.8273 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=1.25e-04
+2026-03-14 09:08:28,029 | INFO | [BASE] Epoch 018/35 | train_loss=0.0105 train_acc=0.9962 | val_win_loss=0.7716 val_win_balacc=0.8278 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=1.25e-04
+2026-03-14 09:08:28,029 | INFO | [BASE] Early stopping triggered.
+2026-03-14 09:08:28,172 | INFO | [BASE] Restored best model (best_subject_balacc=1.0000)
+2026-03-14 09:08:37,322 | INFO | [ECN+] Epoch 001/15 | train_loss=0.0166 train_acc=0.9938 delta_mag=0.0113 gate_mean=0.1714 | val_win_loss=0.7581 val_win_balacc=0.8266 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=5.00e-04
+2026-03-14 09:08:46,270 | INFO | [ECN+] Epoch 002/15 | train_loss=0.0149 train_acc=0.9947 delta_mag=0.0113 gate_mean=0.1131 | val_win_loss=0.7559 val_win_balacc=0.8298 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=5.00e-04
+2026-03-14 09:08:55,282 | INFO | [ECN+] Epoch 003/15 | train_loss=0.0128 train_acc=0.9950 delta_mag=0.0093 gate_mean=0.0955 | val_win_loss=0.7546 val_win_balacc=0.8259 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=5.00e-04
+2026-03-14 09:09:04,414 | INFO | [ECN+] Epoch 004/15 | train_loss=0.0153 train_acc=0.9945 delta_mag=0.0084 gate_mean=0.0915 | val_win_loss=0.7667 val_win_balacc=0.8278 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=2.50e-04
+2026-03-14 09:09:17,904 | INFO | [ECN+] Epoch 005/15 | train_loss=0.0147 train_acc=0.9952 delta_mag=0.0097 gate_mean=0.1025 | val_win_loss=0.6944 val_win_balacc=0.8295 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=2.50e-04
+2026-03-14 09:09:42,320 | INFO | [ECN+] Epoch 006/15 | train_loss=0.0096 train_acc=0.9969 delta_mag=0.0068 gate_mean=0.0792 | val_win_loss=0.7372 val_win_balacc=0.8275 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=2.50e-04
+2026-03-14 09:09:51,556 | INFO | [ECN+] Epoch 007/15 | train_loss=0.0080 train_acc=0.9986 delta_mag=0.0093 gate_mean=0.0990 | val_win_loss=0.7083 val_win_balacc=0.8255 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=2.50e-04
+2026-03-14 09:10:01,242 | INFO | [ECN+] Epoch 008/15 | train_loss=0.0108 train_acc=0.9957 delta_mag=0.0077 gate_mean=0.0924 | val_win_loss=0.7763 val_win_balacc=0.8305 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=2.50e-04
+2026-03-14 09:10:10,218 | INFO | [ECN+] Epoch 009/15 | train_loss=0.0083 train_acc=0.9967 delta_mag=0.0096 gate_mean=0.1163 | val_win_loss=0.7923 val_win_balacc=0.8319 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=2.50e-04
+2026-03-14 09:10:19,462 | INFO | [ECN+] Epoch 010/15 | train_loss=0.0110 train_acc=0.9969 delta_mag=0.0097 gate_mean=0.1186 | val_win_loss=0.7466 val_win_balacc=0.8287 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=1.25e-04
+2026-03-14 09:10:28,851 | INFO | [ECN+] Epoch 011/15 | train_loss=0.0081 train_acc=0.9986 delta_mag=0.0088 gate_mean=0.1166 | val_win_loss=0.8243 val_win_balacc=0.8287 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=1.25e-04
+2026-03-14 09:10:37,717 | INFO | [ECN+] Epoch 012/15 | train_loss=0.0090 train_acc=0.9979 delta_mag=0.0107 gate_mean=0.1318 | val_win_loss=0.8203 val_win_balacc=0.8296 val_subj_balacc=0.8333 val_subj_macroF1=0.8375 | lr=1.25e-04
+2026-03-14 09:10:46,637 | INFO | [ECN+] Epoch 013/15 | train_loss=0.0096 train_acc=0.9974 delta_mag=0.0111 gate_mean=0.1348 | val_win_loss=0.7864 val_win_balacc=0.8321 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=6.25e-05
+2026-03-14 09:10:55,808 | INFO | [ECN+] Epoch 014/15 | train_loss=0.0053 train_acc=0.9990 delta_mag=0.0120 gate_mean=0.1403 | val_win_loss=0.8462 val_win_balacc=0.8304 val_subj_balacc=0.8333 val_subj_macroF1=0.8375 | lr=6.25e-05
+2026-03-14 09:11:04,862 | INFO | [ECN+] Epoch 015/15 | train_loss=0.0053 train_acc=0.9990 delta_mag=0.0134 gate_mean=0.1483 | val_win_loss=0.8297 val_win_balacc=0.8295 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=6.25e-05
+2026-03-14 09:11:04,862 | INFO | [ECN+] Early stopping triggered.
+2026-03-14 09:11:04,905 | INFO | [ECN+] Restored best ECN (best_subject_balacc=1.0000)
+2026-03-14 09:11:06,189 | INFO | Fold 2 FINAL | window_balacc=0.8255 window_macroF1=0.8255 subject_balacc=1.0000 subject_macroF1=1.0000
+2026-03-14 09:11:06,280 | INFO | Fold 2 model saved: /home/e20212/FYP/models/EEGNet_ECN_v5_fold2.pt
+2026-03-14 09:11:06,282 | INFO | 
+2026-03-14 09:11:06,282 | INFO | ======================================================================
+2026-03-14 09:11:06,282 | INFO | FOLD 3/5
+2026-03-14 09:11:06,282 | INFO | ======================================================================
+2026-03-14 09:11:06,282 | INFO | Fold 3 | train_subjects=52 val_subjects=13 | train_windows=4151 val_windows=1076
+2026-03-14 09:11:06,284 | INFO | Fold 3 | Train subject counts by class: {1: 29, 0: 23}
+2026-03-14 09:11:06,284 | INFO | Fold 3 | Class weights: [1.115384578704834, 0.8846153616905212]
+2026-03-14 09:11:06,477 | INFO | Fold 3 | Base params=94,333 | ECN params=132,804
+2026-03-14 09:11:06,478 | INFO | Fold 3 | Loss: CrossEntropyLoss with class weights
+2026-03-14 09:11:15,580 | INFO | [BASE] Epoch 001/35 | train_loss=0.5669 train_acc=0.6709 | val_win_loss=0.6810 val_win_balacc=0.5683 val_subj_balacc=0.5833 val_subj_macroF1=0.5113 | lr=1.00e-03
+2026-03-14 09:11:24,928 | INFO | [BASE] Epoch 002/35 | train_loss=0.3647 train_acc=0.8304 | val_win_loss=0.4352 val_win_balacc=0.7792 val_subj_balacc=0.8571 val_subj_macroF1=0.8452 | lr=1.00e-03
+2026-03-14 09:11:33,836 | INFO | [BASE] Epoch 003/35 | train_loss=0.2687 train_acc=0.8889 | val_win_loss=0.6924 val_win_balacc=0.6958 val_subj_balacc=0.7143 val_subj_macroF1=0.6750 | lr=1.00e-03
+2026-03-14 09:11:43,069 | INFO | [BASE] Epoch 004/35 | train_loss=0.1774 train_acc=0.9285 | val_win_loss=0.5286 val_win_balacc=0.7236 val_subj_balacc=0.8333 val_subj_macroF1=0.8375 | lr=1.00e-03
+2026-03-14 09:11:52,368 | INFO | [BASE] Epoch 005/35 | train_loss=0.1665 train_acc=0.9304 | val_win_loss=0.5949 val_win_balacc=0.8077 val_subj_balacc=0.8571 val_subj_macroF1=0.8452 | lr=5.00e-04
+2026-03-14 09:12:01,419 | INFO | [BASE] Epoch 006/35 | train_loss=0.0923 train_acc=0.9668 | val_win_loss=0.6000 val_win_balacc=0.7564 val_subj_balacc=0.6667 val_subj_macroF1=0.6389 | lr=5.00e-04
+2026-03-14 09:12:10,443 | INFO | [BASE] Epoch 007/35 | train_loss=0.0674 train_acc=0.9749 | val_win_loss=0.3779 val_win_balacc=0.8232 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=5.00e-04
+2026-03-14 09:12:19,543 | INFO | [BASE] Epoch 008/35 | train_loss=0.0558 train_acc=0.9793 | val_win_loss=0.3998 val_win_balacc=0.8315 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=5.00e-04
+2026-03-14 09:12:28,541 | INFO | [BASE] Epoch 009/35 | train_loss=0.0761 train_acc=0.9723 | val_win_loss=0.9835 val_win_balacc=0.7590 val_subj_balacc=0.7857 val_subj_macroF1=0.7636 | lr=5.00e-04
+2026-03-14 09:12:37,796 | INFO | [BASE] Epoch 010/35 | train_loss=0.0348 train_acc=0.9889 | val_win_loss=0.2971 val_win_balacc=0.8831 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=5.00e-04
+2026-03-14 09:12:47,076 | INFO | [BASE] Epoch 011/35 | train_loss=0.0423 train_acc=0.9827 | val_win_loss=0.3494 val_win_balacc=0.8636 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=5.00e-04
+2026-03-14 09:12:56,157 | INFO | [BASE] Epoch 012/35 | train_loss=0.0534 train_acc=0.9781 | val_win_loss=1.5404 val_win_balacc=0.6308 val_subj_balacc=0.6667 val_subj_macroF1=0.6389 | lr=5.00e-04
+2026-03-14 09:13:05,227 | INFO | [BASE] Epoch 013/35 | train_loss=0.0215 train_acc=0.9911 | val_win_loss=0.4787 val_win_balacc=0.8178 val_subj_balacc=0.8333 val_subj_macroF1=0.8375 | lr=2.50e-04
+2026-03-14 09:13:14,193 | INFO | [BASE] Epoch 014/35 | train_loss=0.0229 train_acc=0.9906 | val_win_loss=0.2157 val_win_balacc=0.9091 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=2.50e-04
+2026-03-14 09:13:23,186 | INFO | [BASE] Epoch 015/35 | train_loss=0.0213 train_acc=0.9940 | val_win_loss=2.3076 val_win_balacc=0.7041 val_subj_balacc=0.7143 val_subj_macroF1=0.6750 | lr=2.50e-04
+2026-03-14 09:13:32,245 | INFO | [BASE] Epoch 016/35 | train_loss=0.0130 train_acc=0.9952 | val_win_loss=0.2618 val_win_balacc=0.8978 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=1.25e-04
+2026-03-14 09:13:41,205 | INFO | [BASE] Epoch 017/35 | train_loss=0.0092 train_acc=0.9971 | val_win_loss=0.2346 val_win_balacc=0.8950 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=1.25e-04
+2026-03-14 09:13:50,292 | INFO | [BASE] Epoch 018/35 | train_loss=0.0095 train_acc=0.9966 | val_win_loss=0.2025 val_win_balacc=0.9169 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=1.25e-04
+2026-03-14 09:13:50,293 | INFO | [BASE] Early stopping triggered.
+2026-03-14 09:13:50,389 | INFO | [BASE] Restored best model (best_subject_balacc=1.0000)
+2026-03-14 09:13:59,620 | INFO | [ECN+] Epoch 001/15 | train_loss=0.0182 train_acc=0.9940 delta_mag=0.0115 gate_mean=0.1813 | val_win_loss=0.3430 val_win_balacc=0.8748 val_subj_balacc=0.9286 val_subj_macroF1=0.9231 | lr=5.00e-04
+2026-03-14 09:14:08,714 | INFO | [ECN+] Epoch 002/15 | train_loss=0.0089 train_acc=0.9969 delta_mag=0.0145 gate_mean=0.1418 | val_win_loss=0.3383 val_win_balacc=0.8904 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=5.00e-04
+2026-03-14 09:14:17,886 | INFO | [ECN+] Epoch 003/15 | train_loss=0.0207 train_acc=0.9921 delta_mag=0.0103 gate_mean=0.1181 | val_win_loss=0.2835 val_win_balacc=0.8956 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=5.00e-04
+2026-03-14 09:14:26,920 | INFO | [ECN+] Epoch 004/15 | train_loss=0.0085 train_acc=0.9976 delta_mag=0.0125 gate_mean=0.1348 | val_win_loss=0.3640 val_win_balacc=0.8796 val_subj_balacc=0.9286 val_subj_macroF1=0.9231 | lr=5.00e-04
+2026-03-14 09:14:36,087 | INFO | [ECN+] Epoch 005/15 | train_loss=0.0111 train_acc=0.9961 delta_mag=0.0105 gate_mean=0.1107 | val_win_loss=0.4139 val_win_balacc=0.8742 val_subj_balacc=0.9286 val_subj_macroF1=0.9231 | lr=2.50e-04
+2026-03-14 09:14:45,252 | INFO | [ECN+] Epoch 006/15 | train_loss=0.0105 train_acc=0.9971 delta_mag=0.0109 gate_mean=0.1150 | val_win_loss=0.4847 val_win_balacc=0.8645 val_subj_balacc=0.8571 val_subj_macroF1=0.8452 | lr=2.50e-04
+2026-03-14 09:15:02,758 | INFO | [ECN+] Epoch 007/15 | train_loss=0.0108 train_acc=0.9971 delta_mag=0.0133 gate_mean=0.1323 | val_win_loss=0.4090 val_win_balacc=0.8707 val_subj_balacc=0.8571 val_subj_macroF1=0.8452 | lr=2.50e-04
+2026-03-14 09:15:11,984 | INFO | [ECN+] Epoch 008/15 | train_loss=0.0091 train_acc=0.9974 delta_mag=0.0120 gate_mean=0.1240 | val_win_loss=0.4827 val_win_balacc=0.8664 val_subj_balacc=0.8571 val_subj_macroF1=0.8452 | lr=1.25e-04
+2026-03-14 09:15:21,236 | INFO | [ECN+] Epoch 009/15 | train_loss=0.0111 train_acc=0.9971 delta_mag=0.0119 gate_mean=0.1212 | val_win_loss=0.2907 val_win_balacc=0.9080 val_subj_balacc=1.0000 val_subj_macroF1=1.0000 | lr=1.25e-04
+2026-03-14 09:15:30,253 | INFO | [ECN+] Epoch 010/15 | train_loss=0.0082 train_acc=0.9981 delta_mag=0.0112 gate_mean=0.1180 | val_win_loss=0.3832 val_win_balacc=0.8718 val_subj_balacc=0.9286 val_subj_macroF1=0.9231 | lr=1.25e-04
+2026-03-14 09:15:30,253 | INFO | [ECN+] Early stopping triggered.
+2026-03-14 09:15:30,261 | INFO | [ECN+] Restored best ECN (best_subject_balacc=1.0000)
+2026-03-14 09:15:31,806 | INFO | Fold 3 FINAL | window_balacc=0.8904 window_macroF1=0.8890 subject_balacc=1.0000 subject_macroF1=1.0000
+2026-03-14 09:15:31,900 | INFO | Fold 3 model saved: /home/e20212/FYP/models/EEGNet_ECN_v5_fold3.pt
+2026-03-14 09:15:31,900 | INFO | 
+2026-03-14 09:15:31,900 | INFO | ======================================================================
+2026-03-14 09:15:31,900 | INFO | FOLD 4/5
+2026-03-14 09:15:31,900 | INFO | ======================================================================
+2026-03-14 09:15:31,900 | INFO | Fold 4 | train_subjects=52 val_subjects=13 | train_windows=4162 val_windows=1065
+2026-03-14 09:15:31,900 | INFO | Fold 4 | Train subject counts by class: {1: 29, 0: 23}
+2026-03-14 09:15:31,900 | INFO | Fold 4 | Class weights: [1.115384578704834, 0.8846153616905212]
+2026-03-14 09:15:32,051 | INFO | Fold 4 | Base params=94,333 | ECN params=132,804
+2026-03-14 09:15:32,051 | INFO | Fold 4 | Loss: CrossEntropyLoss with class weights
+2026-03-14 09:15:41,261 | INFO | [BASE] Epoch 001/35 | train_loss=0.5141 train_acc=0.7283 | val_win_loss=0.6625 val_win_balacc=0.7143 val_subj_balacc=0.7143 val_subj_macroF1=0.6750 | lr=1.00e-03
+2026-03-14 09:15:50,430 | INFO | [BASE] Epoch 002/35 | train_loss=0.2454 train_acc=0.8938 | val_win_loss=0.3693 val_win_balacc=0.8384 val_subj_balacc=0.9167 val_subj_macroF1=0.9212 | lr=1.00e-03
+2026-03-14 09:16:00,790 | INFO | [BASE] Epoch 003/35 | train_loss=0.1584 train_acc=0.9368 | val_win_loss=0.6182 val_win_balacc=0.8037 val_subj_balacc=0.7738 val_subj_macroF1=0.7692 | lr=1.00e-03
+2026-03-14 09:16:30,302 | INFO | [BASE] Epoch 004/35 | train_loss=0.0969 train_acc=0.9587 | val_win_loss=1.8183 val_win_balacc=0.7176 val_subj_balacc=0.7143 val_subj_macroF1=0.6750 | lr=1.00e-03
+2026-03-14 09:16:46,735 | INFO | [BASE] Epoch 005/35 | train_loss=0.1480 train_acc=0.9428 | val_win_loss=0.7700 val_win_balacc=0.7972 val_subj_balacc=0.7738 val_subj_macroF1=0.7692 | lr=5.00e-04
+2026-03-14 09:16:57,079 | INFO | [BASE] Epoch 006/35 | train_loss=0.0829 train_acc=0.9654 | val_win_loss=0.7909 val_win_balacc=0.8419 val_subj_balacc=0.8452 val_subj_macroF1=0.8452 | lr=5.00e-04
+2026-03-14 09:17:06,595 | INFO | [BASE] Epoch 007/35 | train_loss=0.0479 train_acc=0.9803 | val_win_loss=0.9090 val_win_balacc=0.8143 val_subj_balacc=0.8452 val_subj_macroF1=0.8452 | lr=5.00e-04
+2026-03-14 09:17:21,668 | INFO | [BASE] Epoch 008/35 | train_loss=0.0352 train_acc=0.9856 | val_win_loss=0.9024 val_win_balacc=0.8302 val_subj_balacc=0.8452 val_subj_macroF1=0.8452 | lr=2.50e-04
+2026-03-14 09:17:57,268 | INFO | [BASE] Epoch 009/35 | train_loss=0.0360 train_acc=0.9856 | val_win_loss=1.0917 val_win_balacc=0.7950 val_subj_balacc=0.7738 val_subj_macroF1=0.7692 | lr=2.50e-04
+2026-03-14 09:18:20,072 | INFO | [BASE] Epoch 010/35 | train_loss=0.0294 train_acc=0.9894 | val_win_loss=1.5432 val_win_balacc=0.7689 val_subj_balacc=0.7738 val_subj_macroF1=0.7692 | lr=2.50e-04
+2026-03-14 09:18:20,072 | INFO | [BASE] Early stopping triggered.
+2026-03-14 09:18:20,201 | INFO | [BASE] Restored best model (best_subject_balacc=0.9167)
+2026-03-14 09:18:45,710 | INFO | [ECN+] Epoch 001/15 | train_loss=0.1636 train_acc=0.9370 delta_mag=0.0467 gate_mean=0.5076 | val_win_loss=0.8006 val_win_balacc=0.7249 val_subj_balacc=0.7857 val_subj_macroF1=0.7636 | lr=5.00e-04
+2026-03-14 09:19:07,256 | INFO | [ECN+] Epoch 002/15 | train_loss=0.1128 train_acc=0.9560 delta_mag=0.0630 gate_mean=0.5128 | val_win_loss=0.8139 val_win_balacc=0.7441 val_subj_balacc=0.7857 val_subj_macroF1=0.7636 | lr=5.00e-04
+2026-03-14 09:19:21,613 | INFO | [ECN+] Epoch 003/15 | train_loss=0.1019 train_acc=0.9620 delta_mag=0.0650 gate_mean=0.5307 | val_win_loss=0.6780 val_win_balacc=0.8176 val_subj_balacc=0.7738 val_subj_macroF1=0.7692 | lr=5.00e-04
+2026-03-14 09:19:31,187 | INFO | [ECN+] Epoch 004/15 | train_loss=0.0916 train_acc=0.9709 delta_mag=0.0696 gate_mean=0.5278 | val_win_loss=0.7666 val_win_balacc=0.8116 val_subj_balacc=0.8571 val_subj_macroF1=0.8452 | lr=5.00e-04
+2026-03-14 09:19:40,583 | INFO | [ECN+] Epoch 005/15 | train_loss=0.0839 train_acc=0.9743 delta_mag=0.0770 gate_mean=0.5689 | val_win_loss=0.6449 val_win_balacc=0.8285 val_subj_balacc=0.8452 val_subj_macroF1=0.8452 | lr=5.00e-04
+2026-03-14 09:19:49,658 | INFO | [ECN+] Epoch 006/15 | train_loss=0.0767 train_acc=0.9769 delta_mag=0.0880 gate_mean=0.6182 | val_win_loss=0.7635 val_win_balacc=0.8158 val_subj_balacc=0.9286 val_subj_macroF1=0.9231 | lr=5.00e-04
+2026-03-14 09:19:58,924 | INFO | [ECN+] Epoch 007/15 | train_loss=0.0670 train_acc=0.9796 delta_mag=0.0957 gate_mean=0.6602 | val_win_loss=0.9266 val_win_balacc=0.7687 val_subj_balacc=0.7857 val_subj_macroF1=0.7636 | lr=5.00e-04
+2026-03-14 09:20:08,246 | INFO | [ECN+] Epoch 008/15 | train_loss=0.0632 train_acc=0.9808 delta_mag=0.1010 gate_mean=0.6593 | val_win_loss=0.8572 val_win_balacc=0.8021 val_subj_balacc=0.8571 val_subj_macroF1=0.8452 | lr=5.00e-04
+2026-03-14 09:20:17,486 | INFO | [ECN+] Epoch 009/15 | train_loss=0.0582 train_acc=0.9844 delta_mag=0.0982 gate_mean=0.6212 | val_win_loss=1.1256 val_win_balacc=0.7168 val_subj_balacc=0.7143 val_subj_macroF1=0.6750 | lr=2.50e-04
+2026-03-14 09:20:26,735 | INFO | [ECN+] Epoch 010/15 | train_loss=0.0480 train_acc=0.9868 delta_mag=0.1048 gate_mean=0.6403 | val_win_loss=0.8825 val_win_balacc=0.8039 val_subj_balacc=0.8571 val_subj_macroF1=0.8452 | lr=2.50e-04
+2026-03-14 09:20:35,862 | INFO | [ECN+] Epoch 011/15 | train_loss=0.0426 train_acc=0.9899 delta_mag=0.1098 gate_mean=0.6667 | val_win_loss=0.9432 val_win_balacc=0.7929 val_subj_balacc=0.8571 val_subj_macroF1=0.8452 | lr=2.50e-04
+2026-03-14 09:20:45,269 | INFO | [ECN+] Epoch 012/15 | train_loss=0.0420 train_acc=0.9897 delta_mag=0.1108 gate_mean=0.6600 | val_win_loss=1.0061 val_win_balacc=0.7803 val_subj_balacc=0.8571 val_subj_macroF1=0.8452 | lr=1.25e-04
+2026-03-14 09:20:54,461 | INFO | [ECN+] Epoch 013/15 | train_loss=0.0486 train_acc=0.9861 delta_mag=0.1112 gate_mean=0.6678 | val_win_loss=0.9395 val_win_balacc=0.7875 val_subj_balacc=0.8452 val_subj_macroF1=0.8452 | lr=1.25e-04
+2026-03-14 09:21:03,686 | INFO | [ECN+] Epoch 014/15 | train_loss=0.0423 train_acc=0.9901 delta_mag=0.1099 gate_mean=0.6511 | val_win_loss=0.9049 val_win_balacc=0.7874 val_subj_balacc=0.8452 val_subj_macroF1=0.8452 | lr=1.25e-04
+2026-03-14 09:21:03,686 | INFO | [ECN+] Early stopping triggered.
+2026-03-14 09:21:03,750 | INFO | [ECN+] Restored best ECN (best_subject_balacc=0.9286)
+2026-03-14 09:21:05,055 | INFO | Fold 4 FINAL | window_balacc=0.8158 window_macroF1=0.8093 subject_balacc=0.9286 subject_macroF1=0.9231
+2026-03-14 09:21:05,148 | INFO | Fold 4 model saved: /home/e20212/FYP/models/EEGNet_ECN_v5_fold4.pt
+2026-03-14 09:21:05,148 | INFO | 
+2026-03-14 09:21:05,148 | INFO | ======================================================================
+2026-03-14 09:21:05,148 | INFO | FOLD 5/5
+2026-03-14 09:21:05,148 | INFO | ======================================================================
+2026-03-14 09:21:05,148 | INFO | Fold 5 | train_subjects=52 val_subjects=13 | train_windows=4237 val_windows=990
+2026-03-14 09:21:05,150 | INFO | Fold 5 | Train subject counts by class: {1: 29, 0: 23}
+2026-03-14 09:21:05,150 | INFO | Fold 5 | Class weights: [1.115384578704834, 0.8846153616905212]
+2026-03-14 09:21:05,368 | INFO | Fold 5 | Base params=94,333 | ECN params=132,804
+2026-03-14 09:21:05,368 | INFO | Fold 5 | Loss: CrossEntropyLoss with class weights
+2026-03-14 09:21:14,578 | INFO | [BASE] Epoch 001/35 | train_loss=0.5362 train_acc=0.6663 | val_win_loss=0.9352 val_win_balacc=0.6225 val_subj_balacc=0.6310 val_subj_macroF1=0.6061 | lr=1.00e-03
+2026-03-14 09:21:23,759 | INFO | [BASE] Epoch 002/35 | train_loss=0.2775 train_acc=0.8759 | val_win_loss=0.9331 val_win_balacc=0.5497 val_subj_balacc=0.6310 val_subj_macroF1=0.6061 | lr=1.00e-03
+2026-03-14 09:21:33,037 | INFO | [BASE] Epoch 003/35 | train_loss=0.1936 train_acc=0.9124 | val_win_loss=1.3121 val_win_balacc=0.5397 val_subj_balacc=0.4524 val_subj_macroF1=0.4485 | lr=1.00e-03
+2026-03-14 09:21:42,426 | INFO | [BASE] Epoch 004/35 | train_loss=0.1699 train_acc=0.9273 | val_win_loss=1.4640 val_win_balacc=0.5265 val_subj_balacc=0.5476 val_subj_macroF1=0.5357 | lr=5.00e-04
+2026-03-14 09:21:51,728 | INFO | [BASE] Epoch 005/35 | train_loss=0.1212 train_acc=0.9519 | val_win_loss=1.5675 val_win_balacc=0.5689 val_subj_balacc=0.6786 val_subj_macroF1=0.6750 | lr=5.00e-04
+2026-03-14 09:22:01,026 | INFO | [BASE] Epoch 006/35 | train_loss=0.1065 train_acc=0.9573 | val_win_loss=1.4213 val_win_balacc=0.5586 val_subj_balacc=0.6310 val_subj_macroF1=0.6061 | lr=5.00e-04
+2026-03-14 09:22:10,105 | INFO | [BASE] Epoch 007/35 | train_loss=0.0862 train_acc=0.9655 | val_win_loss=2.6343 val_win_balacc=0.5710 val_subj_balacc=0.5714 val_subj_macroF1=0.4583 | lr=5.00e-04
+2026-03-14 09:22:19,407 | INFO | [BASE] Epoch 008/35 | train_loss=0.0767 train_acc=0.9703 | val_win_loss=1.8902 val_win_balacc=0.6350 val_subj_balacc=0.5833 val_subj_macroF1=0.5113 | lr=2.50e-04
+2026-03-14 09:22:28,643 | INFO | [BASE] Epoch 009/35 | train_loss=0.0712 train_acc=0.9729 | val_win_loss=2.2315 val_win_balacc=0.6506 val_subj_balacc=0.5952 val_subj_macroF1=0.5752 | lr=2.50e-04
+2026-03-14 09:22:38,038 | INFO | [BASE] Epoch 010/35 | train_loss=0.0335 train_acc=0.9880 | val_win_loss=2.2769 val_win_balacc=0.5262 val_subj_balacc=0.5476 val_subj_macroF1=0.5357 | lr=2.50e-04
+2026-03-14 09:22:47,240 | INFO | [BASE] Epoch 011/35 | train_loss=0.0424 train_acc=0.9840 | val_win_loss=3.2935 val_win_balacc=0.6535 val_subj_balacc=0.5833 val_subj_macroF1=0.5113 | lr=1.25e-04
+2026-03-14 09:22:56,530 | INFO | [BASE] Epoch 012/35 | train_loss=0.0365 train_acc=0.9870 | val_win_loss=1.8826 val_win_balacc=0.5949 val_subj_balacc=0.5476 val_subj_macroF1=0.5357 | lr=1.25e-04
+2026-03-14 09:23:05,805 | INFO | [BASE] Epoch 013/35 | train_loss=0.0271 train_acc=0.9899 | val_win_loss=2.0774 val_win_balacc=0.5968 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=1.25e-04
+2026-03-14 09:23:16,183 | INFO | [BASE] Epoch 014/35 | train_loss=0.0233 train_acc=0.9913 | val_win_loss=2.4113 val_win_balacc=0.5650 val_subj_balacc=0.5476 val_subj_macroF1=0.5357 | lr=1.25e-04
+2026-03-14 09:23:25,235 | INFO | [BASE] Epoch 015/35 | train_loss=0.0272 train_acc=0.9896 | val_win_loss=2.4204 val_win_balacc=0.6237 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=1.25e-04
+2026-03-14 09:23:34,566 | INFO | [BASE] Epoch 016/35 | train_loss=0.0206 train_acc=0.9932 | val_win_loss=2.1971 val_win_balacc=0.5883 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=6.25e-05
+2026-03-14 09:23:43,666 | INFO | [BASE] Epoch 017/35 | train_loss=0.0221 train_acc=0.9922 | val_win_loss=2.2499 val_win_balacc=0.5907 val_subj_balacc=0.5476 val_subj_macroF1=0.5357 | lr=6.25e-05
+2026-03-14 09:23:52,858 | INFO | [BASE] Epoch 018/35 | train_loss=0.0185 train_acc=0.9934 | val_win_loss=2.4590 val_win_balacc=0.5877 val_subj_balacc=0.6190 val_subj_macroF1=0.6154 | lr=6.25e-05
+2026-03-14 09:24:02,196 | INFO | [BASE] Epoch 019/35 | train_loss=0.0110 train_acc=0.9972 | val_win_loss=2.6097 val_win_balacc=0.5722 val_subj_balacc=0.5476 val_subj_macroF1=0.5357 | lr=3.13e-05
+2026-03-14 09:24:11,406 | INFO | [BASE] Epoch 020/35 | train_loss=0.0169 train_acc=0.9936 | val_win_loss=2.4863 val_win_balacc=0.6159 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=3.13e-05
+2026-03-14 09:24:20,486 | INFO | [BASE] Epoch 021/35 | train_loss=0.0159 train_acc=0.9939 | val_win_loss=2.5502 val_win_balacc=0.6518 val_subj_balacc=0.6071 val_subj_macroF1=0.6061 | lr=3.13e-05
+2026-03-14 09:24:20,486 | INFO | [BASE] Early stopping triggered.
+2026-03-14 09:24:20,603 | INFO | [BASE] Restored best model (best_subject_balacc=0.6905)
+2026-03-14 09:24:29,739 | INFO | [ECN+] Epoch 001/15 | train_loss=0.0100 train_acc=0.9974 delta_mag=0.0054 gate_mean=0.1307 | val_win_loss=2.2642 val_win_balacc=0.6000 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=5.00e-04
+2026-03-14 09:24:39,021 | INFO | [ECN+] Epoch 002/15 | train_loss=0.0075 train_acc=0.9972 delta_mag=0.0090 gate_mean=0.1239 | val_win_loss=2.4524 val_win_balacc=0.5976 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=5.00e-04
+2026-03-14 09:24:48,206 | INFO | [ECN+] Epoch 003/15 | train_loss=0.0079 train_acc=0.9979 delta_mag=0.0090 gate_mean=0.1140 | val_win_loss=2.4921 val_win_balacc=0.5949 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=5.00e-04
+2026-03-14 09:24:57,552 | INFO | [ECN+] Epoch 004/15 | train_loss=0.0053 train_acc=0.9981 delta_mag=0.0111 gate_mean=0.1329 | val_win_loss=2.4897 val_win_balacc=0.5992 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=2.50e-04
+2026-03-14 09:25:06,817 | INFO | [ECN+] Epoch 005/15 | train_loss=0.0067 train_acc=0.9979 delta_mag=0.0082 gate_mean=0.1047 | val_win_loss=2.4625 val_win_balacc=0.6025 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=2.50e-04
+2026-03-14 09:25:16,230 | INFO | [ECN+] Epoch 006/15 | train_loss=0.0080 train_acc=0.9969 delta_mag=0.0091 gate_mean=0.1269 | val_win_loss=2.4360 val_win_balacc=0.5978 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=2.50e-04
+2026-03-14 09:25:25,348 | INFO | [ECN+] Epoch 007/15 | train_loss=0.0042 train_acc=0.9991 delta_mag=0.0093 gate_mean=0.1220 | val_win_loss=2.5008 val_win_balacc=0.5968 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=1.25e-04
+2026-03-14 09:25:42,149 | INFO | [ECN+] Epoch 008/15 | train_loss=0.0046 train_acc=0.9981 delta_mag=0.0092 gate_mean=0.1184 | val_win_loss=2.5061 val_win_balacc=0.5987 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=1.25e-04
+2026-03-14 09:25:51,476 | INFO | [ECN+] Epoch 009/15 | train_loss=0.0058 train_acc=0.9986 delta_mag=0.0089 gate_mean=0.1140 | val_win_loss=2.5191 val_win_balacc=0.5958 val_subj_balacc=0.6905 val_subj_macroF1=0.6905 | lr=1.25e-04
+2026-03-14 09:25:51,476 | INFO | [ECN+] Early stopping triggered.
+2026-03-14 09:25:51,522 | INFO | [ECN+] Restored best ECN (best_subject_balacc=0.6905)
+2026-03-14 09:25:52,726 | INFO | Fold 5 FINAL | window_balacc=0.6000 window_macroF1=0.6000 subject_balacc=0.6905 subject_macroF1=0.6905
+2026-03-14 09:25:52,819 | INFO | Fold 5 model saved: /home/e20212/FYP/models/EEGNet_ECN_v5_fold5.pt
+2026-03-14 09:25:52,915 | INFO | Best overall model saved: /home/e20212/FYP/models/EEGNet_ECN_v5.pt
+2026-03-14 09:25:52,915 | INFO | ========== CV SUMMARY ==========
+2026-03-14 09:25:52,915 | INFO | {
+  "window_bal_acc_mean": 0.7929406089827227,
+  "window_bal_acc_std": 0.11171411917974179,
+  "window_macro_f1_mean": 0.7941569317800763,
+  "window_macro_f1_std": 0.11256148363220853,
+  "subject_bal_acc_mean": 0.9038095238095238,
+  "subject_bal_acc_std": 0.12712591290695344,
+  "subject_macro_f1_mean": 0.9057171586583351,
+  "subject_macro_f1_std": 0.1269796470704726,
+  "best_fold_id": 2,
+  "best_fold_subject_balacc": 1.0
+}
+2026-03-14 09:25:52,915 | INFO | ========== RUN END ==========

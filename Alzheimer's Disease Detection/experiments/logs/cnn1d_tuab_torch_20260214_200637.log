@@ -1,0 +1,11 @@
+2026-02-14 20:06:37,070 | INFO | Logging to: /home/e20212/FYP/experiments/logs/cnn1d_tuab_torch_20260214_200637.log
+2026-02-14 20:06:37,070 | INFO | ========== RUN START ==========
+2026-02-14 20:06:37,071 | INFO | FYP root: /home/e20212/FYP
+2026-02-14 20:06:37,071 | INFO | Data dir: /home/e20212/FYP/data/TUAB_preprocessed
+2026-02-14 20:06:37,071 | INFO | Train dir exists: True | /home/e20212/FYP/data/TUAB_preprocessed/train
+2026-02-14 20:06:37,072 | INFO | Eval dir exists : True | /home/e20212/FYP/data/TUAB_preprocessed/eval
+2026-02-14 20:06:37,072 | INFO | Python: 3.9.25 (main, Nov  3 2025, 22:33:05) 
+[GCC 11.2.0]
+2026-02-14 20:06:37,107 | INFO | Device: cuda
+2026-02-14 20:06:37,107 | INFO | CUDA available: True
+2026-02-14 20:06:37,142 | INFO | GPU: NVIDIA RTX 6000 Ada Generation

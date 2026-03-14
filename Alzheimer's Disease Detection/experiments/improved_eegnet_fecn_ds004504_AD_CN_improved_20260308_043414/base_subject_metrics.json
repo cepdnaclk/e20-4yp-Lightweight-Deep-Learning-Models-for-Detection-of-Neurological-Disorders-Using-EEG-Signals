@@ -1,0 +1,43 @@
+{
+  "acc": 1.0,
+  "balanced_acc": 1.0,
+  "macro_f1": 1.0,
+  "cm": [
+    [
+      6,
+      0
+    ],
+    [
+      0,
+      7
+    ]
+  ],
+  "report": {
+    "CN(0)": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 6.0
+    },
+    "AD(1)": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 7.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 13.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 13.0
+    }
+  },
+  "n_subjects": 13
+}

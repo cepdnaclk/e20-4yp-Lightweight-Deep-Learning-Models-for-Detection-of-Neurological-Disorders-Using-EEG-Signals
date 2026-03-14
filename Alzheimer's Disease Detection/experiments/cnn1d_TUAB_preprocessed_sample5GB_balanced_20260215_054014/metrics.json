@@ -1,0 +1,44 @@
+{
+  "run_name": "cnn1d_TUAB_preprocessed_sample5GB_balanced_20260215_054014",
+  "tag": "TUAB_preprocessed_sample5GB_balanced",
+  "train_time_sec": 24.09143829345703,
+  "train_samples": 24661,
+  "eval_samples": 5894,
+  "num_classes": 2,
+  "classes": [
+    0,
+    1
+  ],
+  "final_val_loss": 1.1986736978338175,
+  "final_val_acc": 0.7850356294536817,
+  "final_val_balanced_acc": 0.7850356294536818,
+  "final_val_macro_f1": 0.7850262171821031,
+  "best_val_balanced_acc": 0.7850356294536818,
+  "classification_report": {
+    "0": {
+      "precision": 0.7813127930341595,
+      "recall": 0.7916525279945708,
+      "f1-score": 0.7864486768919602,
+      "support": 2947.0
+    },
+    "1": {
+      "precision": 0.7888583218707015,
+      "recall": 0.7784187309127927,
+      "f1-score": 0.783603757472246,
+      "support": 2947.0
+    },
+    "accuracy": 0.7850356294536817,
+    "macro avg": {
+      "precision": 0.7850855574524305,
+      "recall": 0.7850356294536818,
+      "f1-score": 0.7850262171821031,
+      "support": 5894.0
+    },
+    "weighted avg": {
+      "precision": 0.7850855574524304,
+      "recall": 0.7850356294536817,
+      "f1-score": 0.7850262171821031,
+      "support": 5894.0
+    }
+  }
+}

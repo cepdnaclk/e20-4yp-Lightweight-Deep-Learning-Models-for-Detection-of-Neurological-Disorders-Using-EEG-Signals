@@ -1,0 +1,70 @@
+{
+  "run_id": "EEGNet_Teecnet_4504_v2_ds004504_AD_CN_derivatives_20260226_161151",
+  "tag": "ds004504_AD_CN_derivatives",
+  "model_version": "HybridEEG_TEECNet_v2",
+  "train_time_sec": 485.9761211872101,
+  "train_windows": 8482,
+  "eval_windows": 2068,
+  "window_val_loss": 0.4729640123000228,
+  "window_val_acc": 0.8278529980657641,
+  "window_val_balanced_acc": 0.8233677750994959,
+  "window_val_macro_f1": 0.8252582409235911,
+  "window_confusion_matrix": [
+    [
+      730,
+      233
+    ],
+    [
+      123,
+      982
+    ]
+  ],
+  "window_classification_report": {
+    "CN(0)": {
+      "precision": 0.8558030480656507,
+      "recall": 0.7580477673935618,
+      "f1-score": 0.8039647577092511,
+      "support": 963.0
+    },
+    "AD(1)": {
+      "precision": 0.8082304526748971,
+      "recall": 0.8886877828054298,
+      "f1-score": 0.846551724137931,
+      "support": 1105.0
+    },
+    "accuracy": 0.8278529980657641,
+    "macro avg": {
+      "precision": 0.8320167503702739,
+      "recall": 0.8233677750994959,
+      "f1-score": 0.8252582409235911,
+      "support": 2068.0
+    },
+    "weighted avg": {
+      "precision": 0.8303834552674,
+      "recall": 0.8278529980657641,
+      "f1-score": 0.8267203659798948,
+      "support": 2068.0
+    }
+  },
+  "subject_val_balanced_acc": 0.9166666666666667,
+  "subject_confusion_matrix": [
+    [
+      5,
+      1
+    ],
+    [
+      0,
+      7
+    ]
+  ],
+  "best_val_balanced_acc": 0.8233677750994959,
+  "trainable_params": 123367,
+  "augment": true,
+  "label_smoothing": 0.1,
+  "backbone_kernels": [
+    32,
+    64,
+    128
+  ],
+  "epochs_run": 34
+}

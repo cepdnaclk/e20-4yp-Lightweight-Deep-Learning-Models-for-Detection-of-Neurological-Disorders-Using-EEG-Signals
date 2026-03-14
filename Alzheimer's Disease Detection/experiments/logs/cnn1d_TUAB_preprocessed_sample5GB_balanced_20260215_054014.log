@@ -1,0 +1,45 @@
+2026-02-15 05:40:14,904 | INFO | Logging to: /home/e20212/FYP/experiments/logs/cnn1d_TUAB_preprocessed_sample5GB_balanced_20260215_054014.log
+2026-02-15 05:40:14,905 | INFO | ========== RUN START ==========
+2026-02-15 05:40:14,905 | INFO | FYP root : /home/e20212/FYP
+2026-02-15 05:40:14,905 | INFO | Data root: /home/e20212/FYP/data/TUAB_preprocessed_sample5GB_balanced
+2026-02-15 05:40:14,905 | INFO | Train dir: /home/e20212/FYP/data/TUAB_preprocessed_sample5GB_balanced/train (exists=True)
+2026-02-15 05:40:14,905 | INFO | Eval dir : /home/e20212/FYP/data/TUAB_preprocessed_sample5GB_balanced/eval (exists=True)
+2026-02-15 05:40:15,111 | INFO | Device: cuda
+2026-02-15 05:40:15,143 | INFO | GPU: NVIDIA RTX 6000 Ada Generation
+2026-02-15 05:40:15,148 | INFO | [train] X shards: 1 | meta CSVs: 1
+2026-02-15 05:40:15,148 | INFO | [eval ] X shards: 1 | meta CSVs: 1
+2026-02-15 05:40:15,193 | INFO | [train] Paired X_sample.npy (n=24661) <-> meta_sample.csv | label_col='label'
+2026-02-15 05:40:15,209 | INFO | [eval] Paired X_sample.npy (n=5894) <-> meta_sample.csv | label_col='label'
+2026-02-15 05:40:15,318 | INFO | Classes: [0, 1]
+2026-02-15 05:40:15,318 | INFO | Train counts: {0: 12330, 1: 12331}
+2026-02-15 05:40:15,321 | INFO | Input channels: 15
+2026-02-15 05:40:17,516 | INFO | ========== TRAINING ==========
+2026-02-15 05:40:24,015 | INFO | Epoch 001/40 | train_loss=0.1762 train_acc=0.9276 | val_loss=1.3664 val_acc=0.7557 val_balacc=0.7557 val_macroF1=0.7518 | lr=1.00e-03
+2026-02-15 05:40:26,469 | INFO | Epoch 002/40 | train_loss=0.0785 train_acc=0.9711 | val_loss=1.1987 val_acc=0.7850 val_balacc=0.7850 val_macroF1=0.7850 | lr=1.00e-03
+2026-02-15 05:40:28,918 | INFO | Epoch 003/40 | train_loss=0.0588 train_acc=0.9792 | val_loss=1.5755 val_acc=0.7535 val_balacc=0.7535 val_macroF1=0.7521 | lr=1.00e-03
+2026-02-15 05:40:31,479 | INFO | Epoch 004/40 | train_loss=0.0519 train_acc=0.9798 | val_loss=4.0908 val_acc=0.5787 val_balacc=0.5787 val_macroF1=0.5370 | lr=1.00e-03
+2026-02-15 05:40:34,597 | INFO | Epoch 005/40 | train_loss=0.0385 train_acc=0.9865 | val_loss=1.6917 val_acc=0.7630 val_balacc=0.7630 val_macroF1=0.7630 | lr=5.00e-04
+2026-02-15 05:40:37,368 | INFO | Epoch 006/40 | train_loss=0.0179 train_acc=0.9940 | val_loss=1.9926 val_acc=0.7472 val_balacc=0.7472 val_macroF1=0.7423 | lr=5.00e-04
+2026-02-15 05:40:39,506 | INFO | Epoch 007/40 | train_loss=0.0162 train_acc=0.9940 | val_loss=2.7897 val_acc=0.7525 val_balacc=0.7525 val_macroF1=0.7508 | lr=5.00e-04
+2026-02-15 05:40:41,608 | INFO | Epoch 008/40 | train_loss=0.0169 train_acc=0.9941 | val_loss=2.7976 val_acc=0.7173 val_balacc=0.7173 val_macroF1=0.7141 | lr=2.50e-04
+2026-02-15 05:40:41,608 | INFO | Early stopping triggered.
+2026-02-15 05:40:41,608 | INFO | Training time (sec): 24.09
+2026-02-15 05:40:41,608 | INFO | Restored best model (best_val_balacc=0.7850)
+2026-02-15 05:40:41,608 | INFO | ========== EVALUATION ==========
+2026-02-15 05:40:42,097 | INFO | Classification report:
+              precision    recall  f1-score   support
+
+           0     0.7813    0.7917    0.7864      2947
+           1     0.7889    0.7784    0.7836      2947
+
+    accuracy                         0.7850      5894
+   macro avg     0.7851    0.7850    0.7850      5894
+weighted avg     0.7851    0.7850    0.7850      5894
+
+2026-02-15 05:40:42,098 | INFO | Confusion matrix:
+[[2333  614]
+ [ 653 2294]]
+2026-02-15 05:40:42,161 | INFO | Saved model  : /home/e20212/FYP/models/cnn1d_TUAB_preprocessed_sample5GB_balanced_20260215_054014.pt
+2026-02-15 05:40:42,161 | INFO | Saved metrics: /home/e20212/FYP/experiments/cnn1d_TUAB_preprocessed_sample5GB_balanced_20260215_054014/metrics.json
+2026-02-15 05:40:42,161 | INFO | Saved CM     : /home/e20212/FYP/experiments/cnn1d_TUAB_preprocessed_sample5GB_balanced_20260215_054014/confusion_matrix.npy
+2026-02-15 05:40:42,161 | INFO | ========== RUN END ==========

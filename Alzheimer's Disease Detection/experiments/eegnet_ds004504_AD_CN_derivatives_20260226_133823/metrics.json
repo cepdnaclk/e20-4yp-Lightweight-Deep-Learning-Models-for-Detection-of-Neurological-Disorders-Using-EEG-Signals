@@ -1,0 +1,49 @@
+{
+  "run_name": "eegnet_ds004504_AD_CN_derivatives_20260226_133823",
+  "tag": "ds004504_AD_CN_derivatives",
+  "train_time_sec": 262.5783543586731,
+  "train_windows": 8482,
+  "eval_windows": 2068,
+  "final_val_loss": 0.16260537576699102,
+  "final_val_acc": 0.9274661508704062,
+  "final_val_balanced_acc": 0.9239865991927564,
+  "final_val_macro_f1": 0.9265090520378457,
+  "best_val_balanced_acc": 0.9239865991927564,
+  "classification_report": {
+    "CN(0)": {
+      "precision": 0.9677790563866513,
+      "recall": 0.8733125649013499,
+      "f1-score": 0.9181222707423581,
+      "support": 963.0
+    },
+    "AD(1)": {
+      "precision": 0.8982485404503753,
+      "recall": 0.9746606334841629,
+      "f1-score": 0.9348958333333334,
+      "support": 1105.0
+    },
+    "accuracy": 0.9274661508704062,
+    "macro avg": {
+      "precision": 0.9330137984185133,
+      "recall": 0.9239865991927564,
+      "f1-score": 0.9265090520378457,
+      "support": 2068.0
+    },
+    "weighted avg": {
+      "precision": 0.9306266288675095,
+      "recall": 0.9274661508704062,
+      "f1-score": 0.9270849335387933,
+      "support": 2068.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      841,
+      122
+    ],
+    [
+      28,
+      1077
+    ]
+  ]
+}

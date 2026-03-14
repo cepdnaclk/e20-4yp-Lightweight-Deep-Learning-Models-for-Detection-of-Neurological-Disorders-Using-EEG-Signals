@@ -1,0 +1,10 @@
+2026-02-15 01:28:25,210 | INFO | Logging to: /home/e20212/FYP/experiments/logs/cnn1d_tuab_torch_20260215_012825.log
+2026-02-15 01:28:25,211 | INFO | ========== RUN START ==========
+2026-02-15 01:28:25,211 | INFO | FYP root: /home/e20212/FYP
+2026-02-15 01:28:25,216 | INFO | Data dir: /home/e20212/FYP/data/TUAB_preprocessed
+2026-02-15 01:28:25,227 | INFO | Train dir exists: True | /home/e20212/FYP/data/TUAB_preprocessed/train
+2026-02-15 01:28:25,232 | INFO | Eval dir exists : True | /home/e20212/FYP/data/TUAB_preprocessed/eval
+2026-02-15 01:28:25,233 | INFO | Python: 3.9.25 (main, Nov  3 2025, 22:33:05) 
+[GCC 11.2.0]
+2026-02-15 01:28:25,416 | INFO | Device: cpu
+2026-02-15 01:28:25,417 | INFO | CUDA available: False

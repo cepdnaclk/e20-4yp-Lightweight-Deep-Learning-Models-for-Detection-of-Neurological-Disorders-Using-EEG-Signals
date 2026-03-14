@@ -1,0 +1,50 @@
+{
+  "run_name": "cnn1d_taylor_teec_ds004504_AD_CN_taylorTEEC_20260226_110628",
+  "tag": "ds004504_AD_CN_taylorTEEC",
+  "train_time_sec": 171.650048494339,
+  "train_windows": 8482,
+  "eval_windows": 2068,
+  "final_val_loss": 0.6735479806331878,
+  "final_val_acc": 0.7253384912959381,
+  "final_val_balanced_acc": 0.7315769442212543,
+  "final_val_macro_f1": 0.7248845784866291,
+  "best_val_balanced_acc": 0.7315769442212543,
+  "classification_report": {
+    "CN(0)": {
+      "precision": 0.6661059714045416,
+      "recall": 0.822429906542056,
+      "f1-score": 0.7360594795539034,
+      "support": 963.0
+    },
+    "AD(1)": {
+      "precision": 0.8054607508532423,
+      "recall": 0.6407239819004525,
+      "f1-score": 0.7137096774193549,
+      "support": 1105.0
+    },
+    "accuracy": 0.7253384912959381,
+    "macro avg": {
+      "precision": 0.735783361128892,
+      "recall": 0.7315769442212543,
+      "f1-score": 0.7248845784866291,
+      "support": 2068.0
+    },
+    "weighted avg": {
+      "precision": 0.7405677853749547,
+      "recall": 0.7253384912959381,
+      "f1-score": 0.7241172496899401,
+      "support": 2068.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      792,
+      171
+    ],
+    [
+      397,
+      708
+    ]
+  ],
+  "model_params": 185891
+}

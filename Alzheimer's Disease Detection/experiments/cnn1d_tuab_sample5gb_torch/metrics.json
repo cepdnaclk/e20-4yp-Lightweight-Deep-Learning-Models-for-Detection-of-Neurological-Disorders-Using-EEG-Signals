@@ -1,0 +1,41 @@
+{
+  "run_name": "cnn1d_tuab_torch_20260214_164238",
+  "train_time_sec": 32.95563888549805,
+  "train_samples": 31027,
+  "eval_samples": 5878,
+  "num_classes": 2,
+  "labels": [
+    0,
+    1
+  ],
+  "final_val_loss": 2.1698442512122433,
+  "final_val_acc": 0.5302824089826471,
+  "best_val_acc": 0.5302824089826471,
+  "classification_report": {
+    "0": {
+      "precision": 0.8471986417657046,
+      "recall": 0.15741324921135647,
+      "f1-score": 0.26549614259111465,
+      "support": 3170.0
+    },
+    "1": {
+      "precision": 0.4949896010588013,
+      "recall": 0.9667651403249631,
+      "f1-score": 0.6547455295735901,
+      "support": 2708.0
+    },
+    "accuracy": 0.5302824089826471,
+    "macro avg": {
+      "precision": 0.671094121412253,
+      "recall": 0.5620891947681598,
+      "f1-score": 0.4601208360823524,
+      "support": 5878.0
+    },
+    "weighted avg": {
+      "precision": 0.6849356131446951,
+      "recall": 0.5302824089826471,
+      "f1-score": 0.44482369276949907,
+      "support": 5878.0
+    }
+  }
+}

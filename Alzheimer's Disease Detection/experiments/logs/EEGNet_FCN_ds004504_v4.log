@@ -1,0 +1,133 @@
+2026-03-12 10:52:34,101 | INFO | Logging to: /home/e20212/FYP/experiments/logs/EEGNet_FCN_ds004504_v4.log
+2026-03-12 10:52:34,101 | INFO | ========== RUN START ==========
+2026-03-12 10:52:34,101 | INFO | Run name        : EEGNet_FCN_ds004504_v4
+2026-03-12 10:52:34,102 | INFO | FYP root        : /home/e20212/FYP
+2026-03-12 10:52:34,102 | INFO | Data dir        : /home/e20212/FYP/data/ds004504_preprocessed_shards
+2026-03-12 10:52:34,102 | INFO | Python          : 3.9.25 (main, Nov  3 2025, 22:33:05) 
+[GCC 11.2.0]
+2026-03-12 10:52:34,102 | INFO | Augmentation    : P1=OFF, P2/P3=ON
+2026-03-12 10:52:34,102 | INFO | Label smoothing : 0.03
+2026-03-12 10:52:34,102 | INFO | Phase 3         : True
+2026-03-12 10:52:34,102 | INFO | Grad clip       : max_norm=1.0 (all phases)
+2026-03-12 10:52:34,102 | INFO | FCN scale_init  : 0.1  (v1 value)
+2026-03-12 10:52:34,102 | INFO | FCN consistency : 0.02  (v1 value)
+2026-03-12 10:52:34,102 | INFO | FCN gate_lambda : 0.005  (v1 value)
+2026-03-12 10:52:34,102 | INFO | Finetune lr     : 1e-05  (raised from 5e-6)
+2026-03-12 10:52:34,172 | INFO | Device: cuda | AMP: True
+2026-03-12 10:52:34,211 | INFO | GPU: NVIDIA RTX 6000 Ada Generation
+2026-03-12 10:52:34,242 | INFO | [train] shard 0: n=707 | X_0.npy
+2026-03-12 10:52:34,263 | INFO | [train] shard 1: n=707 | X_1.npy
+2026-03-12 10:52:34,290 | INFO | [train] shard 2: n=707 | X_2.npy
+2026-03-12 10:52:34,315 | INFO | [train] shard 3: n=707 | X_3.npy
+2026-03-12 10:52:34,341 | INFO | [train] shard 4: n=707 | X_4.npy
+2026-03-12 10:52:34,373 | INFO | [train] shard 5: n=668 | X_5.npy
+2026-03-12 10:52:34,395 | INFO | [eval] shard 0: n=707 | X_0.npy
+2026-03-12 10:52:34,426 | INFO | [eval] shard 1: n=317 | X_1.npy
+2026-03-12 10:52:34,439 | INFO | Train windows: 4203 | Eval windows: 1024
+2026-03-12 10:52:34,440 | INFO | Input shape  : C=19, T=5000
+2026-03-12 10:52:34,442 | INFO | Train class counts: {0: 1891, 1: 2312}
+2026-03-12 10:52:34,560 | INFO | Class weights: [1.1001665592193604, 0.8998335003852844]
+2026-03-12 10:52:34,579 | INFO | Base params : 94,333
+2026-03-12 10:52:34,579 | INFO | FCN  params : 132,804
+2026-03-12 10:52:34,579 | INFO | Total params: 227,137
+2026-03-12 10:52:34,579 | INFO | ===== PHASE 1: Training base EEGNet  [augmentation OFF] =====
+2026-03-12 10:52:34,579 | INFO | [P1] train_ds.training = False
+2026-03-12 10:53:00,498 | INFO | [P1] Epoch 001/60 | train_loss=0.5756 train_acc=0.6693 | val_loss=0.6296 val_acc=0.6445 val_bal_acc=0.6230 val_macro_f1=0.5925 | lr=1.00e-03
+2026-03-12 10:53:12,437 | INFO | [P1] Epoch 002/60 | train_loss=0.4040 train_acc=0.8206 | val_loss=0.5267 val_acc=0.7871 val_bal_acc=0.7877 val_macro_f1=0.7867 | lr=1.00e-03
+2026-03-12 10:53:39,314 | INFO | [P1] Epoch 003/60 | train_loss=0.2934 train_acc=0.8970 | val_loss=0.5189 val_acc=0.8008 val_bal_acc=0.8131 val_macro_f1=0.7976 | lr=1.00e-03
+2026-03-12 10:54:17,197 | INFO | [P1] Epoch 004/60 | train_loss=0.2454 train_acc=0.9248 | val_loss=0.5084 val_acc=0.7764 val_bal_acc=0.7872 val_macro_f1=0.7739 | lr=1.00e-03
+2026-03-12 10:54:27,472 | INFO | [P1] Epoch 005/60 | train_loss=0.2247 train_acc=0.9322 | val_loss=0.8959 val_acc=0.6758 val_bal_acc=0.6524 val_macro_f1=0.6188 | lr=1.00e-03
+2026-03-12 10:54:37,244 | INFO | [P1] Epoch 006/60 | train_loss=0.2120 train_acc=0.9424 | val_loss=1.2068 val_acc=0.7012 val_bal_acc=0.7203 val_macro_f1=0.6844 | lr=1.00e-03
+2026-03-12 10:54:48,602 | INFO | [P1] Epoch 007/60 | train_loss=0.1905 train_acc=0.9484 | val_loss=0.8596 val_acc=0.7334 val_bal_acc=0.7142 val_macro_f1=0.7010 | lr=5.00e-04
+2026-03-12 10:54:58,967 | INFO | [P1] Epoch 008/60 | train_loss=0.1450 train_acc=0.9693 | val_loss=0.3216 val_acc=0.8896 val_bal_acc=0.8908 val_macro_f1=0.8894 | lr=5.00e-04
+2026-03-12 10:55:09,017 | INFO | [P1] Epoch 009/60 | train_loss=0.1336 train_acc=0.9762 | val_loss=1.1809 val_acc=0.6084 val_bal_acc=0.5797 val_macro_f1=0.5033 | lr=5.00e-04
+2026-03-12 10:55:20,045 | INFO | [P1] Epoch 010/60 | train_loss=0.1280 train_acc=0.9788 | val_loss=0.2691 val_acc=0.9131 val_bal_acc=0.9127 val_macro_f1=0.9127 | lr=5.00e-04
+2026-03-12 10:55:29,843 | INFO | [P1] Epoch 011/60 | train_loss=0.1165 train_acc=0.9829 | val_loss=0.3727 val_acc=0.8818 val_bal_acc=0.8883 val_macro_f1=0.8817 | lr=5.00e-04
+2026-03-12 10:55:39,283 | INFO | [P1] Epoch 012/60 | train_loss=0.1210 train_acc=0.9817 | val_loss=0.2761 val_acc=0.9189 val_bal_acc=0.9194 val_macro_f1=0.9187 | lr=5.00e-04
+2026-03-12 10:55:48,589 | INFO | [P1] Epoch 013/60 | train_loss=0.1076 train_acc=0.9881 | val_loss=0.9544 val_acc=0.7559 val_bal_acc=0.7705 val_macro_f1=0.7493 | lr=5.00e-04
+2026-03-12 10:55:59,567 | INFO | [P1] Epoch 014/60 | train_loss=0.1089 train_acc=0.9860 | val_loss=0.4473 val_acc=0.8643 val_bal_acc=0.8577 val_macro_f1=0.8609 | lr=5.00e-04
+2026-03-12 10:56:10,145 | INFO | [P1] Epoch 015/60 | train_loss=0.1102 train_acc=0.9872 | val_loss=0.4260 val_acc=0.8799 val_bal_acc=0.8775 val_macro_f1=0.8788 | lr=5.00e-04
+2026-03-12 10:56:20,836 | INFO | [P1] Epoch 016/60 | train_loss=0.1114 train_acc=0.9855 | val_loss=0.3487 val_acc=0.8955 val_bal_acc=0.8992 val_macro_f1=0.8955 | lr=2.50e-04
+2026-03-12 10:56:33,936 | INFO | [P1] Epoch 017/60 | train_loss=0.0961 train_acc=0.9936 | val_loss=0.2558 val_acc=0.9346 val_bal_acc=0.9362 val_macro_f1=0.9345 | lr=2.50e-04
+2026-03-12 10:56:44,413 | INFO | [P1] Epoch 018/60 | train_loss=0.0927 train_acc=0.9926 | val_loss=0.3729 val_acc=0.8926 val_bal_acc=0.8935 val_macro_f1=0.8923 | lr=2.50e-04
+2026-03-12 10:56:55,398 | INFO | [P1] Epoch 019/60 | train_loss=0.0907 train_acc=0.9948 | val_loss=0.3800 val_acc=0.8887 val_bal_acc=0.8839 val_macro_f1=0.8867 | lr=2.50e-04
+2026-03-12 10:57:05,651 | INFO | [P1] Epoch 020/60 | train_loss=0.0907 train_acc=0.9948 | val_loss=0.2791 val_acc=0.9150 val_bal_acc=0.9148 val_macro_f1=0.9147 | lr=2.50e-04
+2026-03-12 10:57:15,825 | INFO | [P1] Epoch 021/60 | train_loss=0.0873 train_acc=0.9969 | val_loss=0.6434 val_acc=0.8184 val_bal_acc=0.8252 val_macro_f1=0.8180 | lr=1.25e-04
+2026-03-12 10:57:26,065 | INFO | [P1] Epoch 022/60 | train_loss=0.0886 train_acc=0.9967 | val_loss=0.3603 val_acc=0.9014 val_bal_acc=0.9033 val_macro_f1=0.9013 | lr=1.25e-04
+2026-03-12 10:57:36,866 | INFO | [P1] Epoch 023/60 | train_loss=0.0840 train_acc=0.9986 | val_loss=0.3433 val_acc=0.9043 val_bal_acc=0.9056 val_macro_f1=0.9041 | lr=1.25e-04
+2026-03-12 10:57:49,455 | INFO | [P1] Epoch 024/60 | train_loss=0.0867 train_acc=0.9967 | val_loss=0.2923 val_acc=0.9150 val_bal_acc=0.9144 val_macro_f1=0.9146 | lr=1.25e-04
+2026-03-12 10:57:59,581 | INFO | [P1] Epoch 025/60 | train_loss=0.0840 train_acc=0.9981 | val_loss=0.2935 val_acc=0.9180 val_bal_acc=0.9165 val_macro_f1=0.9174 | lr=6.25e-05
+2026-03-12 10:58:10,088 | INFO | [P1] Epoch 026/60 | train_loss=0.0837 train_acc=0.9983 | val_loss=0.2989 val_acc=0.9229 val_bal_acc=0.9216 val_macro_f1=0.9223 | lr=6.25e-05
+2026-03-12 10:58:21,250 | INFO | [P1] Epoch 027/60 | train_loss=0.0836 train_acc=0.9981 | val_loss=0.3469 val_acc=0.9033 val_bal_acc=0.9041 val_macro_f1=0.9031 | lr=6.25e-05
+2026-03-12 10:58:32,085 | INFO | [P1] Epoch 028/60 | train_loss=0.0817 train_acc=0.9990 | val_loss=0.2899 val_acc=0.9238 val_bal_acc=0.9225 val_macro_f1=0.9233 | lr=6.25e-05
+2026-03-12 10:58:42,152 | INFO | [P1] Epoch 029/60 | train_loss=0.0837 train_acc=0.9979 | val_loss=0.3472 val_acc=0.9014 val_bal_acc=0.9020 val_macro_f1=0.9011 | lr=3.13e-05
+2026-03-12 10:58:42,152 | INFO | [P1] Early stopping triggered.
+2026-03-12 10:58:42,159 | INFO | [P1] Restored best base (val_bal_acc=0.9362)
+2026-03-12 10:58:42,160 | INFO | ===== PHASE 2: Training FeatureCorrectionNetwork  [base frozen, augmentation ON] =====
+2026-03-12 10:58:42,160 | INFO | [P2] train_ds.training = True
+2026-03-12 10:58:56,190 | INFO | [P2] Epoch 001/30 | train_loss=0.2449 train_acc=0.9334 gate_mean=0.5253 delta_mag=0.029941 | val_loss=0.2412 val_acc=0.9229 val_bal_acc=0.9205 val_macro_f1=0.9221 | lr=5.00e-04
+2026-03-12 10:59:08,378 | INFO | [P2] Epoch 002/30 | train_loss=0.1827 train_acc=0.9550 gate_mean=0.3659 delta_mag=0.032316 | val_loss=0.2277 val_acc=0.9336 val_bal_acc=0.9344 val_macro_f1=0.9334 | lr=5.00e-04
+2026-03-12 10:59:21,557 | INFO | [P2] Epoch 003/30 | train_loss=0.1663 train_acc=0.9572 gate_mean=0.3342 delta_mag=0.030339 | val_loss=0.2866 val_acc=0.9033 val_bal_acc=0.8985 val_macro_f1=0.9016 | lr=5.00e-04
+2026-03-12 10:59:34,585 | INFO | [P2] Epoch 004/30 | train_loss=0.1678 train_acc=0.9538 gate_mean=0.2917 delta_mag=0.028832 | val_loss=0.4387 val_acc=0.8838 val_bal_acc=0.8766 val_macro_f1=0.8805 | lr=5.00e-04
+2026-03-12 10:59:47,740 | INFO | [P2] Epoch 005/30 | train_loss=0.1632 train_acc=0.9586 gate_mean=0.2486 delta_mag=0.026643 | val_loss=0.2624 val_acc=0.9199 val_bal_acc=0.9167 val_macro_f1=0.9190 | lr=2.50e-04
+2026-03-12 11:00:01,267 | INFO | [P2] Epoch 006/30 | train_loss=0.1650 train_acc=0.9531 gate_mean=0.2557 delta_mag=0.028253 | val_loss=0.2522 val_acc=0.9277 val_bal_acc=0.9263 val_macro_f1=0.9272 | lr=2.50e-04
+2026-03-12 11:00:18,417 | INFO | [P2] Epoch 007/30 | train_loss=0.1469 train_acc=0.9665 gate_mean=0.2446 delta_mag=0.026179 | val_loss=0.2840 val_acc=0.9209 val_bal_acc=0.9191 val_macro_f1=0.9203 | lr=2.50e-04
+2026-03-12 11:00:32,266 | INFO | [P2] Epoch 008/30 | train_loss=0.1484 train_acc=0.9653 gate_mean=0.2160 delta_mag=0.027637 | val_loss=0.4571 val_acc=0.8848 val_bal_acc=0.8908 val_macro_f1=0.8847 | lr=1.25e-04
+2026-03-12 11:00:46,178 | INFO | [P2] Epoch 009/30 | train_loss=0.1583 train_acc=0.9553 gate_mean=0.2238 delta_mag=0.030652 | val_loss=0.2908 val_acc=0.9258 val_bal_acc=0.9262 val_macro_f1=0.9255 | lr=1.25e-04
+2026-03-12 11:00:58,513 | INFO | [P2] Epoch 010/30 | train_loss=0.1503 train_acc=0.9612 gate_mean=0.2175 delta_mag=0.029543 | val_loss=0.2724 val_acc=0.9248 val_bal_acc=0.9233 val_macro_f1=0.9243 | lr=1.25e-04
+2026-03-12 11:01:18,000 | INFO | [P2] Epoch 011/30 | train_loss=0.1463 train_acc=0.9607 gate_mean=0.2223 delta_mag=0.029743 | val_loss=0.3041 val_acc=0.9189 val_bal_acc=0.9170 val_macro_f1=0.9183 | lr=6.25e-05
+2026-03-12 11:01:30,897 | INFO | [P2] Epoch 012/30 | train_loss=0.1359 train_acc=0.9695 gate_mean=0.2121 delta_mag=0.028628 | val_loss=0.3039 val_acc=0.9180 val_bal_acc=0.9156 val_macro_f1=0.9172 | lr=6.25e-05
+2026-03-12 11:01:30,898 | INFO | [P2] Early stopping triggered.
+2026-03-12 11:01:30,926 | INFO | [P2] Restored best FCN (val_bal_acc=0.9344)
+2026-03-12 11:01:30,927 | INFO | ===== PHASE 3: End-to-end fine-tuning  [augmentation ON] =====
+2026-03-12 11:01:44,230 | INFO | [P3] Epoch 001/15 | train_loss=0.1918 train_acc=0.9491 | val_loss=0.2576 val_acc=0.9141 val_bal_acc=0.9139 val_macro_f1=0.9137 | lr=1.00e-05
+2026-03-12 11:01:58,349 | INFO | [P3] Epoch 002/15 | train_loss=0.1793 train_acc=0.9517 | val_loss=0.2771 val_acc=0.9131 val_bal_acc=0.9142 val_macro_f1=0.9129 | lr=1.00e-05
+2026-03-12 11:02:10,612 | INFO | [P3] Epoch 003/15 | train_loss=0.1610 train_acc=0.9631 | val_loss=0.3046 val_acc=0.9053 val_bal_acc=0.9087 val_macro_f1=0.9053 | lr=1.00e-05
+2026-03-12 11:02:24,046 | INFO | [P3] Epoch 004/15 | train_loss=0.1609 train_acc=0.9603 | val_loss=0.2856 val_acc=0.9131 val_bal_acc=0.9121 val_macro_f1=0.9126 | lr=1.00e-05
+2026-03-12 11:02:37,179 | INFO | [P3] Epoch 005/15 | train_loss=0.1646 train_acc=0.9629 | val_loss=0.2843 val_acc=0.9160 val_bal_acc=0.9154 val_macro_f1=0.9156 | lr=1.00e-05
+2026-03-12 11:02:49,441 | INFO | [P3] Epoch 006/15 | train_loss=0.1691 train_acc=0.9600 | val_loss=0.3016 val_acc=0.9033 val_bal_acc=0.9041 val_macro_f1=0.9031 | lr=1.00e-05
+2026-03-12 11:03:03,650 | INFO | [P3] Epoch 007/15 | train_loss=0.1572 train_acc=0.9629 | val_loss=0.2792 val_acc=0.9170 val_bal_acc=0.9165 val_macro_f1=0.9166 | lr=1.00e-05
+2026-03-12 11:03:16,608 | INFO | [P3] Epoch 008/15 | train_loss=0.1539 train_acc=0.9676 | val_loss=0.3004 val_acc=0.9062 val_bal_acc=0.9069 val_macro_f1=0.9060 | lr=1.00e-05
+2026-03-12 11:03:28,816 | INFO | [P3] Epoch 009/15 | train_loss=0.1436 train_acc=0.9714 | val_loss=0.2825 val_acc=0.9131 val_bal_acc=0.9137 val_macro_f1=0.9128 | lr=1.00e-05
+2026-03-12 11:03:41,619 | INFO | [P3] Epoch 010/15 | train_loss=0.1524 train_acc=0.9674 | val_loss=0.2710 val_acc=0.9209 val_bal_acc=0.9202 val_macro_f1=0.9205 | lr=1.00e-05
+2026-03-12 11:03:55,192 | INFO | [P3] Epoch 011/15 | train_loss=0.1475 train_acc=0.9703 | val_loss=0.2860 val_acc=0.9160 val_bal_acc=0.9151 val_macro_f1=0.9155 | lr=1.00e-05
+2026-03-12 11:04:08,244 | INFO | [P3] Epoch 012/15 | train_loss=0.1469 train_acc=0.9705 | val_loss=0.2849 val_acc=0.9141 val_bal_acc=0.9162 val_macro_f1=0.9140 | lr=1.00e-05
+2026-03-12 11:04:20,318 | INFO | [P3] Epoch 013/15 | train_loss=0.1561 train_acc=0.9665 | val_loss=0.3238 val_acc=0.9014 val_bal_acc=0.9046 val_macro_f1=0.9013 | lr=5.00e-06
+2026-03-12 11:04:33,235 | INFO | [P3] Epoch 014/15 | train_loss=0.1367 train_acc=0.9741 | val_loss=0.2826 val_acc=0.9141 val_bal_acc=0.9139 val_macro_f1=0.9137 | lr=5.00e-06
+2026-03-12 11:04:45,745 | INFO | [P3] Epoch 015/15 | train_loss=0.1374 train_acc=0.9757 | val_loss=0.2942 val_acc=0.9072 val_bal_acc=0.9079 val_macro_f1=0.9070 | lr=5.00e-06
+2026-03-12 11:04:45,817 | INFO | [P3] Restored best end-to-end model (val_bal_acc=0.9202)
+2026-03-12 11:04:45,818 | INFO | Total training time: 731.24s
+2026-03-12 11:04:45,818 | INFO | ========== FINAL EVALUATION ==========
+2026-03-12 11:04:47,179 | INFO | Window-level classification report:
+              precision    recall  f1-score   support
+
+       CN(0)     0.9195    0.9099    0.9146       477
+       AD(1)     0.9221    0.9305    0.9263       547
+
+    accuracy                         0.9209      1024
+   macro avg     0.9208    0.9202    0.9205      1024
+weighted avg     0.9209    0.9209    0.9209      1024
+
+2026-03-12 11:04:47,179 | INFO | Window-level confusion matrix:
+[[434  43]
+ [ 38 509]]
+2026-03-12 11:04:47,179 | INFO | Window-level | val_loss=0.2710 val_acc=0.9209 val_bal_acc=0.9202 val_macro_f1=0.9205 gate_mean=0.3593
+2026-03-12 11:04:47,193 | INFO | Subject-level report (n=13 subjects):
+              precision    recall  f1-score   support
+
+       CN(0)     1.0000    1.0000    1.0000         6
+       AD(1)     1.0000    1.0000    1.0000         7
+
+    accuracy                         1.0000        13
+   macro avg     1.0000    1.0000    1.0000        13
+weighted avg     1.0000    1.0000    1.0000        13
+
+2026-03-12 11:04:47,193 | INFO | Subject-level confusion matrix:
+[[6 0]
+ [0 7]]
+2026-03-12 11:04:47,193 | INFO | Subject-level | acc=1.0000 bal_acc=1.0000 macro_f1=1.0000
+2026-03-12 11:04:47,291 | INFO | Saved model        : /home/e20212/FYP/models/EEGNet_FCN_ds004504_v4.pt
+2026-03-12 11:04:47,292 | INFO | Saved metrics      : /home/e20212/FYP/experiments/EEGNet_FCN_ds004504_v4/metrics.json
+2026-03-12 11:04:47,292 | INFO | Saved window CM    : /home/e20212/FYP/experiments/EEGNet_FCN_ds004504_v4/confusion_matrix.npy
+2026-03-12 11:04:47,292 | INFO | Saved subject CM   : /home/e20212/FYP/experiments/EEGNet_FCN_ds004504_v4/confusion_matrix_subject.npy
+2026-03-12 11:04:47,292 | INFO | ========== RUN END ==========

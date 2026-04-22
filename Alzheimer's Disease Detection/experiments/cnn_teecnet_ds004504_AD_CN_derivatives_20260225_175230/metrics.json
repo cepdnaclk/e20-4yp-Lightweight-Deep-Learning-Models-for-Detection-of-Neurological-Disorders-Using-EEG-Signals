@@ -1,0 +1,53 @@
+{
+  "run_name": "cnn_teecnet_ds004504_AD_CN_derivatives_20260225_175230",
+  "tag": "ds004504_AD_CN_derivatives",
+  "train_time_sec": 267.44616293907166,
+  "train_windows": 8482,
+  "eval_windows": 2068,
+  "final_val_loss": 0.7374549831615247,
+  "final_val_acc": 0.8481624758220503,
+  "final_val_balanced_acc": 0.8420386894273646,
+  "final_val_macro_f1": 0.8448088622745331,
+  "best_val_balanced_acc": 0.8420386894273646,
+  "classification_report": {
+    "CN(0)": {
+      "precision": 0.9051186017478152,
+      "recall": 0.7528556593977155,
+      "f1-score": 0.8219954648526077,
+      "support": 963.0
+    },
+    "AD(1)": {
+      "precision": 0.8121546961325967,
+      "recall": 0.9312217194570136,
+      "f1-score": 0.8676222596964587,
+      "support": 1105.0
+    },
+    "accuracy": 0.8481624758220503,
+    "macro avg": {
+      "precision": 0.858636648940206,
+      "recall": 0.8420386894273646,
+      "f1-score": 0.8448088622745331,
+      "support": 2068.0
+    },
+    "weighted avg": {
+      "precision": 0.8554449481187938,
+      "recall": 0.8481624758220503,
+      "f1-score": 0.8463753528131761,
+      "support": 2068.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      725,
+      238
+    ],
+    [
+      76,
+      1029
+    ]
+  ],
+  "model_params": 182306,
+  "feature_dim": 128,
+  "teec_hidden": 32,
+  "teec_layers": 2
+}

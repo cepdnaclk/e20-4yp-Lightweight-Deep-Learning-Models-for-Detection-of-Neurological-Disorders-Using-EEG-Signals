@@ -1,0 +1,127 @@
+2026-03-09 16:11:55,076 | INFO | Logging to: /home/e20212/FYP/experiments/logs/train_eegnet_ds004504.log
+2026-03-09 16:11:55,076 | INFO | ========== RUN START ==========
+2026-03-09 16:11:55,076 | INFO | FYP root: /home/e20212/FYP
+2026-03-09 16:11:55,076 | INFO | Data dir: /home/e20212/FYP/data/ds004504_preprocessed_shards
+2026-03-09 16:11:55,077 | INFO | Train dir exists: True | /home/e20212/FYP/data/ds004504_preprocessed_shards/train
+2026-03-09 16:11:55,077 | INFO | Eval dir exists : True | /home/e20212/FYP/data/ds004504_preprocessed_shards/eval
+2026-03-09 16:11:55,077 | INFO | Python: 3.9.25 (main, Nov  3 2025, 22:33:05) 
+[GCC 11.2.0]
+2026-03-09 16:11:55,119 | INFO | Device: cuda
+2026-03-09 16:11:55,119 | INFO | CUDA available: True
+2026-03-09 16:11:55,152 | INFO | GPU: NVIDIA RTX 6000 Ada Generation
+2026-03-09 16:11:55,162 | INFO | [train] shard 0: n=707 | X_0.npy
+2026-03-09 16:11:55,169 | INFO | [train] shard 1: n=707 | X_1.npy
+2026-03-09 16:11:55,176 | INFO | [train] shard 2: n=707 | X_2.npy
+2026-03-09 16:11:55,183 | INFO | [train] shard 3: n=707 | X_3.npy
+2026-03-09 16:11:55,190 | INFO | [train] shard 4: n=707 | X_4.npy
+2026-03-09 16:11:55,197 | INFO | [train] shard 5: n=668 | X_5.npy
+2026-03-09 16:11:55,205 | INFO | [eval] shard 0: n=707 | X_0.npy
+2026-03-09 16:11:55,211 | INFO | [eval] shard 1: n=317 | X_1.npy
+2026-03-09 16:11:55,216 | INFO | X_tr shape: (4203, 19, 5000) | y_tr shape: (4203,)
+2026-03-09 16:11:55,216 | INFO | X_ev shape: (1024, 19, 5000) | y_ev shape: (1024,)
+2026-03-09 16:11:55,335 | INFO | Train labels: [0, 1]
+2026-03-09 16:11:55,335 | INFO | Train counts: {0: 1891, 1: 2312}
+2026-03-09 16:11:55,462 | INFO | EEGNet(
+  (raw_stem): Sequential(
+    (0): Conv1d(19, 48, kernel_size=(15,), stride=(2,), padding=(7,), bias=False)
+    (1): BatchNorm1d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): SiLU()
+    (3): SE1D(
+      (fc1): Linear(in_features=48, out_features=6, bias=True)
+      (fc2): Linear(in_features=6, out_features=48, bias=True)
+    )
+  )
+  (block1): DSConvBlock(
+    (dw): Conv1d(48, 48, kernel_size=(11,), stride=(2,), padding=(5,), groups=48, bias=False)
+    (pw): Conv1d(48, 64, kernel_size=(1,), stride=(1,), bias=False)
+    (bn): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (act): SiLU()
+    (se): SE1D(
+      (fc1): Linear(in_features=64, out_features=8, bias=True)
+      (fc2): Linear(in_features=8, out_features=64, bias=True)
+    )
+    (drop): Dropout(p=0.1, inplace=False)
+  )
+  (block2): DSConvBlock(
+    (dw): Conv1d(64, 64, kernel_size=(7,), stride=(2,), padding=(3,), groups=64, bias=False)
+    (pw): Conv1d(64, 96, kernel_size=(1,), stride=(1,), bias=False)
+    (bn): BatchNorm1d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (act): SiLU()
+    (se): SE1D(
+      (fc1): Linear(in_features=96, out_features=12, bias=True)
+      (fc2): Linear(in_features=12, out_features=96, bias=True)
+    )
+    (drop): Dropout(p=0.12, inplace=False)
+  )
+  (block3): DSConvBlock(
+    (dw): Conv1d(96, 96, kernel_size=(5,), stride=(2,), padding=(2,), groups=96, bias=False)
+    (pw): Conv1d(96, 128, kernel_size=(1,), stride=(1,), bias=False)
+    (bn): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (act): SiLU()
+    (se): SE1D(
+      (fc1): Linear(in_features=128, out_features=16, bias=True)
+      (fc2): Linear(in_features=16, out_features=128, bias=True)
+    )
+    (drop): Dropout(p=0.15, inplace=False)
+  )
+  (attn): Conv1d(128, 1, kernel_size=(1,), stride=(1,))
+  (spectral): SpectralBandPower()
+  (spec_proj): Sequential(
+    (0): Linear(in_features=95, out_features=96, bias=True)
+    (1): SiLU()
+    (2): Dropout(p=0.15, inplace=False)
+    (3): Linear(in_features=96, out_features=64, bias=True)
+    (4): SiLU()
+  )
+  (fuse): Sequential(
+    (0): Linear(in_features=192, out_features=128, bias=True)
+    (1): SiLU()
+    (2): Dropout(p=0.2, inplace=False)
+  )
+  (head): Sequential(
+    (0): Linear(in_features=128, out_features=64, bias=True)
+    (1): SiLU()
+    (2): Dropout(p=0.2, inplace=False)
+    (3): Linear(in_features=64, out_features=2, bias=True)
+  )
+)
+2026-03-09 16:11:57,539 | INFO | ========== TRAINING ==========
+2026-03-09 16:12:06,772 | INFO | Epoch 001/40 | train_loss=0.5343 train_acc=0.7066 | val_loss=0.4359 val_acc=0.7891 val_bal_acc=0.7810 val_macro_f1=0.7826 | lr=1.00e-03
+2026-03-09 16:12:15,719 | INFO | Epoch 002/40 | train_loss=0.2947 train_acc=0.8734 | val_loss=0.4413 val_acc=0.7637 val_bal_acc=0.7551 val_macro_f1=0.7560 | lr=1.00e-03
+2026-03-09 16:12:24,643 | INFO | Epoch 003/40 | train_loss=0.2212 train_acc=0.9105 | val_loss=0.6732 val_acc=0.7393 val_bal_acc=0.7555 val_macro_f1=0.7299 | lr=1.00e-03
+2026-03-09 16:12:33,688 | INFO | Epoch 004/40 | train_loss=0.1803 train_acc=0.9232 | val_loss=1.4273 val_acc=0.6611 val_bal_acc=0.6828 val_macro_f1=0.6344 | lr=5.00e-04
+2026-03-09 16:12:42,444 | INFO | Epoch 005/40 | train_loss=0.1400 train_acc=0.9429 | val_loss=0.4186 val_acc=0.8281 val_bal_acc=0.8356 val_macro_f1=0.8276 | lr=5.00e-04
+2026-03-09 16:12:51,212 | INFO | Epoch 006/40 | train_loss=0.0913 train_acc=0.9669 | val_loss=0.5599 val_acc=0.8242 val_bal_acc=0.8345 val_macro_f1=0.8227 | lr=5.00e-04
+2026-03-09 16:12:59,900 | INFO | Epoch 007/40 | train_loss=0.0986 train_acc=0.9612 | val_loss=0.9752 val_acc=0.7480 val_bal_acc=0.7634 val_macro_f1=0.7404 | lr=5.00e-04
+2026-03-09 16:13:08,566 | INFO | Epoch 008/40 | train_loss=0.0699 train_acc=0.9783 | val_loss=0.5483 val_acc=0.8105 val_bal_acc=0.8157 val_macro_f1=0.8105 | lr=2.50e-04
+2026-03-09 16:13:17,302 | INFO | Epoch 009/40 | train_loss=0.0496 train_acc=0.9803 | val_loss=0.3132 val_acc=0.8809 val_bal_acc=0.8779 val_macro_f1=0.8796 | lr=2.50e-04
+2026-03-09 16:13:26,277 | INFO | Epoch 010/40 | train_loss=0.0374 train_acc=0.9850 | val_loss=0.4698 val_acc=0.8438 val_bal_acc=0.8466 val_macro_f1=0.8437 | lr=2.50e-04
+2026-03-09 16:13:35,122 | INFO | Epoch 011/40 | train_loss=0.0307 train_acc=0.9907 | val_loss=0.3871 val_acc=0.8779 val_bal_acc=0.8762 val_macro_f1=0.8770 | lr=2.50e-04
+2026-03-09 16:13:43,999 | INFO | Epoch 012/40 | train_loss=0.0299 train_acc=0.9891 | val_loss=0.8398 val_acc=0.8135 val_bal_acc=0.8238 val_macro_f1=0.8118 | lr=1.25e-04
+2026-03-09 16:13:52,789 | INFO | Epoch 013/40 | train_loss=0.0261 train_acc=0.9907 | val_loss=0.7178 val_acc=0.8447 val_bal_acc=0.8357 val_macro_f1=0.8390 | lr=1.25e-04
+2026-03-09 16:14:01,583 | INFO | Epoch 014/40 | train_loss=0.0190 train_acc=0.9919 | val_loss=0.6048 val_acc=0.8623 val_bal_acc=0.8542 val_macro_f1=0.8579 | lr=1.25e-04
+2026-03-09 16:14:10,377 | INFO | Epoch 015/40 | train_loss=0.0178 train_acc=0.9933 | val_loss=0.5393 val_acc=0.8555 val_bal_acc=0.8492 val_macro_f1=0.8521 | lr=6.25e-05
+2026-03-09 16:14:19,087 | INFO | Epoch 016/40 | train_loss=0.0192 train_acc=0.9919 | val_loss=0.6739 val_acc=0.8584 val_bal_acc=0.8510 val_macro_f1=0.8543 | lr=6.25e-05
+2026-03-09 16:14:27,807 | INFO | Epoch 017/40 | train_loss=0.0171 train_acc=0.9926 | val_loss=0.4766 val_acc=0.8652 val_bal_acc=0.8630 val_macro_f1=0.8641 | lr=6.25e-05
+2026-03-09 16:14:27,807 | INFO | Early stopping triggered.
+2026-03-09 16:14:27,807 | INFO | Training time (s): 150.27
+2026-03-09 16:14:27,809 | INFO | Restored best model (best_epoch=9, best_val_bal_acc=0.8779).
+2026-03-09 16:14:27,809 | INFO | ========== EVALUATION ==========
+2026-03-09 16:14:28,933 | INFO | Classification report:
+              precision    recall  f1-score   support
+
+       CN(0)     0.9025    0.8344    0.8671       477
+       AD(1)     0.8645    0.9214    0.8920       547
+
+    accuracy                         0.8809      1024
+   macro avg     0.8835    0.8779    0.8796      1024
+weighted avg     0.8822    0.8809    0.8804      1024
+
+2026-03-09 16:14:28,933 | INFO | Confusion matrix:
+[[398  79]
+ [ 43 504]]
+2026-03-09 16:14:28,933 | INFO | Final val_loss=0.3132 val_acc=0.8809 val_bal_acc=0.8779 val_macro_f1=0.8796
+2026-03-09 16:14:28,981 | INFO | Saved model weights: /home/e20212/FYP/models/train_eegnet_ds004504.pt
+2026-03-09 16:14:28,981 | INFO | Saved metrics: /home/e20212/FYP/experiments/train_eegnet_ds004504/metrics.json
+2026-03-09 16:14:28,981 | INFO | Saved confusion matrix: /home/e20212/FYP/experiments/train_eegnet_ds004504/confusion_matrix.npy
+2026-03-09 16:14:28,981 | INFO | ========== RUN END ==========

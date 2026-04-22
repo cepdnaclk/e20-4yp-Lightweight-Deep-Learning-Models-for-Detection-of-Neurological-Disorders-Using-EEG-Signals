@@ -1,0 +1,238 @@
+2026-03-03 15:15:24,964 | INFO | Logging to: /home/e20212/FYP/experiments/logs/EEGNet_Teecnet_4504_v4.log
+2026-03-03 15:15:24,964 | INFO | ========== RUN START (v4) ==========
+2026-03-03 15:15:24,964 | INFO | FYP root     : /home/e20212/FYP
+2026-03-03 15:15:24,964 | INFO | Dataset root : /home/e20212/FYP/datasets/Openneuro004504
+2026-03-03 15:15:24,964 | INFO | Out dir      : /home/e20212/FYP/data/ds004504_ad_cn_shards_v4
+2026-03-03 15:15:24,964 | INFO | --- v4 Improvements ---
+2026-03-03 15:15:24,964 | INFO |   LR             : 0.0003
+2026-03-03 15:15:24,964 | INFO |   Optimizer      : AdamW (weight_decay=0.01)
+2026-03-03 15:15:24,964 | INFO |   Scheduler      : CosineAnnealingLR
+2026-03-03 15:15:24,964 | INFO |   Grad clipping  : max_norm=1.0
+2026-03-03 15:15:24,964 | INFO |   Epochs         : 80
+2026-03-03 15:15:24,964 | INFO |   Patience       : 12
+2026-03-03 15:15:24,964 | INFO |   Bandpass       : True (0.5-45.0 Hz)
+2026-03-03 15:15:24,964 | INFO |   Augmentation   : True (noise_std=0.01, scale=[0.8,1.2], ch_drop=0.1)
+2026-03-03 15:15:24,964 | INFO |   Overlap        : 0.75
+2026-03-03 15:15:24,964 | INFO |   TopK           : 8
+2026-03-03 15:15:24,964 | INFO |   Dropout        : frontend=0.2, gnn=0.3, classifier=0.4, teecn=0.1
+2026-03-03 15:15:24,964 | INFO | --- End v4 Improvements ---
+2026-03-03 15:15:24,969 | INFO | Device: cuda
+2026-03-03 15:15:25,017 | INFO | GPU: NVIDIA RTX 6000 Ada Generation
+2026-03-03 15:15:25,101 | INFO | Subjects present in derivatives: 88
+2026-03-03 15:15:25,101 | INFO | Binary subjects (AD+CN)        : 65 | AD=36 CN=29
+2026-03-03 15:15:25,103 | INFO | Split by subject: train=52 eval=13
+2026-03-03 15:15:25,103 | INFO | ========== BUILDING SHARDS ==========
+2026-03-03 15:15:25,128 | INFO | [train] Subjects: 52 | .set files: 52
+2026-03-03 15:15:26,030 | INFO | [train] Loaded sub-001_task-eyesclosed_eeg.set | sid=sub-001 grp=A | sfreq=500.0 n_times=299900 dur_sec=599.80
+2026-03-03 15:15:26,349 | INFO | Window shape: (C=19, T=2500) ~ 185.5 KB/window
+2026-03-03 15:15:26,373 | INFO | [train] sub-001 (A) | sub-001_task-eyesclosed_eeg.set | windows_written=236
+2026-03-03 15:15:26,470 | INFO | [train] Loaded sub-002_task-eyesclosed_eeg.set | sid=sub-002 grp=A | sfreq=500.0 n_times=396550 dur_sec=793.10
+2026-03-03 15:15:26,748 | INFO | [train] sub-002 (A) | sub-002_task-eyesclosed_eeg.set | windows_written=314
+2026-03-03 15:15:26,797 | INFO | [train] Loaded sub-003_task-eyesclosed_eeg.set | sid=sub-003 grp=A | sfreq=500.0 n_times=153050 dur_sec=306.10
+2026-03-03 15:15:26,975 | INFO | [train] sub-003 (A) | sub-003_task-eyesclosed_eeg.set | windows_written=119
+2026-03-03 15:15:27,054 | INFO | [train] Loaded sub-004_task-eyesclosed_eeg.set | sid=sub-004 grp=A | sfreq=500.0 n_times=353050 dur_sec=706.10
+2026-03-03 15:15:27,335 | INFO | [train] sub-004 (A) | sub-004_task-eyesclosed_eeg.set | windows_written=279
+2026-03-03 15:15:27,437 | INFO | [train] Loaded sub-005_task-eyesclosed_eeg.set | sid=sub-005 grp=A | sfreq=500.0 n_times=402050 dur_sec=804.10
+2026-03-03 15:15:27,735 | INFO | [train] sub-005 (A) | sub-005_task-eyesclosed_eeg.set | windows_written=318
+2026-03-03 15:15:27,800 | INFO | [train] Loaded sub-006_task-eyesclosed_eeg.set | sid=sub-006 grp=A | sfreq=500.0 n_times=316200 dur_sec=632.40
+2026-03-03 15:15:55,582 | INFO | [train] Wrote shard 0: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-03-03 15:15:55,598 | INFO | [train] sub-006 (A) | sub-006_task-eyesclosed_eeg.set | windows_written=249
+2026-03-03 15:15:55,673 | INFO | [train] Loaded sub-007_task-eyesclosed_eeg.set | sid=sub-007 grp=A | sfreq=500.0 n_times=383210 dur_sec=766.42
+2026-03-03 15:15:55,948 | INFO | [train] sub-007 (A) | sub-007_task-eyesclosed_eeg.set | windows_written=303
+2026-03-03 15:15:56,027 | INFO | [train] Loaded sub-008_task-eyesclosed_eeg.set | sid=sub-008 grp=A | sfreq=500.0 n_times=396700 dur_sec=793.40
+2026-03-03 15:15:56,305 | INFO | [train] sub-008 (A) | sub-008_task-eyesclosed_eeg.set | windows_written=314
+2026-03-03 15:15:56,371 | INFO | [train] Loaded sub-009_task-eyesclosed_eeg.set | sid=sub-009 grp=A | sfreq=500.0 n_times=306300 dur_sec=612.60
+2026-03-03 15:15:56,634 | INFO | [train] sub-009 (A) | sub-009_task-eyesclosed_eeg.set | windows_written=242
+2026-03-03 15:15:56,802 | INFO | [train] Loaded sub-010_task-eyesclosed_eeg.set | sid=sub-010 grp=A | sfreq=500.0 n_times=640860 dur_sec=1281.72
+2026-03-03 15:16:25,363 | INFO | [train] Wrote shard 1: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-03-03 15:16:25,371 | INFO | [train] sub-010 (A) | sub-010_task-eyesclosed_eeg.set | windows_written=509
+2026-03-03 15:16:25,450 | INFO | [train] Loaded sub-011_task-eyesclosed_eeg.set | sid=sub-011 grp=A | sfreq=500.0 n_times=384960 dur_sec=769.92
+2026-03-03 15:16:25,736 | INFO | [train] sub-011 (A) | sub-011_task-eyesclosed_eeg.set | windows_written=304
+2026-03-03 15:16:25,826 | INFO | [train] Loaded sub-012_task-eyesclosed_eeg.set | sid=sub-012 grp=A | sfreq=500.0 n_times=441760 dur_sec=883.52
+2026-03-03 15:16:26,146 | INFO | [train] sub-012 (A) | sub-012_task-eyesclosed_eeg.set | windows_written=350
+2026-03-03 15:16:26,243 | INFO | [train] Loaded sub-013_task-eyesclosed_eeg.set | sid=sub-013 grp=A | sfreq=500.0 n_times=419050 dur_sec=838.10
+2026-03-03 15:16:26,534 | INFO | [train] sub-013 (A) | sub-013_task-eyesclosed_eeg.set | windows_written=332
+2026-03-03 15:16:26,652 | INFO | [train] Loaded sub-014_task-eyesclosed_eeg.set | sid=sub-014 grp=A | sfreq=500.0 n_times=467220 dur_sec=934.44
+2026-03-03 15:16:52,572 | INFO | [train] Wrote shard 2: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-03-03 15:16:52,575 | INFO | [train] sub-014 (A) | sub-014_task-eyesclosed_eeg.set | windows_written=370
+2026-03-03 15:16:52,660 | INFO | [train] Loaded sub-017_task-eyesclosed_eeg.set | sid=sub-017 grp=A | sfreq=500.0 n_times=421700 dur_sec=843.40
+2026-03-03 15:16:52,981 | INFO | [train] sub-017 (A) | sub-017_task-eyesclosed_eeg.set | windows_written=334
+2026-03-03 15:16:53,091 | INFO | [train] Loaded sub-018_task-eyesclosed_eeg.set | sid=sub-018 grp=A | sfreq=500.0 n_times=422550 dur_sec=845.10
+2026-03-03 15:16:53,395 | INFO | [train] sub-018 (A) | sub-018_task-eyesclosed_eeg.set | windows_written=335
+2026-03-03 15:16:53,532 | INFO | [train] Loaded sub-019_task-eyesclosed_eeg.set | sid=sub-019 grp=A | sfreq=500.0 n_times=459310 dur_sec=918.62
+2026-03-03 15:16:53,933 | INFO | [train] sub-019 (A) | sub-019_task-eyesclosed_eeg.set | windows_written=364
+2026-03-03 15:16:54,044 | INFO | [train] Loaded sub-020_task-eyesclosed_eeg.set | sid=sub-020 grp=A | sfreq=500.0 n_times=434650 dur_sec=869.30
+2026-03-03 15:16:54,410 | INFO | [train] sub-020 (A) | sub-020_task-eyesclosed_eeg.set | windows_written=344
+2026-03-03 15:16:54,526 | INFO | [train] Loaded sub-021_task-eyesclosed_eeg.set | sid=sub-021 grp=A | sfreq=500.0 n_times=460140 dur_sec=920.28
+2026-03-03 15:17:20,542 | INFO | [train] Wrote shard 3: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-03-03 15:17:20,587 | INFO | [train] sub-021 (A) | sub-021_task-eyesclosed_eeg.set | windows_written=365
+2026-03-03 15:17:20,664 | INFO | [train] Loaded sub-022_task-eyesclosed_eeg.set | sid=sub-022 grp=A | sfreq=500.0 n_times=410960 dur_sec=821.92
+2026-03-03 15:17:20,952 | INFO | [train] sub-022 (A) | sub-022_task-eyesclosed_eeg.set | windows_written=325
+2026-03-03 15:17:21,046 | INFO | [train] Loaded sub-023_task-eyesclosed_eeg.set | sid=sub-023 grp=A | sfreq=500.0 n_times=417370 dur_sec=834.74
+2026-03-03 15:17:21,340 | INFO | [train] sub-023 (A) | sub-023_task-eyesclosed_eeg.set | windows_written=330
+2026-03-03 15:17:21,401 | INFO | [train] Loaded sub-024_task-eyesclosed_eeg.set | sid=sub-024 grp=A | sfreq=500.0 n_times=379900 dur_sec=759.80
+2026-03-03 15:17:21,673 | INFO | [train] sub-024 (A) | sub-024_task-eyesclosed_eeg.set | windows_written=300
+2026-03-03 15:17:21,741 | INFO | [train] Loaded sub-025_task-eyesclosed_eeg.set | sid=sub-025 grp=A | sfreq=500.0 n_times=342180 dur_sec=684.36
+2026-03-03 15:17:48,234 | INFO | [train] Wrote shard 4: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-03-03 15:17:48,258 | INFO | [train] sub-025 (A) | sub-025_task-eyesclosed_eeg.set | windows_written=270
+2026-03-03 15:17:48,362 | INFO | [train] Loaded sub-026_task-eyesclosed_eeg.set | sid=sub-026 grp=A | sfreq=500.0 n_times=449320 dur_sec=898.64
+2026-03-03 15:17:48,680 | INFO | [train] sub-026 (A) | sub-026_task-eyesclosed_eeg.set | windows_written=356
+2026-03-03 15:17:48,759 | INFO | [train] Loaded sub-029_task-eyesclosed_eeg.set | sid=sub-029 grp=A | sfreq=500.0 n_times=368340 dur_sec=736.68
+2026-03-03 15:17:49,074 | INFO | [train] sub-029 (A) | sub-029_task-eyesclosed_eeg.set | windows_written=291
+2026-03-03 15:17:49,216 | INFO | [train] Loaded sub-031_task-eyesclosed_eeg.set | sid=sub-031 grp=A | sfreq=500.0 n_times=575380 dur_sec=1150.76
+2026-03-03 15:17:49,764 | INFO | [train] sub-031 (A) | sub-031_task-eyesclosed_eeg.set | windows_written=457
+2026-03-03 15:17:49,865 | INFO | [train] Loaded sub-034_task-eyesclosed_eeg.set | sid=sub-034 grp=A | sfreq=500.0 n_times=484950 dur_sec=969.90
+2026-03-03 15:18:16,440 | INFO | [train] Wrote shard 5: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-03-03 15:18:16,469 | INFO | [train] sub-034 (A) | sub-034_task-eyesclosed_eeg.set | windows_written=384
+2026-03-03 15:18:16,541 | INFO | [train] Loaded sub-035_task-eyesclosed_eeg.set | sid=sub-035 grp=A | sfreq=500.0 n_times=370520 dur_sec=741.04
+2026-03-03 15:18:16,816 | INFO | [train] sub-035 (A) | sub-035_task-eyesclosed_eeg.set | windows_written=293
+2026-03-03 15:18:16,912 | INFO | [train] Loaded sub-036_task-eyesclosed_eeg.set | sid=sub-036 grp=A | sfreq=500.0 n_times=420680 dur_sec=841.36
+2026-03-03 15:18:17,206 | INFO | [train] sub-036 (A) | sub-036_task-eyesclosed_eeg.set | windows_written=333
+2026-03-03 15:18:17,279 | INFO | [train] Loaded sub-037_task-eyesclosed_eeg.set | sid=sub-037 grp=C | sfreq=500.0 n_times=388550 dur_sec=777.10
+2026-03-03 15:18:17,562 | INFO | [train] sub-037 (C) | sub-037_task-eyesclosed_eeg.set | windows_written=307
+2026-03-03 15:18:17,645 | INFO | [train] Loaded sub-038_task-eyesclosed_eeg.set | sid=sub-038 grp=C | sfreq=500.0 n_times=445700 dur_sec=891.40
+2026-03-03 15:18:44,321 | INFO | [train] Wrote shard 6: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-03-03 15:18:44,334 | INFO | [train] sub-038 (C) | sub-038_task-eyesclosed_eeg.set | windows_written=353
+2026-03-03 15:18:44,409 | INFO | [train] Loaded sub-039_task-eyesclosed_eeg.set | sid=sub-039 grp=C | sfreq=500.0 n_times=425040 dur_sec=850.08
+2026-03-03 15:18:44,702 | INFO | [train] sub-039 (C) | sub-039_task-eyesclosed_eeg.set | windows_written=337
+2026-03-03 15:18:44,792 | INFO | [train] Loaded sub-040_task-eyesclosed_eeg.set | sid=sub-040 grp=C | sfreq=500.0 n_times=482870 dur_sec=965.74
+2026-03-03 15:18:45,120 | INFO | [train] sub-040 (C) | sub-040_task-eyesclosed_eeg.set | windows_written=383
+2026-03-03 15:18:45,204 | INFO | [train] Loaded sub-041_task-eyesclosed_eeg.set | sid=sub-041 grp=C | sfreq=500.0 n_times=443050 dur_sec=886.10
+2026-03-03 15:18:45,578 | INFO | [train] sub-041 (C) | sub-041_task-eyesclosed_eeg.set | windows_written=351
+2026-03-03 15:18:45,674 | INFO | [train] Loaded sub-042_task-eyesclosed_eeg.set | sid=sub-042 grp=C | sfreq=500.0 n_times=481510 dur_sec=963.02
+2026-03-03 15:19:12,374 | INFO | [train] Wrote shard 7: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-03-03 15:19:12,395 | INFO | [train] sub-042 (C) | sub-042_task-eyesclosed_eeg.set | windows_written=382
+2026-03-03 15:19:12,486 | INFO | [train] Loaded sub-045_task-eyesclosed_eeg.set | sid=sub-045 grp=C | sfreq=500.0 n_times=425820 dur_sec=851.64
+2026-03-03 15:19:12,810 | INFO | [train] sub-045 (C) | sub-045_task-eyesclosed_eeg.set | windows_written=337
+2026-03-03 15:19:12,881 | INFO | [train] Loaded sub-046_task-eyesclosed_eeg.set | sid=sub-046 grp=C | sfreq=500.0 n_times=376520 dur_sec=753.04
+2026-03-03 15:19:13,184 | INFO | [train] sub-046 (C) | sub-046_task-eyesclosed_eeg.set | windows_written=298
+2026-03-03 15:19:13,289 | INFO | [train] Loaded sub-048_task-eyesclosed_eeg.set | sid=sub-048 grp=C | sfreq=500.0 n_times=494940 dur_sec=989.88
+2026-03-03 15:19:13,707 | INFO | [train] sub-048 (C) | sub-048_task-eyesclosed_eeg.set | windows_written=392
+2026-03-03 15:19:13,802 | INFO | [train] Loaded sub-049_task-eyesclosed_eeg.set | sid=sub-049 grp=C | sfreq=500.0 n_times=390100 dur_sec=780.20
+2026-03-03 15:19:40,336 | INFO | [train] Wrote shard 8: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-03-03 15:19:40,345 | INFO | [train] sub-049 (C) | sub-049_task-eyesclosed_eeg.set | windows_written=309
+2026-03-03 15:19:40,424 | INFO | [train] Loaded sub-050_task-eyesclosed_eeg.set | sid=sub-050 grp=C | sfreq=500.0 n_times=408820 dur_sec=817.64
+2026-03-03 15:19:40,725 | INFO | [train] sub-050 (C) | sub-050_task-eyesclosed_eeg.set | windows_written=324
+2026-03-03 15:19:40,795 | INFO | [train] Loaded sub-052_task-eyesclosed_eeg.set | sid=sub-052 grp=C | sfreq=500.0 n_times=380050 dur_sec=760.10
+2026-03-03 15:19:41,092 | INFO | [train] sub-052 (C) | sub-052_task-eyesclosed_eeg.set | windows_written=301
+2026-03-03 15:19:41,183 | INFO | [train] Loaded sub-053_task-eyesclosed_eeg.set | sid=sub-053 grp=C | sfreq=500.0 n_times=390260 dur_sec=780.52
+2026-03-03 15:19:41,531 | INFO | [train] sub-053 (C) | sub-053_task-eyesclosed_eeg.set | windows_written=309
+2026-03-03 15:19:41,633 | INFO | [train] Loaded sub-054_task-eyesclosed_eeg.set | sid=sub-054 grp=C | sfreq=500.0 n_times=418810 dur_sec=837.62
+2026-03-03 15:19:42,020 | INFO | [train] sub-054 (C) | sub-054_task-eyesclosed_eeg.set | windows_written=332
+2026-03-03 15:19:42,111 | INFO | [train] Loaded sub-055_task-eyesclosed_eeg.set | sid=sub-055 grp=C | sfreq=500.0 n_times=407300 dur_sec=814.60
+2026-03-03 15:20:09,051 | INFO | [train] Wrote shard 9: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-03-03 15:20:09,086 | INFO | [train] sub-055 (C) | sub-055_task-eyesclosed_eeg.set | windows_written=322
+2026-03-03 15:20:09,155 | INFO | [train] Loaded sub-058_task-eyesclosed_eeg.set | sid=sub-058 grp=C | sfreq=500.0 n_times=378390 dur_sec=756.78
+2026-03-03 15:20:09,536 | INFO | [train] sub-058 (C) | sub-058_task-eyesclosed_eeg.set | windows_written=299
+2026-03-03 15:20:09,605 | INFO | [train] Loaded sub-059_task-eyesclosed_eeg.set | sid=sub-059 grp=C | sfreq=500.0 n_times=393560 dur_sec=787.12
+2026-03-03 15:20:09,910 | INFO | [train] sub-059 (C) | sub-059_task-eyesclosed_eeg.set | windows_written=311
+2026-03-03 15:20:09,977 | INFO | [train] Loaded sub-060_task-eyesclosed_eeg.set | sid=sub-060 grp=C | sfreq=500.0 n_times=374240 dur_sec=748.48
+2026-03-03 15:20:10,267 | INFO | [train] sub-060 (C) | sub-060_task-eyesclosed_eeg.set | windows_written=296
+2026-03-03 15:20:10,336 | INFO | [train] Loaded sub-061_task-eyesclosed_eeg.set | sid=sub-061 grp=C | sfreq=500.0 n_times=401640 dur_sec=803.28
+2026-03-03 15:20:37,388 | INFO | [train] Wrote shard 10: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-03-03 15:20:37,395 | INFO | [train] sub-061 (C) | sub-061_task-eyesclosed_eeg.set | windows_written=318
+2026-03-03 15:20:37,506 | INFO | [train] Loaded sub-062_task-eyesclosed_eeg.set | sid=sub-062 grp=C | sfreq=500.0 n_times=449350 dur_sec=898.70
+2026-03-03 15:20:37,904 | INFO | [train] sub-062 (C) | sub-062_task-eyesclosed_eeg.set | windows_written=356
+2026-03-03 15:20:37,987 | INFO | [train] Loaded sub-063_task-eyesclosed_eeg.set | sid=sub-063 grp=C | sfreq=500.0 n_times=402470 dur_sec=804.94
+2026-03-03 15:20:38,373 | INFO | [train] sub-063 (C) | sub-063_task-eyesclosed_eeg.set | windows_written=318
+2026-03-03 15:20:38,465 | INFO | [train] Loaded sub-064_task-eyesclosed_eeg.set | sid=sub-064 grp=C | sfreq=500.0 n_times=424050 dur_sec=848.10
+2026-03-03 15:20:38,765 | INFO | [train] sub-064 (C) | sub-064_task-eyesclosed_eeg.set | windows_written=336
+2026-03-03 15:20:38,957 | INFO | [train] Loaded sub-065_task-eyesclosed_eeg.set | sid=sub-065 grp=C | sfreq=500.0 n_times=442050 dur_sec=884.10
+2026-03-03 15:20:39,276 | INFO | [train] sub-065 (C) | sub-065_task-eyesclosed_eeg.set | windows_written=350
+2026-03-03 15:21:05,463 | INFO | [train] Wrote shard 11: X=(1398, 19, 2500) | y=(1398,) | meta=1398
+2026-03-03 15:21:05,467 | INFO | [train] Total shards: 12 | total_windows=16941
+2026-03-03 15:21:05,535 | INFO | [eval] Subjects: 13 | .set files: 13
+2026-03-03 15:21:05,611 | INFO | [eval] Loaded sub-015_task-eyesclosed_eeg.set | sid=sub-015 grp=A | sfreq=500.0 n_times=450690 dur_sec=901.38
+2026-03-03 15:21:05,867 | INFO | Window shape: (C=19, T=2500) ~ 185.5 KB/window
+2026-03-03 15:21:05,909 | INFO | [eval] sub-015 (A) | sub-015_task-eyesclosed_eeg.set | windows_written=357
+2026-03-03 15:21:06,004 | INFO | [eval] Loaded sub-016_task-eyesclosed_eeg.set | sid=sub-016 grp=A | sfreq=500.0 n_times=486180 dur_sec=972.36
+2026-03-03 15:21:06,308 | INFO | [eval] sub-016 (A) | sub-016_task-eyesclosed_eeg.set | windows_written=385
+2026-03-03 15:21:06,387 | INFO | [eval] Loaded sub-027_task-eyesclosed_eeg.set | sid=sub-027 grp=A | sfreq=500.0 n_times=413100 dur_sec=826.20
+2026-03-03 15:21:06,700 | INFO | [eval] sub-027 (A) | sub-027_task-eyesclosed_eeg.set | windows_written=327
+2026-03-03 15:21:06,900 | INFO | [eval] Loaded sub-028_task-eyesclosed_eeg.set | sid=sub-028 grp=A | sfreq=500.0 n_times=409070 dur_sec=818.14
+2026-03-03 15:21:07,221 | INFO | [eval] sub-028 (A) | sub-028_task-eyesclosed_eeg.set | windows_written=324
+2026-03-03 15:21:07,266 | INFO | [eval] Loaded sub-030_task-eyesclosed_eeg.set | sid=sub-030 grp=A | sfreq=500.0 n_times=277040 dur_sec=554.08
+2026-03-03 15:21:32,567 | INFO | [eval] Wrote shard 0: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-03-03 15:21:32,593 | INFO | [eval] sub-030 (A) | sub-030_task-eyesclosed_eeg.set | windows_written=218
+2026-03-03 15:21:32,668 | INFO | [eval] Loaded sub-032_task-eyesclosed_eeg.set | sid=sub-032 grp=A | sfreq=500.0 n_times=398890 dur_sec=797.78
+2026-03-03 15:21:32,949 | INFO | [eval] sub-032 (A) | sub-032_task-eyesclosed_eeg.set | windows_written=316
+2026-03-03 15:21:33,006 | INFO | [eval] Loaded sub-033_task-eyesclosed_eeg.set | sid=sub-033 grp=A | sfreq=500.0 n_times=352710 dur_sec=705.42
+2026-03-03 15:21:33,275 | INFO | [eval] sub-033 (A) | sub-033_task-eyesclosed_eeg.set | windows_written=279
+2026-03-03 15:21:33,350 | INFO | [eval] Loaded sub-043_task-eyesclosed_eeg.set | sid=sub-043 grp=C | sfreq=500.0 n_times=414550 dur_sec=829.10
+2026-03-03 15:21:33,654 | INFO | [eval] sub-043 (C) | sub-043_task-eyesclosed_eeg.set | windows_written=328
+2026-03-03 15:21:33,864 | INFO | [eval] Loaded sub-044_task-eyesclosed_eeg.set | sid=sub-044 grp=C | sfreq=500.0 n_times=440800 dur_sec=881.60
+2026-03-03 15:21:58,940 | INFO | [eval] Wrote shard 1: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-03-03 15:21:58,956 | INFO | [eval] sub-044 (C) | sub-044_task-eyesclosed_eeg.set | windows_written=349
+2026-03-03 15:21:59,219 | INFO | [eval] Loaded sub-047_task-eyesclosed_eeg.set | sid=sub-047 grp=C | sfreq=500.0 n_times=403500 dur_sec=807.00
+2026-03-03 15:21:59,642 | INFO | [eval] sub-047 (C) | sub-047_task-eyesclosed_eeg.set | windows_written=319
+2026-03-03 15:21:59,756 | INFO | [eval] Loaded sub-051_task-eyesclosed_eeg.set | sid=sub-051 grp=C | sfreq=500.0 n_times=376670 dur_sec=753.34
+2026-03-03 15:22:00,155 | INFO | [eval] sub-051 (C) | sub-051_task-eyesclosed_eeg.set | windows_written=298
+2026-03-03 15:22:00,252 | INFO | [eval] Loaded sub-056_task-eyesclosed_eeg.set | sid=sub-056 grp=C | sfreq=500.0 n_times=395660 dur_sec=791.32
+2026-03-03 15:22:00,621 | INFO | [eval] sub-056 (C) | sub-056_task-eyesclosed_eeg.set | windows_written=313
+2026-03-03 15:22:00,717 | INFO | [eval] Loaded sub-057_task-eyesclosed_eeg.set | sid=sub-057 grp=C | sfreq=500.0 n_times=398250 dur_sec=796.50
+2026-03-03 15:22:01,011 | INFO | [eval] sub-057 (C) | sub-057_task-eyesclosed_eeg.set | windows_written=315
+2026-03-03 15:22:26,169 | INFO | [eval] Wrote shard 2: X=(1302, 19, 2500) | y=(1302,) | meta=1302
+2026-03-03 15:22:26,172 | INFO | [eval] Total shards: 3 | total_windows=4128
+2026-03-03 15:22:26,174 | INFO | ========== LOADING SHARDS ==========
+2026-03-03 15:22:26,177 | INFO | [train] shard 0: n=1413 | X_0.npy
+2026-03-03 15:22:26,181 | INFO | [train] shard 1: n=1413 | X_1.npy
+2026-03-03 15:22:26,184 | INFO | [train] shard 10: n=1413 | X_10.npy
+2026-03-03 15:22:26,187 | INFO | [train] shard 11: n=1398 | X_11.npy
+2026-03-03 15:22:26,190 | INFO | [train] shard 2: n=1413 | X_2.npy
+2026-03-03 15:22:26,193 | INFO | [train] shard 3: n=1413 | X_3.npy
+2026-03-03 15:22:26,196 | INFO | [train] shard 4: n=1413 | X_4.npy
+2026-03-03 15:22:26,199 | INFO | [train] shard 5: n=1413 | X_5.npy
+2026-03-03 15:22:26,202 | INFO | [train] shard 6: n=1413 | X_6.npy
+2026-03-03 15:22:26,205 | INFO | [train] shard 7: n=1413 | X_7.npy
+2026-03-03 15:22:26,208 | INFO | [train] shard 8: n=1413 | X_8.npy
+2026-03-03 15:22:26,211 | INFO | [train] shard 9: n=1413 | X_9.npy
+2026-03-03 15:22:26,215 | INFO | [eval] shard 0: n=1413 | X_0.npy
+2026-03-03 15:22:26,217 | INFO | [eval] shard 1: n=1413 | X_1.npy
+2026-03-03 15:22:26,220 | INFO | [eval] shard 2: n=1302 | X_2.npy
+2026-03-03 15:22:26,228 | INFO | Input shape: (C=19, T=2500) | Example y=1
+2026-03-03 15:22:26,445 | INFO | Train label counts: {0: 7621, 1: 9320}
+2026-03-03 15:22:26,445 | INFO | Class weights     : [1.1002892391238182, 0.899710760876182]
+2026-03-03 15:22:26,636 | INFO | ========== MODEL PARAMETERS ==========
+2026-03-03 15:22:26,636 | INFO | Total parameters     : 74,770
+2026-03-03 15:22:26,636 | INFO | Trainable parameters : 74,770
+2026-03-03 15:22:26,636 | INFO | Non-trainable params : 0
+2026-03-03 15:22:26,636 | INFO |   frontend             :      2,832 params (2,832 trainable)
+2026-03-03 15:22:26,636 | INFO |   gnn1                 :     17,664 params (17,664 trainable)
+2026-03-03 15:22:26,636 | INFO |   gnn2                 :     33,088 params (33,088 trainable)
+2026-03-03 15:22:26,636 | INFO |   teecn                :     16,768 params (16,768 trainable)
+2026-03-03 15:22:26,636 | INFO |   classifier           :      4,418 params (4,418 trainable)
+2026-03-03 15:22:26,636 | INFO | ======================================
+2026-03-03 15:22:26,636 | INFO | ========== TRAINING ==========
+2026-03-03 15:23:09,840 | INFO | Epoch 001/80 | train_loss=0.6299 train_acc=0.6442 | val_loss=0.4482 val_acc=0.8120 val_balacc=0.8052 val_macroF1=0.8074 | lr=3.00e-04
+2026-03-03 15:23:52,362 | INFO | Epoch 002/80 | train_loss=0.5435 train_acc=0.7347 | val_loss=0.4127 val_acc=0.8060 val_balacc=0.7989 val_macroF1=0.8010 | lr=3.00e-04
+2026-03-03 15:24:36,433 | INFO | Epoch 003/80 | train_loss=0.5073 train_acc=0.7577 | val_loss=0.4767 val_acc=0.7502 val_balacc=0.7356 val_macroF1=0.7317 | lr=2.99e-04
+2026-03-03 15:25:18,556 | INFO | Epoch 004/80 | train_loss=0.4822 train_acc=0.7693 | val_loss=0.5267 val_acc=0.7141 val_balacc=0.6964 val_macroF1=0.6846 | lr=2.98e-04
+2026-03-03 15:26:02,563 | INFO | Epoch 005/80 | train_loss=0.4619 train_acc=0.7837 | val_loss=0.4494 val_acc=0.7534 val_balacc=0.7395 val_macroF1=0.7366 | lr=2.97e-04
+2026-03-03 15:33:10,939 | INFO | Epoch 006/80 | train_loss=0.4463 train_acc=0.7902 | val_loss=0.4305 val_acc=0.7633 val_balacc=0.7510 val_macroF1=0.7499 | lr=2.96e-04
+2026-03-03 15:48:52,315 | INFO | Epoch 007/80 | train_loss=0.4275 train_acc=0.8046 | val_loss=0.5792 val_acc=0.6662 val_balacc=0.6432 val_macroF1=0.6104 | lr=2.94e-04
+2026-03-03 15:49:32,328 | INFO | Epoch 008/80 | train_loss=0.4135 train_acc=0.8128 | val_loss=0.6942 val_acc=0.6320 val_balacc=0.6061 val_macroF1=0.5540 | lr=2.93e-04
+2026-03-03 15:50:17,214 | INFO | Epoch 009/80 | train_loss=0.4027 train_acc=0.8191 | val_loss=0.6951 val_acc=0.6136 val_balacc=0.5860 val_macroF1=0.5197 | lr=2.91e-04
+2026-03-03 15:51:00,088 | INFO | Epoch 010/80 | train_loss=0.3932 train_acc=0.8229 | val_loss=0.8491 val_acc=0.5940 val_balacc=0.5642 val_macroF1=0.4774 | lr=2.89e-04
+2026-03-03 15:51:40,416 | INFO | Epoch 011/80 | train_loss=0.3751 train_acc=0.8347 | val_loss=0.8532 val_acc=0.6231 val_balacc=0.5955 val_macroF1=0.5321 | lr=2.86e-04
+2026-03-03 15:52:22,789 | INFO | Epoch 012/80 | train_loss=0.3642 train_acc=0.8363 | val_loss=1.0570 val_acc=0.5719 val_balacc=0.5403 val_macroF1=0.4316 | lr=2.84e-04
+2026-03-03 15:53:03,554 | INFO | Epoch 013/80 | train_loss=0.3548 train_acc=0.8459 | val_loss=0.7579 val_acc=0.6124 val_balacc=0.5838 val_macroF1=0.5110 | lr=2.81e-04
+2026-03-03 15:53:03,554 | INFO | Early stopping triggered.
+2026-03-03 15:53:03,554 | INFO | Training time (sec): 1836.92
+2026-03-03 15:53:03,692 | INFO | Restored best model (best_val_balacc=0.8052)
+2026-03-03 15:53:03,692 | INFO | ========== EVALUATION ==========
+2026-03-03 15:53:07,230 | INFO | Classification report:
+              precision    recall  f1-score   support
+
+       CN(0)     0.8659    0.7055    0.7775      1922
+       AD(1)     0.7791    0.9048    0.8372      2206
+
+    accuracy                         0.8120      4128
+   macro avg     0.8225    0.8052    0.8074      4128
+weighted avg     0.8195    0.8120    0.8094      4128
+
+2026-03-03 15:53:07,230 | INFO | Confusion matrix:
+[[1356  566]
+ [ 210 1996]]
+2026-03-03 15:53:07,270 | INFO | Saved model   : /home/e20212/FYP/models/EEGNet_Teecnet_4504_v4.pt
+2026-03-03 15:53:07,270 | INFO | Saved metrics : /home/e20212/FYP/experiments/EEGNet_Teecnet_4504_v4/metrics.json
+2026-03-03 15:53:07,270 | INFO | ========== RUN END (v4) ==========

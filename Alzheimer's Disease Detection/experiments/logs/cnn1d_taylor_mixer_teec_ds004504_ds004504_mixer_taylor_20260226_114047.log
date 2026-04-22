@@ -1,0 +1,70 @@
+2026-02-26 11:40:47,773 | INFO | Logging to: /home/e20212/FYP/experiments/logs/cnn1d_taylor_mixer_teec_ds004504_ds004504_mixer_taylor_20260226_114047.log
+2026-02-26 11:40:47,773 | INFO | ========== RUN START ==========
+2026-02-26 11:40:47,773 | INFO | FYP root : /home/e20212/FYP
+2026-02-26 11:40:47,773 | INFO | Shards   : /home/e20212/FYP/data/ds004504_ad_cn_shards
+2026-02-26 11:40:47,816 | INFO | Device: cuda
+2026-02-26 11:40:47,852 | INFO | GPU: NVIDIA RTX 6000 Ada Generation
+2026-02-26 11:40:47,852 | INFO | ========== LOADING SHARDS ==========
+2026-02-26 11:40:47,857 | INFO | [train] shard 0: n=1413 | X_0.npy
+2026-02-26 11:40:47,860 | INFO | [train] shard 1: n=1413 | X_1.npy
+2026-02-26 11:40:47,864 | INFO | [train] shard 2: n=1413 | X_2.npy
+2026-02-26 11:40:47,868 | INFO | [train] shard 3: n=1413 | X_3.npy
+2026-02-26 11:40:47,872 | INFO | [train] shard 4: n=1413 | X_4.npy
+2026-02-26 11:40:47,876 | INFO | [train] shard 5: n=1413 | X_5.npy
+2026-02-26 11:40:47,879 | INFO | [train] shard 6: n=4 | X_6.npy
+2026-02-26 11:40:47,883 | INFO | [eval] shard 0: n=1413 | X_0.npy
+2026-02-26 11:40:47,887 | INFO | [eval] shard 1: n=655 | X_1.npy
+2026-02-26 11:40:47,891 | INFO | Example window: C=19, T=2500 | y=1
+2026-02-26 11:40:48,016 | INFO | Train label counts: {0: 3816, 1: 4666}
+2026-02-26 11:40:48,017 | INFO | Class weights     : [1.1002122141002477, 0.8997877858997524]
+2026-02-26 11:40:48,023 | INFO | Model: CNN1D_MixerTaylorTEEC | params=188,571 | feature_dim=128 teec_order=3 teec_steps=2 token_hidden=64 droppath=0.1
+2026-02-26 11:40:49,975 | INFO | ========== TRAINING ==========
+2026-02-26 11:41:05,959 | INFO | Epoch 001/30 | train_loss=0.4496 train_acc=0.7950 | val_loss=0.4551 val_acc=0.7602 val_balacc=0.7568 val_macroF1=0.7577 | lr=1.00e-03
+2026-02-26 11:41:21,483 | INFO | Epoch 002/30 | train_loss=0.2877 train_acc=0.8848 | val_loss=0.5408 val_acc=0.7708 val_balacc=0.7647 val_macroF1=0.7661 | lr=1.00e-03
+2026-02-26 11:41:37,025 | INFO | Epoch 003/30 | train_loss=0.2001 train_acc=0.9248 | val_loss=0.7529 val_acc=0.7887 val_balacc=0.7791 val_macroF1=0.7805 | lr=1.00e-03
+2026-02-26 11:41:52,578 | INFO | Epoch 004/30 | train_loss=0.1609 train_acc=0.9406 | val_loss=0.6516 val_acc=0.7868 val_balacc=0.7821 val_macroF1=0.7836 | lr=5.00e-04
+2026-02-26 11:42:08,070 | INFO | Epoch 005/30 | train_loss=0.1044 train_acc=0.9623 | val_loss=0.6882 val_acc=0.7843 val_balacc=0.7817 val_macroF1=0.7825 | lr=5.00e-04
+2026-02-26 11:42:23,619 | INFO | Epoch 006/30 | train_loss=0.0874 train_acc=0.9691 | val_loss=0.7498 val_acc=0.7756 val_balacc=0.7746 val_macroF1=0.7746 | lr=5.00e-04
+2026-02-26 11:42:39,155 | INFO | Epoch 007/30 | train_loss=0.0762 train_acc=0.9712 | val_loss=0.7083 val_acc=0.7911 val_balacc=0.7894 val_macroF1=0.7898 | lr=2.50e-04
+2026-02-26 11:42:54,677 | INFO | Epoch 008/30 | train_loss=0.0617 train_acc=0.9757 | val_loss=0.8166 val_acc=0.7713 val_balacc=0.7744 val_macroF1=0.7713 | lr=2.50e-04
+2026-02-26 11:43:10,244 | INFO | Epoch 009/30 | train_loss=0.0562 train_acc=0.9809 | val_loss=0.8713 val_acc=0.7650 val_balacc=0.7692 val_macroF1=0.7650 | lr=2.50e-04
+2026-02-26 11:43:47,286 | INFO | Epoch 010/30 | train_loss=0.0448 train_acc=0.9837 | val_loss=0.7777 val_acc=0.7911 val_balacc=0.7912 val_macroF1=0.7905 | lr=1.25e-04
+2026-02-26 11:44:05,434 | INFO | Epoch 011/30 | train_loss=0.0382 train_acc=0.9866 | val_loss=0.8612 val_acc=0.7853 val_balacc=0.7860 val_macroF1=0.7849 | lr=1.25e-04
+2026-02-26 11:44:20,942 | INFO | Epoch 012/30 | train_loss=0.0335 train_acc=0.9882 | val_loss=0.9098 val_acc=0.7795 val_balacc=0.7805 val_macroF1=0.7791 | lr=1.25e-04
+2026-02-26 11:44:36,516 | INFO | Epoch 013/30 | train_loss=0.0349 train_acc=0.9873 | val_loss=0.9497 val_acc=0.7698 val_balacc=0.7713 val_macroF1=0.7696 | lr=6.25e-05
+2026-02-26 11:45:00,742 | INFO | Epoch 014/30 | train_loss=0.0331 train_acc=0.9874 | val_loss=0.8773 val_acc=0.7940 val_balacc=0.7933 val_macroF1=0.7931 | lr=6.25e-05
+2026-02-26 11:45:24,046 | INFO | Epoch 015/30 | train_loss=0.0258 train_acc=0.9916 | val_loss=0.8982 val_acc=0.8027 val_balacc=0.8011 val_macroF1=0.8015 | lr=6.25e-05
+2026-02-26 11:45:39,560 | INFO | Epoch 016/30 | train_loss=0.0296 train_acc=0.9896 | val_loss=0.8998 val_acc=0.7853 val_balacc=0.7872 val_macroF1=0.7851 | lr=3.13e-05
+2026-02-26 11:45:54,993 | INFO | Epoch 017/30 | train_loss=0.0254 train_acc=0.9902 | val_loss=0.9139 val_acc=0.7916 val_balacc=0.7915 val_macroF1=0.7909 | lr=3.13e-05
+2026-02-26 11:46:10,419 | INFO | Epoch 018/30 | train_loss=0.0238 train_acc=0.9923 | val_loss=0.8490 val_acc=0.8046 val_balacc=0.8051 val_macroF1=0.8042 | lr=3.13e-05
+2026-02-26 11:46:25,912 | INFO | Epoch 019/30 | train_loss=0.0244 train_acc=0.9917 | val_loss=0.9267 val_acc=0.7877 val_balacc=0.7889 val_macroF1=0.7874 | lr=1.56e-05
+2026-02-26 11:46:41,366 | INFO | Epoch 020/30 | train_loss=0.0246 train_acc=0.9914 | val_loss=0.9048 val_acc=0.7993 val_balacc=0.7981 val_macroF1=0.7983 | lr=1.56e-05
+2026-02-26 11:46:56,883 | INFO | Epoch 021/30 | train_loss=0.0234 train_acc=0.9922 | val_loss=0.9091 val_acc=0.7969 val_balacc=0.7969 val_macroF1=0.7963 | lr=1.56e-05
+2026-02-26 11:47:13,365 | INFO | Epoch 022/30 | train_loss=0.0232 train_acc=0.9922 | val_loss=0.8906 val_acc=0.7988 val_balacc=0.7992 val_macroF1=0.7983 | lr=7.81e-06
+2026-02-26 11:47:41,135 | INFO | Epoch 023/30 | train_loss=0.0262 train_acc=0.9893 | val_loss=0.8852 val_acc=0.8090 val_balacc=0.8071 val_macroF1=0.8076 | lr=7.81e-06
+2026-02-26 11:47:56,588 | INFO | Epoch 024/30 | train_loss=0.0229 train_acc=0.9922 | val_loss=0.9065 val_acc=0.8013 val_balacc=0.8003 val_macroF1=0.8003 | lr=7.81e-06
+2026-02-26 11:48:12,103 | INFO | Epoch 025/30 | train_loss=0.0240 train_acc=0.9912 | val_loss=0.9180 val_acc=0.7984 val_balacc=0.7981 val_macroF1=0.7977 | lr=3.91e-06
+2026-02-26 11:48:27,582 | INFO | Epoch 026/30 | train_loss=0.0247 train_acc=0.9906 | val_loss=0.9127 val_acc=0.7979 val_balacc=0.7977 val_macroF1=0.7972 | lr=3.91e-06
+2026-02-26 11:48:43,140 | INFO | Epoch 027/30 | train_loss=0.0235 train_acc=0.9921 | val_loss=0.9096 val_acc=0.8066 val_balacc=0.8043 val_macroF1=0.8050 | lr=3.91e-06
+2026-02-26 11:48:58,723 | INFO | Epoch 028/30 | train_loss=0.0217 train_acc=0.9920 | val_loss=0.9288 val_acc=0.7974 val_balacc=0.7973 val_macroF1=0.7967 | lr=1.95e-06
+2026-02-26 11:49:14,274 | INFO | Epoch 029/30 | train_loss=0.0193 train_acc=0.9945 | val_loss=0.9140 val_acc=0.8013 val_balacc=0.7999 val_macroF1=0.8002 | lr=1.95e-06
+2026-02-26 11:49:14,274 | INFO | Early stopping triggered.
+2026-02-26 11:49:14,274 | INFO | Training time (sec): 504.30
+2026-02-26 11:49:14,275 | INFO | Restored best model (best_val_balacc=0.8071)
+2026-02-26 11:49:14,275 | INFO | ========== EVALUATION ==========
+2026-02-26 11:49:16,090 | INFO | Classification report:
+              precision    recall  f1-score   support
+
+       CN(0)     0.8047    0.7788    0.7916       963
+       AD(1)     0.8125    0.8353    0.8237      1105
+
+    accuracy                         0.8090      2068
+   macro avg     0.8086    0.8071    0.8076      2068
+weighted avg     0.8089    0.8090    0.8088      2068
+
+2026-02-26 11:49:16,090 | INFO | Confusion matrix:
+[[750 213]
+ [182 923]]
+2026-02-26 11:49:16,170 | INFO | Saved model   : /home/e20212/FYP/models/cnn1d_taylor_mixer_teec_ds004504_ds004504_mixer_taylor_20260226_114047.pt
+2026-02-26 11:49:16,170 | INFO | Saved metrics : /home/e20212/FYP/experiments/cnn1d_taylor_mixer_teec_ds004504_ds004504_mixer_taylor_20260226_114047/metrics.json
+2026-02-26 11:49:16,170 | INFO | ========== RUN END ==========

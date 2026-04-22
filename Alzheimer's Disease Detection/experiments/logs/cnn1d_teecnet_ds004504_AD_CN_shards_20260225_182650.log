@@ -1,0 +1,58 @@
+2026-02-25 18:26:50,345 | INFO | Logging to: /home/e20212/FYP/experiments/logs/cnn1d_teecnet_ds004504_AD_CN_shards_20260225_182650.log
+2026-02-25 18:26:50,345 | INFO | ========== RUN START ==========
+2026-02-25 18:26:50,345 | INFO | FYP root : /home/e20212/FYP
+2026-02-25 18:26:50,345 | INFO | Shards   : /home/e20212/FYP/data/ds004504_ad_cn_shards
+2026-02-25 18:26:50,351 | INFO | Device: cuda
+2026-02-25 18:26:50,385 | INFO | GPU: NVIDIA RTX 6000 Ada Generation
+2026-02-25 18:26:50,385 | INFO | ========== LOADING SHARDS ==========
+2026-02-25 18:26:50,389 | INFO | [train] shard 0: n=1413 | X_0.npy
+2026-02-25 18:26:50,393 | INFO | [train] shard 1: n=1413 | X_1.npy
+2026-02-25 18:26:50,396 | INFO | [train] shard 2: n=1413 | X_2.npy
+2026-02-25 18:26:50,399 | INFO | [train] shard 3: n=1413 | X_3.npy
+2026-02-25 18:26:50,402 | INFO | [train] shard 4: n=1413 | X_4.npy
+2026-02-25 18:26:50,406 | INFO | [train] shard 5: n=1413 | X_5.npy
+2026-02-25 18:26:50,409 | INFO | [train] shard 6: n=4 | X_6.npy
+2026-02-25 18:26:50,412 | INFO | [eval] shard 0: n=1413 | X_0.npy
+2026-02-25 18:26:50,416 | INFO | [eval] shard 1: n=655 | X_1.npy
+2026-02-25 18:26:50,419 | INFO | Example window: C=19, T=2500 | y=1
+2026-02-25 18:26:50,681 | INFO | Train label counts: {0: 3816, 1: 4666}
+2026-02-25 18:26:50,682 | INFO | Class weights     : [1.1002122141002477, 0.8997877858997524]
+2026-02-25 18:26:50,864 | INFO | Model: CNN1D_TEECNet | params=182,306 | feature_dim=128
+2026-02-25 18:26:50,865 | INFO | ========== TRAINING ==========
+2026-02-25 18:27:07,344 | INFO | Epoch 001/30 | train_loss=0.3607 train_acc=0.8355 | val_loss=0.4840 val_acc=0.7611 val_balacc=0.7662 val_macroF1=0.7610 | lr=1.00e-03
+2026-02-25 18:27:22,870 | INFO | Epoch 002/30 | train_loss=0.1964 train_acc=0.9220 | val_loss=0.5733 val_acc=0.7253 val_balacc=0.7092 val_macroF1=0.7012 | lr=1.00e-03
+2026-02-25 18:27:38,582 | INFO | Epoch 003/30 | train_loss=0.1654 train_acc=0.9365 | val_loss=0.5345 val_acc=0.7930 val_balacc=0.8023 val_macroF1=0.7917 | lr=1.00e-03
+2026-02-25 18:27:54,288 | INFO | Epoch 004/30 | train_loss=0.1423 train_acc=0.9452 | val_loss=0.7098 val_acc=0.7442 val_balacc=0.7478 val_macroF1=0.7442 | lr=5.00e-04
+2026-02-25 18:28:10,099 | INFO | Epoch 005/30 | train_loss=0.0927 train_acc=0.9651 | val_loss=0.9534 val_acc=0.7369 val_balacc=0.7240 val_macroF1=0.7212 | lr=5.00e-04
+2026-02-25 18:28:25,779 | INFO | Epoch 006/30 | train_loss=0.0639 train_acc=0.9778 | val_loss=1.5165 val_acc=0.7258 val_balacc=0.7067 val_macroF1=0.6931 | lr=5.00e-04
+2026-02-25 18:28:41,297 | INFO | Epoch 007/30 | train_loss=0.0487 train_acc=0.9830 | val_loss=0.8795 val_acc=0.7863 val_balacc=0.7929 val_macroF1=0.7859 | lr=2.50e-04
+2026-02-25 18:28:56,844 | INFO | Epoch 008/30 | train_loss=0.0369 train_acc=0.9849 | val_loss=0.8144 val_acc=0.8279 val_balacc=0.8297 val_macroF1=0.8277 | lr=2.50e-04
+2026-02-25 18:29:12,484 | INFO | Epoch 009/30 | train_loss=0.0285 train_acc=0.9890 | val_loss=0.9035 val_acc=0.8090 val_balacc=0.8137 val_macroF1=0.8090 | lr=2.50e-04
+2026-02-25 18:29:28,105 | INFO | Epoch 010/30 | train_loss=0.0242 train_acc=0.9910 | val_loss=0.7438 val_acc=0.8293 val_balacc=0.8293 val_macroF1=0.8288 | lr=1.25e-04
+2026-02-25 18:29:43,679 | INFO | Epoch 011/30 | train_loss=0.0191 train_acc=0.9933 | val_loss=0.7758 val_acc=0.8419 val_balacc=0.8350 val_macroF1=0.8379 | lr=1.25e-04
+2026-02-25 18:29:59,340 | INFO | Epoch 012/30 | train_loss=0.0124 train_acc=0.9962 | val_loss=0.9606 val_acc=0.8269 val_balacc=0.8262 val_macroF1=0.8261 | lr=1.25e-04
+2026-02-25 18:30:14,927 | INFO | Epoch 013/30 | train_loss=0.0096 train_acc=0.9968 | val_loss=0.8813 val_acc=0.8366 val_balacc=0.8282 val_macroF1=0.8312 | lr=6.25e-05
+2026-02-25 18:30:31,265 | INFO | Epoch 014/30 | train_loss=0.0082 train_acc=0.9974 | val_loss=1.0443 val_acc=0.8279 val_balacc=0.8182 val_macroF1=0.8210 | lr=6.25e-05
+2026-02-25 18:30:46,926 | INFO | Epoch 015/30 | train_loss=0.0064 train_acc=0.9982 | val_loss=1.0969 val_acc=0.8327 val_balacc=0.8242 val_macroF1=0.8270 | lr=6.25e-05
+2026-02-25 18:31:02,926 | INFO | Epoch 016/30 | train_loss=0.0096 train_acc=0.9968 | val_loss=1.1244 val_acc=0.8259 val_balacc=0.8157 val_macroF1=0.8183 | lr=3.13e-05
+2026-02-25 18:31:18,580 | INFO | Epoch 017/30 | train_loss=0.0057 train_acc=0.9991 | val_loss=1.2097 val_acc=0.8187 val_balacc=0.8093 val_macroF1=0.8117 | lr=3.13e-05
+2026-02-25 18:31:18,580 | INFO | Early stopping triggered.
+2026-02-25 18:31:18,580 | INFO | Training time (sec): 267.72
+2026-02-25 18:31:18,722 | INFO | Restored best model (best_val_balacc=0.8350)
+2026-02-25 18:31:18,722 | INFO | ========== EVALUATION ==========
+2026-02-25 18:31:20,591 | INFO | Classification report:
+              precision    recall  f1-score   support
+
+       CN(0)     0.9077    0.7352    0.8124       963
+       AD(1)     0.8020    0.9348    0.8634      1105
+
+    accuracy                         0.8419      2068
+   macro avg     0.8549    0.8350    0.8379      2068
+weighted avg     0.8512    0.8419    0.8396      2068
+
+2026-02-25 18:31:20,591 | INFO | Confusion matrix:
+[[ 708  255]
+ [  72 1033]]
+2026-02-25 18:31:20,669 | INFO | Saved model   : /home/e20212/FYP/models/cnn1d_teecnet_ds004504_AD_CN_shards_20260225_182650.pt
+2026-02-25 18:31:20,669 | INFO | Saved metrics : /home/e20212/FYP/experiments/cnn1d_teecnet_ds004504_AD_CN_shards_20260225_182650/metrics.json
+2026-02-25 18:31:20,669 | INFO | ========== RUN END ==========

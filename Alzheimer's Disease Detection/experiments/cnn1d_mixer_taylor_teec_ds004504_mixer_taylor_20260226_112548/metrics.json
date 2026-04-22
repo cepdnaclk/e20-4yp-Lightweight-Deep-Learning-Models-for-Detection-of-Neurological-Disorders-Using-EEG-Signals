@@ -1,0 +1,50 @@
+{
+  "run_name": "cnn1d_mixer_taylor_teec_ds004504_mixer_taylor_20260226_112548",
+  "tag": "ds004504_mixer_taylor",
+  "train_time_sec": 171.84244298934937,
+  "train_windows": 8482,
+  "eval_windows": 2068,
+  "final_val_loss": 0.7363943564773103,
+  "final_val_acc": 0.7761121856866537,
+  "final_val_balanced_acc": 0.772482767370068,
+  "final_val_macro_f1": 0.7735728763441305,
+  "best_val_balanced_acc": 0.772482767370068,
+  "classification_report": {
+    "CN(0)": {
+      "precision": 0.7821670428893905,
+      "recall": 0.719626168224299,
+      "f1-score": 0.7495943753380205,
+      "support": 963.0
+    },
+    "AD(1)": {
+      "precision": 0.7715736040609137,
+      "recall": 0.8253393665158371,
+      "f1-score": 0.7975513773502405,
+      "support": 1105.0
+    },
+    "accuracy": 0.7761121856866537,
+    "macro avg": {
+      "precision": 0.7768703234751522,
+      "recall": 0.772482767370068,
+      "f1-score": 0.7735728763441305,
+      "support": 2068.0
+    },
+    "weighted avg": {
+      "precision": 0.776506622238778,
+      "recall": 0.7761121856866537,
+      "f1-score": 0.7752193691598305,
+      "support": 2068.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      693,
+      270
+    ],
+    [
+      193,
+      912
+    ]
+  ],
+  "model_params": 188571
+}

@@ -1,0 +1,272 @@
+nohup: ignoring input
+2026-02-23 08:43:23,270 | INFO | Logging to: /home/e20212/FYP/experiments/logs/cnn1d_ds004504_AD_CN_derivatives_20260223_084323.log
+2026-02-23 08:43:23,271 | INFO | ========== RUN START ==========
+2026-02-23 08:43:23,271 | INFO | FYP root     : /home/e20212/FYP
+2026-02-23 08:43:23,271 | INFO | Dataset root : /home/e20212/FYP/datasets/Openneuro004504
+2026-02-23 08:43:23,271 | INFO | Out dir      : /home/e20212/FYP/data/ds004504_ad_cn_shards
+2026-02-23 08:43:23,312 | INFO | Device: cuda
+2026-02-23 08:43:23,346 | INFO | GPU: NVIDIA RTX 6000 Ada Generation
+2026-02-23 08:43:23,477 | INFO | Subjects present in derivatives: 88
+2026-02-23 08:43:23,477 | INFO | Binary subjects (AD+CN)        : 65 | AD=36 CN=29
+2026-02-23 08:43:23,478 | INFO | Split by subject: train=52 eval=13
+2026-02-23 08:43:23,479 | INFO | ========== BUILDING SHARDS ==========
+2026-02-23 08:43:23,506 | INFO | [train] Subjects: 52 | .set files: 52
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:43:29,758 | INFO | [train] Loaded sub-001_task-eyesclosed_eeg.set | sid=sub-001 grp=A | sfreq=500.0 n_times=299900 dur_sec=599.80
+2026-02-23 08:43:30,189 | INFO | Window shape: (C=19, T=2500) ~ 185.5 KB/window
+2026-02-23 08:43:30,218 | INFO | [train] sub-001 (A) | sub-001_task-eyesclosed_eeg.set | windows_written=118
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:43:33,178 | INFO | [train] Loaded sub-002_task-eyesclosed_eeg.set | sid=sub-002 grp=A | sfreq=500.0 n_times=396550 dur_sec=793.10
+2026-02-23 08:43:33,563 | INFO | [train] sub-002 (A) | sub-002_task-eyesclosed_eeg.set | windows_written=157
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:43:34,770 | INFO | [train] Loaded sub-003_task-eyesclosed_eeg.set | sid=sub-003 grp=A | sfreq=500.0 n_times=153050 dur_sec=306.10
+2026-02-23 08:43:34,928 | INFO | [train] sub-003 (A) | sub-003_task-eyesclosed_eeg.set | windows_written=60
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:43:37,670 | INFO | [train] Loaded sub-004_task-eyesclosed_eeg.set | sid=sub-004 grp=A | sfreq=500.0 n_times=353050 dur_sec=706.10
+2026-02-23 08:43:38,065 | INFO | [train] sub-004 (A) | sub-004_task-eyesclosed_eeg.set | windows_written=140
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:43:41,164 | INFO | [train] Loaded sub-005_task-eyesclosed_eeg.set | sid=sub-005 grp=A | sfreq=500.0 n_times=402050 dur_sec=804.10
+2026-02-23 08:43:41,530 | INFO | [train] sub-005 (A) | sub-005_task-eyesclosed_eeg.set | windows_written=159
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:43:44,531 | INFO | [train] Loaded sub-006_task-eyesclosed_eeg.set | sid=sub-006 grp=A | sfreq=500.0 n_times=316200 dur_sec=632.40
+2026-02-23 08:43:44,854 | INFO | [train] sub-006 (A) | sub-006_task-eyesclosed_eeg.set | windows_written=125
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:43:48,417 | INFO | [train] Loaded sub-007_task-eyesclosed_eeg.set | sid=sub-007 grp=A | sfreq=500.0 n_times=383210 dur_sec=766.42
+2026-02-23 08:43:48,783 | INFO | [train] sub-007 (A) | sub-007_task-eyesclosed_eeg.set | windows_written=152
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:43:52,388 | INFO | [train] Loaded sub-008_task-eyesclosed_eeg.set | sid=sub-008 grp=A | sfreq=500.0 n_times=396700 dur_sec=793.40
+2026-02-23 08:43:52,698 | INFO | [train] sub-008 (A) | sub-008_task-eyesclosed_eeg.set | windows_written=157
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:43:55,544 | INFO | [train] Loaded sub-009_task-eyesclosed_eeg.set | sid=sub-009 grp=A | sfreq=500.0 n_times=306300 dur_sec=612.60
+2026-02-23 08:43:55,858 | INFO | [train] sub-009 (A) | sub-009_task-eyesclosed_eeg.set | windows_written=121
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:44:00,814 | INFO | [train] Loaded sub-010_task-eyesclosed_eeg.set | sid=sub-010 grp=A | sfreq=500.0 n_times=640860 dur_sec=1281.72
+2026-02-23 08:44:25,713 | INFO | [train] Wrote shard 0: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-02-23 08:44:25,718 | INFO | [train] sub-010 (A) | sub-010_task-eyesclosed_eeg.set | windows_written=255
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:44:28,687 | INFO | [train] Loaded sub-011_task-eyesclosed_eeg.set | sid=sub-011 grp=A | sfreq=500.0 n_times=384960 dur_sec=769.92
+2026-02-23 08:44:28,963 | INFO | [train] sub-011 (A) | sub-011_task-eyesclosed_eeg.set | windows_written=152
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:44:32,388 | INFO | [train] Loaded sub-012_task-eyesclosed_eeg.set | sid=sub-012 grp=A | sfreq=500.0 n_times=441760 dur_sec=883.52
+2026-02-23 08:44:32,660 | INFO | [train] sub-012 (A) | sub-012_task-eyesclosed_eeg.set | windows_written=175
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:44:35,865 | INFO | [train] Loaded sub-013_task-eyesclosed_eeg.set | sid=sub-013 grp=A | sfreq=500.0 n_times=419050 dur_sec=838.10
+2026-02-23 08:44:36,196 | INFO | [train] sub-013 (A) | sub-013_task-eyesclosed_eeg.set | windows_written=166
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:44:39,815 | INFO | [train] Loaded sub-014_task-eyesclosed_eeg.set | sid=sub-014 grp=A | sfreq=500.0 n_times=467220 dur_sec=934.44
+2026-02-23 08:44:40,240 | INFO | [train] sub-014 (A) | sub-014_task-eyesclosed_eeg.set | windows_written=185
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:44:43,510 | INFO | [train] Loaded sub-017_task-eyesclosed_eeg.set | sid=sub-017 grp=A | sfreq=500.0 n_times=421700 dur_sec=843.40
+2026-02-23 08:44:43,827 | INFO | [train] sub-017 (A) | sub-017_task-eyesclosed_eeg.set | windows_written=167
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:44:47,096 | INFO | [train] Loaded sub-018_task-eyesclosed_eeg.set | sid=sub-018 grp=A | sfreq=500.0 n_times=422550 dur_sec=845.10
+2026-02-23 08:44:47,474 | INFO | [train] sub-018 (A) | sub-018_task-eyesclosed_eeg.set | windows_written=168
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:44:51,057 | INFO | [train] Loaded sub-019_task-eyesclosed_eeg.set | sid=sub-019 grp=A | sfreq=500.0 n_times=459310 dur_sec=918.62
+2026-02-23 08:44:51,376 | INFO | [train] sub-019 (A) | sub-019_task-eyesclosed_eeg.set | windows_written=182
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:44:54,597 | INFO | [train] Loaded sub-020_task-eyesclosed_eeg.set | sid=sub-020 grp=A | sfreq=500.0 n_times=434650 dur_sec=869.30
+2026-02-23 08:44:54,919 | INFO | [train] sub-020 (A) | sub-020_task-eyesclosed_eeg.set | windows_written=172
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:44:58,503 | INFO | [train] Loaded sub-021_task-eyesclosed_eeg.set | sid=sub-021 grp=A | sfreq=500.0 n_times=460140 dur_sec=920.28
+2026-02-23 08:45:36,488 | INFO | [train] Wrote shard 1: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-02-23 08:45:36,522 | INFO | [train] sub-021 (A) | sub-021_task-eyesclosed_eeg.set | windows_written=183
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:45:40,652 | INFO | [train] Loaded sub-022_task-eyesclosed_eeg.set | sid=sub-022 grp=A | sfreq=500.0 n_times=410960 dur_sec=821.92
+2026-02-23 08:45:40,950 | INFO | [train] sub-022 (A) | sub-022_task-eyesclosed_eeg.set | windows_written=163
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:45:44,722 | INFO | [train] Loaded sub-023_task-eyesclosed_eeg.set | sid=sub-023 grp=A | sfreq=500.0 n_times=417370 dur_sec=834.74
+2026-02-23 08:45:44,988 | INFO | [train] sub-023 (A) | sub-023_task-eyesclosed_eeg.set | windows_written=165
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:45:48,219 | INFO | [train] Loaded sub-024_task-eyesclosed_eeg.set | sid=sub-024 grp=A | sfreq=500.0 n_times=379900 dur_sec=759.80
+2026-02-23 08:45:48,473 | INFO | [train] sub-024 (A) | sub-024_task-eyesclosed_eeg.set | windows_written=150
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:45:51,802 | INFO | [train] Loaded sub-025_task-eyesclosed_eeg.set | sid=sub-025 grp=A | sfreq=500.0 n_times=342180 dur_sec=684.36
+2026-02-23 08:45:52,086 | INFO | [train] sub-025 (A) | sub-025_task-eyesclosed_eeg.set | windows_written=135
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:45:58,371 | INFO | [train] Loaded sub-026_task-eyesclosed_eeg.set | sid=sub-026 grp=A | sfreq=500.0 n_times=449320 dur_sec=898.64
+2026-02-23 08:45:58,696 | INFO | [train] sub-026 (A) | sub-026_task-eyesclosed_eeg.set | windows_written=178
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:46:04,088 | INFO | [train] Loaded sub-029_task-eyesclosed_eeg.set | sid=sub-029 grp=A | sfreq=500.0 n_times=368340 dur_sec=736.68
+2026-02-23 08:46:04,377 | INFO | [train] sub-029 (A) | sub-029_task-eyesclosed_eeg.set | windows_written=146
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:46:12,049 | INFO | [train] Loaded sub-031_task-eyesclosed_eeg.set | sid=sub-031 grp=A | sfreq=500.0 n_times=575380 dur_sec=1150.76
+2026-02-23 08:46:12,602 | INFO | [train] sub-031 (A) | sub-031_task-eyesclosed_eeg.set | windows_written=229
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:46:16,591 | INFO | [train] Loaded sub-034_task-eyesclosed_eeg.set | sid=sub-034 grp=A | sfreq=500.0 n_times=484950 dur_sec=969.90
+2026-02-23 08:46:41,053 | INFO | [train] Wrote shard 2: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-02-23 08:46:41,067 | INFO | [train] sub-034 (A) | sub-034_task-eyesclosed_eeg.set | windows_written=192
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:46:43,906 | INFO | [train] Loaded sub-035_task-eyesclosed_eeg.set | sid=sub-035 grp=A | sfreq=500.0 n_times=370520 dur_sec=741.04
+2026-02-23 08:46:44,166 | INFO | [train] sub-035 (A) | sub-035_task-eyesclosed_eeg.set | windows_written=147
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:46:47,517 | INFO | [train] Loaded sub-036_task-eyesclosed_eeg.set | sid=sub-036 grp=A | sfreq=500.0 n_times=420680 dur_sec=841.36
+2026-02-23 08:46:47,811 | INFO | [train] sub-036 (A) | sub-036_task-eyesclosed_eeg.set | windows_written=167
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:46:51,327 | INFO | [train] Loaded sub-037_task-eyesclosed_eeg.set | sid=sub-037 grp=C | sfreq=500.0 n_times=388550 dur_sec=777.10
+2026-02-23 08:46:51,597 | INFO | [train] sub-037 (C) | sub-037_task-eyesclosed_eeg.set | windows_written=154
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:46:55,502 | INFO | [train] Loaded sub-038_task-eyesclosed_eeg.set | sid=sub-038 grp=C | sfreq=500.0 n_times=445700 dur_sec=891.40
+2026-02-23 08:46:55,877 | INFO | [train] sub-038 (C) | sub-038_task-eyesclosed_eeg.set | windows_written=177
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:46:59,703 | INFO | [train] Loaded sub-039_task-eyesclosed_eeg.set | sid=sub-039 grp=C | sfreq=500.0 n_times=425040 dur_sec=850.08
+2026-02-23 08:46:59,981 | INFO | [train] sub-039 (C) | sub-039_task-eyesclosed_eeg.set | windows_written=169
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:47:04,272 | INFO | [train] Loaded sub-040_task-eyesclosed_eeg.set | sid=sub-040 grp=C | sfreq=500.0 n_times=482870 dur_sec=965.74
+2026-02-23 08:47:04,600 | INFO | [train] sub-040 (C) | sub-040_task-eyesclosed_eeg.set | windows_written=192
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:47:08,041 | INFO | [train] Loaded sub-041_task-eyesclosed_eeg.set | sid=sub-041 grp=C | sfreq=500.0 n_times=443050 dur_sec=886.10
+2026-02-23 08:47:08,341 | INFO | [train] sub-041 (C) | sub-041_task-eyesclosed_eeg.set | windows_written=176
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:47:12,106 | INFO | [train] Loaded sub-042_task-eyesclosed_eeg.set | sid=sub-042 grp=C | sfreq=500.0 n_times=481510 dur_sec=963.02
+2026-02-23 08:47:36,347 | INFO | [train] Wrote shard 3: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-02-23 08:47:36,358 | INFO | [train] sub-042 (C) | sub-042_task-eyesclosed_eeg.set | windows_written=191
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:47:39,642 | INFO | [train] Loaded sub-045_task-eyesclosed_eeg.set | sid=sub-045 grp=C | sfreq=500.0 n_times=425820 dur_sec=851.64
+2026-02-23 08:47:39,932 | INFO | [train] sub-045 (C) | sub-045_task-eyesclosed_eeg.set | windows_written=169
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:47:42,886 | INFO | [train] Loaded sub-046_task-eyesclosed_eeg.set | sid=sub-046 grp=C | sfreq=500.0 n_times=376520 dur_sec=753.04
+2026-02-23 08:47:43,242 | INFO | [train] sub-046 (C) | sub-046_task-eyesclosed_eeg.set | windows_written=149
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:47:47,074 | INFO | [train] Loaded sub-048_task-eyesclosed_eeg.set | sid=sub-048 grp=C | sfreq=500.0 n_times=494940 dur_sec=989.88
+2026-02-23 08:47:47,405 | INFO | [train] sub-048 (C) | sub-048_task-eyesclosed_eeg.set | windows_written=196
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:47:50,416 | INFO | [train] Loaded sub-049_task-eyesclosed_eeg.set | sid=sub-049 grp=C | sfreq=500.0 n_times=390100 dur_sec=780.20
+2026-02-23 08:47:50,721 | INFO | [train] sub-049 (C) | sub-049_task-eyesclosed_eeg.set | windows_written=155
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:47:53,889 | INFO | [train] Loaded sub-050_task-eyesclosed_eeg.set | sid=sub-050 grp=C | sfreq=500.0 n_times=408820 dur_sec=817.64
+2026-02-23 08:47:54,297 | INFO | [train] sub-050 (C) | sub-050_task-eyesclosed_eeg.set | windows_written=162
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:47:57,230 | INFO | [train] Loaded sub-052_task-eyesclosed_eeg.set | sid=sub-052 grp=C | sfreq=500.0 n_times=380050 dur_sec=760.10
+2026-02-23 08:47:57,599 | INFO | [train] sub-052 (C) | sub-052_task-eyesclosed_eeg.set | windows_written=151
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:48:00,608 | INFO | [train] Loaded sub-053_task-eyesclosed_eeg.set | sid=sub-053 grp=C | sfreq=500.0 n_times=390260 dur_sec=780.52
+2026-02-23 08:48:00,932 | INFO | [train] sub-053 (C) | sub-053_task-eyesclosed_eeg.set | windows_written=155
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:48:04,156 | INFO | [train] Loaded sub-054_task-eyesclosed_eeg.set | sid=sub-054 grp=C | sfreq=500.0 n_times=418810 dur_sec=837.62
+2026-02-23 08:48:04,448 | INFO | [train] sub-054 (C) | sub-054_task-eyesclosed_eeg.set | windows_written=166
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:48:08,108 | INFO | [train] Loaded sub-055_task-eyesclosed_eeg.set | sid=sub-055 grp=C | sfreq=500.0 n_times=407300 dur_sec=814.60
+2026-02-23 08:48:44,037 | INFO | [train] Wrote shard 4: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-02-23 08:48:44,058 | INFO | [train] sub-055 (C) | sub-055_task-eyesclosed_eeg.set | windows_written=161
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:48:46,985 | INFO | [train] Loaded sub-058_task-eyesclosed_eeg.set | sid=sub-058 grp=C | sfreq=500.0 n_times=378390 dur_sec=756.78
+2026-02-23 08:48:47,399 | INFO | [train] sub-058 (C) | sub-058_task-eyesclosed_eeg.set | windows_written=150
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:48:50,425 | INFO | [train] Loaded sub-059_task-eyesclosed_eeg.set | sid=sub-059 grp=C | sfreq=500.0 n_times=393560 dur_sec=787.12
+2026-02-23 08:48:50,736 | INFO | [train] sub-059 (C) | sub-059_task-eyesclosed_eeg.set | windows_written=156
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:48:53,808 | INFO | [train] Loaded sub-060_task-eyesclosed_eeg.set | sid=sub-060 grp=C | sfreq=500.0 n_times=374240 dur_sec=748.48
+2026-02-23 08:48:54,098 | INFO | [train] sub-060 (C) | sub-060_task-eyesclosed_eeg.set | windows_written=148
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:48:57,205 | INFO | [train] Loaded sub-061_task-eyesclosed_eeg.set | sid=sub-061 grp=C | sfreq=500.0 n_times=401640 dur_sec=803.28
+2026-02-23 08:48:57,571 | INFO | [train] sub-061 (C) | sub-061_task-eyesclosed_eeg.set | windows_written=159
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:49:01,047 | INFO | [train] Loaded sub-062_task-eyesclosed_eeg.set | sid=sub-062 grp=C | sfreq=500.0 n_times=449350 dur_sec=898.70
+2026-02-23 08:49:01,462 | INFO | [train] sub-062 (C) | sub-062_task-eyesclosed_eeg.set | windows_written=178
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:49:04,586 | INFO | [train] Loaded sub-063_task-eyesclosed_eeg.set | sid=sub-063 grp=C | sfreq=500.0 n_times=402470 dur_sec=804.94
+2026-02-23 08:49:04,861 | INFO | [train] sub-063 (C) | sub-063_task-eyesclosed_eeg.set | windows_written=159
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:49:08,178 | INFO | [train] Loaded sub-064_task-eyesclosed_eeg.set | sid=sub-064 grp=C | sfreq=500.0 n_times=424050 dur_sec=848.10
+2026-02-23 08:49:08,504 | INFO | [train] sub-064 (C) | sub-064_task-eyesclosed_eeg.set | windows_written=168
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:49:11,772 | INFO | [train] Loaded sub-065_task-eyesclosed_eeg.set | sid=sub-065 grp=C | sfreq=500.0 n_times=442050 dur_sec=884.10
+2026-02-23 08:49:36,202 | INFO | [train] Wrote shard 5: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-02-23 08:49:36,206 | INFO | [train] sub-065 (C) | sub-065_task-eyesclosed_eeg.set | windows_written=175
+2026-02-23 08:49:36,283 | INFO | [train] Wrote shard 6: X=(4, 19, 2500) | y=(4,) | meta=4
+2026-02-23 08:49:36,285 | INFO | [train] Total shards: 7 | total_windows=8482
+2026-02-23 08:49:36,357 | INFO | [eval] Subjects: 13 | .set files: 13
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:49:39,887 | INFO | [eval] Loaded sub-015_task-eyesclosed_eeg.set | sid=sub-015 grp=A | sfreq=500.0 n_times=450690 dur_sec=901.38
+2026-02-23 08:49:40,130 | INFO | Window shape: (C=19, T=2500) ~ 185.5 KB/window
+2026-02-23 08:49:40,163 | INFO | [eval] sub-015 (A) | sub-015_task-eyesclosed_eeg.set | windows_written=179
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:49:44,828 | INFO | [eval] Loaded sub-016_task-eyesclosed_eeg.set | sid=sub-016 grp=A | sfreq=500.0 n_times=486180 dur_sec=972.36
+2026-02-23 08:49:45,115 | INFO | [eval] sub-016 (A) | sub-016_task-eyesclosed_eeg.set | windows_written=193
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:49:48,654 | INFO | [eval] Loaded sub-027_task-eyesclosed_eeg.set | sid=sub-027 grp=A | sfreq=500.0 n_times=413100 dur_sec=826.20
+2026-02-23 08:49:48,924 | INFO | [eval] sub-027 (A) | sub-027_task-eyesclosed_eeg.set | windows_written=164
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:49:52,031 | INFO | [eval] Loaded sub-028_task-eyesclosed_eeg.set | sid=sub-028 grp=A | sfreq=500.0 n_times=409070 dur_sec=818.14
+2026-02-23 08:49:52,296 | INFO | [eval] sub-028 (A) | sub-028_task-eyesclosed_eeg.set | windows_written=162
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:49:54,431 | INFO | [eval] Loaded sub-030_task-eyesclosed_eeg.set | sid=sub-030 grp=A | sfreq=500.0 n_times=277040 dur_sec=554.08
+2026-02-23 08:49:54,711 | INFO | [eval] sub-030 (A) | sub-030_task-eyesclosed_eeg.set | windows_written=109
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:49:57,784 | INFO | [eval] Loaded sub-032_task-eyesclosed_eeg.set | sid=sub-032 grp=A | sfreq=500.0 n_times=398890 dur_sec=797.78
+2026-02-23 08:49:58,122 | INFO | [eval] sub-032 (A) | sub-032_task-eyesclosed_eeg.set | windows_written=158
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:50:00,920 | INFO | [eval] Loaded sub-033_task-eyesclosed_eeg.set | sid=sub-033 grp=A | sfreq=500.0 n_times=352710 dur_sec=705.42
+2026-02-23 08:50:01,221 | INFO | [eval] sub-033 (A) | sub-033_task-eyesclosed_eeg.set | windows_written=140
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:50:04,279 | INFO | [eval] Loaded sub-043_task-eyesclosed_eeg.set | sid=sub-043 grp=C | sfreq=500.0 n_times=414550 dur_sec=829.10
+2026-02-23 08:50:04,573 | INFO | [eval] sub-043 (C) | sub-043_task-eyesclosed_eeg.set | windows_written=164
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:50:07,822 | INFO | [eval] Loaded sub-044_task-eyesclosed_eeg.set | sid=sub-044 grp=C | sfreq=500.0 n_times=440800 dur_sec=881.60
+2026-02-23 08:50:32,156 | INFO | [eval] Wrote shard 0: X=(1413, 19, 2500) | y=(1413,) | meta=1413
+2026-02-23 08:50:32,164 | INFO | [eval] sub-044 (C) | sub-044_task-eyesclosed_eeg.set | windows_written=175
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:50:35,274 | INFO | [eval] Loaded sub-047_task-eyesclosed_eeg.set | sid=sub-047 grp=C | sfreq=500.0 n_times=403500 dur_sec=807.00
+2026-02-23 08:50:35,608 | INFO | [eval] sub-047 (C) | sub-047_task-eyesclosed_eeg.set | windows_written=160
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:50:38,536 | INFO | [eval] Loaded sub-051_task-eyesclosed_eeg.set | sid=sub-051 grp=C | sfreq=500.0 n_times=376670 dur_sec=753.34
+2026-02-23 08:50:38,832 | INFO | [eval] sub-051 (C) | sub-051_task-eyesclosed_eeg.set | windows_written=149
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:50:41,881 | INFO | [eval] Loaded sub-056_task-eyesclosed_eeg.set | sid=sub-056 grp=C | sfreq=500.0 n_times=395660 dur_sec=791.32
+2026-02-23 08:50:42,198 | INFO | [eval] sub-056 (C) | sub-056_task-eyesclosed_eeg.set | windows_written=157
+NOTE: pick_types() is a legacy function. New code should use inst.pick(...).
+2026-02-23 08:50:45,133 | INFO | [eval] Loaded sub-057_task-eyesclosed_eeg.set | sid=sub-057 grp=C | sfreq=500.0 n_times=398250 dur_sec=796.50
+2026-02-23 08:50:45,415 | INFO | [eval] sub-057 (C) | sub-057_task-eyesclosed_eeg.set | windows_written=158
+2026-02-23 08:50:58,346 | INFO | [eval] Wrote shard 1: X=(655, 19, 2500) | y=(655,) | meta=655
+2026-02-23 08:50:58,377 | INFO | [eval] Total shards: 2 | total_windows=2068
+2026-02-23 08:50:58,378 | INFO | ========== LOADING SHARDS ==========
+2026-02-23 08:50:58,463 | INFO | [train] shard 0: n=1413 | X_0.npy
+2026-02-23 08:50:58,549 | INFO | [train] shard 1: n=1413 | X_1.npy
+2026-02-23 08:50:58,634 | INFO | [train] shard 2: n=1413 | X_2.npy
+2026-02-23 08:50:58,725 | INFO | [train] shard 3: n=1413 | X_3.npy
+2026-02-23 08:50:58,817 | INFO | [train] shard 4: n=1413 | X_4.npy
+2026-02-23 08:50:58,911 | INFO | [train] shard 5: n=1413 | X_5.npy
+2026-02-23 08:50:59,004 | INFO | [train] shard 6: n=4 | X_6.npy
+2026-02-23 08:50:59,110 | INFO | [eval] shard 0: n=1413 | X_0.npy
+2026-02-23 08:50:59,198 | INFO | [eval] shard 1: n=655 | X_1.npy
+2026-02-23 08:50:59,617 | INFO | Input channels: 19 | Example y=1
+2026-02-23 08:51:00,456 | INFO | Train label counts: {0: 3816, 1: 4666}
+2026-02-23 08:51:00,456 | INFO | Class weights     : [1.1002122141002477, 0.8997877858997524]
+2026-02-23 08:51:20,464 | INFO | ========== TRAINING ==========
+2026-02-23 08:51:51,780 | INFO | Epoch 001/30 | train_loss=0.3494 train_acc=0.8446 | val_loss=0.5059 val_acc=0.7674 val_balacc=0.7722 val_macroF1=0.7673 | lr=1.00e-03
+2026-02-23 08:52:21,989 | INFO | Epoch 002/30 | train_loss=0.2459 train_acc=0.9065 | val_loss=0.9324 val_acc=0.6422 val_balacc=0.6171 val_macroF1=0.5711 | lr=1.00e-03
+2026-02-23 08:52:39,803 | INFO | Epoch 003/30 | train_loss=0.1998 train_acc=0.9210 | val_loss=0.6321 val_acc=0.7340 val_balacc=0.7176 val_macroF1=0.7098 | lr=1.00e-03
+2026-02-23 08:52:56,396 | INFO | Epoch 004/30 | train_loss=0.1662 train_acc=0.9343 | val_loss=0.5759 val_acc=0.7780 val_balacc=0.7712 val_macroF1=0.7728 | lr=5.00e-04
+2026-02-23 08:53:28,470 | INFO | Epoch 005/30 | train_loss=0.1213 train_acc=0.9550 | val_loss=0.5301 val_acc=0.8351 val_balacc=0.8316 val_macroF1=0.8331 | lr=5.00e-04
+2026-02-23 08:53:45,594 | INFO | Epoch 006/30 | train_loss=0.0944 train_acc=0.9668 | val_loss=1.0603 val_acc=0.6736 val_balacc=0.6516 val_macroF1=0.6234 | lr=5.00e-04
+2026-02-23 08:54:01,584 | INFO | Epoch 007/30 | train_loss=0.1038 train_acc=0.9619 | val_loss=0.7229 val_acc=0.7959 val_balacc=0.8046 val_macroF1=0.7949 | lr=2.50e-04
+2026-02-23 08:54:31,584 | INFO | Epoch 008/30 | train_loss=0.0733 train_acc=0.9754 | val_loss=0.7193 val_acc=0.7911 val_balacc=0.7800 val_macroF1=0.7809 | lr=2.50e-04
+2026-02-23 08:54:48,505 | INFO | Epoch 009/30 | train_loss=0.0629 train_acc=0.9776 | val_loss=0.7903 val_acc=0.7863 val_balacc=0.7956 val_macroF1=0.7848 | lr=2.50e-04
+2026-02-23 08:55:04,233 | INFO | Epoch 010/30 | train_loss=0.0550 train_acc=0.9793 | val_loss=0.6381 val_acc=0.8322 val_balacc=0.8352 val_macroF1=0.8322 | lr=1.25e-04
+2026-02-23 08:55:33,142 | INFO | Epoch 011/30 | train_loss=0.0481 train_acc=0.9851 | val_loss=0.7625 val_acc=0.8230 val_balacc=0.8137 val_macroF1=0.8163 | lr=1.25e-04
+2026-02-23 08:55:50,290 | INFO | Epoch 012/30 | train_loss=0.0408 train_acc=0.9879 | val_loss=0.6704 val_acc=0.8182 val_balacc=0.8221 val_macroF1=0.8182 | lr=1.25e-04
+2026-02-23 08:56:13,919 | INFO | Epoch 013/30 | train_loss=0.0405 train_acc=0.9876 | val_loss=0.7739 val_acc=0.8162 val_balacc=0.8092 val_macroF1=0.8115 | lr=6.25e-05
+2026-02-23 08:56:39,294 | INFO | Epoch 014/30 | train_loss=0.0344 train_acc=0.9899 | val_loss=0.7762 val_acc=0.8293 val_balacc=0.8229 val_macroF1=0.8254 | lr=6.25e-05
+2026-02-23 08:57:03,736 | INFO | Epoch 015/30 | train_loss=0.0334 train_acc=0.9889 | val_loss=0.7361 val_acc=0.8341 val_balacc=0.8289 val_macroF1=0.8312 | lr=6.25e-05
+2026-02-23 08:57:27,695 | INFO | Epoch 016/30 | train_loss=0.0378 train_acc=0.9879 | val_loss=0.7682 val_acc=0.8308 val_balacc=0.8249 val_macroF1=0.8273 | lr=3.13e-05
+2026-02-23 08:57:27,695 | INFO | Early stopping triggered.
+2026-02-23 08:57:27,695 | INFO | Training time (sec): 367.23
+2026-02-23 08:57:27,696 | INFO | Restored best model (best_val_balacc=0.8352)
+2026-02-23 08:57:27,696 | INFO | ========== EVALUATION ==========
+2026-02-23 08:57:29,798 | INFO | Classification report:
+              precision    recall  f1-score   support
+
+       CN(0)     0.7862    0.8785    0.8298       963
+       AD(1)     0.8821    0.7919    0.8345      1105
+
+    accuracy                         0.8322      2068
+   macro avg     0.8342    0.8352    0.8322      2068
+weighted avg     0.8374    0.8322    0.8323      2068
+
+2026-02-23 08:57:29,799 | INFO | Confusion matrix:
+[[846 117]
+ [230 875]]
+2026-02-23 08:57:30,123 | INFO | Saved model   : /home/e20212/FYP/models/cnn1d_ds004504_AD_CN_derivatives_20260223_084323.pt
+2026-02-23 08:57:30,123 | INFO | Saved metrics : /home/e20212/FYP/experiments/cnn1d_ds004504_AD_CN_derivatives_20260223_084323/metrics.json
+2026-02-23 08:57:30,123 | INFO | ========== RUN END ==========

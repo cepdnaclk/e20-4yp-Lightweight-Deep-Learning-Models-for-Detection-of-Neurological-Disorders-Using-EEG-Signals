@@ -1,0 +1,56 @@
+2026-02-25 16:32:30,918 | INFO | Logging to: /home/e20212/FYP/experiments/logs/mobilenet_teecnet_ds004504_AD_CN_derivatives_20260225_163230.log
+2026-02-25 16:32:30,918 | INFO | ========== RUN START ==========
+2026-02-25 16:32:30,918 | INFO | FYP root     : /home/e20212/FYP
+2026-02-25 16:32:30,918 | INFO | Dataset root : /home/e20212/FYP/datasets/Openneuro004504
+2026-02-25 16:32:30,918 | INFO | Out dir      : /home/e20212/FYP/data/ds004504_ad_cn_shards
+2026-02-25 16:32:30,956 | INFO | Device: cuda
+2026-02-25 16:32:30,991 | INFO | GPU: NVIDIA RTX 6000 Ada Generation
+2026-02-25 16:32:30,996 | INFO | Shards already exist. Skipping rebuild.
+2026-02-25 16:32:30,996 | INFO | ========== LOADING SHARDS ==========
+2026-02-25 16:32:31,098 | INFO | [train] shard 0: n=1413 | X_0.npy
+2026-02-25 16:32:31,134 | INFO | [train] shard 1: n=1413 | X_1.npy
+2026-02-25 16:32:31,160 | INFO | [train] shard 2: n=1413 | X_2.npy
+2026-02-25 16:32:31,175 | INFO | [train] shard 3: n=1413 | X_3.npy
+2026-02-25 16:32:31,202 | INFO | [train] shard 4: n=1413 | X_4.npy
+2026-02-25 16:32:31,215 | INFO | [train] shard 5: n=1413 | X_5.npy
+2026-02-25 16:32:31,232 | INFO | [train] shard 6: n=4 | X_6.npy
+2026-02-25 16:32:31,252 | INFO | [eval] shard 0: n=1413 | X_0.npy
+2026-02-25 16:32:31,267 | INFO | [eval] shard 1: n=655 | X_1.npy
+2026-02-25 16:32:31,328 | INFO | Example window: C=19, T=2500 | y=1
+2026-02-25 16:32:31,611 | INFO | Train label counts: {0: 3816, 1: 4666}
+2026-02-25 16:32:31,611 | INFO | Class weights     : [1.1002122141002477, 0.8997877858997524]
+2026-02-25 16:32:31,861 | INFO | Model: MobileNet_TEECNet | params=117,282
+2026-02-25 16:32:31,862 | INFO | ========== TRAINING ==========
+2026-02-25 16:36:30,648 | INFO | Epoch 001/30 | train_loss=0.3536 train_acc=0.8404 | val_loss=0.7163 val_acc=0.7239 val_balacc=0.7387 val_macroF1=0.7162 | lr=1.00e-03
+2026-02-25 16:36:45,483 | INFO | Epoch 002/30 | train_loss=0.1615 train_acc=0.9360 | val_loss=0.6564 val_acc=0.7679 val_balacc=0.7781 val_macroF1=0.7657 | lr=1.00e-03
+2026-02-25 16:37:00,485 | INFO | Epoch 003/30 | train_loss=0.1059 train_acc=0.9594 | val_loss=1.2958 val_acc=0.7084 val_balacc=0.6895 val_macroF1=0.6746 | lr=1.00e-03
+2026-02-25 16:37:15,261 | INFO | Epoch 004/30 | train_loss=0.0762 train_acc=0.9730 | val_loss=1.2298 val_acc=0.6663 val_balacc=0.6450 val_macroF1=0.6183 | lr=1.00e-03
+2026-02-25 16:37:30,329 | INFO | Epoch 005/30 | train_loss=0.0708 train_acc=0.9735 | val_loss=0.8385 val_acc=0.8022 val_balacc=0.7979 val_macroF1=0.7995 | lr=5.00e-04
+2026-02-25 16:37:45,178 | INFO | Epoch 006/30 | train_loss=0.0365 train_acc=0.9870 | val_loss=1.0552 val_acc=0.7766 val_balacc=0.7669 val_macroF1=0.7679 | lr=5.00e-04
+2026-02-25 16:38:00,094 | INFO | Epoch 007/30 | train_loss=0.0337 train_acc=0.9879 | val_loss=0.7656 val_acc=0.8245 val_balacc=0.8190 val_macroF1=0.8212 | lr=5.00e-04
+2026-02-25 16:38:14,911 | INFO | Epoch 008/30 | train_loss=0.0252 train_acc=0.9907 | val_loss=1.1287 val_acc=0.7345 val_balacc=0.7206 val_macroF1=0.7165 | lr=2.50e-04
+2026-02-25 16:38:29,812 | INFO | Epoch 009/30 | train_loss=0.0158 train_acc=0.9947 | val_loss=1.0855 val_acc=0.8042 val_balacc=0.7953 val_macroF1=0.7974 | lr=2.50e-04
+2026-02-25 16:38:44,630 | INFO | Epoch 010/30 | train_loss=0.0056 train_acc=0.9985 | val_loss=1.0579 val_acc=0.8206 val_balacc=0.8142 val_macroF1=0.8166 | lr=2.50e-04
+2026-02-25 16:39:51,697 | INFO | Epoch 011/30 | train_loss=0.0087 train_acc=0.9973 | val_loss=1.1425 val_acc=0.8032 val_balacc=0.7995 val_macroF1=0.8008 | lr=1.25e-04
+2026-02-25 16:41:21,797 | INFO | Epoch 012/30 | train_loss=0.0105 train_acc=0.9967 | val_loss=1.2212 val_acc=0.8143 val_balacc=0.8057 val_macroF1=0.8080 | lr=1.25e-04
+2026-02-25 16:42:52,436 | INFO | Epoch 013/30 | train_loss=0.0032 train_acc=0.9992 | val_loss=1.2565 val_acc=0.8017 val_balacc=0.7925 val_macroF1=0.7944 | lr=1.25e-04
+2026-02-25 16:42:52,436 | INFO | Early stopping triggered.
+2026-02-25 16:42:52,436 | INFO | Training time (sec): 620.57
+2026-02-25 16:42:52,660 | INFO | Restored best model (best_val_balacc=0.8190)
+2026-02-25 16:42:52,661 | INFO | ========== EVALUATION ==========
+2026-02-25 16:43:03,112 | INFO | Classification report:
+              precision    recall  f1-score   support
+
+       CN(0)     0.8641    0.7394    0.7969       963
+       AD(1)     0.7982    0.8986    0.8455      1105
+
+    accuracy                         0.8245      2068
+   macro avg     0.8312    0.8190    0.8212      2068
+weighted avg     0.8289    0.8245    0.8228      2068
+
+2026-02-25 16:43:03,112 | INFO | Confusion matrix:
+[[712 251]
+ [112 993]]
+2026-02-25 16:43:03,263 | INFO | Saved model   : /home/e20212/FYP/models/mobilenet_teecnet_ds004504_AD_CN_derivatives_20260225_163230.pt
+2026-02-25 16:43:03,264 | INFO | Saved metrics : /home/e20212/FYP/experiments/mobilenet_teecnet_ds004504_AD_CN_derivatives_20260225_163230/metrics.json
+2026-02-25 16:43:03,264 | INFO | ========== RUN END ==========

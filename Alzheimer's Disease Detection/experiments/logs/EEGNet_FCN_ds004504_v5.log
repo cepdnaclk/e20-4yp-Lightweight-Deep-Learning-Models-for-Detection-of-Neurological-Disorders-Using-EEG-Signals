@@ -1,0 +1,32 @@
+2026-03-13 08:50:25,742 | INFO | Logging to: /home/e20212/FYP/experiments/logs/EEGNet_FCN_ds004504_v5.log
+2026-03-13 08:50:25,742 | INFO | ========== RUN START ==========
+2026-03-13 08:50:25,742 | INFO | Run name        : EEGNet_FCN_ds004504_v5
+2026-03-13 08:50:25,742 | INFO | FYP root        : /home/e20212/FYP
+2026-03-13 08:50:25,742 | INFO | Data dir        : /home/e20212/FYP/data/ds004504_preprocessed_shards
+2026-03-13 08:50:25,742 | INFO | Python          : 3.9.25 (main, Nov  3 2025, 22:33:05) 
+[GCC 11.2.0]
+2026-03-13 08:50:25,742 | INFO | Augmentation    : P1=OFF, P2/P3=ON
+2026-03-13 08:50:25,742 | INFO | Label smoothing : 0.03
+2026-03-13 08:50:25,742 | INFO | Phase 3         : True
+2026-03-13 08:50:25,742 | INFO | Grad clip       : max_norm=1.0 (all phases)
+2026-03-13 08:50:25,742 | INFO | FCN scale_init  : 0.1
+2026-03-13 08:50:25,742 | INFO | FCN consistency : 0.02  [v5: directional]
+2026-03-13 08:50:25,742 | INFO | FCN gate_lambda : 0.005
+2026-03-13 08:50:25,742 | INFO | FCN gate_entropy_lambda      : 0.01  [v5 new]
+2026-03-13 08:50:25,742 | INFO | FCN delta_supervision_lambda : 0.1  [v5 new]
+2026-03-13 08:50:25,742 | INFO | Uncertainty sampler (P2)     : True  [v5 new]
+2026-03-13 08:50:25,742 | INFO | P3 base_lr_scale             : 0.1  [v5 new]
+2026-03-13 08:50:25,742 | INFO | Finetune lr     : 1e-05
+2026-03-13 08:50:25,796 | INFO | Device: cuda | AMP: True
+2026-03-13 08:50:25,830 | INFO | GPU: NVIDIA RTX 6000 Ada Generation
+2026-03-13 08:50:25,847 | INFO | [train] shard 0: n=707 | X_0.npy
+2026-03-13 08:50:25,864 | INFO | [train] shard 1: n=707 | X_1.npy
+2026-03-13 08:50:25,880 | INFO | [train] shard 2: n=707 | X_2.npy
+2026-03-13 08:50:25,895 | INFO | [train] shard 3: n=707 | X_3.npy
+2026-03-13 08:50:25,909 | INFO | [train] shard 4: n=707 | X_4.npy
+2026-03-13 08:50:25,929 | INFO | [train] shard 5: n=668 | X_5.npy
+2026-03-13 08:50:25,947 | INFO | [eval] shard 0: n=707 | X_0.npy
+2026-03-13 08:50:25,959 | INFO | [eval] shard 1: n=317 | X_1.npy
+2026-03-13 08:50:25,974 | INFO | Train windows: 4203 | Eval windows: 1024
+2026-03-13 08:50:25,974 | INFO | Input shape  : C=19, T=5000
+2026-03-13 08:50:25,975 | INFO | Train class counts: {0: 1891, 1: 2312}

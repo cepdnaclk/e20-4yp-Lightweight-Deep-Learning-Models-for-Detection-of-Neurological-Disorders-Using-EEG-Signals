@@ -1,0 +1,52 @@
+2026-02-26 11:25:48,512 | INFO | Logging to: /home/e20212/FYP/experiments/logs/cnn1d_mixer_taylor_teec_ds004504_mixer_taylor_20260226_112548.log
+2026-02-26 11:25:48,512 | INFO | ========== RUN START ==========
+2026-02-26 11:25:48,512 | INFO | FYP root : /home/e20212/FYP
+2026-02-26 11:25:48,512 | INFO | Shards   : /home/e20212/FYP/data/ds004504_ad_cn_shards
+2026-02-26 11:25:48,554 | INFO | Device: cuda
+2026-02-26 11:25:48,588 | INFO | GPU: NVIDIA RTX 6000 Ada Generation
+2026-02-26 11:25:48,588 | INFO | ========== LOADING SHARDS ==========
+2026-02-26 11:25:48,591 | INFO | [train] shard 0: n=1413 | X_0.npy
+2026-02-26 11:25:48,595 | INFO | [train] shard 1: n=1413 | X_1.npy
+2026-02-26 11:25:48,598 | INFO | [train] shard 2: n=1413 | X_2.npy
+2026-02-26 11:25:48,601 | INFO | [train] shard 3: n=1413 | X_3.npy
+2026-02-26 11:25:48,604 | INFO | [train] shard 4: n=1413 | X_4.npy
+2026-02-26 11:25:48,607 | INFO | [train] shard 5: n=1413 | X_5.npy
+2026-02-26 11:25:48,611 | INFO | [train] shard 6: n=4 | X_6.npy
+2026-02-26 11:25:48,614 | INFO | [eval] shard 0: n=1413 | X_0.npy
+2026-02-26 11:25:48,617 | INFO | [eval] shard 1: n=655 | X_1.npy
+2026-02-26 11:25:48,621 | INFO | Example window: C=19, T=2500 | y=1
+2026-02-26 11:25:48,744 | INFO | Train label counts: {0: 3816, 1: 4666}
+2026-02-26 11:25:48,744 | INFO | Class weights     : [1.1002122141002477, 0.8997877858997524]
+2026-02-26 11:25:48,750 | INFO | Model: CNN1D_MixerTaylorTEEC | params=188,571 | feature_dim=128 teec_order=3 teec_steps=2 token_hidden=64 droppath=0.05
+2026-02-26 11:25:50,410 | INFO | ========== TRAINING ==========
+2026-02-26 11:26:07,183 | INFO | Epoch 001/30 | train_loss=0.4495 train_acc=0.7929 | val_loss=0.5072 val_acc=0.7461 val_balacc=0.7486 val_macroF1=0.7461 | lr=1.00e-03
+2026-02-26 11:26:22,744 | INFO | Epoch 002/30 | train_loss=0.2885 train_acc=0.8829 | val_loss=0.7279 val_acc=0.7394 val_balacc=0.7279 val_macroF1=0.7265 | lr=1.00e-03
+2026-02-26 11:26:38,194 | INFO | Epoch 003/30 | train_loss=0.2011 train_acc=0.9263 | val_loss=0.7738 val_acc=0.7795 val_balacc=0.7700 val_macroF1=0.7711 | lr=1.00e-03
+2026-02-26 11:26:53,713 | INFO | Epoch 004/30 | train_loss=0.1486 train_acc=0.9460 | val_loss=0.7803 val_acc=0.7515 val_balacc=0.7519 val_macroF1=0.7509 | lr=5.00e-04
+2026-02-26 11:27:09,180 | INFO | Epoch 005/30 | train_loss=0.1026 train_acc=0.9620 | val_loss=0.7364 val_acc=0.7761 val_balacc=0.7725 val_macroF1=0.7736 | lr=5.00e-04
+2026-02-26 11:27:24,812 | INFO | Epoch 006/30 | train_loss=0.0825 train_acc=0.9711 | val_loss=1.0109 val_acc=0.6992 val_balacc=0.7039 val_macroF1=0.6991 | lr=5.00e-04
+2026-02-26 11:27:40,346 | INFO | Epoch 007/30 | train_loss=0.0730 train_acc=0.9732 | val_loss=0.6896 val_acc=0.7655 val_balacc=0.7663 val_macroF1=0.7651 | lr=2.50e-04
+2026-02-26 11:27:55,851 | INFO | Epoch 008/30 | train_loss=0.0619 train_acc=0.9767 | val_loss=0.7694 val_acc=0.7689 val_balacc=0.7699 val_macroF1=0.7685 | lr=2.50e-04
+2026-02-26 11:28:11,351 | INFO | Epoch 009/30 | train_loss=0.0532 train_acc=0.9818 | val_loss=0.8874 val_acc=0.7447 val_balacc=0.7469 val_macroF1=0.7446 | lr=2.50e-04
+2026-02-26 11:28:26,880 | INFO | Epoch 010/30 | train_loss=0.0444 train_acc=0.9841 | val_loss=0.9785 val_acc=0.7432 val_balacc=0.7471 val_macroF1=0.7432 | lr=1.25e-04
+2026-02-26 11:28:42,252 | INFO | Epoch 011/30 | train_loss=0.0363 train_acc=0.9870 | val_loss=0.8906 val_acc=0.7635 val_balacc=0.7657 val_macroF1=0.7634 | lr=1.25e-04
+2026-02-26 11:28:42,252 | INFO | Early stopping triggered.
+2026-02-26 11:28:42,252 | INFO | Training time (sec): 171.84
+2026-02-26 11:28:42,253 | INFO | Restored best model (best_val_balacc=0.7725)
+2026-02-26 11:28:42,253 | INFO | ========== EVALUATION ==========
+2026-02-26 11:28:44,056 | INFO | Classification report:
+              precision    recall  f1-score   support
+
+       CN(0)     0.7822    0.7196    0.7496       963
+       AD(1)     0.7716    0.8253    0.7976      1105
+
+    accuracy                         0.7761      2068
+   macro avg     0.7769    0.7725    0.7736      2068
+weighted avg     0.7765    0.7761    0.7752      2068
+
+2026-02-26 11:28:44,057 | INFO | Confusion matrix:
+[[693 270]
+ [193 912]]
+2026-02-26 11:28:44,136 | INFO | Saved model   : /home/e20212/FYP/models/cnn1d_mixer_taylor_teec_ds004504_mixer_taylor_20260226_112548.pt
+2026-02-26 11:28:44,136 | INFO | Saved metrics : /home/e20212/FYP/experiments/cnn1d_mixer_taylor_teec_ds004504_mixer_taylor_20260226_112548/metrics.json
+2026-02-26 11:28:44,136 | INFO | ========== RUN END ==========

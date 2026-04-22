@@ -1,0 +1,43 @@
+===============================================
+        UPLOAD DATASET HERE
+===============================================
+
+Dataset: OpenNeuro ds004584
+---------------------------
+Title: EEG recordings from Parkinson's Disease patients and healthy controls
+URL: https://openneuro.org/datasets/ds004584
+
+Description:
+------------
+This dataset contains resting-state EEG recordings from:
+- 75 Parkinson's Disease (PD) patients
+- 75 Healthy Control subjects
+
+Data Format:
+------------
+- Format: EEGLAB (.set / .fdt files)
+- Task: Resting-state EEG
+- Sampling rate: Variable (will be resampled to 250 Hz)
+
+How to Download:
+----------------
+Option 1 - Web Download:
+  1. Visit https://openneuro.org/datasets/ds004584
+  2. Click "Download" and select your preferred method
+
+Option 2 - DataLad:
+  datalad install https://github.com/OpenNeuroDatasets/ds004584.git
+  cd ds004584
+  datalad get .
+
+Expected Structure:
+-------------------
+data/raw/OpenNeuro_ds004584/
+├── participants.tsv
+├── dataset_description.json
+├── sub-001/
+│   └── eeg/
+│       ├── sub-001_task-Rest_eeg.set
+│       └── sub-001_task-Rest_eeg.fdt
+├── sub-002/
+└── ... (up to sub-150)

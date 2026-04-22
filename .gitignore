@@ -1,0 +1,39 @@
+# EEG Datasets - Large data files
+code/Parkinsons/data/raw/OpenNeuro_ds004584
+code/Parkinsons/data/raw/OpenNeuro ds002778
+
+code/Parkinsons/data/processed/ds004584/
+code/Parkinsons/data/processed/ds002778/
+code/Parkinsons/data/processed/ds004584_cnn_tcn/
+
+code/Alzheimers/data/
+code/Epilepsy/data/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+.eggs/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

@@ -1,6 +1,10 @@
 # EEG Datasets - Large data files
-code/Parkinsons/data/raw/OpenNeuro_ds004584/
+code/Parkinsons/data/raw/OpenNeuro_ds004584
+code/Parkinsons/data/raw/OpenNeuro ds002778
+
 code/Parkinsons/data/processed/ds004584/
+code/Parkinsons/data/processed/ds002778/
+code/Parkinsons/data/processed/ds004584_cnn_tcn/
 
 code/Alzheimers/data/
 code/Epilepsy/data/

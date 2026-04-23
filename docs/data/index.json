@@ -33,5 +33,7 @@
             "url": "#"
         }
     ],
-    "tags": ["Final Year Projects"]
+    "tags": ["Final Year Projects"],
+    "image": "cover_page.jpg",
+    "thumbnail": "thumbnail.jpg"
 }

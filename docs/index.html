@@ -1,0 +1,3215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lightweight Models for Neurological Disorders Detection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;700;800&family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-deep: #040d1a;
+        --bg-mid: #071428;
+        --bg-card: #0b1d3a;
+        --bg-card2: #0d2040;
+        --cyan: #00d4ff;
+        --cyan-dim: #0099cc;
+        --amber: #ffb347;
+        --amber-dim: #cc8822;
+        --green: #00e5a0;
+        --navy-text: #a8c4e0;
+        --white: #eef4fb;
+        --muted: #5a7a9a;
+        --border: rgba(0, 212, 255, 0.12);
+        --border-glow: rgba(0, 212, 255, 0.35);
+        --grad-hero: linear-gradient(
+          135deg,
+          #040d1a 0%,
+          #071428 50%,
+          #0a1830 100%
+        );
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+
+      body {
+        background: var(--bg-deep);
+        color: var(--white);
+        font-family: "Newsreader", Georgia, serif;
+        font-weight: 300;
+        line-height: 1.75;
+        overflow-x: hidden;
+      }
+
+      /* ─── SCROLLBAR ─── */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg-deep);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--cyan-dim);
+        border-radius: 3px;
+      }
+
+      /* ─── CANVAS BG ─── */
+      #neural-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0.25;
+      }
+
+      /* ─── NAV ─── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 4vw;
+        height: 62px;
+        background: rgba(4, 13, 26, 0.88);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid var(--border);
+        transition: background 0.3s;
+      }
+      .nav-logo {
+        font-family: "Oxanium", sans-serif;
+        font-weight: 700;
+        font-size: 0.85rem;
+        color: var(--cyan);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.78rem;
+        font-weight: 400;
+        color: var(--navy-text);
+        text-decoration: none;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        transition: color 0.2s;
+        position: relative;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--cyan);
+        transition: width 0.3s;
+      }
+      .nav-links a:hover {
+        color: var(--cyan);
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+      .hamburger span {
+        width: 24px;
+        height: 2px;
+        background: var(--cyan);
+        border-radius: 2px;
+        transition: 0.3s;
+      }
+
+      /* ─── HERO ─── */
+      #hero {
+        position: relative;
+        z-index: 1;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 100px 5vw 60px;
+        overflow: hidden;
+      }
+      .hero-glow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 700px;
+        height: 700px;
+        background: radial-gradient(
+          circle,
+          rgba(0, 212, 255, 0.07) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero-badge {
+        display: inline-block;
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--cyan);
+        border: 1px solid var(--border-glow);
+        padding: 6px 18px;
+        border-radius: 2px;
+        margin-bottom: 2rem;
+        background: rgba(0, 212, 255, 0.05);
+        animation: fadeUp 0.8s ease both;
+      }
+      h1.hero-title {
+        font-family: "Oxanium", sans-serif;
+        font-weight: 800;
+        font-size: clamp(2.2rem, 5vw, 4.2rem);
+        line-height: 1.1;
+        color: var(--white);
+        max-width: 900px;
+        margin: 0 auto 1.5rem;
+        animation: fadeUp 0.8s 0.15s ease both;
+      }
+      h1.hero-title span {
+        color: var(--cyan);
+      }
+      .hero-sub {
+        font-family: "Newsreader", serif;
+        font-style: italic;
+        font-size: 1.15rem;
+        color: var(--navy-text);
+        max-width: 600px;
+        margin: 0 auto 3rem;
+        animation: fadeUp 0.8s 0.3s ease both;
+      }
+      .hero-meta {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.78rem;
+        color: var(--muted);
+        letter-spacing: 0.08em;
+        animation: fadeUp 0.8s 0.45s ease both;
+      }
+      .hero-meta span {
+        color: var(--amber);
+      }
+      .hero-cta {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 2.5rem;
+        animation: fadeUp 0.8s 0.55s ease both;
+      }
+      .btn-primary,
+      .btn-outline {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 12px 28px;
+        border-radius: 2px;
+        text-decoration: none;
+        transition: all 0.25s;
+        cursor: pointer;
+        border: none;
+      }
+      .btn-primary {
+        background: var(--cyan);
+        color: var(--bg-deep);
+        box-shadow: 0 0 24px rgba(0, 212, 255, 0.3);
+      }
+      .btn-primary:hover {
+        background: #33ddff;
+        box-shadow: 0 0 36px rgba(0, 212, 255, 0.5);
+        transform: translateY(-2px);
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--cyan);
+        border: 1px solid var(--border-glow);
+      }
+      .btn-outline:hover {
+        background: rgba(0, 212, 255, 0.08);
+        transform: translateY(-2px);
+      }
+
+      /* EEG wave decoration */
+      .eeg-wave {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80vw;
+        max-width: 900px;
+        opacity: 0.35;
+        animation: eegPulse 3s ease-in-out infinite;
+      }
+      @keyframes eegPulse {
+        0%,
+        100% {
+          opacity: 0.25;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      /* ─── SECTIONS ─── */
+      section {
+        position: relative;
+        z-index: 1;
+        padding: 90px 6vw;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .section-label {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--cyan);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .section-label::before {
+        content: "";
+        display: block;
+        width: 32px;
+        height: 1px;
+        background: var(--cyan);
+      }
+      h2.section-title {
+        font-family: "Oxanium", sans-serif;
+        font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+        font-weight: 700;
+        line-height: 1.15;
+        color: var(--white);
+        margin-bottom: 2rem;
+      }
+      h3.subsection {
+        font-family: "Oxanium", sans-serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--amber);
+        margin: 2rem 0 0.75rem;
+      }
+      p {
+        color: var(--navy-text);
+        margin-bottom: 1rem;
+        font-size: 1.02rem;
+      }
+      .section-divider {
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--border-glow),
+          transparent
+        );
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* ─── ABSTRACT ─── */
+      #abstract {
+        padding-top: 120px;
+      }
+      .abstract-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+      .abstract-text p {
+        font-size: 1.06rem;
+        line-height: 1.85;
+      }
+
+      /* ─── STATS ROW ─── */
+      .stats-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+      }
+      .stat-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 1.75rem 1.5rem;
+        text-align: center;
+        transition:
+          border-color 0.3s,
+          transform 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+      .stat-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--cyan),
+          transparent
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .stat-card:hover {
+        border-color: var(--border-glow);
+        transform: translateY(-4px);
+      }
+      .stat-card:hover::before {
+        opacity: 1;
+      }
+      .stat-num {
+        font-family: "Oxanium", sans-serif;
+        font-size: 2.4rem;
+        font-weight: 800;
+        color: var(--cyan);
+        display: block;
+        line-height: 1;
+        margin-bottom: 0.3rem;
+      }
+      .stat-label {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      /* ─── DISEASES GRID ─── */
+      .disease-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+      .disease-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 2rem 1.75rem;
+        transition: all 0.3s;
+        cursor: default;
+      }
+      .disease-card:hover {
+        border-color: var(--border-glow);
+        transform: translateY(-4px);
+        background: var(--bg-card2);
+      }
+      .disease-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        margin-bottom: 1.25rem;
+      }
+      .disease-icon.epilepsy {
+        background: rgba(0, 212, 255, 0.1);
+        border: 1px solid rgba(0, 212, 255, 0.3);
+      }
+      .disease-icon.alzheimer {
+        background: rgba(255, 179, 71, 0.1);
+        border: 1px solid rgba(255, 179, 71, 0.3);
+      }
+      .disease-icon.parkinson {
+        background: rgba(0, 229, 160, 0.1);
+        border: 1px solid rgba(0, 229, 160, 0.3);
+      }
+      .disease-card h4 {
+        font-family: "Oxanium", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 0.75rem;
+      }
+      .disease-card p {
+        font-size: 0.92rem;
+        line-height: 1.65;
+        margin-bottom: 0;
+      }
+
+      /* ─── METHODOLOGY ─── */
+      .arch-diagram {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 2.5rem;
+        margin: 2rem 0;
+      }
+      .pipeline-steps {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 2rem 0;
+      }
+      .pipe-step {
+        background: var(--bg-card2);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 1rem 1.25rem;
+        text-align: center;
+        min-width: 130px;
+        transition: border-color 0.3s;
+      }
+      .pipe-step:hover {
+        border-color: var(--border-glow);
+      }
+      .pipe-step-num {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--cyan);
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+      .pipe-step-label {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--white);
+      }
+      .pipe-arrow {
+        width: 32px;
+        height: 2px;
+        background: var(--border-glow);
+        position: relative;
+        flex-shrink: 0;
+      }
+      .pipe-arrow::after {
+        content: "▶";
+        position: absolute;
+        right: -4px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.6rem;
+        color: var(--cyan-dim);
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+      .three-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1.5rem;
+      }
+
+      .feature-item {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.25rem;
+        align-items: flex-start;
+      }
+      .feature-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--cyan);
+        flex-shrink: 0;
+        margin-top: 9px;
+      }
+      .feature-dot.amber {
+        background: var(--amber);
+      }
+      .feature-dot.green {
+        background: var(--green);
+      }
+
+      /* ─── DATASET CARDS ─── */
+      .dataset-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+      .dataset-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 1.75rem;
+      }
+      .dataset-card h4 {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--cyan);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+      .dataset-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.45rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 0.9rem;
+      }
+      .dataset-row:last-child {
+        border-bottom: none;
+      }
+      .dataset-row span:first-child {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+      .dataset-row span:last-child {
+        color: var(--white);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.82rem;
+      }
+
+      /* ─── RESULTS ─── */
+      .results-tabs {
+        display: flex;
+        gap: 0;
+        margin-bottom: 2.5rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .tab-btn {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.85rem 2rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--muted);
+        border-bottom: 2px solid transparent;
+        transition: all 0.25s;
+        margin-bottom: -1px;
+      }
+      .tab-btn:hover {
+        color: var(--cyan);
+      }
+      .tab-btn.active {
+        color: var(--cyan);
+        border-bottom-color: var(--cyan);
+      }
+      .tab-content {
+        display: none;
+      }
+      .tab-content.active {
+        display: block;
+        animation: fadeUp 0.4s ease both;
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      .metric-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 1.5rem 1.25rem;
+        text-align: center;
+      }
+      .metric-val {
+        font-family: "Oxanium", sans-serif;
+        font-size: 2rem;
+        font-weight: 800;
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+      .metric-val.cyan {
+        color: var(--cyan);
+      }
+      .metric-val.amber {
+        color: var(--amber);
+      }
+      .metric-val.green {
+        color: var(--green);
+      }
+      .metric-label {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .metric-sub {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 0.2rem;
+        font-style: italic;
+      }
+
+      /* Bar chart */
+      .bar-chart {
+        margin: 1.5rem 0;
+      }
+      .bar-chart.compact-chart .bar-row {
+        display: block;
+        margin-bottom: 1rem;
+      }
+      .bar-chart.compact-chart .bar-label {
+        width: auto;
+        display: block;
+        margin-bottom: 0.35rem;
+        font-size: 0.72rem;
+      }
+      .bar-chart.compact-chart .bar-track {
+        width: 100%;
+      }
+      .bar-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 0.85rem;
+      }
+      .bar-label {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.78rem;
+        color: var(--navy-text);
+        width: 180px;
+        flex-shrink: 0;
+      }
+      .bar-track {
+        flex: 1;
+        height: 22px;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 2px;
+        overflow: hidden;
+        position: relative;
+      }
+      .bar-fill {
+        height: 100%;
+        border-radius: 2px;
+        position: relative;
+        transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 8px;
+      }
+      .bar-fill span {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: rgba(0, 0, 0, 0.75);
+        font-weight: 500;
+      }
+      .bar-fill.before {
+        background: linear-gradient(
+          90deg,
+          rgba(90, 120, 154, 0.5),
+          rgba(90, 120, 154, 0.8)
+        );
+      }
+      .bar-fill.after {
+        background: linear-gradient(90deg, var(--cyan-dim), var(--cyan));
+      }
+      .bar-fill.after2 {
+        background: linear-gradient(90deg, var(--amber-dim), var(--amber));
+      }
+      .bar-legend {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 1rem;
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.72rem;
+        color: var(--muted);
+      }
+      .bar-legend span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .legend-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 1px;
+      }
+
+      /* Comparison table */
+      .comp-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.82rem;
+        margin: 1.5rem 0;
+      }
+      .comp-table th {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding: 0.85rem 1rem;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+      }
+      .comp-table td {
+        padding: 0.75rem 1rem;
+        color: var(--navy-text);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      }
+      .comp-table tr.highlight td {
+        color: var(--white);
+        background: rgba(0, 212, 255, 0.04);
+      }
+      .comp-table tr.highlight td:first-child {
+        color: var(--cyan);
+        font-family: "Oxanium", sans-serif;
+        font-weight: 700;
+      }
+      .comp-table .best {
+        color: var(--cyan) !important;
+        font-weight: 500;
+      }
+
+      /* ─── CONCLUSION ─── */
+      .conclusion-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+      .insight-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 1.75rem;
+        display: flex;
+        gap: 1.25rem;
+        align-items: flex-start;
+        transition: border-color 0.3s;
+      }
+      .insight-card:hover {
+        border-color: var(--border-glow);
+      }
+      .insight-icon {
+        font-size: 1.5rem;
+        flex-shrink: 0;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 212, 255, 0.08);
+        border-radius: 4px;
+      }
+      .insight-card h4 {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+      }
+      .insight-card p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* ─── TEAM ─── */
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+      .team-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 2rem 1.75rem;
+        text-align: center;
+        transition: all 0.3s;
+      }
+      .team-card:hover {
+        border-color: var(--border-glow);
+        transform: translateY(-4px);
+      }
+      .team-avatar {
+        width: 132px;
+        height: 132px;
+        border-radius: 50%;
+        margin: 0 auto 1.25rem;
+        border: 2px solid var(--border-glow);
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .team-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .avatar-cyan {
+        background: rgba(0, 212, 255, 0.1);
+        color: var(--cyan);
+      }
+      .avatar-amber {
+        background: rgba(255, 179, 71, 0.1);
+        color: var(--amber);
+      }
+      .avatar-green {
+        background: rgba(0, 229, 160, 0.1);
+        color: var(--green);
+      }
+      .team-card h4 {
+        font-family: "Oxanium", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 0.25rem;
+      }
+      .team-enum {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+        color: var(--muted);
+        margin-bottom: 0.6rem;
+      }
+      .team-role {
+        font-size: 0.82rem;
+        color: var(--navy-text);
+        font-style: italic;
+      }
+      .team-email {
+        display: inline-block;
+        margin-top: 0.75rem;
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.72rem;
+        color: var(--cyan);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+      }
+      .team-email:hover {
+        text-decoration: underline;
+      }
+      .supervisor-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+      .supervisor-card {
+        background: var(--bg-card);
+        border: 1px solid rgba(255, 179, 71, 0.2);
+        border-radius: 4px;
+        padding: 1.5rem 1.75rem;
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        transition: border-color 0.3s;
+      }
+      .supervisor-card:hover {
+        border-color: rgba(255, 179, 71, 0.5);
+      }
+      .sup-avatar {
+        width: 98px;
+        height: 98px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 179, 71, 0.35);
+        flex-shrink: 0;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .sup-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .supervisor-card h4 {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 0.2rem;
+      }
+      .supervisor-card p {
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      /* ─── LINKS ─── */
+      .links-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+        margin-top: 2rem;
+      }
+      .link-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 1.5rem 1.75rem;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        transition: all 0.25s;
+      }
+      .link-card:hover {
+        border-color: var(--border-glow);
+        transform: translateY(-3px);
+        background: var(--bg-card2);
+      }
+      .link-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+        background: rgba(0, 212, 255, 0.08);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .link-card h4 {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 0.2rem;
+      }
+      .link-card p {
+        font-size: 0.78rem;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      /* ─── PUBLICATIONS ─── */
+      .pub-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--cyan);
+        border-radius: 0 4px 4px 0;
+        padding: 1.75rem 2rem;
+        margin-bottom: 1.25rem;
+        transition: border-left-color 0.3s;
+      }
+      .pub-card:hover {
+        border-left-color: var(--amber);
+      }
+      .pub-card h4 {
+        font-family: "Newsreader", serif;
+        font-size: 1.05rem;
+        font-weight: 500;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+      }
+      .pub-meta {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.75rem;
+        color: var(--muted);
+        letter-spacing: 0.08em;
+      }
+      .pub-meta span {
+        color: var(--cyan);
+      }
+
+      /* ─── FOOTER ─── */
+      footer {
+        position: relative;
+        z-index: 1;
+        border-top: 1px solid var(--border);
+        padding: 3rem 6vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      footer p {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.72rem;
+        color: var(--muted);
+        letter-spacing: 0.08em;
+        margin: 0;
+      }
+      .footer-logo {
+        font-family: "Oxanium", sans-serif;
+        font-weight: 700;
+        font-size: 0.82rem;
+        color: var(--cyan);
+        letter-spacing: 0.12em;
+      }
+
+      /* ─── ANIMATIONS ─── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(32px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ─── RESPONSIVE ─── */
+      @media (max-width: 900px) {
+        .abstract-grid,
+        .two-col,
+        .conclusion-grid {
+          grid-template-columns: 1fr;
+        }
+        .disease-cards,
+        .team-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .metrics-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .stats-row {
+          grid-template-columns: 1fr 1fr;
+        }
+        .supervisor-row {
+          grid-template-columns: 1fr;
+        }
+        .three-col {
+          grid-template-columns: 1fr;
+        }
+        .nav-links {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        nav.open .nav-links {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 62px;
+          left: 0;
+          right: 0;
+          background: rgba(4, 13, 26, 0.98);
+          border-bottom: 1px solid var(--border);
+          padding: 1.5rem 4vw;
+          gap: 1.25rem;
+        }
+      }
+      @media (max-width: 600px) {
+        .disease-cards,
+        .team-grid,
+        .dataset-grid,
+        .links-grid {
+          grid-template-columns: 1fr;
+        }
+        .metrics-grid,
+        .stats-row {
+          grid-template-columns: 1fr 1fr;
+        }
+        .pipeline-steps {
+          gap: 0.25rem;
+        }
+        .pipe-arrow {
+          width: 16px;
+        }
+        h1.hero-title {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Neural Network Canvas -->
+    <canvas id="neural-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+      <div class="nav-logo">CO425 · Group 23</div>
+      <ul class="nav-links">
+        <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#related">Related Work</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#experiments">Experiments</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#links">Links</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-glow"></div>
+      <div>
+        <div class="hero-badge">CO425 — Final Year Project · Group 23</div>
+        <h1 class="hero-title">
+          Lightweight Models for<br /><span>Neurological Disorders</span
+          ><br />Detection
+        </h1>
+        <p class="hero-sub">
+          EEG-based AI detection of Epilepsy, Alzheimer's &amp; Parkinson's
+          Disease using TEECNet-inspired Error Correction Architecture
+        </p>
+        <div class="hero-meta">
+          <div>Dataset · <span>CHB-MIT · Siena · OpenNeuro</span></div>
+          <div>Framework · <span>PyTorch · EEGNet · CNN-TCN</span></div>
+          <div>University of Peradeniya · <span>2026</span></div>
+        </div>
+        <div class="hero-cta">
+          <a href="#abstract" class="btn-primary">Read Project</a>
+          <a
+            href="https://github.com/cepdnaclk/e20-4yp-Lightweight-Deep-Learning-Models-for-Detection-of-Neurological-Disorders-Using-EEG-Signals.git"
+            class="btn-outline"
+            >View Repository</a
+          >
+        </div>
+      </div>
+      <!-- EEG wave SVG -->
+      <svg
+        class="eeg-wave"
+        viewBox="0 0 900 60"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 30 L50 30 L60 10 L70 50 L75 20 L80 40 L85 5 L90 55 L95 20 L100 40 L110 30 L160 30 L170 20 L180 40 L190 30 L250 30 L260 15 L265 45 L270 25 L275 35 L280 10 L285 50 L290 30 L350 30 L360 22 L370 38 L380 30 L440 30 L450 8 L455 52 L460 20 L465 40 L470 28 L475 32 L480 30 L550 30 L560 18 L570 42 L580 30 L640 30 L645 12 L650 48 L655 22 L660 38 L665 30 L750 30 L760 20 L770 40 L780 30 L900 30"
+          stroke="#00d4ff"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ABSTRACT -->
+    <section id="abstract">
+      <div class="section-label">01 — Overview</div>
+      <h2 class="section-title">Abstract</h2>
+      <div class="abstract-grid reveal">
+        <div class="abstract-text">
+          <p>
+            Neurological disorders such as Epilepsy, Alzheimer's Disease (AD),
+            and Parkinson's Disease (PD) affect hundreds of millions globally,
+            yet their diagnosis relies heavily on specialist-dependent,
+            resource-intensive clinical assessment. Electroencephalography (EEG)
+            offers a non-invasive, affordable window into brain activity—but
+            automated analysis remains computationally expensive and clinically
+            inaccessible.
+          </p>
+          <p>
+            This project proposes a unified family of
+            <strong>lightweight EEG-based machine learning models</strong> for
+            the detection of all three neurological disorders. Drawing
+            inspiration from the
+            <strong>TEECNet architecture</strong> originally designed for
+            physics simulations, we introduce a two-stage training paradigm: a
+            lightweight Base Network learns dominant EEG patterns, followed by a
+            small <strong>Error-Correction Network (ECN)</strong> that refines
+            predictions by targeting the systematic errors the base model makes.
+          </p>
+          <p>
+            Across all three disorders, the ECN consistently improves accuracy
+            and reduces misclassifications—demonstrating that error-aware
+            residual correction is a powerful, generalizable strategy for EEG
+            classification with constrained model budgets.
+          </p>
+        </div>
+        <div>
+          <div
+            class="stats-row"
+            style="grid-template-columns: 1fr 1fr; margin-top: 0"
+          >
+            <div class="stat-card">
+              <span class="stat-num" data-target="93.26">0</span>%
+              <div class="stat-label">Alzheimer's<br />Accuracy</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" data-target="96.42">0</span>%
+              <div class="stat-label">Parkinson's<br />Max Accuracy</div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" data-target="21.2">0</span>%
+              <div class="stat-label">F1 Improvement<br />(Epilepsy ECN)</div>
+            </div>
+            <div class="stat-card">
+              <span
+                class="stat-num"
+                data-target="0.9945"
+                style="font-size: 1.8rem"
+                >0</span
+              >
+              <div class="stat-label">Epilepsy<br />AUC Score</div>
+            </div>
+          </div>
+          <div style="margin-top: 1.5rem">
+            <div class="disease-cards" style="grid-template-columns: 1fr">
+              <div
+                class="disease-card"
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  padding: 1.25rem 1.5rem;
+                "
+              >
+                <div class="disease-icon epilepsy">⚡</div>
+                <div>
+                  <div
+                    style="
+                      font-family: &quot;Oxanium&quot;, sans-serif;
+                      font-weight: 700;
+                      color: var(--white);
+                      font-size: 0.95rem;
+                    "
+                  >
+                    Epilepsy Detection
+                  </div>
+                  <div style="font-size: 0.82rem; color: var(--navy-text)">
+                    EEGNet + ECN · CHB-MIT & Siena datasets
+                  </div>
+                </div>
+              </div>
+              <div
+                class="disease-card"
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  padding: 1.25rem 1.5rem;
+                "
+              >
+                <div class="disease-icon alzheimer">🧠</div>
+                <div>
+                  <div
+                    style="
+                      font-family: &quot;Oxanium&quot;, sans-serif;
+                      font-weight: 700;
+                      color: var(--white);
+                      font-size: 0.95rem;
+                    "
+                  >
+                    Alzheimer's Disease
+                  </div>
+                  <div style="font-size: 0.82rem; color: var(--navy-text)">
+                    EEGNet-FCN · OpenNeuro ds004504
+                  </div>
+                </div>
+              </div>
+              <div
+                class="disease-card"
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  padding: 1.25rem 1.5rem;
+                "
+              >
+                <div class="disease-icon parkinson">🔬</div>
+                <div>
+                  <div
+                    style="
+                      font-family: &quot;Oxanium&quot;, sans-serif;
+                      font-weight: 700;
+                      color: var(--white);
+                      font-size: 0.95rem;
+                    "
+                  >
+                    Parkinson's Disease
+                  </div>
+                  <div style="font-size: 0.82rem; color: var(--navy-text)">
+                    CNN-TCN + ECN · ds004584 & ds002778
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- RELATED WORK -->
+    <section id="related">
+      <div class="section-label">02 — Literature</div>
+      <h2 class="section-title">Related Works</h2>
+      <div class="two-col reveal">
+        <div>
+          <h3 class="subsection">EEG-Based Neurological Detection</h3>
+          <p>
+            Prior work on automated EEG analysis spans classical machine
+            learning (SVM, Random Forests on hand-crafted features) and deep
+            learning approaches. EEGNet by Lawhern et al. (2018) established an
+            efficient depthwise-separable CNN architecture tailored to EEG
+            signals—achieving competitive performance at a fraction of the
+            parameter count of generic CNNs.
+          </p>
+          <p>
+            For epilepsy, transformer-based and recurrent models have
+            demonstrated high AUC on the CHB-MIT dataset, but their inference
+            cost limits wearable deployment. Work on Alzheimer's via EEG has
+            leveraged spectral band power features (delta, theta slowing) and
+            more recently deep feature extractors. Parkinson's EEG research has
+            focused on motor cortex desynchronisation and resting-state
+            gamma/beta power asymmetry.
+          </p>
+          <h3 class="subsection">Lightweight & Efficient Models</h3>
+          <p>
+            The shift toward edge-deployable models has produced architectures
+            including MobileNet-style depthwise convolutions adapted for 1D
+            biosignals, Temporal Convolutional Networks (TCN) with dilated
+            causal convolutions, and knowledge-distillation pipelines that
+            compress large teacher networks into compact students.
+          </p>
+        </div>
+        <div>
+          <h3 class="subsection">TEECNet — The Key Inspiration</h3>
+          <div class="arch-diagram">
+            <p style="font-size: 0.92rem; margin-bottom: 1rem">
+              TEECNet was originally designed for physics-based mesh simulations
+              (CFD, heat transfer, PDE solving). Its core insight: model
+              discretisation errors as a
+              <strong>Taylor-series residual</strong> and train a second
+              corrector to cancel them.
+            </p>
+            <div class="feature-item">
+              <div class="feature-dot"></div>
+              <div>
+                <strong style="color: var(--white)"
+                  >Base Model + Corrector Structure</strong
+                >
+                — separates dominant prediction from refinement
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot"></div>
+              <div>
+                <strong style="color: var(--white)">Residual Learning:</strong>
+                Final = Base + Correction — same principle as ResNets
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot"></div>
+              <div>
+                <strong style="color: var(--white)">Modularity:</strong> each
+                sub-network specialises on a distinct objective
+              </div>
+            </div>
+            <div
+              style="
+                margin-top: 1.25rem;
+                padding: 1rem;
+                background: rgba(0, 212, 255, 0.05);
+                border: 1px solid var(--border);
+                border-radius: 4px;
+              "
+            >
+              <div
+                style="
+                  font-family: &quot;Oxanium&quot;, sans-serif;
+                  font-size: 0.72rem;
+                  letter-spacing: 0.15em;
+                  color: var(--cyan);
+                  text-transform: uppercase;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Why it works for EEG
+              </div>
+              <p style="font-size: 0.88rem; margin: 0">
+                EEG patterns are noisy and complex. A second model focused
+                exclusively on
+                <em>what the base model consistently gets wrong</em> can target
+                borderline and uncertain cases—boosting overall accuracy without
+                increasing inference-time base model parameters.
+              </p>
+            </div>
+          </div>
+          <h3 class="subsection">Knowledge Distillation</h3>
+          <p>
+            We also evaluate a student-teacher distillation approach
+            (HeavyTeacher-ResNet → LightBase-EEGNet), showing that cross-dataset
+            transfer benefits from the ECN "rescue effect" where the corrector
+            recovers teacher-level knowledge lost during compression.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- METHODOLOGY -->
+    <section id="methodology">
+      <div class="section-label">03 — Architecture</div>
+      <h2 class="section-title">Proposed Methodology</h2>
+
+      <div class="arch-diagram reveal" style="margin-bottom: 2.5rem">
+        <div
+          style="
+            font-family: &quot;Oxanium&quot;, sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            color: var(--amber);
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+          "
+        >
+          Two-Stage Training Pipeline
+        </div>
+        <div class="pipeline-steps">
+          <div class="pipe-step">
+            <span class="pipe-step-num">Stage 1</span>
+            <div class="pipe-step-label">EEG<br />Preprocessing</div>
+          </div>
+          <div class="pipe-arrow"></div>
+          <div class="pipe-step">
+            <span class="pipe-step-num">Stage 1</span>
+            <div class="pipe-step-label">Train Base<br />Network</div>
+          </div>
+          <div class="pipe-arrow"></div>
+          <div class="pipe-step">
+            <span class="pipe-step-num">Stage 1</span>
+            <div class="pipe-step-label">Freeze Base<br />Parameters</div>
+          </div>
+          <div class="pipe-arrow"></div>
+          <div class="pipe-step">
+            <span class="pipe-step-num">Stage 2</span>
+            <div class="pipe-step-label">Train ECN on<br />Residuals</div>
+          </div>
+          <div class="pipe-arrow"></div>
+          <div class="pipe-step" style="border-color: rgba(0, 212, 255, 0.4)">
+            <span class="pipe-step-num">Output</span>
+            <div class="pipe-step-label">Base +<br />ECN Correction</div>
+          </div>
+        </div>
+        <p
+          style="
+            font-size: 0.88rem;
+            color: var(--muted);
+            margin: 0;
+            margin-top: 1rem;
+            text-align: center;
+          "
+        >
+          Final output is clipped for stability:
+          <code
+            style="
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              color: var(--cyan);
+              font-size: 0.82rem;
+            "
+            >ŷ = Base(x) + clip(ECN(x, residuals), ε)</code
+          >
+        </p>
+      </div>
+
+      <div class="two-col reveal">
+        <div>
+          <h3 class="subsection">Base Network Architecture</h3>
+          <p>
+            A lightweight EEGNet-inspired encoder extracts primary
+            temporal–spatial features from the raw multi-channel EEG input. Key
+            components:
+          </p>
+          <div class="feature-item">
+            <div class="feature-dot"></div>
+            <div>
+              Depthwise–separable convolutions (temporal then spatial) to
+              minimise parameter count
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot"></div>
+            <div>
+              Batch normalisation and SiLU activations for stable training
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot"></div>
+            <div>
+              Optional Squeeze-and-Excitation (SE1D) channel attention block
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot"></div>
+            <div>
+              Spectral Band Power branch fusing frequency-domain embeddings
+              (delta, theta, alpha, beta, gamma)
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot"></div>
+            <div>
+              Outputs class logits + 128-d embedding for ECN consumption
+            </div>
+          </div>
+
+          <h3 class="subsection">Error-Correction Network (ECN)</h3>
+          <p>
+            A small gated corrector network, TEECNet-inspired, that refines the
+            base prediction:
+          </p>
+          <div class="feature-item">
+            <div class="feature-dot amber"></div>
+            <div>
+              <strong style="color: var(--white)">Inputs:</strong> base logits,
+              prediction confidence/uncertainty, optional raw signal features
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot amber"></div>
+            <div>
+              <strong style="color: var(--white)">Correction Heads:</strong>
+              Δemb (embedding correction), Δlogits (logit correction), gate
+              (correction strength)
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot amber"></div>
+            <div>
+              <strong style="color: var(--white)">Gated Combination:</strong>
+              base_emb + gate·Δemb → head + gate·Δlogits → final logits
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot amber"></div>
+            <div>
+              <strong style="color: var(--white)"
+                >Trained exclusively on residual errors</strong
+              >
+              from the frozen base model
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="subsection">Custom Loss Functions</h3>
+          <div class="insight-card" style="margin-bottom: 1rem">
+            <div class="insight-icon">📉</div>
+            <div>
+              <h4>Focal Loss</h4>
+              <p>
+                Down-weights easy, correctly classified examples so the model
+                focuses training capacity on hard borderline cases—critical for
+                highly imbalanced EEG datasets.
+              </p>
+            </div>
+          </div>
+          <div class="insight-card" style="margin-bottom: 1rem">
+            <div class="insight-icon">⚖️</div>
+            <div>
+              <h4>Class-Weighted Cross-Entropy</h4>
+              <p>
+                Adjusts loss contribution by inverse class frequency,
+                compensating for the natural scarcity of seizure windows
+                relative to interictal EEG.
+              </p>
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-icon">🔗</div>
+            <div>
+              <h4>Residual MSE (ECN Objective)</h4>
+              <p>
+                ECN minimises mean-squared error on the prediction residuals
+                from the frozen base—directly optimising the correction term
+                rather than the full classification loss.
+              </p>
+            </div>
+          </div>
+
+          <h3 class="subsection">Model Complexity Summary</h3>
+          <table class="comp-table" style="margin-top: 0.75rem">
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Parameters</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Base EEGNet</td>
+                <td
+                  style="
+                    font-family: &quot;JetBrains Mono&quot;, monospace;
+                    color: var(--cyan);
+                  "
+                >
+                  94,333
+                </td>
+                <td>Primary classifier</td>
+              </tr>
+              <tr>
+                <td>FCN / ECN</td>
+                <td
+                  style="
+                    font-family: &quot;JetBrains Mono&quot;, monospace;
+                    color: var(--amber);
+                  "
+                >
+                  132,804
+                </td>
+                <td>Error corrector</td>
+              </tr>
+              <tr class="highlight">
+                <td>Total</td>
+                <td class="best">227,137</td>
+                <td>Full pipeline</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- EXPERIMENTS -->
+    <section id="experiments">
+      <div class="section-label">04 — Setup & Data</div>
+      <h2 class="section-title">Experiment Setup &amp; Implementation</h2>
+
+      <div class="results-tabs reveal">
+        <div class="results-tabs" style="margin-bottom: 0; border-bottom: none">
+          <button
+            class="tab-btn active"
+            onclick="switchExpTab(this, 'epilepsy-data')"
+          >
+            Epilepsy
+          </button>
+          <button class="tab-btn" onclick="switchExpTab(this, 'alzheimer-data')">
+            Alzheimer's
+          </button>
+          <button class="tab-btn" onclick="switchExpTab(this, 'parkinson-data')">
+            Parkinson's
+          </button>
+        </div>
+      </div>
+
+      <!-- Epilepsy Data -->
+      <div
+        id="epilepsy-data"
+        class="tab-content active reveal"
+        style="margin-top: 1.5rem"
+      >
+        <div class="two-col">
+          <div>
+            <h3 class="subsection">Datasets</h3>
+            <div class="dataset-grid">
+              <div class="dataset-card">
+                <h4>CHB-MIT (Primary)</h4>
+                <div class="dataset-row">
+                  <span>Patients</span><span>24 pediatric</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Channels</span><span>23 EEG</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Sample Rate</span><span>256 Hz</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Duration</span><span>~916 hours</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Seizure Events</span><span>198</span>
+                </div>
+              </div>
+              <div class="dataset-card">
+                <h4>Siena Scalp EEG</h4>
+                <div class="dataset-row">
+                  <span>Population</span><span>Adult epilepsy</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Purpose</span><span>Cross-dataset eval</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Generalisation</span><span>Out-of-distribution</span>
+                </div>
+              </div>
+            </div>
+            <h3 class="subsection">Preprocessing Pipeline</h3>
+            <div class="feature-item">
+              <div class="feature-dot"></div>
+              <div>Channel pad/trim → 23 channels, 256 Hz target</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot"></div>
+              <div>Resample → per-channel Z-score normalisation</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot"></div>
+              <div>4-second sliding windows with 50% overlap</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot"></div>
+              <div>Labels via majority rule within each window</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot"></div>
+              <div>
+                1% seizure / 99% non-seizure class imbalance handled via focal
+                loss
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="subsection">Model Architecture</h3>
+            <p>
+              <strong style="color: var(--white)">Base:</strong> EEGNet — learns
+              dominant temporal–spatial EEG patterns, outputs class logits
+              (seizure / non-seizure).
+            </p>
+            <p>
+              <strong style="color: var(--white)">ECN:</strong> Lightweight MLP
+              / small CNN operating on logits + uncertainty estimates. Outputs
+              correction or refined seizure probability.
+            </p>
+            <h3 class="subsection">Training Details</h3>
+            <div class="dataset-card" style="margin-top: 0.5rem">
+              <div class="dataset-row">
+                <span>Optimiser</span><span>Adam (lr=1e-3)</span>
+              </div>
+              <div class="dataset-row">
+                <span>Stage 1 Loss</span><span>Focal + BCE</span>
+              </div>
+              <div class="dataset-row">
+                <span>Stage 2 Loss</span><span>Residual MSE</span>
+              </div>
+              <div class="dataset-row">
+                <span>Val Strategy</span><span>Patient-wise split</span>
+              </div>
+              <div class="dataset-row">
+                <span>Hardware</span><span>NVIDIA RTX 6000 Ada</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alzheimer's Data -->
+      <div id="alzheimer-data" class="tab-content" style="margin-top: 1.5rem">
+        <div class="two-col">
+          <div>
+            <h3 class="subsection">Dataset — OpenNeuro ds004504</h3>
+            <div class="dataset-card" style="margin-bottom: 1.25rem">
+              <div class="dataset-row">
+                <span>Subjects</span><span>AD patients + CN controls</span>
+              </div>
+              <div class="dataset-row">
+                <span>Channels</span><span>19 channels @ 500 Hz</span>
+              </div>
+              <div class="dataset-row">
+                <span>Derivative</span><span>Preprocessed version used</span>
+              </div>
+            </div>
+            <h3 class="subsection">Preprocessing (Derivative)</h3>
+            <div class="feature-item">
+              <div class="feature-dot amber"></div>
+              <div>Band-pass filter 0.5–45 Hz</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot amber"></div>
+              <div>Re-referencing to A1–A2 mastoid</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot amber"></div>
+              <div>Artifact Subspace Reconstruction (ASR)</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot amber"></div>
+              <div>ICA (RunICA) + ICLabel classifier for component removal</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot amber"></div>
+              <div>
+                Custom pipeline: subject filtering, resampling (500→250 Hz), 20s
+                windows with 50% overlap, 80/20 train/eval split
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="subsection">Model — EEGNet-FCN</h3>
+            <p>
+              A
+              <strong style="color: var(--white)"
+                >Modified EEGNet-inspired base</strong
+              >
+              with Spectral Band Power branch fused at the embedding level. On
+              top, a
+              <strong style="color: var(--white)"
+                >Feature Correction Network (FCN)</strong
+              >
+              refines predictions through:
+            </p>
+            <div class="feature-item">
+              <div class="feature-dot amber"></div>
+              <div>
+                <strong style="color: var(--white)">Signal Branch:</strong>
+                convolutional stack → 64-d representation
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot amber"></div>
+              <div>
+                <strong style="color: var(--white)">Meta Extractor:</strong> 6
+                logit-derived confidence features
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot amber"></div>
+              <div>
+                <strong style="color: var(--white)">Shared MLP:</strong>
+                combines all streams → shared representation
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot amber"></div>
+              <div>
+                <strong style="color: var(--white)">Gated combination:</strong>
+                base_emb + gate·Δemb + gate·Δlogits → CN/AD prediction
+              </div>
+            </div>
+            <div class="dataset-card" style="margin-top: 1rem">
+              <div class="dataset-row">
+                <span>Phase 1 (Base)</span><span>88.78% Bal. Acc.</span>
+              </div>
+              <div class="dataset-row">
+                <span>Phase 2 (+FCN)</span><span>92.89% Bal. Acc.</span>
+              </div>
+              <div class="dataset-row">
+                <span>Phase 3 (Fine-tune)</span><span>93.12% Bal. Acc.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Parkinson's Data -->
+      <div id="parkinson-data" class="tab-content" style="margin-top: 1.5rem">
+        <div class="two-col">
+          <div>
+            <h3 class="subsection">Datasets</h3>
+            <div class="dataset-grid">
+              <div class="dataset-card">
+                <h4>ds004584 (Primary)</h4>
+                <div class="dataset-row">
+                  <span>Subjects</span><span>149</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Channels</span><span>60 EEG</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Type</span><span>Resting-state EEG</span>
+                </div>
+              </div>
+              <div class="dataset-card">
+                <h4>ds002778 (Secondary)</h4>
+                <div class="dataset-row">
+                  <span>Subjects</span><span>31</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Channels</span><span>40 EEG</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Purpose</span><span>Robustness test</span>
+                </div>
+              </div>
+            </div>
+            <h3 class="subsection">Preprocessing</h3>
+            <div class="feature-item">
+              <div class="feature-dot green"></div>
+              <div>Bandpass 0.5–45 Hz + 50 Hz notch filter</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot green"></div>
+              <div>
+                Average re-referencing + ICA artifact removal (20 components)
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot green"></div>
+              <div>Downsample to 250 Hz, 2-second windows with 50% overlap</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot green"></div>
+              <div>Stratified subject-wise 70/15/15 train/val/test split</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot green"></div>
+              <div>Channel-wise Z-score normalisation</div>
+            </div>
+          </div>
+          <div>
+            <h3 class="subsection">Three Base Models</h3>
+            <div class="insight-card" style="margin-bottom: 0.75rem">
+              <div
+                class="insight-icon"
+                style="background: rgba(0, 212, 255, 0.08)"
+              >
+                1
+              </div>
+              <div>
+                <h4>Modified EEGNet</h4>
+                <p>
+                  Depthwise-separable CNN, lowest parameter count, focal loss
+                  with PD class boost.
+                </p>
+              </div>
+            </div>
+            <div class="insight-card" style="margin-bottom: 0.75rem">
+              <div
+                class="insight-icon"
+                style="background: rgba(255, 179, 71, 0.08)"
+              >
+                2
+              </div>
+              <div>
+                <h4>LW Temporal-Spatial CNN</h4>
+                <p>
+                  Separates temporal rhythm and spatial channel learning. Noise
+                  + masking + channel dropout augmentation.
+                </p>
+              </div>
+            </div>
+            <div class="insight-card">
+              <div
+                class="insight-icon"
+                style="background: rgba(0, 229, 160, 0.08)"
+              >
+                3
+              </div>
+              <div>
+                <h4>CNN + TCN</h4>
+                <p>
+                  CNN spatial front-end with dilated causal TCN backbone for
+                  long-range EEG dependencies. Mixup augmentation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- RESULTS -->
+    <section id="results">
+      <div class="section-label">05 — Evaluation</div>
+      <h2 class="section-title">Results &amp; Analysis</h2>
+
+      <div class="results-tabs reveal">
+        <button class="tab-btn active" onclick="switchTab(this, 'epilepsy')">
+          ⚡ Epilepsy
+        </button>
+        <button class="tab-btn" onclick="switchTab(this, 'alzheimer')">
+          🧠 Alzheimer's
+        </button>
+        <button class="tab-btn" onclick="switchTab(this, 'parkinson')">
+          🔬 Parkinson's
+        </button>
+      </div>
+
+      <!-- EPILEPSY RESULTS -->
+      <div id="epilepsy" class="tab-content active reveal">
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <span class="metric-val cyan">0.9945</span>
+            <div class="metric-label">AUC (ECN)</div>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val amber">+21.2%</span>
+            <div class="metric-label">
+              F1 Improvement<br /><span class="metric-sub"
+                >Siena cross-dataset</span
+              >
+            </div>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val green">−3</span>
+            <div class="metric-label">
+              False Alarms<br /><span class="metric-sub">ECN vs Base</span>
+            </div>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val cyan">0.9944</span>
+            <div class="metric-label">Base AUC</div>
+          </div>
+        </div>
+        <div class="two-col">
+          <div>
+            <h3 class="subsection">Cross-Dataset Performance</h3>
+            <div class="bar-legend">
+              <span
+                ><span
+                  class="legend-dot"
+                  style="background: rgba(90, 120, 154, 0.7)"
+                ></span
+                >Base Model</span
+              >
+              <span
+                ><span class="legend-dot" style="background: var(--cyan)"></span
+                >Base + ECN</span
+              >
+            </div>
+            <div class="bar-chart">
+              <div class="bar-row">
+                <div class="bar-label">EEGNet (CHB-MIT) Base</div>
+                <div class="bar-track">
+                  <div class="bar-fill before" style="width: 84%">
+                    <span>0.84</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">EEGNet (CHB-MIT) +ECN</div>
+                <div class="bar-track">
+                  <div class="bar-fill after" style="width: 87%">
+                    <span>0.87</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">TwoStream (CHB-MIT) Base</div>
+                <div class="bar-track">
+                  <div class="bar-fill before" style="width: 92%">
+                    <span>0.92</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">TwoStream (CHB-MIT) +ECN</div>
+                <div class="bar-track">
+                  <div class="bar-fill after" style="width: 95%">
+                    <span>0.95</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Siena Rescue Base</div>
+                <div class="bar-track">
+                  <div class="bar-fill before" style="width: 36%">
+                    <span>0.36</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Siena Rescue +ECN</div>
+                <div class="bar-track">
+                  <div class="bar-fill after" style="width: 57%">
+                    <span>0.57</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="subsection">Distillation Comparison</h3>
+            <table class="comp-table">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Accuracy</th>
+                  <th>F1</th>
+                  <th>AUC</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>HeavyTeacher-ResNet</td>
+                  <td>0.97</td>
+                  <td>0.90</td>
+                  <td class="best">0.96</td>
+                </tr>
+                <tr>
+                  <td>LightBase-EEGNet</td>
+                  <td>0.79</td>
+                  <td>0.34</td>
+                  <td>0.62</td>
+                </tr>
+                <tr class="highlight">
+                  <td>EEGNet + ECN (Distilled)</td>
+                  <td class="best">0.86</td>
+                  <td class="best">0.56</td>
+                  <td class="best">0.72</td>
+                </tr>
+              </tbody>
+            </table>
+            <div
+              style="
+                background: rgba(0, 212, 255, 0.05);
+                border: 1px solid var(--border);
+                border-radius: 4px;
+                padding: 1.25rem;
+                margin-top: 1.5rem;
+              "
+            >
+              <div
+                style="
+                  font-family: &quot;Oxanium&quot;, sans-serif;
+                  font-size: 0.72rem;
+                  letter-spacing: 0.15em;
+                  color: var(--cyan);
+                  text-transform: uppercase;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                Key Findings
+              </div>
+              <div class="feature-item">
+                <div class="feature-dot"></div>
+                <div>ECN never degrades correct predictions</div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-dot"></div>
+                <div>Improvements come from reducing false alarms</div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-dot"></div>
+                <div>
+                  Particularly valuable in low-seizure-prevalence settings
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-dot"></div>
+                <div>
+                  Demonstrates the ECN "Rescue Effect" on cross-dataset
+                  generalisation
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ALZHEIMER'S RESULTS -->
+      <div id="alzheimer" class="tab-content reveal">
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <span class="metric-val amber">93.26%</span>
+            <div class="metric-label">Accuracy</div>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val cyan">93.12%</span>
+            <div class="metric-label">Balanced Accuracy</div>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val green">93.21%</span>
+            <div class="metric-label">Macro F1</div>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val amber">227K</span>
+            <div class="metric-label">Total Parameters</div>
+          </div>
+        </div>
+        <div class="two-col">
+          <div>
+            <h3 class="subsection">Phase-wise Balanced Accuracy</h3>
+            <div class="bar-chart">
+              <div class="bar-row">
+                <div class="bar-label">Phase 1 — Base Only</div>
+                <div class="bar-track">
+                  <div class="bar-fill before" style="width: 88.78%">
+                    <span>88.78%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Phase 2 — + FCN</div>
+                <div class="bar-track">
+                  <div class="bar-fill after" style="width: 92.89%">
+                    <span>92.89%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Phase 3 — Fine-Tuned</div>
+                <div class="bar-track">
+                  <div class="bar-fill after" style="width: 93.12%">
+                    <span>93.12%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h3 class="subsection">Confusion Matrix Summary</h3>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+                margin-top: 0.75rem;
+              "
+            >
+              <div class="dataset-card">
+                <h4 style="color: var(--muted)">CN Class</h4>
+                <div class="dataset-row">
+                  <span>Precision</span><span>94.3%</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Recall</span><span>91.0%</span>
+                </div>
+                <div class="dataset-row">
+                  <span>F1-score</span><span>92.6%</span>
+                </div>
+              </div>
+              <div class="dataset-card">
+                <h4 style="color: var(--amber)">AD Class</h4>
+                <div class="dataset-row">
+                  <span>Precision</span><span>92.4%</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Recall</span><span>95.2%</span>
+                </div>
+                <div class="dataset-row">
+                  <span>F1-score</span><span>93.8%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="subsection">
+              Comparison with Lightweight Architectures
+            </h3>
+            <table class="comp-table">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Accuracy</th>
+                  <th>Bal. Acc.</th>
+                  <th>Macro F1</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="highlight">
+                  <td>EEGNet-FCN (Ours)</td>
+                  <td class="best">0.9326</td>
+                  <td class="best">0.9312</td>
+                  <td class="best">0.9321</td>
+                </tr>
+                <tr>
+                  <td>DSCNN</td>
+                  <td>0.8448</td>
+                  <td>0.8491</td>
+                  <td>0.8448</td>
+                </tr>
+                <tr>
+                  <td>TinyResNet</td>
+                  <td>0.8302</td>
+                  <td>0.8491</td>
+                  <td>0.8296</td>
+                </tr>
+                <tr>
+                  <td>TCNLite</td>
+                  <td>0.8506</td>
+                  <td>0.8447</td>
+                  <td>0.8474</td>
+                </tr>
+                <tr>
+                  <td>MobileNet1D</td>
+                  <td>0.8245</td>
+                  <td>0.8182</td>
+                  <td>0.8212</td>
+                </tr>
+                <tr>
+                  <td>ShuffleNet1D</td>
+                  <td>0.8009</td>
+                  <td>0.8063</td>
+                  <td>0.8189</td>
+                </tr>
+                <tr>
+                  <td>SqueezeNet1D</td>
+                  <td>0.7830</td>
+                  <td>0.7926</td>
+                  <td>0.8025</td>
+                </tr>
+              </tbody>
+            </table>
+            <p
+              style="
+                font-size: 0.8rem;
+                color: var(--muted);
+                margin-top: 0.5rem;
+                font-style: italic;
+              "
+            >
+              Training measured on NVIDIA RTX 6000 Ada Generation GPU with CUDA
+              AMP. EEGNet-FCN trains in 581s.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PARKINSON'S RESULTS -->
+      <div id="parkinson" class="tab-content reveal">
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <span class="metric-val green">96.42%</span>
+            <div class="metric-label">
+              CNN-TCN +ECN<br /><span class="metric-sub">Best Accuracy</span>
+            </div>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val cyan">97.19%</span>
+            <div class="metric-label">
+              CNN-TCN +ECN<br /><span class="metric-sub">Best F1</span>
+            </div>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val amber">265</span>
+            <div class="metric-label">
+              Fewer Errors<br /><span class="metric-sub">EEGNet ECN gain</span>
+            </div>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val green">+7.03%</span>
+            <div class="metric-label">
+              Max Acc Gain<br /><span class="metric-sub">EEGNet Base→ECN</span>
+            </div>
+          </div>
+        </div>
+        <h3 class="subsection" style="margin-top: 1rem">
+          Base vs. Base+ECN — All Models
+        </h3>
+        <div class="bar-legend">
+          <span
+            ><span
+              class="legend-dot"
+              style="background: rgba(90, 120, 154, 0.7)"
+            ></span
+            >Base</span
+          >
+          <span
+            ><span class="legend-dot" style="background: var(--green)"></span
+            >Base + ECN</span
+          >
+        </div>
+        <div class="three-col" style="gap: 2rem; margin-top: 1rem">
+          <div>
+            <div
+              style="
+                font-family: &quot;Oxanium&quot;, sans-serif;
+                font-size: 0.78rem;
+                font-weight: 700;
+                color: var(--cyan);
+                margin-bottom: 0.75rem;
+              "
+            >
+              1. Modified EEGNet
+            </div>
+            <div class="bar-chart compact-chart">
+              <div class="bar-row">
+                <div class="bar-label">
+                  Accuracy Base
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill before" style="width: 88.32%">
+                    <span>88.3%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">
+                  Accuracy +ECN
+                </div>
+                <div class="bar-track">
+                  <div
+                    class="bar-fill"
+                    style="
+                      width: 95.35%;
+                      background: linear-gradient(90deg, #00b377, var(--green));
+                    "
+                  >
+                    <span>95.4%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">
+                  F1 Base
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill before" style="width: 90.65%">
+                    <span>90.7%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">
+                  F1 +ECN
+                </div>
+                <div class="bar-track">
+                  <div
+                    class="bar-fill"
+                    style="
+                      width: 96.35%;
+                      background: linear-gradient(90deg, #00b377, var(--green));
+                    "
+                  >
+                    <span>96.4%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              style="
+                font-family: &quot;Oxanium&quot;, sans-serif;
+                font-size: 0.78rem;
+                font-weight: 700;
+                color: var(--amber);
+                margin-bottom: 0.75rem;
+              "
+            >
+              2. LW Temporal-Spatial CNN
+            </div>
+            <div class="bar-chart compact-chart">
+              <div class="bar-row">
+                <div class="bar-label">
+                  Accuracy Base
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill before" style="width: 89.91%">
+                    <span>89.9%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">
+                  Accuracy +ECN
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill after2" style="width: 95.89%">
+                    <span>95.9%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">
+                  F1 Base
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill before" style="width: 91.97%">
+                    <span>92.0%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">
+                  F1 +ECN
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill after2" style="width: 96.77%">
+                    <span>96.8%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              style="
+                font-family: &quot;Oxanium&quot;, sans-serif;
+                font-size: 0.78rem;
+                font-weight: 700;
+                color: var(--green);
+                margin-bottom: 0.75rem;
+              "
+            >
+              3. CNN + TCN
+            </div>
+            <div class="bar-chart compact-chart">
+              <div class="bar-row">
+                <div class="bar-label">
+                  Accuracy Base
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill before" style="width: 90.71%">
+                    <span>90.7%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">
+                  Accuracy +ECN
+                </div>
+                <div class="bar-track">
+                  <div
+                    class="bar-fill"
+                    style="
+                      width: 96.42%;
+                      background: linear-gradient(90deg, #00b377, var(--green));
+                    "
+                  >
+                    <span>96.4%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">
+                  F1 Base
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill before" style="width: 92.61%">
+                    <span>92.6%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">
+                  F1 +ECN
+                </div>
+                <div class="bar-track">
+                  <div
+                    class="bar-fill"
+                    style="
+                      width: 97.19%;
+                      background: linear-gradient(90deg, #00b377, var(--green));
+                    "
+                  >
+                    <span>97.2%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3 class="subsection" style="margin-top: 2rem">
+          Error Reduction Summary
+        </h3>
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Base Acc</th>
+              <th>Base F1</th>
+              <th>+ECN Acc</th>
+              <th>+ECN F1</th>
+              <th>Acc Gain</th>
+              <th>Error Reduction</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight">
+              <td>Modified EEGNet</td>
+              <td>88.32%</td>
+              <td>90.65%</td>
+              <td class="best">95.35%</td>
+              <td class="best">96.35%</td>
+              <td class="best">+7.03%</td>
+              <td class="best">265 fewer</td>
+            </tr>
+            <tr>
+              <td>LW Temporal-Spatial CNN</td>
+              <td>89.91%</td>
+              <td>91.97%</td>
+              <td>95.89%</td>
+              <td>96.77%</td>
+              <td>+5.97%</td>
+              <td>225 fewer</td>
+            </tr>
+            <tr>
+              <td>CNN-TCN</td>
+              <td>90.71%</td>
+              <td>92.61%</td>
+              <td>96.42%</td>
+              <td>97.19%</td>
+              <td>+5.71%</td>
+              <td>215 fewer</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- CONCLUSION -->
+    <section id="conclusion">
+      <div class="section-label">06 — Takeaways</div>
+      <h2 class="section-title">Conclusion</h2>
+      <div class="two-col reveal" style="margin-bottom: 2.5rem">
+        <div>
+          <p>
+            This project demonstrates that a
+            <strong style="color: var(--white)"
+              >TEECNet-inspired Error Correction Network (ECN)</strong
+            >
+            is a powerful, general-purpose enhancement for lightweight EEG
+            classifiers. By training a small corrector network exclusively on
+            the systematic prediction residuals of a frozen base model, we
+            achieve consistent, meaningful accuracy gains across three
+            neurologically distinct conditions—without increasing the base
+            model's inference-time parameter count.
+          </p>
+          <p>
+            The results validate a key hypothesis:
+            <em>lightweight models contain systematic, learnable blind spots</em
+            >, and a targeted corrector is a more efficient route to accuracy
+            recovery than simply making the base model larger.
+          </p>
+          <p>
+            For Alzheimer's detection, our
+            <strong style="color: var(--white)">EEGNet-FCN</strong> achieves
+            93.26% accuracy and 93.21% Macro F1—outperforming all evaluated
+            lightweight baselines (DSCNN, TinyResNet, TCNLite, MobileNet1D,
+            ShuffleNet1D, SqueezeNet1D) by a significant margin, while remaining
+            within practical parameter budgets.
+          </p>
+        </div>
+        <div>
+          <div class="conclusion-grid" style="grid-template-columns: 1fr">
+            <div class="insight-card">
+              <div class="insight-icon">✅</div>
+              <div>
+                <h4>ECN Universality</h4>
+                <p>
+                  Consistent improvement across Epilepsy, Alzheimer's, and
+                  Parkinson's with the same base+corrector design philosophy.
+                </p>
+              </div>
+            </div>
+            <div class="insight-card">
+              <div class="insight-icon">📱</div>
+              <div>
+                <h4>Edge Deployability</h4>
+                <p>
+                  Total parameter count under 230K supports real-time inference
+                  on wearable and edge devices.
+                </p>
+              </div>
+            </div>
+            <div class="insight-card">
+              <div class="insight-icon">🔁</div>
+              <div>
+                <h4>Residual Learning Works</h4>
+                <p>
+                  The base never degrades from ECN application; corrections are
+                  bounded and stabilised by clipping.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3 class="subsection">Limitations &amp; Future Work</h3>
+      <div class="three-col reveal">
+        <div class="dataset-card">
+          <h4 style="color: var(--muted)">Current Limitations</h4>
+          <div class="feature-item" style="margin-top: 0.5rem">
+            <div
+              class="feature-dot"
+              style="background: rgba(255, 100, 100, 0.7)"
+            ></div>
+            <div style="font-size: 0.88rem">
+              Limited dataset size → reduced generalisation
+            </div>
+          </div>
+          <div class="feature-item">
+            <div
+              class="feature-dot"
+              style="background: rgba(255, 100, 100, 0.7)"
+            ></div>
+            <div style="font-size: 0.88rem">
+              Class imbalance affects performance
+            </div>
+          </div>
+          <div class="feature-item">
+            <div
+              class="feature-dot"
+              style="background: rgba(255, 100, 100, 0.7)"
+            ></div>
+            <div style="font-size: 0.88rem">
+              Offline validation only; no real-time trials
+            </div>
+          </div>
+          <div class="feature-item">
+            <div
+              class="feature-dot"
+              style="background: rgba(255, 100, 100, 0.7)"
+            ></div>
+            <div style="font-size: 0.88rem">
+              Hardware latency and power not yet evaluated
+            </div>
+          </div>
+        </div>
+        <div class="dataset-card">
+          <h4 style="color: var(--muted)">Near-Term Work</h4>
+          <div class="feature-item" style="margin-top: 0.5rem">
+            <div class="feature-dot amber"></div>
+            <div style="font-size: 0.88rem">
+              Test on larger, more diverse EEG datasets
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot amber"></div>
+            <div style="font-size: 0.88rem">
+              Enable deployment on edge / portable devices
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot amber"></div>
+            <div style="font-size: 0.88rem">
+              Improve overall accuracy and ECN stability
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot amber"></div>
+            <div style="font-size: 0.88rem">
+              Validate in real clinical environments
+            </div>
+          </div>
+        </div>
+        <div class="dataset-card">
+          <h4 style="color: var(--muted)">Long-Term Vision</h4>
+          <div class="feature-item" style="margin-top: 0.5rem">
+            <div class="feature-dot green"></div>
+            <div style="font-size: 0.88rem">
+              Unified multi-disorder detection pipeline
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot green"></div>
+            <div style="font-size: 0.88rem">
+              Personalised adaptive ECN fine-tuning per patient
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot green"></div>
+            <div style="font-size: 0.88rem">
+              Integration with wearable EEG headsets
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot green"></div>
+            <div style="font-size: 0.88rem">
+              Prospective clinical trial validation
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- TEAM -->
+    <section id="team">
+      <div class="section-label">07 — People</div>
+      <h2 class="section-title">Team</h2>
+      <div class="team-grid reveal">
+        <div class="team-card">
+          <div class="team-avatar">
+            <img
+              src="images/R.M.S.H.%20Kumarasinghe.PNG"
+              alt="Sameera Kumarasinghe"
+            />
+          </div>
+          <h4>Sameera Kumarasinghe</h4>
+          <div class="team-enum">E/20/212</div>
+          <div class="team-role">Epilepsy Detection</div>
+          <a href="mailto:e20212@eng.pdn.ac.lk" class="team-email"
+            >e20212@eng.pdn.ac.lk</a
+          >
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="images/W.M.N.%20Dilshan.PNG" alt="Nuwan Dilshan" />
+          </div>
+          <h4>Nuwan Dilshan</h4>
+          <div class="team-enum">E/20/455</div>
+          <div class="team-role">Alzheimer's Disease Detection</div>
+          <a href="mailto:e20455@eng.pdn.ac.lk" class="team-email"
+            >e20455@eng.pdn.ac.lk</a
+          >
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="images/U.P.S.D.%20Dulaj.PNG" alt="Sachin Dulaj" />
+          </div>
+          <h4>Sachin Dulaj</h4>
+          <div class="team-enum">E/20/456</div>
+          <div class="team-role">Parkinson's Disease Detection</div>
+          <a href="mailto:e20456@eng.pdn.ac.lk" class="team-email"
+            >e20456@eng.pdn.ac.lk</a
+          >
+        </div>
+      </div>
+
+      <h3 class="subsection" style="margin-top: 3rem">Supervisors</h3>
+      <div class="supervisor-row reveal">
+        <div class="supervisor-card">
+          <div class="sup-avatar">
+            <img
+              src="images/Prof.%20Roshan%20G.%20Ragel.PNG"
+              alt="Prof. Roshan G. Ragel"
+            />
+          </div>
+          <div>
+            <h4>Prof. Roshan Ragel</h4>
+            <p>Supervisor · Department of Computer Engineering</p>
+            <a
+              href="mailto:roshanr@eng.pdn.ac.lk"
+              style="
+                font-family: &quot;Oxanium&quot;, sans-serif;
+                font-size: 0.72rem;
+                color: var(--amber);
+                text-decoration: none;
+              "
+              >roshanr@eng.pdn.ac.lk</a
+            >
+          </div>
+        </div>
+        <div class="supervisor-card">
+          <div class="sup-avatar">
+            <img
+              src="images/Mr.%20Sivaraj%20Nimishan.PNG"
+              alt="Mr. Sivaraj Nimishan"
+            />
+          </div>
+          <div>
+            <h4>Mr. Sivaraj Nimishan</h4>
+            <p>Supervisor · Department of Computer Engineering</p>
+            <a
+              href="mailto:nimishanS@eng.pdn.ac.lk"
+              style="
+                font-family: &quot;Oxanium&quot;, sans-serif;
+                font-size: 0.72rem;
+                color: var(--amber);
+                text-decoration: none;
+              "
+              >nimishanS@eng.pdn.ac.lk</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- LINKS -->
+    <section id="links">
+      <div class="section-label">08 — Resources</div>
+      <h2 class="section-title">Links</h2>
+      <div class="links-grid reveal">
+        <a
+          href="https://github.com/cepdnaclk/e20-4yp-Lightweight-Deep-Learning-Models-for-Detection-of-Neurological-Disorders-Using-EEG-Signals.git"
+          class="link-card"
+          target="_blank"
+        >
+          <div class="link-icon">⌨️</div>
+          <div>
+            <h4>Project Repository</h4>
+            <p>Source code, models &amp; experiments on GitHub</p>
+          </div>
+        </a>
+        <a
+          href="https://cepdnaclk.github.io/repository-name"
+          class="link-card"
+          target="_blank"
+        >
+          <div class="link-icon">🌐</div>
+          <div>
+            <h4>Project Page</h4>
+            <p>Official project page on cepdnaclk.github.io</p>
+          </div>
+        </a>
+        <a href="http://www.ce.pdn.ac.lk/" class="link-card" target="_blank">
+          <div class="link-icon">🎓</div>
+          <div>
+            <h4>Department of Computer Engineering</h4>
+            <p>University of Peradeniya · ce.pdn.ac.lk</p>
+          </div>
+        </a>
+        <a href="https://eng.pdn.ac.lk/" class="link-card" target="_blank">
+          <div class="link-icon">🏛️</div>
+          <div>
+            <h4>University of Peradeniya</h4>
+            <p>Faculty of Engineering · eng.pdn.ac.lk</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-logo">CO425 · Group 23 · University of Peradeniya</div>
+      <p>Lightweight Models for Neurological Disorders Detection · 2026</p>
+      <p>E/20/212 · E/20/455 · E/20/456</p>
+    </footer>
+
+    <script>
+      // ─── NEURAL CANVAS ───────────────────────────────────────────
+      const canvas = document.getElementById("neural-canvas");
+      const ctx = canvas.getContext("2d");
+      let W,
+        H,
+        nodes = [],
+        edges = [];
+
+      function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener("resize", () => {
+        resize();
+        initNodes();
+      });
+
+      function initNodes() {
+        const count = Math.floor((W * H) / 22000);
+        nodes = Array.from({ length: Math.min(count, 60) }, () => ({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.25,
+          vy: (Math.random() - 0.5) * 0.25,
+          r: Math.random() * 2 + 1.5,
+        }));
+      }
+      initNodes();
+
+      function drawFrame() {
+        ctx.clearRect(0, 0, W, H);
+        // Move nodes
+        nodes.forEach((n) => {
+          n.x += n.vx;
+          n.y += n.vy;
+          if (n.x < 0 || n.x > W) n.vx *= -1;
+          if (n.y < 0 || n.y > H) n.vy *= -1;
+        });
+        // Edges
+        for (let i = 0; i < nodes.length; i++) {
+          for (let j = i + 1; j < nodes.length; j++) {
+            const dx = nodes[i].x - nodes[j].x;
+            const dy = nodes[i].y - nodes[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 160) {
+              ctx.beginPath();
+              ctx.moveTo(nodes[i].x, nodes[i].y);
+              ctx.lineTo(nodes[j].x, nodes[j].y);
+              ctx.strokeStyle = `rgba(0,212,255,${(1 - dist / 160) * 0.25})`;
+              ctx.lineWidth = 0.6;
+              ctx.stroke();
+            }
+          }
+        }
+        // Nodes
+        nodes.forEach((n) => {
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(0,212,255,0.5)";
+          ctx.fill();
+        });
+        requestAnimationFrame(drawFrame);
+      }
+      drawFrame();
+
+      // ─── TABS ───────────────────────────────────────────────────
+      function switchTab(button, id) {
+        document
+          .querySelectorAll("#results .tab-content")
+          .forEach((el) => el.classList.remove("active"));
+        document
+          .querySelectorAll("#results .tab-btn")
+          .forEach((el) => el.classList.remove("active"));
+        const activeTab = document.getElementById(id);
+        activeTab.classList.add("active");
+        button.classList.add("active");
+        setTimeout(() => animateBars(activeTab), 30);
+      }
+      function switchExpTab(button, id) {
+        document
+          .querySelectorAll("#experiments .tab-content")
+          .forEach((el) => el.classList.remove("active"));
+        document
+          .querySelectorAll("#experiments .tab-btn")
+          .forEach((el) => el.classList.remove("active"));
+        document.getElementById(id).classList.add("active");
+        button.classList.add("active");
+      }
+
+      // ─── SCROLL REVEAL ──────────────────────────────────────────
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      // ─── COUNTER ANIMATION ───────────────────────────────────────
+      function animateCounters() {
+        document.querySelectorAll(".stat-num[data-target]").forEach((el) => {
+          const target = parseFloat(el.dataset.target);
+          const isFloat = target < 10;
+          let current = 0;
+          const step = target / 60;
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            el.textContent = isFloat
+              ? current.toFixed(4)
+              : current.toFixed(isFloat ? 2 : 0);
+          }, 16);
+        });
+      }
+      const counterObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              animateCounters();
+              counterObserver.disconnect();
+            }
+          });
+        },
+        { threshold: 0.3 },
+      );
+      const statsSection = document.querySelector(".stats-row");
+      if (statsSection) counterObserver.observe(statsSection);
+
+      // ─── BAR ANIMATION ──────────────────────────────────────────
+      function animateBars(scope = document) {
+        scope.querySelectorAll(".bar-fill").forEach((bar) => {
+          if (!bar.dataset.targetWidth) {
+            bar.dataset.targetWidth = bar.style.width;
+          }
+          bar.style.width = "0";
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              bar.style.width = bar.dataset.targetWidth;
+            });
+          });
+        });
+      }
+      const resultsSection = document.getElementById("results");
+      let resultsBarsAnimated = false;
+
+      function animateActiveResultsBars() {
+        if (!resultsSection) return;
+        const activeTab = resultsSection.querySelector(".tab-content.active");
+        if (!activeTab) return;
+        animateBars(activeTab);
+        resultsBarsAnimated = true;
+      }
+
+      if (resultsSection) {
+        const barObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting && !resultsBarsAnimated) {
+                animateActiveResultsBars();
+                barObserver.disconnect();
+              }
+            });
+          },
+          { threshold: 0.15 },
+        );
+        barObserver.observe(resultsSection);
+
+        window.addEventListener("load", () => {
+          document.querySelectorAll(".bar-fill").forEach((bar) => {
+            if (!bar.dataset.targetWidth) {
+              bar.dataset.targetWidth = bar.style.width;
+            }
+          });
+
+          const rect = resultsSection.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            animateActiveResultsBars();
+            barObserver.disconnect();
+          }
+        });
+      }
+
+      // ─── NAV ───────────────────────────────────────────────────
+      function toggleNav() {
+        document.getElementById("navbar").classList.toggle("open");
+      }
+
+      // Close nav on link click (mobile)
+      document.querySelectorAll(".nav-links a").forEach((a) => {
+        a.addEventListener("click", () =>
+          document.getElementById("navbar").classList.remove("open"),
+        );
+      });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const nav = document.getElementById("navbar");
+        nav.style.background =
+          window.scrollY > 50 ? "rgba(4,13,26,0.97)" : "rgba(4,13,26,0.88)";
+      });
+    </script>
+  </body>
+</html>

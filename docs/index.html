@@ -211,6 +211,7 @@
         color: var(--navy-text);
         max-width: 600px;
         margin: 0 auto 3rem;
+        text-align: center;
         animation: fadeUp 0.8s 0.3s ease both;
       }
       .hero-meta {
@@ -336,6 +337,15 @@
         color: var(--navy-text);
         margin-bottom: 1rem;
         font-size: 1.02rem;
+        text-align: justify;
+        text-justify: inter-word;
+      }
+      .section-lead {
+        max-width: 760px;
+        color: var(--navy-text);
+        font-size: 1rem;
+        line-height: 1.8;
+        margin: -0.65rem 0 2rem;
       }
       .section-divider {
         height: 1px;
@@ -594,8 +604,10 @@
         margin-bottom: 1rem;
       }
       .dataset-row {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: minmax(92px, 0.9fr) minmax(0, 1.1fr);
+        gap: 1rem;
+        align-items: start;
         padding: 0.45rem 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         font-size: 0.9rem;
@@ -606,11 +618,17 @@
       .dataset-row span:first-child {
         color: var(--muted);
         font-size: 0.82rem;
+        min-width: 0;
       }
       .dataset-row span:last-child {
         color: var(--white);
         font-family: "JetBrains Mono", monospace;
         font-size: 0.82rem;
+        min-width: 0;
+        text-align: right;
+        justify-self: end;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
       }
 
       /* ─── RESULTS ─── */
@@ -691,6 +709,130 @@
         color: var(--muted);
         margin-top: 0.2rem;
         font-style: italic;
+      }
+      .results-overview {
+        display: grid;
+        grid-template-columns: 1.2fr repeat(3, 1fr);
+        gap: 1rem;
+        margin-bottom: 1.75rem;
+      }
+      .results-summary-card {
+        background: linear-gradient(
+          180deg,
+          rgba(11, 29, 58, 0.95),
+          rgba(13, 32, 64, 0.78)
+        );
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 1.4rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .results-summary-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--cyan),
+          transparent
+        );
+        opacity: 0.75;
+      }
+      .results-summary-intro {
+        padding: 1.5rem 1.6rem;
+      }
+      .results-summary-kicker {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--cyan);
+        margin-bottom: 0.65rem;
+      }
+      .results-summary-intro h3 {
+        font-family: "Oxanium", sans-serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.25;
+        margin-bottom: 0.7rem;
+      }
+      .results-summary-intro p,
+      .results-summary-card p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin: 0;
+        text-align: left;
+        text-justify: auto;
+      }
+      .results-summary-title {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 0.85rem;
+      }
+      .results-summary-value {
+        display: block;
+        font-family: "Oxanium", sans-serif;
+        font-size: 2rem;
+        font-weight: 800;
+        line-height: 1;
+        margin-bottom: 0.45rem;
+      }
+      .results-summary-value.cyan {
+        color: var(--cyan);
+      }
+      .results-summary-value.amber {
+        color: var(--amber);
+      }
+      .results-summary-value.green {
+        color: var(--green);
+      }
+      .results-summary-meta {
+        font-family: "Oxanium", sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--white);
+        margin-bottom: 0.75rem;
+      }
+      .results-stage {
+        background: rgba(11, 29, 58, 0.5);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 1.3rem 1.3rem 1.6rem;
+      }
+      #results .results-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 1.75rem;
+        padding-bottom: 0.45rem;
+      }
+      #results .tab-btn {
+        margin-bottom: 0;
+        padding: 0.8rem 1.2rem;
+        border: 1px solid transparent;
+        border-radius: 4px;
+      }
+      #results .tab-btn:hover {
+        background: rgba(0, 212, 255, 0.05);
+      }
+      #results .tab-btn.active {
+        background: rgba(0, 212, 255, 0.09);
+        border-color: var(--border-glow);
+      }
+      #results .tab-content {
+        padding-top: 0.25rem;
       }
 
       /* Bar chart */
@@ -948,15 +1090,15 @@
         padding: 1.5rem 1.75rem;
         display: flex;
         align-items: center;
-        gap: 1.25rem;
+        gap: 1.5rem;
         transition: border-color 0.3s;
       }
       .supervisor-card:hover {
         border-color: rgba(255, 179, 71, 0.5);
       }
       .sup-avatar {
-        width: 98px;
-        height: 98px;
+        width: 132px;
+        height: 132px;
         border-radius: 50%;
         border: 1px solid rgba(255, 179, 71, 0.35);
         flex-shrink: 0;
@@ -985,7 +1127,7 @@
       /* ─── LINKS ─── */
       .links-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 1.25rem;
         margin-top: 2rem;
       }
@@ -1124,6 +1266,12 @@
         .metrics-grid {
           grid-template-columns: 1fr 1fr;
         }
+        .results-overview {
+          grid-template-columns: 1fr 1fr;
+        }
+        .results-summary-intro {
+          grid-column: 1 / -1;
+        }
         .stats-row {
           grid-template-columns: 1fr 1fr;
         }
@@ -1162,6 +1310,12 @@
         .metrics-grid,
         .stats-row {
           grid-template-columns: 1fr 1fr;
+        }
+        .results-overview {
+          grid-template-columns: 1fr;
+        }
+        .results-stage {
+          padding: 1rem;
         }
         .pipeline-steps {
           gap: 0.25rem;
@@ -1553,14 +1707,14 @@
             text-align: center;
           "
         >
-          Final output is clipped for stability:
+          Final output:
           <code
             style="
               font-family: &quot;JetBrains Mono&quot;, monospace;
               color: var(--cyan);
               font-size: 0.82rem;
             "
-            >ŷ = Base(x) + clip(ECN(x, residuals), ε)</code
+            >Y = Base + ECN Correction</code
           >
         </p>
       </div>
@@ -1739,10 +1893,16 @@
           >
             Epilepsy
           </button>
-          <button class="tab-btn" onclick="switchExpTab(this, 'alzheimer-data')">
+          <button
+            class="tab-btn"
+            onclick="switchExpTab(this, 'alzheimer-data')"
+          >
             Alzheimer's
           </button>
-          <button class="tab-btn" onclick="switchExpTab(this, 'parkinson-data')">
+          <button
+            class="tab-btn"
+            onclick="switchExpTab(this, 'parkinson-data')"
+          >
             Parkinson's
           </button>
         </div>
@@ -2059,628 +2219,675 @@
     <section id="results">
       <div class="section-label">05 — Evaluation</div>
       <h2 class="section-title">Results &amp; Analysis</h2>
+      <p class="section-lead">
+        This section consolidates the strongest findings across Epilepsy,
+        Alzheimer's disease, and Parkinson's disease, then drills into
+        task-specific metrics, cross-dataset behaviour, and model-to-model
+        comparisons.
+      </p>
 
-      <div class="results-tabs reveal">
-        <button class="tab-btn active" onclick="switchTab(this, 'epilepsy')">
-          ⚡ Epilepsy
-        </button>
-        <button class="tab-btn" onclick="switchTab(this, 'alzheimer')">
-          🧠 Alzheimer's
-        </button>
-        <button class="tab-btn" onclick="switchTab(this, 'parkinson')">
-          🔬 Parkinson's
-        </button>
+      <div class="results-overview reveal">
+        <div class="results-summary-card results-summary-intro">
+          <div class="results-summary-kicker">Evaluation Snapshot</div>
+          <h3>Cross-disorder evidence for lightweight error correction</h3>
+          <p>
+            Each task is evaluated with the metric profile most meaningful to
+            its setting, while the shared question remains the same: can a
+            compact ECN improve lightweight EEG classifiers consistently across
+            distinct neurological conditions?
+          </p>
+        </div>
+        <div class="results-summary-card">
+          <div class="results-summary-title">Epilepsy</div>
+          <span class="results-summary-value cyan">0.9945</span>
+          <div class="results-summary-meta">AUC with ECN</div>
+          <p>
+            Strong seizure discrimination with fewer false alarms under
+            cross-dataset evaluation.
+          </p>
+        </div>
+        <div class="results-summary-card">
+          <div class="results-summary-title">Alzheimer's</div>
+          <span class="results-summary-value amber">93.26%</span>
+          <div class="results-summary-meta">Accuracy</div>
+          <p>
+            EEGNet-FCN achieves the strongest overall classification performance
+            among the lightweight baselines shown.
+          </p>
+        </div>
+        <div class="results-summary-card">
+          <div class="results-summary-title">Parkinson's</div>
+          <span class="results-summary-value green">97.19%</span>
+          <div class="results-summary-meta">Best F1 with CNN-TCN + ECN</div>
+          <p>
+            ECN refinement improves all three lightweight Parkinson's models,
+            with the best final performance from CNN-TCN.
+          </p>
+        </div>
       </div>
 
-      <!-- EPILEPSY RESULTS -->
-      <div id="epilepsy" class="tab-content active reveal">
-        <div class="metrics-grid">
-          <div class="metric-card">
-            <span class="metric-val cyan">0.9945</span>
-            <div class="metric-label">AUC (ECN)</div>
+      <div class="results-stage reveal">
+        <div class="results-tabs">
+          <button class="tab-btn active" onclick="switchTab(this, 'epilepsy')">
+            Epilepsy
+          </button>
+          <button class="tab-btn" onclick="switchTab(this, 'alzheimer')">
+            Alzheimer's
+          </button>
+          <button class="tab-btn" onclick="switchTab(this, 'parkinson')">
+            Parkinson's
+          </button>
+        </div>
+
+        <!-- EPILEPSY RESULTS -->
+        <div id="epilepsy" class="tab-content active reveal">
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <span class="metric-val cyan">0.9945</span>
+              <div class="metric-label">AUC (ECN)</div>
+            </div>
+            <div class="metric-card">
+              <span class="metric-val amber">+21.2%</span>
+              <div class="metric-label">
+                F1 Improvement<br /><span class="metric-sub"
+                  >Siena cross-dataset</span
+                >
+              </div>
+            </div>
+            <div class="metric-card">
+              <span class="metric-val green">−3</span>
+              <div class="metric-label">
+                False Alarms<br /><span class="metric-sub">ECN vs Base</span>
+              </div>
+            </div>
+            <div class="metric-card">
+              <span class="metric-val cyan">0.9944</span>
+              <div class="metric-label">Base AUC</div>
+            </div>
           </div>
-          <div class="metric-card">
-            <span class="metric-val amber">+21.2%</span>
-            <div class="metric-label">
-              F1 Improvement<br /><span class="metric-sub"
-                >Siena cross-dataset</span
+          <div class="two-col">
+            <div>
+              <h3 class="subsection">Cross-Dataset Performance</h3>
+              <div class="bar-legend">
+                <span
+                  ><span
+                    class="legend-dot"
+                    style="background: rgba(90, 120, 154, 0.7)"
+                  ></span
+                  >Base Model</span
+                >
+                <span
+                  ><span
+                    class="legend-dot"
+                    style="background: var(--cyan)"
+                  ></span
+                  >Base + ECN</span
+                >
+              </div>
+              <div class="bar-chart">
+                <div class="bar-row">
+                  <div class="bar-label">EEGNet (CHB-MIT) Base</div>
+                  <div class="bar-track">
+                    <div class="bar-fill before" style="width: 84%">
+                      <span>0.84</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">EEGNet (CHB-MIT) +ECN</div>
+                  <div class="bar-track">
+                    <div class="bar-fill after" style="width: 87%">
+                      <span>0.87</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">TwoStream (CHB-MIT) Base</div>
+                  <div class="bar-track">
+                    <div class="bar-fill before" style="width: 92%">
+                      <span>0.92</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">TwoStream (CHB-MIT) +ECN</div>
+                  <div class="bar-track">
+                    <div class="bar-fill after" style="width: 95%">
+                      <span>0.95</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">Siena Rescue Base</div>
+                  <div class="bar-track">
+                    <div class="bar-fill before" style="width: 36%">
+                      <span>0.36</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">Siena Rescue +ECN</div>
+                  <div class="bar-track">
+                    <div class="bar-fill after" style="width: 57%">
+                      <span>0.57</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 class="subsection">Distillation Comparison</h3>
+              <table class="comp-table">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Accuracy</th>
+                    <th>F1</th>
+                    <th>AUC</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>HeavyTeacher-ResNet</td>
+                    <td>0.97</td>
+                    <td>0.90</td>
+                    <td class="best">0.96</td>
+                  </tr>
+                  <tr>
+                    <td>LightBase-EEGNet</td>
+                    <td>0.79</td>
+                    <td>0.34</td>
+                    <td>0.62</td>
+                  </tr>
+                  <tr class="highlight">
+                    <td>EEGNet + ECN (Distilled)</td>
+                    <td class="best">0.86</td>
+                    <td class="best">0.56</td>
+                    <td class="best">0.72</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div
+                style="
+                  background: rgba(0, 212, 255, 0.05);
+                  border: 1px solid var(--border);
+                  border-radius: 4px;
+                  padding: 1.25rem;
+                  margin-top: 1.5rem;
+                "
               >
+                <div
+                  style="
+                    font-family: &quot;Oxanium&quot;, sans-serif;
+                    font-size: 0.72rem;
+                    letter-spacing: 0.15em;
+                    color: var(--cyan);
+                    text-transform: uppercase;
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  Key Findings
+                </div>
+                <div class="feature-item">
+                  <div class="feature-dot"></div>
+                  <div>ECN never degrades correct predictions</div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-dot"></div>
+                  <div>Improvements come from reducing false alarms</div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-dot"></div>
+                  <div>
+                    Particularly valuable in low-seizure-prevalence settings
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <div class="feature-dot"></div>
+                  <div>
+                    Demonstrates the ECN "Rescue Effect" on cross-dataset
+                    generalisation
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="metric-card">
-            <span class="metric-val green">−3</span>
-            <div class="metric-label">
-              False Alarms<br /><span class="metric-sub">ECN vs Base</span>
-            </div>
-          </div>
-          <div class="metric-card">
-            <span class="metric-val cyan">0.9944</span>
-            <div class="metric-label">Base AUC</div>
           </div>
         </div>
-        <div class="two-col">
-          <div>
-            <h3 class="subsection">Cross-Dataset Performance</h3>
-            <div class="bar-legend">
-              <span
-                ><span
-                  class="legend-dot"
-                  style="background: rgba(90, 120, 154, 0.7)"
-                ></span
-                >Base Model</span
-              >
-              <span
-                ><span class="legend-dot" style="background: var(--cyan)"></span
-                >Base + ECN</span
-              >
+
+        <!-- ALZHEIMER'S RESULTS -->
+        <div id="alzheimer" class="tab-content reveal">
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <span class="metric-val amber">93.26%</span>
+              <div class="metric-label">Accuracy</div>
             </div>
-            <div class="bar-chart">
-              <div class="bar-row">
-                <div class="bar-label">EEGNet (CHB-MIT) Base</div>
-                <div class="bar-track">
-                  <div class="bar-fill before" style="width: 84%">
-                    <span>0.84</span>
+            <div class="metric-card">
+              <span class="metric-val cyan">93.12%</span>
+              <div class="metric-label">Balanced Accuracy</div>
+            </div>
+            <div class="metric-card">
+              <span class="metric-val green">93.21%</span>
+              <div class="metric-label">Macro F1</div>
+            </div>
+            <div class="metric-card">
+              <span class="metric-val amber">227K</span>
+              <div class="metric-label">Total Parameters</div>
+            </div>
+          </div>
+          <div class="two-col">
+            <div>
+              <h3 class="subsection">Phase-wise Balanced Accuracy</h3>
+              <div class="bar-chart">
+                <div class="bar-row">
+                  <div class="bar-label">Phase 1 — Base Only</div>
+                  <div class="bar-track">
+                    <div class="bar-fill before" style="width: 88.78%">
+                      <span>88.78%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">Phase 2 — + FCN</div>
+                  <div class="bar-track">
+                    <div class="bar-fill after" style="width: 92.89%">
+                      <span>92.89%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">Phase 3 — Fine-Tuned</div>
+                  <div class="bar-track">
+                    <div class="bar-fill after" style="width: 93.12%">
+                      <span>93.12%</span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="bar-row">
-                <div class="bar-label">EEGNet (CHB-MIT) +ECN</div>
-                <div class="bar-track">
-                  <div class="bar-fill after" style="width: 87%">
-                    <span>0.87</span>
+              <h3 class="subsection">Confusion Matrix Summary</h3>
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  gap: 1rem;
+                  margin-top: 0.75rem;
+                "
+              >
+                <div class="dataset-card">
+                  <h4 style="color: var(--muted)">CN Class</h4>
+                  <div class="dataset-row">
+                    <span>Precision</span><span>94.3%</span>
+                  </div>
+                  <div class="dataset-row">
+                    <span>Recall</span><span>91.0%</span>
+                  </div>
+                  <div class="dataset-row">
+                    <span>F1-score</span><span>92.6%</span>
+                  </div>
+                </div>
+                <div class="dataset-card">
+                  <h4 style="color: var(--amber)">AD Class</h4>
+                  <div class="dataset-row">
+                    <span>Precision</span><span>92.4%</span>
+                  </div>
+                  <div class="dataset-row">
+                    <span>Recall</span><span>95.2%</span>
+                  </div>
+                  <div class="dataset-row">
+                    <span>F1-score</span><span>93.8%</span>
                   </div>
                 </div>
               </div>
-              <div class="bar-row">
-                <div class="bar-label">TwoStream (CHB-MIT) Base</div>
-                <div class="bar-track">
-                  <div class="bar-fill before" style="width: 92%">
-                    <span>0.92</span>
-                  </div>
-                </div>
+            </div>
+            <div>
+              <h3 class="subsection">
+                Comparison with Lightweight Architectures
+              </h3>
+              <table class="comp-table">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Accuracy</th>
+                    <th>Bal. Acc.</th>
+                    <th>Macro F1</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="highlight">
+                    <td>EEGNet-FCN (Ours)</td>
+                    <td class="best">0.9326</td>
+                    <td class="best">0.9312</td>
+                    <td class="best">0.9321</td>
+                  </tr>
+                  <tr>
+                    <td>DSCNN</td>
+                    <td>0.8448</td>
+                    <td>0.8491</td>
+                    <td>0.8448</td>
+                  </tr>
+                  <tr>
+                    <td>TinyResNet</td>
+                    <td>0.8302</td>
+                    <td>0.8491</td>
+                    <td>0.8296</td>
+                  </tr>
+                  <tr>
+                    <td>TCNLite</td>
+                    <td>0.8506</td>
+                    <td>0.8447</td>
+                    <td>0.8474</td>
+                  </tr>
+                  <tr>
+                    <td>MobileNet1D</td>
+                    <td>0.8245</td>
+                    <td>0.8182</td>
+                    <td>0.8212</td>
+                  </tr>
+                  <tr>
+                    <td>ShuffleNet1D</td>
+                    <td>0.8009</td>
+                    <td>0.8063</td>
+                    <td>0.8189</td>
+                  </tr>
+                  <tr>
+                    <td>SqueezeNet1D</td>
+                    <td>0.7830</td>
+                    <td>0.7926</td>
+                    <td>0.8025</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p
+                style="
+                  font-size: 0.8rem;
+                  color: var(--muted);
+                  margin-top: 0.5rem;
+                  font-style: italic;
+                "
+              >
+                Training measured on NVIDIA RTX 6000 Ada Generation GPU with
+                CUDA AMP. EEGNet-FCN trains in 581s.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PARKINSON'S RESULTS -->
+        <div id="parkinson" class="tab-content reveal">
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <span class="metric-val green">96.42%</span>
+              <div class="metric-label">
+                CNN-TCN +ECN<br /><span class="metric-sub">Best Accuracy</span>
               </div>
-              <div class="bar-row">
-                <div class="bar-label">TwoStream (CHB-MIT) +ECN</div>
-                <div class="bar-track">
-                  <div class="bar-fill after" style="width: 95%">
-                    <span>0.95</span>
-                  </div>
-                </div>
+            </div>
+            <div class="metric-card">
+              <span class="metric-val cyan">97.19%</span>
+              <div class="metric-label">
+                CNN-TCN +ECN<br /><span class="metric-sub">Best F1</span>
               </div>
-              <div class="bar-row">
-                <div class="bar-label">Siena Rescue Base</div>
-                <div class="bar-track">
-                  <div class="bar-fill before" style="width: 36%">
-                    <span>0.36</span>
-                  </div>
-                </div>
+            </div>
+            <div class="metric-card">
+              <span class="metric-val amber">265</span>
+              <div class="metric-label">
+                Fewer Errors<br /><span class="metric-sub"
+                  >EEGNet ECN gain</span
+                >
               </div>
-              <div class="bar-row">
-                <div class="bar-label">Siena Rescue +ECN</div>
-                <div class="bar-track">
-                  <div class="bar-fill after" style="width: 57%">
-                    <span>0.57</span>
-                  </div>
-                </div>
+            </div>
+            <div class="metric-card">
+              <span class="metric-val green">+7.03%</span>
+              <div class="metric-label">
+                Max Acc Gain<br /><span class="metric-sub"
+                  >EEGNet Base→ECN</span
+                >
               </div>
             </div>
           </div>
-          <div>
-            <h3 class="subsection">Distillation Comparison</h3>
-            <table class="comp-table">
-              <thead>
-                <tr>
-                  <th>Model</th>
-                  <th>Accuracy</th>
-                  <th>F1</th>
-                  <th>AUC</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>HeavyTeacher-ResNet</td>
-                  <td>0.97</td>
-                  <td>0.90</td>
-                  <td class="best">0.96</td>
-                </tr>
-                <tr>
-                  <td>LightBase-EEGNet</td>
-                  <td>0.79</td>
-                  <td>0.34</td>
-                  <td>0.62</td>
-                </tr>
-                <tr class="highlight">
-                  <td>EEGNet + ECN (Distilled)</td>
-                  <td class="best">0.86</td>
-                  <td class="best">0.56</td>
-                  <td class="best">0.72</td>
-                </tr>
-              </tbody>
-            </table>
-            <div
-              style="
-                background: rgba(0, 212, 255, 0.05);
-                border: 1px solid var(--border);
-                border-radius: 4px;
-                padding: 1.25rem;
-                margin-top: 1.5rem;
-              "
+          <h3 class="subsection" style="margin-top: 1rem">
+            Base vs. Base+ECN — All Models
+          </h3>
+          <div class="bar-legend">
+            <span
+              ><span
+                class="legend-dot"
+                style="background: rgba(90, 120, 154, 0.7)"
+              ></span
+              >Base</span
             >
+            <span
+              ><span class="legend-dot" style="background: var(--green)"></span
+              >Base + ECN</span
+            >
+          </div>
+          <div class="three-col" style="gap: 2rem; margin-top: 1rem">
+            <div>
               <div
                 style="
                   font-family: &quot;Oxanium&quot;, sans-serif;
-                  font-size: 0.72rem;
-                  letter-spacing: 0.15em;
+                  font-size: 0.78rem;
+                  font-weight: 700;
                   color: var(--cyan);
-                  text-transform: uppercase;
                   margin-bottom: 0.75rem;
                 "
               >
-                Key Findings
+                1. Modified EEGNet
               </div>
-              <div class="feature-item">
-                <div class="feature-dot"></div>
-                <div>ECN never degrades correct predictions</div>
-              </div>
-              <div class="feature-item">
-                <div class="feature-dot"></div>
-                <div>Improvements come from reducing false alarms</div>
-              </div>
-              <div class="feature-item">
-                <div class="feature-dot"></div>
-                <div>
-                  Particularly valuable in low-seizure-prevalence settings
+              <div class="bar-chart compact-chart">
+                <div class="bar-row">
+                  <div class="bar-label">Accuracy Base</div>
+                  <div class="bar-track">
+                    <div class="bar-fill before" style="width: 88.32%">
+                      <span>88.3%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">Accuracy +ECN</div>
+                  <div class="bar-track">
+                    <div
+                      class="bar-fill"
+                      style="
+                        width: 95.35%;
+                        background: linear-gradient(
+                          90deg,
+                          #00b377,
+                          var(--green)
+                        );
+                      "
+                    >
+                      <span>95.4%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">F1 Base</div>
+                  <div class="bar-track">
+                    <div class="bar-fill before" style="width: 90.65%">
+                      <span>90.7%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">F1 +ECN</div>
+                  <div class="bar-track">
+                    <div
+                      class="bar-fill"
+                      style="
+                        width: 96.35%;
+                        background: linear-gradient(
+                          90deg,
+                          #00b377,
+                          var(--green)
+                        );
+                      "
+                    >
+                      <span>96.4%</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="feature-item">
-                <div class="feature-dot"></div>
-                <div>
-                  Demonstrates the ECN "Rescue Effect" on cross-dataset
-                  generalisation
+            </div>
+            <div>
+              <div
+                style="
+                  font-family: &quot;Oxanium&quot;, sans-serif;
+                  font-size: 0.78rem;
+                  font-weight: 700;
+                  color: var(--amber);
+                  margin-bottom: 0.75rem;
+                "
+              >
+                2. LW Temporal-Spatial CNN
+              </div>
+              <div class="bar-chart compact-chart">
+                <div class="bar-row">
+                  <div class="bar-label">Accuracy Base</div>
+                  <div class="bar-track">
+                    <div class="bar-fill before" style="width: 89.91%">
+                      <span>89.9%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">Accuracy +ECN</div>
+                  <div class="bar-track">
+                    <div class="bar-fill after2" style="width: 95.89%">
+                      <span>95.9%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">F1 Base</div>
+                  <div class="bar-track">
+                    <div class="bar-fill before" style="width: 91.97%">
+                      <span>92.0%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">F1 +ECN</div>
+                  <div class="bar-track">
+                    <div class="bar-fill after2" style="width: 96.77%">
+                      <span>96.8%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div
+                style="
+                  font-family: &quot;Oxanium&quot;, sans-serif;
+                  font-size: 0.78rem;
+                  font-weight: 700;
+                  color: var(--green);
+                  margin-bottom: 0.75rem;
+                "
+              >
+                3. CNN + TCN
+              </div>
+              <div class="bar-chart compact-chart">
+                <div class="bar-row">
+                  <div class="bar-label">Accuracy Base</div>
+                  <div class="bar-track">
+                    <div class="bar-fill before" style="width: 90.71%">
+                      <span>90.7%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">Accuracy +ECN</div>
+                  <div class="bar-track">
+                    <div
+                      class="bar-fill"
+                      style="
+                        width: 96.42%;
+                        background: linear-gradient(
+                          90deg,
+                          #00b377,
+                          var(--green)
+                        );
+                      "
+                    >
+                      <span>96.4%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">F1 Base</div>
+                  <div class="bar-track">
+                    <div class="bar-fill before" style="width: 92.61%">
+                      <span>92.6%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bar-row">
+                  <div class="bar-label">F1 +ECN</div>
+                  <div class="bar-track">
+                    <div
+                      class="bar-fill"
+                      style="
+                        width: 97.19%;
+                        background: linear-gradient(
+                          90deg,
+                          #00b377,
+                          var(--green)
+                        );
+                      "
+                    >
+                      <span>97.2%</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <h3 class="subsection" style="margin-top: 2rem">
+            Error Reduction Summary
+          </h3>
+          <table class="comp-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Base Acc</th>
+                <th>Base F1</th>
+                <th>+ECN Acc</th>
+                <th>+ECN F1</th>
+                <th>Acc Gain</th>
+                <th>Error Reduction</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight">
+                <td>Modified EEGNet</td>
+                <td>88.32%</td>
+                <td>90.65%</td>
+                <td class="best">95.35%</td>
+                <td class="best">96.35%</td>
+                <td class="best">+7.03%</td>
+                <td class="best">265 fewer</td>
+              </tr>
+              <tr>
+                <td>LW Temporal-Spatial CNN</td>
+                <td>89.91%</td>
+                <td>91.97%</td>
+                <td>95.89%</td>
+                <td>96.77%</td>
+                <td>+5.97%</td>
+                <td>225 fewer</td>
+              </tr>
+              <tr>
+                <td>CNN-TCN</td>
+                <td>90.71%</td>
+                <td>92.61%</td>
+                <td>96.42%</td>
+                <td>97.19%</td>
+                <td>+5.71%</td>
+                <td>215 fewer</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </div>
-
-      <!-- ALZHEIMER'S RESULTS -->
-      <div id="alzheimer" class="tab-content reveal">
-        <div class="metrics-grid">
-          <div class="metric-card">
-            <span class="metric-val amber">93.26%</span>
-            <div class="metric-label">Accuracy</div>
-          </div>
-          <div class="metric-card">
-            <span class="metric-val cyan">93.12%</span>
-            <div class="metric-label">Balanced Accuracy</div>
-          </div>
-          <div class="metric-card">
-            <span class="metric-val green">93.21%</span>
-            <div class="metric-label">Macro F1</div>
-          </div>
-          <div class="metric-card">
-            <span class="metric-val amber">227K</span>
-            <div class="metric-label">Total Parameters</div>
-          </div>
-        </div>
-        <div class="two-col">
-          <div>
-            <h3 class="subsection">Phase-wise Balanced Accuracy</h3>
-            <div class="bar-chart">
-              <div class="bar-row">
-                <div class="bar-label">Phase 1 — Base Only</div>
-                <div class="bar-track">
-                  <div class="bar-fill before" style="width: 88.78%">
-                    <span>88.78%</span>
-                  </div>
-                </div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-label">Phase 2 — + FCN</div>
-                <div class="bar-track">
-                  <div class="bar-fill after" style="width: 92.89%">
-                    <span>92.89%</span>
-                  </div>
-                </div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-label">Phase 3 — Fine-Tuned</div>
-                <div class="bar-track">
-                  <div class="bar-fill after" style="width: 93.12%">
-                    <span>93.12%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h3 class="subsection">Confusion Matrix Summary</h3>
-            <div
-              style="
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
-                margin-top: 0.75rem;
-              "
-            >
-              <div class="dataset-card">
-                <h4 style="color: var(--muted)">CN Class</h4>
-                <div class="dataset-row">
-                  <span>Precision</span><span>94.3%</span>
-                </div>
-                <div class="dataset-row">
-                  <span>Recall</span><span>91.0%</span>
-                </div>
-                <div class="dataset-row">
-                  <span>F1-score</span><span>92.6%</span>
-                </div>
-              </div>
-              <div class="dataset-card">
-                <h4 style="color: var(--amber)">AD Class</h4>
-                <div class="dataset-row">
-                  <span>Precision</span><span>92.4%</span>
-                </div>
-                <div class="dataset-row">
-                  <span>Recall</span><span>95.2%</span>
-                </div>
-                <div class="dataset-row">
-                  <span>F1-score</span><span>93.8%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <h3 class="subsection">
-              Comparison with Lightweight Architectures
-            </h3>
-            <table class="comp-table">
-              <thead>
-                <tr>
-                  <th>Model</th>
-                  <th>Accuracy</th>
-                  <th>Bal. Acc.</th>
-                  <th>Macro F1</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="highlight">
-                  <td>EEGNet-FCN (Ours)</td>
-                  <td class="best">0.9326</td>
-                  <td class="best">0.9312</td>
-                  <td class="best">0.9321</td>
-                </tr>
-                <tr>
-                  <td>DSCNN</td>
-                  <td>0.8448</td>
-                  <td>0.8491</td>
-                  <td>0.8448</td>
-                </tr>
-                <tr>
-                  <td>TinyResNet</td>
-                  <td>0.8302</td>
-                  <td>0.8491</td>
-                  <td>0.8296</td>
-                </tr>
-                <tr>
-                  <td>TCNLite</td>
-                  <td>0.8506</td>
-                  <td>0.8447</td>
-                  <td>0.8474</td>
-                </tr>
-                <tr>
-                  <td>MobileNet1D</td>
-                  <td>0.8245</td>
-                  <td>0.8182</td>
-                  <td>0.8212</td>
-                </tr>
-                <tr>
-                  <td>ShuffleNet1D</td>
-                  <td>0.8009</td>
-                  <td>0.8063</td>
-                  <td>0.8189</td>
-                </tr>
-                <tr>
-                  <td>SqueezeNet1D</td>
-                  <td>0.7830</td>
-                  <td>0.7926</td>
-                  <td>0.8025</td>
-                </tr>
-              </tbody>
-            </table>
-            <p
-              style="
-                font-size: 0.8rem;
-                color: var(--muted);
-                margin-top: 0.5rem;
-                font-style: italic;
-              "
-            >
-              Training measured on NVIDIA RTX 6000 Ada Generation GPU with CUDA
-              AMP. EEGNet-FCN trains in 581s.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- PARKINSON'S RESULTS -->
-      <div id="parkinson" class="tab-content reveal">
-        <div class="metrics-grid">
-          <div class="metric-card">
-            <span class="metric-val green">96.42%</span>
-            <div class="metric-label">
-              CNN-TCN +ECN<br /><span class="metric-sub">Best Accuracy</span>
-            </div>
-          </div>
-          <div class="metric-card">
-            <span class="metric-val cyan">97.19%</span>
-            <div class="metric-label">
-              CNN-TCN +ECN<br /><span class="metric-sub">Best F1</span>
-            </div>
-          </div>
-          <div class="metric-card">
-            <span class="metric-val amber">265</span>
-            <div class="metric-label">
-              Fewer Errors<br /><span class="metric-sub">EEGNet ECN gain</span>
-            </div>
-          </div>
-          <div class="metric-card">
-            <span class="metric-val green">+7.03%</span>
-            <div class="metric-label">
-              Max Acc Gain<br /><span class="metric-sub">EEGNet Base→ECN</span>
-            </div>
-          </div>
-        </div>
-        <h3 class="subsection" style="margin-top: 1rem">
-          Base vs. Base+ECN — All Models
-        </h3>
-        <div class="bar-legend">
-          <span
-            ><span
-              class="legend-dot"
-              style="background: rgba(90, 120, 154, 0.7)"
-            ></span
-            >Base</span
-          >
-          <span
-            ><span class="legend-dot" style="background: var(--green)"></span
-            >Base + ECN</span
-          >
-        </div>
-        <div class="three-col" style="gap: 2rem; margin-top: 1rem">
-          <div>
-            <div
-              style="
-                font-family: &quot;Oxanium&quot;, sans-serif;
-                font-size: 0.78rem;
-                font-weight: 700;
-                color: var(--cyan);
-                margin-bottom: 0.75rem;
-              "
-            >
-              1. Modified EEGNet
-            </div>
-            <div class="bar-chart compact-chart">
-              <div class="bar-row">
-                <div class="bar-label">
-                  Accuracy Base
-                </div>
-                <div class="bar-track">
-                  <div class="bar-fill before" style="width: 88.32%">
-                    <span>88.3%</span>
-                  </div>
-                </div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-label">
-                  Accuracy +ECN
-                </div>
-                <div class="bar-track">
-                  <div
-                    class="bar-fill"
-                    style="
-                      width: 95.35%;
-                      background: linear-gradient(90deg, #00b377, var(--green));
-                    "
-                  >
-                    <span>95.4%</span>
-                  </div>
-                </div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-label">
-                  F1 Base
-                </div>
-                <div class="bar-track">
-                  <div class="bar-fill before" style="width: 90.65%">
-                    <span>90.7%</span>
-                  </div>
-                </div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-label">
-                  F1 +ECN
-                </div>
-                <div class="bar-track">
-                  <div
-                    class="bar-fill"
-                    style="
-                      width: 96.35%;
-                      background: linear-gradient(90deg, #00b377, var(--green));
-                    "
-                  >
-                    <span>96.4%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              style="
-                font-family: &quot;Oxanium&quot;, sans-serif;
-                font-size: 0.78rem;
-                font-weight: 700;
-                color: var(--amber);
-                margin-bottom: 0.75rem;
-              "
-            >
-              2. LW Temporal-Spatial CNN
-            </div>
-            <div class="bar-chart compact-chart">
-              <div class="bar-row">
-                <div class="bar-label">
-                  Accuracy Base
-                </div>
-                <div class="bar-track">
-                  <div class="bar-fill before" style="width: 89.91%">
-                    <span>89.9%</span>
-                  </div>
-                </div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-label">
-                  Accuracy +ECN
-                </div>
-                <div class="bar-track">
-                  <div class="bar-fill after2" style="width: 95.89%">
-                    <span>95.9%</span>
-                  </div>
-                </div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-label">
-                  F1 Base
-                </div>
-                <div class="bar-track">
-                  <div class="bar-fill before" style="width: 91.97%">
-                    <span>92.0%</span>
-                  </div>
-                </div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-label">
-                  F1 +ECN
-                </div>
-                <div class="bar-track">
-                  <div class="bar-fill after2" style="width: 96.77%">
-                    <span>96.8%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              style="
-                font-family: &quot;Oxanium&quot;, sans-serif;
-                font-size: 0.78rem;
-                font-weight: 700;
-                color: var(--green);
-                margin-bottom: 0.75rem;
-              "
-            >
-              3. CNN + TCN
-            </div>
-            <div class="bar-chart compact-chart">
-              <div class="bar-row">
-                <div class="bar-label">
-                  Accuracy Base
-                </div>
-                <div class="bar-track">
-                  <div class="bar-fill before" style="width: 90.71%">
-                    <span>90.7%</span>
-                  </div>
-                </div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-label">
-                  Accuracy +ECN
-                </div>
-                <div class="bar-track">
-                  <div
-                    class="bar-fill"
-                    style="
-                      width: 96.42%;
-                      background: linear-gradient(90deg, #00b377, var(--green));
-                    "
-                  >
-                    <span>96.4%</span>
-                  </div>
-                </div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-label">
-                  F1 Base
-                </div>
-                <div class="bar-track">
-                  <div class="bar-fill before" style="width: 92.61%">
-                    <span>92.6%</span>
-                  </div>
-                </div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-label">
-                  F1 +ECN
-                </div>
-                <div class="bar-track">
-                  <div
-                    class="bar-fill"
-                    style="
-                      width: 97.19%;
-                      background: linear-gradient(90deg, #00b377, var(--green));
-                    "
-                  >
-                    <span>97.2%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <h3 class="subsection" style="margin-top: 2rem">
-          Error Reduction Summary
-        </h3>
-        <table class="comp-table">
-          <thead>
-            <tr>
-              <th>Model</th>
-              <th>Base Acc</th>
-              <th>Base F1</th>
-              <th>+ECN Acc</th>
-              <th>+ECN F1</th>
-              <th>Acc Gain</th>
-              <th>Error Reduction</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="highlight">
-              <td>Modified EEGNet</td>
-              <td>88.32%</td>
-              <td>90.65%</td>
-              <td class="best">95.35%</td>
-              <td class="best">96.35%</td>
-              <td class="best">+7.03%</td>
-              <td class="best">265 fewer</td>
-            </tr>
-            <tr>
-              <td>LW Temporal-Spatial CNN</td>
-              <td>89.91%</td>
-              <td>91.97%</td>
-              <td>95.89%</td>
-              <td>96.77%</td>
-              <td>+5.97%</td>
-              <td>225 fewer</td>
-            </tr>
-            <tr>
-              <td>CNN-TCN</td>
-              <td>90.71%</td>
-              <td>92.61%</td>
-              <td>96.42%</td>
-              <td>97.19%</td>
-              <td>+5.71%</td>
-              <td>215 fewer</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </section>
 
@@ -2754,44 +2961,32 @@
           </div>
         </div>
       </div>
-      <h3 class="subsection">Limitations &amp; Future Work</h3>
+      <h3 class="subsection">Future Work</h3>
       <div class="three-col reveal">
         <div class="dataset-card">
-          <h4 style="color: var(--muted)">Current Limitations</h4>
+          <h4 style="color: var(--muted)">Priority Improvements</h4>
           <div class="feature-item" style="margin-top: 0.5rem">
-            <div
-              class="feature-dot"
-              style="background: rgba(255, 100, 100, 0.7)"
-            ></div>
+            <div class="feature-dot amber"></div>
             <div style="font-size: 0.88rem">
-              Limited dataset size → reduced generalisation
+              Expand dataset size and diversity to improve generalisation
             </div>
           </div>
           <div class="feature-item">
-            <div
-              class="feature-dot"
-              style="background: rgba(255, 100, 100, 0.7)"
-            ></div>
+            <div class="feature-dot amber"></div>
             <div style="font-size: 0.88rem">
-              Class imbalance affects performance
+              Strengthen methods for handling class imbalance
             </div>
           </div>
           <div class="feature-item">
-            <div
-              class="feature-dot"
-              style="background: rgba(255, 100, 100, 0.7)"
-            ></div>
+            <div class="feature-dot amber"></div>
             <div style="font-size: 0.88rem">
-              Offline validation only; no real-time trials
+              Extend evaluation to real-time and online settings
             </div>
           </div>
           <div class="feature-item">
-            <div
-              class="feature-dot"
-              style="background: rgba(255, 100, 100, 0.7)"
-            ></div>
+            <div class="feature-dot amber"></div>
             <div style="font-size: 0.88rem">
-              Hardware latency and power not yet evaluated
+              Measure hardware latency and power efficiency directly
             </div>
           </div>
         </div>
@@ -2939,7 +3134,7 @@
                 color: var(--amber);
                 text-decoration: none;
               "
-              >nimishanS@eng.pdn.ac.lk</a
+              >nimishan@ccs.sab.ac.lk</a
             >
           </div>
         </div>
@@ -2962,17 +3157,6 @@
           <div>
             <h4>Project Repository</h4>
             <p>Source code, models &amp; experiments on GitHub</p>
-          </div>
-        </a>
-        <a
-          href="https://cepdnaclk.github.io/repository-name"
-          class="link-card"
-          target="_blank"
-        >
-          <div class="link-icon">🌐</div>
-          <div>
-            <h4>Project Page</h4>
-            <p>Official project page on cepdnaclk.github.io</p>
           </div>
         </a>
         <a href="http://www.ce.pdn.ac.lk/" class="link-card" target="_blank">

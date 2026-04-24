@@ -159,8 +159,14 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 100px 5vw 60px;
+        padding: 100px 5vw 96px;
         overflow: hidden;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        width: min(100%, 980px);
+        padding-bottom: clamp(2.2rem, 5.2vw, 3.9rem);
       }
       .hero-glow {
         position: absolute;
@@ -273,12 +279,14 @@
       /* EEG wave decoration */
       .eeg-wave {
         position: absolute;
-        bottom: 40px;
+        bottom: 36px;
         left: 50%;
         transform: translateX(-50%);
-        width: 80vw;
-        max-width: 900px;
-        opacity: 0.35;
+        z-index: 1;
+        width: min(88vw, 1120px);
+        max-width: none;
+        height: auto;
+        opacity: 0.28;
         animation: eegPulse 3s ease-in-out infinite;
       }
       @keyframes eegPulse {
@@ -811,28 +819,36 @@
         border-radius: 8px;
         padding: 1.3rem 1.3rem 1.6rem;
       }
-      #results .results-tabs {
+      #results .results-tabs,
+      #experiments .results-tabs {
         display: flex;
         flex-wrap: wrap;
         gap: 0.4rem;
         margin-bottom: 1.75rem;
         padding-bottom: 0.45rem;
       }
-      #results .tab-btn {
+      #results .tab-btn,
+      #experiments .tab-btn {
         margin-bottom: 0;
         padding: 0.8rem 1.2rem;
         border: 1px solid transparent;
         border-radius: 4px;
       }
-      #results .tab-btn:hover {
+      #results .tab-btn:hover,
+      #experiments .tab-btn:hover {
         background: rgba(0, 212, 255, 0.05);
       }
-      #results .tab-btn.active {
+      #results .tab-btn.active,
+      #experiments .tab-btn.active {
         background: rgba(0, 212, 255, 0.09);
         border-color: var(--border-glow);
       }
-      #results .tab-content {
+      #results .tab-content,
+      #experiments .tab-content {
         padding-top: 0.25rem;
+      }
+      .experiment-stage {
+        margin-top: 2rem;
       }
 
       /* Bar chart */
@@ -1299,6 +1315,13 @@
           padding: 1.5rem 4vw;
           gap: 1.25rem;
         }
+        .hero-content {
+          padding-bottom: 2.1rem;
+        }
+        .eeg-wave {
+          width: 94vw;
+          bottom: 30px;
+        }
       }
       @media (max-width: 600px) {
         .disease-cards,
@@ -1323,8 +1346,19 @@
         .pipe-arrow {
           width: 16px;
         }
+        #hero {
+          padding-bottom: 82px;
+        }
         h1.hero-title {
           font-size: 2rem;
+        }
+        .hero-content {
+          padding-bottom: 1.55rem;
+        }
+        .eeg-wave {
+          width: 98vw;
+          bottom: 18px;
+          opacity: 0.22;
         }
       }
     </style>
@@ -1354,7 +1388,7 @@
     <!-- HERO -->
     <section id="hero">
       <div class="hero-glow"></div>
-      <div>
+      <div class="hero-content">
         <div class="hero-badge">CO425 — Final Year Project · Group 23</div>
         <h1 class="hero-title">
           Lightweight Models for<br /><span>Neurological Disorders</span
@@ -1885,8 +1919,8 @@
       <div class="section-label">04 — Setup & Data</div>
       <h2 class="section-title">Experiment Setup &amp; Implementation</h2>
 
-      <div class="results-tabs reveal">
-        <div class="results-tabs" style="margin-bottom: 0; border-bottom: none">
+      <div class="results-stage experiment-stage reveal">
+        <div class="results-tabs">
           <button
             class="tab-btn active"
             onclick="switchExpTab(this, 'epilepsy-data')"
@@ -1906,306 +1940,308 @@
             Parkinson's
           </button>
         </div>
-      </div>
 
-      <!-- Epilepsy Data -->
-      <div
-        id="epilepsy-data"
-        class="tab-content active reveal"
-        style="margin-top: 1.5rem"
-      >
-        <div class="two-col">
-          <div>
-            <h3 class="subsection">Datasets</h3>
-            <div class="dataset-grid">
-              <div class="dataset-card">
-                <h4>CHB-MIT (Primary)</h4>
-                <div class="dataset-row">
-                  <span>Patients</span><span>24 pediatric</span>
+        <!-- Epilepsy Data -->
+        <div id="epilepsy-data" class="tab-content active">
+          <div class="two-col">
+            <div>
+              <h3 class="subsection">Datasets</h3>
+              <div class="dataset-grid">
+                <div class="dataset-card">
+                  <h4>CHB-MIT (Primary)</h4>
+                  <div class="dataset-row">
+                    <span>Patients</span><span>24 pediatric</span>
+                  </div>
+                  <div class="dataset-row">
+                    <span>Channels</span><span>23 EEG</span>
+                  </div>
+                  <div class="dataset-row">
+                    <span>Sample Rate</span><span>256 Hz</span>
+                  </div>
+                  <div class="dataset-row">
+                    <span>Duration</span><span>~916 hours</span>
+                  </div>
+                  <div class="dataset-row">
+                    <span>Seizure Events</span><span>198</span>
+                  </div>
                 </div>
-                <div class="dataset-row">
-                  <span>Channels</span><span>23 EEG</span>
-                </div>
-                <div class="dataset-row">
-                  <span>Sample Rate</span><span>256 Hz</span>
-                </div>
-                <div class="dataset-row">
-                  <span>Duration</span><span>~916 hours</span>
-                </div>
-                <div class="dataset-row">
-                  <span>Seizure Events</span><span>198</span>
-                </div>
-              </div>
-              <div class="dataset-card">
-                <h4>Siena Scalp EEG</h4>
-                <div class="dataset-row">
-                  <span>Population</span><span>Adult epilepsy</span>
-                </div>
-                <div class="dataset-row">
-                  <span>Purpose</span><span>Cross-dataset eval</span>
-                </div>
-                <div class="dataset-row">
-                  <span>Generalisation</span><span>Out-of-distribution</span>
+                <div class="dataset-card">
+                  <h4>Siena Scalp EEG</h4>
+                  <div class="dataset-row">
+                    <span>Population</span><span>Adult epilepsy</span>
+                  </div>
+                  <div class="dataset-row">
+                    <span>Purpose</span><span>Cross-dataset eval</span>
+                  </div>
+                  <div class="dataset-row">
+                    <span>Generalisation</span><span>Out-of-distribution</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <h3 class="subsection">Preprocessing Pipeline</h3>
-            <div class="feature-item">
-              <div class="feature-dot"></div>
-              <div>Channel pad/trim → 23 channels, 256 Hz target</div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-dot"></div>
-              <div>Resample → per-channel Z-score normalisation</div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-dot"></div>
-              <div>4-second sliding windows with 50% overlap</div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-dot"></div>
-              <div>Labels via majority rule within each window</div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-dot"></div>
-              <div>
-                1% seizure / 99% non-seizure class imbalance handled via focal
-                loss
+              <h3 class="subsection">Preprocessing Pipeline</h3>
+              <div class="feature-item">
+                <div class="feature-dot"></div>
+                <div>Channel pad/trim → 23 channels, 256 Hz target</div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-dot"></div>
+                <div>Resample → per-channel Z-score normalisation</div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-dot"></div>
+                <div>4-second sliding windows with 50% overlap</div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-dot"></div>
+                <div>Labels via majority rule within each window</div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-dot"></div>
+                <div>
+                  1% seizure / 99% non-seizure class imbalance handled via focal
+                  loss
+                </div>
               </div>
             </div>
-          </div>
-          <div>
-            <h3 class="subsection">Model Architecture</h3>
-            <p>
-              <strong style="color: var(--white)">Base:</strong> EEGNet — learns
-              dominant temporal–spatial EEG patterns, outputs class logits
-              (seizure / non-seizure).
-            </p>
-            <p>
-              <strong style="color: var(--white)">ECN:</strong> Lightweight MLP
-              / small CNN operating on logits + uncertainty estimates. Outputs
-              correction or refined seizure probability.
-            </p>
-            <h3 class="subsection">Training Details</h3>
-            <div class="dataset-card" style="margin-top: 0.5rem">
-              <div class="dataset-row">
-                <span>Optimiser</span><span>Adam (lr=1e-3)</span>
-              </div>
-              <div class="dataset-row">
-                <span>Stage 1 Loss</span><span>Focal + BCE</span>
-              </div>
-              <div class="dataset-row">
-                <span>Stage 2 Loss</span><span>Residual MSE</span>
-              </div>
-              <div class="dataset-row">
-                <span>Val Strategy</span><span>Patient-wise split</span>
-              </div>
-              <div class="dataset-row">
-                <span>Hardware</span><span>NVIDIA RTX 6000 Ada</span>
+            <div>
+              <h3 class="subsection">Model Architecture</h3>
+              <p>
+                <strong style="color: var(--white)">Base:</strong> EEGNet —
+                learns dominant temporal–spatial EEG patterns, outputs class
+                logits (seizure / non-seizure).
+              </p>
+              <p>
+                <strong style="color: var(--white)">ECN:</strong> Lightweight
+                MLP / small CNN operating on logits + uncertainty estimates.
+                Outputs correction or refined seizure probability.
+              </p>
+              <h3 class="subsection">Training Details</h3>
+              <div class="dataset-card" style="margin-top: 0.5rem">
+                <div class="dataset-row">
+                  <span>Optimiser</span><span>Adam (lr=1e-3)</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Stage 1 Loss</span><span>Focal + BCE</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Stage 2 Loss</span><span>Residual MSE</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Val Strategy</span><span>Patient-wise split</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Hardware</span><span>NVIDIA RTX 6000 Ada</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Alzheimer's Data -->
-      <div id="alzheimer-data" class="tab-content" style="margin-top: 1.5rem">
-        <div class="two-col">
-          <div>
-            <h3 class="subsection">Dataset — OpenNeuro ds004504</h3>
-            <div class="dataset-card" style="margin-bottom: 1.25rem">
-              <div class="dataset-row">
-                <span>Subjects</span><span>AD patients + CN controls</span>
+        <!-- Alzheimer's Data -->
+        <div id="alzheimer-data" class="tab-content">
+          <div class="two-col">
+            <div>
+              <h3 class="subsection">Dataset — OpenNeuro ds004504</h3>
+              <div class="dataset-card" style="margin-bottom: 1.25rem">
+                <div class="dataset-row">
+                  <span>Subjects</span><span>AD patients + CN controls</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Channels</span><span>19 channels @ 500 Hz</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Derivative</span><span>Preprocessed version used</span>
+                </div>
               </div>
-              <div class="dataset-row">
-                <span>Channels</span><span>19 channels @ 500 Hz</span>
+              <h3 class="subsection">Preprocessing (Derivative)</h3>
+              <div class="feature-item">
+                <div class="feature-dot amber"></div>
+                <div>Band-pass filter 0.5–45 Hz</div>
               </div>
-              <div class="dataset-row">
-                <span>Derivative</span><span>Preprocessed version used</span>
+              <div class="feature-item">
+                <div class="feature-dot amber"></div>
+                <div>Re-referencing to A1–A2 mastoid</div>
               </div>
-            </div>
-            <h3 class="subsection">Preprocessing (Derivative)</h3>
-            <div class="feature-item">
-              <div class="feature-dot amber"></div>
-              <div>Band-pass filter 0.5–45 Hz</div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-dot amber"></div>
-              <div>Re-referencing to A1–A2 mastoid</div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-dot amber"></div>
-              <div>Artifact Subspace Reconstruction (ASR)</div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-dot amber"></div>
-              <div>ICA (RunICA) + ICLabel classifier for component removal</div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-dot amber"></div>
-              <div>
-                Custom pipeline: subject filtering, resampling (500→250 Hz), 20s
-                windows with 50% overlap, 80/20 train/eval split
+              <div class="feature-item">
+                <div class="feature-dot amber"></div>
+                <div>Artifact Subspace Reconstruction (ASR)</div>
               </div>
-            </div>
-          </div>
-          <div>
-            <h3 class="subsection">Model — EEGNet-FCN</h3>
-            <p>
-              A
-              <strong style="color: var(--white)"
-                >Modified EEGNet-inspired base</strong
-              >
-              with Spectral Band Power branch fused at the embedding level. On
-              top, a
-              <strong style="color: var(--white)"
-                >Feature Correction Network (FCN)</strong
-              >
-              refines predictions through:
-            </p>
-            <div class="feature-item">
-              <div class="feature-dot amber"></div>
-              <div>
-                <strong style="color: var(--white)">Signal Branch:</strong>
-                convolutional stack → 64-d representation
+              <div class="feature-item">
+                <div class="feature-dot amber"></div>
+                <div>
+                  ICA (RunICA) + ICLabel classifier for component removal
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-dot amber"></div>
+                <div>
+                  Custom pipeline: subject filtering, resampling (500→250 Hz),
+                  20s windows with 50% overlap, 80/20 train/eval split
+                </div>
               </div>
             </div>
-            <div class="feature-item">
-              <div class="feature-dot amber"></div>
-              <div>
-                <strong style="color: var(--white)">Meta Extractor:</strong> 6
-                logit-derived confidence features
+            <div>
+              <h3 class="subsection">Model — EEGNet-FCN</h3>
+              <p>
+                A
+                <strong style="color: var(--white)"
+                  >Modified EEGNet-inspired base</strong
+                >
+                with Spectral Band Power branch fused at the embedding level. On
+                top, a
+                <strong style="color: var(--white)"
+                  >Feature Correction Network (FCN)</strong
+                >
+                refines predictions through:
+              </p>
+              <div class="feature-item">
+                <div class="feature-dot amber"></div>
+                <div>
+                  <strong style="color: var(--white)">Signal Branch:</strong>
+                  convolutional stack → 64-d representation
+                </div>
               </div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-dot amber"></div>
-              <div>
-                <strong style="color: var(--white)">Shared MLP:</strong>
-                combines all streams → shared representation
+              <div class="feature-item">
+                <div class="feature-dot amber"></div>
+                <div>
+                  <strong style="color: var(--white)">Meta Extractor:</strong> 6
+                  logit-derived confidence features
+                </div>
               </div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-dot amber"></div>
-              <div>
-                <strong style="color: var(--white)">Gated combination:</strong>
-                base_emb + gate·Δemb + gate·Δlogits → CN/AD prediction
+              <div class="feature-item">
+                <div class="feature-dot amber"></div>
+                <div>
+                  <strong style="color: var(--white)">Shared MLP:</strong>
+                  combines all streams → shared representation
+                </div>
               </div>
-            </div>
-            <div class="dataset-card" style="margin-top: 1rem">
-              <div class="dataset-row">
-                <span>Phase 1 (Base)</span><span>88.78% Bal. Acc.</span>
+              <div class="feature-item">
+                <div class="feature-dot amber"></div>
+                <div>
+                  <strong style="color: var(--white)"
+                    >Gated combination:</strong
+                  >
+                  base_emb + gate·Δemb + gate·Δlogits → CN/AD prediction
+                </div>
               </div>
-              <div class="dataset-row">
-                <span>Phase 2 (+FCN)</span><span>92.89% Bal. Acc.</span>
-              </div>
-              <div class="dataset-row">
-                <span>Phase 3 (Fine-tune)</span><span>93.12% Bal. Acc.</span>
+              <div class="dataset-card" style="margin-top: 1rem">
+                <div class="dataset-row">
+                  <span>Phase 1 (Base)</span><span>88.78% Bal. Acc.</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Phase 2 (+FCN)</span><span>92.89% Bal. Acc.</span>
+                </div>
+                <div class="dataset-row">
+                  <span>Phase 3 (Fine-tune)</span><span>93.12% Bal. Acc.</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Parkinson's Data -->
-      <div id="parkinson-data" class="tab-content" style="margin-top: 1.5rem">
-        <div class="two-col">
-          <div>
-            <h3 class="subsection">Datasets</h3>
-            <div class="dataset-grid">
-              <div class="dataset-card">
-                <h4>ds004584 (Primary)</h4>
-                <div class="dataset-row">
-                  <span>Subjects</span><span>149</span>
+        <!-- Parkinson's Data -->
+        <div id="parkinson-data" class="tab-content">
+          <div class="two-col">
+            <div>
+              <h3 class="subsection">Datasets</h3>
+              <div class="dataset-grid">
+                <div class="dataset-card">
+                  <h4>ds004584 (Primary)</h4>
+                  <div class="dataset-row">
+                    <span>Subjects</span><span>149</span>
+                  </div>
+                  <div class="dataset-row">
+                    <span>Channels</span><span>60 EEG</span>
+                  </div>
+                  <div class="dataset-row">
+                    <span>Type</span><span>Resting-state EEG</span>
+                  </div>
                 </div>
-                <div class="dataset-row">
-                  <span>Channels</span><span>60 EEG</span>
-                </div>
-                <div class="dataset-row">
-                  <span>Type</span><span>Resting-state EEG</span>
-                </div>
-              </div>
-              <div class="dataset-card">
-                <h4>ds002778 (Secondary)</h4>
-                <div class="dataset-row">
-                  <span>Subjects</span><span>31</span>
-                </div>
-                <div class="dataset-row">
-                  <span>Channels</span><span>40 EEG</span>
-                </div>
-                <div class="dataset-row">
-                  <span>Purpose</span><span>Robustness test</span>
+                <div class="dataset-card">
+                  <h4>ds002778 (Secondary)</h4>
+                  <div class="dataset-row">
+                    <span>Subjects</span><span>31</span>
+                  </div>
+                  <div class="dataset-row">
+                    <span>Channels</span><span>40 EEG</span>
+                  </div>
+                  <div class="dataset-row">
+                    <span>Purpose</span><span>Robustness test</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <h3 class="subsection">Preprocessing</h3>
-            <div class="feature-item">
-              <div class="feature-dot green"></div>
-              <div>Bandpass 0.5–45 Hz + 50 Hz notch filter</div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-dot green"></div>
-              <div>
-                Average re-referencing + ICA artifact removal (20 components)
+              <h3 class="subsection">Preprocessing</h3>
+              <div class="feature-item">
+                <div class="feature-dot green"></div>
+                <div>Bandpass 0.5–45 Hz + 50 Hz notch filter</div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-dot green"></div>
+                <div>
+                  Average re-referencing + ICA artifact removal (20 components)
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-dot green"></div>
+                <div>
+                  Downsample to 250 Hz, 2-second windows with 50% overlap
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-dot green"></div>
+                <div>Stratified subject-wise 70/15/15 train/val/test split</div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-dot green"></div>
+                <div>Channel-wise Z-score normalisation</div>
               </div>
             </div>
-            <div class="feature-item">
-              <div class="feature-dot green"></div>
-              <div>Downsample to 250 Hz, 2-second windows with 50% overlap</div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-dot green"></div>
-              <div>Stratified subject-wise 70/15/15 train/val/test split</div>
-            </div>
-            <div class="feature-item">
-              <div class="feature-dot green"></div>
-              <div>Channel-wise Z-score normalisation</div>
-            </div>
-          </div>
-          <div>
-            <h3 class="subsection">Three Base Models</h3>
-            <div class="insight-card" style="margin-bottom: 0.75rem">
-              <div
-                class="insight-icon"
-                style="background: rgba(0, 212, 255, 0.08)"
-              >
-                1
+            <div>
+              <h3 class="subsection">Three Base Models</h3>
+              <div class="insight-card" style="margin-bottom: 0.75rem">
+                <div
+                  class="insight-icon"
+                  style="background: rgba(0, 212, 255, 0.08)"
+                >
+                  1
+                </div>
+                <div>
+                  <h4>Modified EEGNet</h4>
+                  <p>
+                    Depthwise-separable CNN, lowest parameter count, focal loss
+                    with PD class boost.
+                  </p>
+                </div>
               </div>
-              <div>
-                <h4>Modified EEGNet</h4>
-                <p>
-                  Depthwise-separable CNN, lowest parameter count, focal loss
-                  with PD class boost.
-                </p>
+              <div class="insight-card" style="margin-bottom: 0.75rem">
+                <div
+                  class="insight-icon"
+                  style="background: rgba(255, 179, 71, 0.08)"
+                >
+                  2
+                </div>
+                <div>
+                  <h4>LW Temporal-Spatial CNN</h4>
+                  <p>
+                    Separates temporal rhythm and spatial channel learning.
+                    Noise + masking + channel dropout augmentation.
+                  </p>
+                </div>
               </div>
-            </div>
-            <div class="insight-card" style="margin-bottom: 0.75rem">
-              <div
-                class="insight-icon"
-                style="background: rgba(255, 179, 71, 0.08)"
-              >
-                2
-              </div>
-              <div>
-                <h4>LW Temporal-Spatial CNN</h4>
-                <p>
-                  Separates temporal rhythm and spatial channel learning. Noise
-                  + masking + channel dropout augmentation.
-                </p>
-              </div>
-            </div>
-            <div class="insight-card">
-              <div
-                class="insight-icon"
-                style="background: rgba(0, 229, 160, 0.08)"
-              >
-                3
-              </div>
-              <div>
-                <h4>CNN + TCN</h4>
-                <p>
-                  CNN spatial front-end with dilated causal TCN backbone for
-                  long-range EEG dependencies. Mixup augmentation.
-                </p>
+              <div class="insight-card">
+                <div
+                  class="insight-icon"
+                  style="background: rgba(0, 229, 160, 0.08)"
+                >
+                  3
+                </div>
+                <div>
+                  <h4>CNN + TCN</h4>
+                  <p>
+                    CNN spatial front-end with dilated causal TCN backbone for
+                    long-range EEG dependencies. Mixup augmentation.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
